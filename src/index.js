@@ -16,7 +16,7 @@ import './fonts/Poppins-SemiBold.woff2';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/project_teambord">
+    <BrowserRouter basename="/project-TeamBoard">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
