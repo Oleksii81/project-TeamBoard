@@ -1,17 +1,47 @@
+import { useState } from 'react';
 
+import {
+  ContainerHelp,
+  ImgHelp,
+  TextHelp,
+  IconHelp,
+  QuestionHelp,
+} from './NeedHelp.style.js';
 
-
-
-
-
-
-
-
-
-
+import ModalNeedHelp from '../Modal/ModalNeedHelp.jsx';
+import image from 'images/imagesNeedHelp/2.png';
+import icons from '../../images/sprite.svg';
 
 const NeedHelp = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-}
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <ContainerHelp>
+      <ImgHelp src={image} alt="Help" />
+
+      <TextHelp>
+        If you need help with
+        <span style={{ color: 'red' }}> TaskPro</span>, check out our support
+        resources or reach out to our customer support team.
+      </TextHelp>
+
+      <IconHelp>
+        <use href={`${icons}#icon-help`}></use>
+      </IconHelp>
+
+      <QuestionHelp onClick={openModal}> ?? Need help? </QuestionHelp>
+
+      <ModalNeedHelp isOpen={isModalOpen} onClose={closeModal} />
+    </ContainerHelp>
+  );
+};
 
 export default NeedHelp;
