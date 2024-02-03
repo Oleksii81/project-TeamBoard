@@ -18,6 +18,8 @@ const customStyles = {
   },
 };
 
+Modal.setAppElement('#root');
+
 const ModalBord = ({ isOpen, closeModal, onSubmit }) => {
   return (
     <Modal
@@ -26,7 +28,7 @@ const ModalBord = ({ isOpen, closeModal, onSubmit }) => {
       style={customStyles}
       contentLabel="Modal for Board"
     >
-      <CreateBoardForm onSubmit={onSubmit} closeModalWindow={closeModal} />
+      <CreateBoardForm onModalSubmit={onSubmit} closeModalWindow={closeModal} />
     </Modal>
   );
 };

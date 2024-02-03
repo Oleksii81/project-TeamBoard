@@ -28,16 +28,19 @@ import {
   BoardSubmitBtn,
   ModalForm,
   SvgCloseBtn,
+  Img,
+  SubmitSvgWrapper,
+  Error,
 } from './CreateBoardForm.styled';
 
 const BoardFormSchema = Yup.object().shape({
-  title: Yup.string()
+  topic: Yup.string()
     .min(2, 'Too short')
     .max(20, 'Too long')
     .required('This field is required!'),
 });
 
-const CreateBoardForm = ({ onSubmit, closeModalWindow }) => {
+const CreateBoardForm = ({ closeModalWindow }) => {
   return (
     <Formik
       initialValues={{
@@ -48,8 +51,8 @@ const CreateBoardForm = ({ onSubmit, closeModalWindow }) => {
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
         console.log(values);
-        onSubmit(values);
         actions.resetForm();
+        // closeModalWindow();
       }}
     >
       <ModalForm>
@@ -61,56 +64,95 @@ const CreateBoardForm = ({ onSubmit, closeModalWindow }) => {
         </SvgCloseBtn>
 
         <label htmlFor="topic"></label>
+        <Error name="topic" component="div" />
         <Input name="topic" placeholder="Title" />
-
-        <ErrorMessage name="topic" />
 
         <IconsHeaderIcons>Icons</IconsHeaderIcons>
         <IconsContainer>
-          <label className="icons-label">
-            <Field type="radio" name="icon" value="icon-project" checked />
+          <label>
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-project"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-project`}></use>
             </svg>
           </label>
           <label>
-            <Field type="radio" name="icon" value="icon-star" />
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-star"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-star`}></use>
             </svg>
           </label>
           <label>
-            <Field type="radio" name="icon" value="icon-loading" />
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-loading"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-loading`}></use>
             </svg>
           </label>
           <label>
-            <Field type="radio" name="icon" value="icon-puzzle" />
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-puzzle"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-puzzle`}></use>
             </svg>
           </label>
           <label>
-            <Field type="radio" name="icon" value="icon-container" />
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-container"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-container`}></use>
             </svg>
           </label>
           <label>
-            <Field type="radio" name="icon" value="icon-lightning" />
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-lightning"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-lightning`}></use>
             </svg>
           </label>
           <label>
-            <Field type="radio" name="icon" value="icon-colors" />
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-colors"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-colors`}></use>
             </svg>
           </label>
           <label>
-            <Field type="radio" name="icon" value="icon-hexagon" />
+            <Field
+              className="icons-field"
+              type="radio"
+              name="icon"
+              value="icon-hexagon"
+            />
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-hexagon`}></use>
             </svg>
@@ -120,90 +162,172 @@ const CreateBoardForm = ({ onSubmit, closeModalWindow }) => {
         <HeaderBackground>Background</HeaderBackground>
         <BackgroundContainer>
           <label>
-            <Field type="radio" name="background" value="Image1" checked />
-            <img src={Image1} alt="background 1" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image1"
+            />
+            <Img src={Image1} alt="background 1" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image8" />
-            <img src={Image8} alt="background 8" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image8"
+            />
+            <Img src={Image8} alt="background 8" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image3" />
-            <img src={Image3} alt="background 3" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image3"
+            />
+            <Img src={Image3} alt="background 3" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image2" />
-            <img src={Image2} alt="background 2" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image2"
+            />
+            <Img src={Image2} alt="background 2" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image9" />
-            <img src={Image9} alt="background 9" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image9"
+            />
+            <Img src={Image9} alt="background 9" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image4" />
-            <img src={Image4} alt="background 4" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image4"
+            />
+            <Img src={Image4} alt="background 4" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image5" />
-            <img src={Image5} alt="background 5" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image5"
+            />
+            <Img src={Image5} alt="background 5" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image10" />
-            <img src={Image10} alt="background 10" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image10"
+            />
+            <Img src={Image10} alt="background 10" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image6" />
-            <img src={Image6} alt="background 6" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image6"
+            />
+            <Img src={Image6} alt="background 6" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image11" />
-            <img src={Image11} alt="background 11" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image11"
+            />
+            <Img src={Image11} alt="background 11" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image7" />
-            <img src={Image7} alt="background 7" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image7"
+            />
+            <Img src={Image7} alt="background 7" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image12" />
-            <img src={Image12} alt="background 12" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image12"
+            />
+            <Img src={Image12} alt="background 12" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image13" />
-            <img src={Image13} alt="background 13" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image13"
+            />
+            <Img src={Image13} alt="background 13" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image14" />
-            <img src={Image14} alt="background 14" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image14"
+            />
+            <Img src={Image14} alt="background 14" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image15" />
-            <img src={Image15} alt="background 15" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image15"
+            />
+            <Img src={Image15} alt="background 15" />
           </label>
 
           <label>
-            <Field type="radio" name="background" value="Image16" />
-            <img src={Image16} alt="background 16" />
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="Image16"
+            />
+            <Img src={Image16} alt="background 16" />
           </label>
         </BackgroundContainer>
 
         <BoardSubmitBtn type="submit">
-          <svg width="28px" height="28px">
-            <use href={`${icons}#icon-plus`}></use>
-          </svg>
+          <SubmitSvgWrapper>
+            <svg width="28px" height="28px">
+              <use href={`${icons}#icon-plus`}></use>
+            </svg>
+          </SubmitSvgWrapper>
           Create
         </BoardSubmitBtn>
       </ModalForm>

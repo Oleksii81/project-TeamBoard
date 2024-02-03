@@ -24,7 +24,7 @@ const CreateBord = () => {
           new board
         </Text>
         <Button onClick={openModal}>
-          <svg>
+          <svg width="20px" height="20px">
             <use href={`${icons}#icon-plus`}></use>
           </svg>
         </Button>

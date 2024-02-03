@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Field, Form } from 'formik';
+import { Field, Form, ErrorMessage } from 'formik';
 
 export const Header = styled.h3`
   font-family: 'Poppins', sans-serif;
@@ -51,22 +51,12 @@ export const IconsContainer = styled.div`
     stroke: rgba(255, 255, 255, 0.5);
   }
 
-  .icons-label {
-    position: relative;
-    cursor: pointer; /* Add cursor style for better user interaction */
+  .icons-field {
+    display: none;
+  }
 
-    ${Field} {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      border: 0;
-      padding: 0;
-      white-space: nowrap;
-      clip-path: inset(100%);
-      clip: rect(0 0 0 0);
-      overflow: hidden;
-    }
+  input:checked + svg {
+    stroke: white;
   }
 `;
 
@@ -88,6 +78,11 @@ export const BackgroundContainer = styled.div`
   margin: 0 0 40px 0;
   stroke-width: 1px;
   stroke: #fff;
+  width: 252px;
+
+  .background-field {
+    display: none;
+  }
 `;
 
 export const BoardSubmitBtn = styled.button`
@@ -106,6 +101,12 @@ export const BoardSubmitBtn = styled.button`
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #161616;
+
+  svg {
+    fill: black;
+    stroke-width: 1px;
+    stroke: #fff;
+  }
 `;
 
 export const ModalForm = styled(Form)`
@@ -126,4 +127,23 @@ export const SvgCloseBtn = styled.button`
     width: 18px;
     height: 18px;
   }
+`;
+
+export const Img = styled.img`
+  width: 28px;
+  height: 28px;
+`;
+
+export const SubmitSvgWrapper = styled.div`
+  width: 28px;
+  height: 28px;
+  background-color: #151515;
+  border-radius: 6px;
+`;
+
+export const Error = styled(ErrorMessage)`
+  color: red;
+  padding: 0;
+  margin-bottom: 7px;
+  font-size: 10px;
 `;
