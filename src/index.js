@@ -5,7 +5,7 @@ import { App } from 'components/App';
 // import { Provider } from 'react-redux';
 // import { persistor, store } from './redux/store';
 // import { PersistGate } from 'redux-persist/integration/react';
-// import './index.css';
+import './index.css';
 
 import './fonts/Poppins-Medium.woff';
 import './fonts/Poppins-Medium.woff2';
