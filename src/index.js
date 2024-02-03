@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import './index.css';
+import GlobalStyle from 'GlobalStyle';
 
 import './fonts/Poppins-Medium.woff';
 import './fonts/Poppins-Medium.woff2';
@@ -16,7 +17,8 @@ import './fonts/Poppins-SemiBold.woff2';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/project_teambord">
+    <GlobalStyle />
+    <BrowserRouter basename="/project-TeamBoard">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
