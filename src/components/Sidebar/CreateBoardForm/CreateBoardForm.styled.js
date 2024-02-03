@@ -14,7 +14,7 @@ export const Header = styled.h3`
 export const Input = styled(Field)`
   border: 1px solid #bedbb0;
   border-radius: 8px;
-  width: 287px;
+  width: 100%;
   height: 49px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
   background: #1f1f1f;
@@ -83,11 +83,16 @@ export const BackgroundContainer = styled.div`
   .background-field {
     display: none;
   }
+
+  input:checked + img {
+    border: 2px solid white;
+    border-radius: 6px;
+  }
 `;
 
-export const BoardSubmitBtn = styled.button`
+export const BoardCreateBtn = styled.button`
   border-radius: 8px;
-  width: 287px;
+  width: 100%;
   height: 49px;
   margin-left: auto;
   margin-right: auto;

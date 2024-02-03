@@ -7,12 +7,18 @@ export const Heading = styled.p`
   letter-spacing: -0.02em;
   /* color: rgba(255, 255, 255, 0.5); */
   color: black;
+  margin-bottom: 8px;
 `;
 
 export const Container = styled.div`
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
 `;
 
 export const Text = styled.p`
@@ -42,7 +48,5 @@ export const Button = styled.button`
   svg {
     fill: none;
     stroke: black;
-    /* width: 20px;
-    height: 20px; */
   }
 `;

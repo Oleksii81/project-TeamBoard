@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage, Field, Form } from 'formik';
+import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import icons from '../../../../src/images/sprite.svg';
 import Image1 from '../../../../src/images/background/00.png';
@@ -25,7 +25,7 @@ import {
   IconsContainer,
   HeaderBackground,
   BackgroundContainer,
-  BoardSubmitBtn,
+  BoardCreateBtn,
   ModalForm,
   SvgCloseBtn,
   Img,
@@ -50,9 +50,8 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
         actions.resetForm();
-        // closeModalWindow();
+        closeModalWindow();
       }}
     >
       <ModalForm>
@@ -322,14 +321,14 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           </label>
         </BackgroundContainer>
 
-        <BoardSubmitBtn type="submit">
+        <BoardCreateBtn type="submit">
           <SubmitSvgWrapper>
             <svg width="28px" height="28px">
               <use href={`${icons}#icon-plus`}></use>
             </svg>
           </SubmitSvgWrapper>
           Create
-        </BoardSubmitBtn>
+        </BoardCreateBtn>
       </ModalForm>
     </Formik>
   );

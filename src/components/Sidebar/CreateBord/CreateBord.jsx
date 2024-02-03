@@ -7,10 +7,6 @@ import icons from '../../../images/sprite.svg';
 const CreateBord = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleSubmit = () => {
-    console.log('Submitted');
-  };
-
   const openModal = () => {
     setIsOpen(true);
   };
@@ -24,17 +20,13 @@ const CreateBord = () => {
           new board
         </Text>
         <Button onClick={openModal}>
-          <svg width="20px" height="20px">
+          <svg width="40px" height="36px">
             <use href={`${icons}#icon-plus`}></use>
           </svg>
         </Button>
       </Container>
 
-      <ModalBord
-        isOpen={isOpen}
-        closeModal={() => setIsOpen(false)}
-        onSubmit={handleSubmit}
-      />
+      <ModalBord isOpen={isOpen} closeModal={() => setIsOpen(false)} />
     </>
   );
 };
