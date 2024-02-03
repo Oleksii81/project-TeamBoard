@@ -1,9 +1,10 @@
-import SideBar from './Sidebar/Sidebar';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import { Route, Routes } from 'react-router';
 
 export const App = () => {
   return (
-    <div>
-      <SideBar />
-    </div>
+    <Routes>
+      <Route path="/" element={<WelcomePage />} />
+    </Routes>
   );
 };
