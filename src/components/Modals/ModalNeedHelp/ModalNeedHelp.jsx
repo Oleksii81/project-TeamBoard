@@ -1,4 +1,18 @@
 import ReactModal from 'react-modal';
+import icons from '../../../images/sprite.svg';
+
+import {
+  ModalContainerHelp,
+  FormHelp,
+  InputHelp,
+  ModalTitleHelp,
+  CommentHelp,
+  BtnSendHelp,
+  IconHelp,
+} from './ModalNeedHelp.styled';
+// import { useDispatch } from 'react-redux';
+// import { Formik, Form, Field } from 'formik';
+// import * as Yup from 'yup';
 
 const stylesModal = {
   content: {
@@ -10,7 +24,7 @@ const stylesModal = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: ' rgba(0, 0, 0, 0.8)',
+    backgroundColor: ' rgba(0, 0, 0, 0.4)',
     zIndex: 120,
   },
 };
@@ -18,15 +32,13 @@ const stylesModal = {
 ReactModal.setAppElement('#root');
 
 const ModalNeedHelp = ({ isOpen, onClose, onSubmit }) => {
-  //   const handleSubmit = e => {
-  //     e.preventDefault();
-  //     if (input1.trim() === '' || input2.trim() === '') {
-  //       alert('Пожалуйста, заполните все поля');
-  //       return;
-  //     }
-  //     onSubmit({ input1, input2 });
-  //     onClose();
-  //   };
+  // const dispatch = useDispatch();
+
+  // const handleSubmit = evt => {
+  //   evt.preventDefault();
+  //   const form = evt.currentTarget;
+  //   dispatch();
+  // };
 
   return (
     <ReactModal
@@ -34,7 +46,30 @@ const ModalNeedHelp = ({ isOpen, onClose, onSubmit }) => {
       onRequestClose={onClose}
       style={stylesModal}
       contentLabel="Image Modal"
-    ></ReactModal>
+    >
+      <ModalContainerHelp>
+        <ModalTitleHelp>Need help</ModalTitleHelp>
+        <IconHelp onClick={onClose}>
+          <use href={`${icons}#icon-close`}></use>
+        </IconHelp>
+        <FormHelp>
+          <InputHelp
+            type="email"
+            name="email"
+            required
+            placeholder="Email address"
+          />
+          <CommentHelp
+            type="comment"
+            name="comment"
+            required
+            placeholder="Comment"
+          />
+          <BtnSendHelp>Send</BtnSendHelp>
+        </FormHelp>
+      </ModalContainerHelp>
+    </ReactModal>
   );
 };
+
 export default ModalNeedHelp;
