@@ -6,18 +6,18 @@ export const Header = styled.h3`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
   margin: 0 0 24px 0;
   padding: 0;
 `;
 
 export const Input = styled(Field)`
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--greenGreenBlueColor);
   border-radius: 8px;
   width: 100%;
   height: 49px;
-  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
-  background: #1f1f1f;
+  box-shadow: 0 4px 16px 0 var(--themeTitleTextColor);
+  background: var(--popupBackground);
   opacity: 0.4;
   margin-bottom: 24px;
   padding: 0 18px;
@@ -26,7 +26,7 @@ export const Input = styled(Field)`
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
 `;
 
 export const IconsHeaderIcons = styled.p`
@@ -34,7 +34,7 @@ export const IconsHeaderIcons = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
   margin: 0 0 14px 0;
 `;
 
@@ -48,7 +48,7 @@ export const IconsContainer = styled.div`
 
   svg {
     stroke-width: 1.5px;
-    stroke: rgba(255, 255, 255, 0.5);
+    stroke: var(--defaultAvatarBgColor);
   }
 
   .icons-field {
@@ -56,7 +56,7 @@ export const IconsContainer = styled.div`
   }
 
   input:checked + svg {
-    stroke: white;
+    stroke: var(--defaultAvatarBgColor);
   }
 `;
 
@@ -65,7 +65,7 @@ export const HeaderBackground = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
   margin: 0 0 14px 0;
 `;
 
@@ -77,7 +77,7 @@ export const BackgroundContainer = styled.div`
   flex-wrap: wrap;
   margin: 0 0 40px 0;
   stroke-width: 1px;
-  stroke: #fff;
+  stroke: var(--primaryTextColor);
   width: 252px;
 
   .background-field {
@@ -85,7 +85,7 @@ export const BackgroundContainer = styled.div`
   }
 
   input:checked + img {
-    border: 2px solid white;
+    border: 2px solid var(--cardHeaderText:);
     border-radius: 6px;
   }
 `;
@@ -96,7 +96,7 @@ export const BoardCreateBtn = styled.button`
   height: 49px;
   margin-left: auto;
   margin-right: auto;
-  background: #bedbb0;
+  background: var(--addCardButtonBackground);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,18 +105,18 @@ export const BoardCreateBtn = styled.button`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: var(--addCardButtonColor);
 
   svg {
-    fill: black;
     stroke-width: 1px;
-    stroke: #fff;
+    stroke: var(--addPlusIconColor);
   }
 `;
 
 export const ModalForm = styled(Form)`
   padding: 24px;
   position: relative;
+  background: var(--popupBackground);
 `;
 
 export const SvgCloseBtn = styled.button`
@@ -128,7 +128,7 @@ export const SvgCloseBtn = styled.button`
 
   svg {
     stroke-width: 1.5px;
-    stroke: #fff;
+    stroke:var(--buttonColor);
     width: 18px;
     height: 18px;
   }
@@ -142,7 +142,7 @@ export const Img = styled.img`
 export const SubmitSvgWrapper = styled.div`
   width: 28px;
   height: 28px;
-  background-color: #151515;
+  background-color: var(--addCardButtonColor);
   border-radius: 6px;
 `;
 

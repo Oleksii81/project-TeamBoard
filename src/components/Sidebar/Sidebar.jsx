@@ -10,6 +10,7 @@ import BoadrsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React, { useState } from 'react';
+import sprite from '../../images/sprite.svg'
 
 const SideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -32,7 +33,7 @@ const SideBar = () => {
           className={isSidebarOpen ? 'active' : ''}
           onClick={toggleSidebar}
         >
-          <SvgBurger
+           <SvgBurger
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -64,7 +65,7 @@ const SideBar = () => {
               stroke-linejoin="round"
               stroke-miterlimit="4"
             />
-          </SvgBurger>
+          </SvgBurger> 
         </ButtonBurger>
 
         <LogoComponent />

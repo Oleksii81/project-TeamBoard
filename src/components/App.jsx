@@ -1,14 +1,13 @@
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
-import { Route, Routes } from 'react-router';
-// import SideBar from './Sidebar/Sidebar';
+import { Route} from 'react-router';
 
 export const App = () => {
-  return (
-    <>
-      <Routes>
+  return (<>
+    
+      <Route>
         <Route path="/" element={<WelcomePage />} />
-      </Routes>
-      {/* <SideBar /> */}
-    </>
+      </Route>
+  </>
+
   );
 };

@@ -4,8 +4,7 @@ export const SideBarMenu = styled.div`
   padding: 24px;
   width: 260px;
   height: 100vh;
-  background-color: rgba(18, 18, 18, 0.8);
-  /* background-color: teal; */
+  background-color: var(--sidebarBgColor);
   transition: transform 0.3s linear;
   display: flex;
   flex-direction: column;
@@ -37,7 +36,7 @@ export const ButtonBurger = styled.button`
   @media screen and (max-width: 767px) {
     width: 32px;
     height: 32px;
-    background-color: blueviolet;
+    background-color: var(----headerBgColor);
     display: block;
     position: fixed;
     top: 18px;
@@ -55,7 +54,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); // Затемнение заднего фона
+  background-color: none;
   display: none;
 
   &.active {
