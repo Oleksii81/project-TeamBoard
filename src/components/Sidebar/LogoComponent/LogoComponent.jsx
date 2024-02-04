@@ -1,16 +1,16 @@
-import { LogoComponent, TaskPro } from './BordList.styled';
+import { LogoComponentStyled, TaskPro } from './LogoComponent.styled';
 import icons from '../../../images/sprite.svg';
 
-const BordList = () => {
+const LogoComponent = () => {
   return (
-    <LogoComponent>
+    <LogoComponentStyled>
       <svg width="32" height="32">
         <use href={`${icons}#icon-logo`}></use>
       </svg>
 
       <TaskPro>Task Pro</TaskPro>
-    </LogoComponent>
+    </LogoComponentStyled>
   );
 };
 
-export default BordList;
+export default LogoComponent;

@@ -4,8 +4,9 @@ import {
   Overlay,
   SvgBurger,
 } from './Sidebar.styled';
-import BordList from './BordList/BordList';
+import LogoComponent from './LogoComponent/LogoComponent';
 import CreateBord from './CreateBord/CreateBord';
+import BoadrsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React, { useState } from 'react';
@@ -66,8 +67,9 @@ const SideBar = () => {
           </SvgBurger>
         </ButtonBurger>
 
-        <BordList />
+        <LogoComponent />
         <CreateBord />
+        <BoadrsList />
         <NeedHelp />
         <LogOut />
       </SideBarMenu>
