@@ -1,10 +1,13 @@
-import WelcomePage from "pages/WelcomePage/WelcomePage";
-import { Route, Routes } from "react-router";
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import { Route} from 'react-router';
 
 export const App = () => {
-  return (
-      <Routes>
+  return (<>
+    
+      <Route>
         <Route path="/" element={<WelcomePage />} />
-      </Routes>
+      </Route>
+  </>
+
   );
 };
