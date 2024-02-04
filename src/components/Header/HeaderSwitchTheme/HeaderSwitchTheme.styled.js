@@ -57,6 +57,9 @@ transition: opacity var(--transition_data);
 }
 `;
 
-export const StyledP = styled.p`
-    color: var(--popupColor)
+export const ThemeSelectIcon = styled.svg`
+    fill: var(--themeTitleTextColor);
+    stroke: var(--themeTitleTextColor)
+    width: 16px;
+    heigh: 17px;
 `
