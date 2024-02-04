@@ -5,8 +5,7 @@ export const Heading = styled.p`
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
-  /* color: rgba(255, 255, 255, 0.5); */
-  color: black;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 8px;
 `;
 
@@ -26,8 +25,7 @@ export const Text = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  /* color: #fff; */
-  color: black;
+  color: #fff;
 `;
 export const Button = styled.button`
   display: flex;
