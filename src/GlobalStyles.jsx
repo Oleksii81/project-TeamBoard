@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import './fonts/fonts.css';
 import 'modern-normalize';
 
@@ -319,6 +319,6 @@ body[data-theme="violet"] {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #a8acf6;
 }
-`
+`;
 
 export default GlobalStyle;
