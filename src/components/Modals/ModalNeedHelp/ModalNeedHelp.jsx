@@ -18,7 +18,7 @@ const stylesModal = {
   content: {
     position: 'fixed',
     inset: '0',
-    top: '10%',
+    top: '0',
     width: '100%',
     height: '100%,',
     display: 'flex',
