@@ -17,11 +17,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyle />
     <BrowserRouter basename="/project-TeamBoard">
-      {/* <Provider store={store}> */}
-      {/* <PersistGate loading={null} persistor={persistor}> */}
-      <App />
-      {/* </PersistGate> */}
-      {/* </Provider> */}
+      <Provider store={store}> 
+        <PersistGate loading={null} persistor={persistor}> 
+        <App />
+      </PersistGate>
+      </Provider> 
     </BrowserRouter>
   </React.StrictMode>
 );
