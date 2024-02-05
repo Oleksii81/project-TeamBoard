@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   padding: 14px 20px 60px;
-  background-color: #1f1f1f; //забрати потім
+  /* background-color: #1f1f1f; //забрати потім */
   height: 100%;
+  overflow-x: auto;
 
   @media screen and (max-width: 374px) {
     max-width: 375px;

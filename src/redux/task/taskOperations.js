@@ -5,9 +5,9 @@ import {
   editColumnApi,
   deleteColumnApi,
   getBoardApi,
- /* editCardApi,
-  deleteCardApi,
-  replaceCardApi,*/
+  // editCardApi,
+  // deleteCardApi,
+  // replaceCardApi,
 } from '../../services/backApi';
 
 export const getBoardId = createAsyncThunk(
@@ -71,39 +71,39 @@ export const addCard = createAsyncThunk(
   }
 );
 
-export const editCard = createAsyncThunk(
-  'card/edit',
-  async ({ id, body, column }, { rejectWithValue, dispatch }) => {
-    try {
-      const { data } = await editCardApi(id, body, column);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// export const editCard = createAsyncThunk(
+//   'card/edit',
+//   async ({ id, body, column }, { rejectWithValue, dispatch }) => {
+//     try {
+//       const { data } = await editCardApi(id, body, column);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
 
-export const deleteCard = createAsyncThunk(
-  'card/delete',
-  async ({ _id, columnID }, { rejectWithValue, dispatch }) => {
-    try {
-      const { data } = await deleteCardApi(_id, columnID);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// export const deleteCard = createAsyncThunk(
+//   'card/delete',
+//   async ({ _id, columnID }, { rejectWithValue, dispatch }) => {
+//     try {
+//       const { data } = await deleteCardApi(_id, columnID);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
 
-export const replaceCard = createAsyncThunk(
-  'card/replace',
-  async (replace, { rejectWithValue, dispatch }) => {
-    const [_id, column, columnID] = replace;
-    try {
-      const { data } = await replaceCardApi(_id, { column, columnID });
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// export const replaceCard = createAsyncThunk(
+//   'card/replace',
+//   async (replace, { rejectWithValue, dispatch }) => {
+//     const [_id, column, columnID] = replace;
+//     try {
+//       const { data } = await replaceCardApi(_id, { column, columnID });
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
