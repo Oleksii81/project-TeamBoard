@@ -5,8 +5,6 @@ import {
   register,
   login,
   logout,
-  refreshUser,
-  updateTheme,
   updateUser,
   createBoard,
   deleteBoard,
@@ -73,19 +71,6 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
         state.isRefreshing = false;
         state.error = null;
-      })
-      .addCase(refreshUser.pending, state => {
-        state.isRefreshing = true;
-      })
-      .addCase(refreshUser.fulfilled, (state, { payload }) => {
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
-      })
-      .addCase(refreshUser.rejected, state => {
-        state.isRefreshing = false;
-      })
-      .addCase(updateTheme.fulfilled, (state, { payload }) => {
-        state.user.theme = payload.theme;
       })
       .addCase(updateUser.pending, state => {
         state.isRefreshing = true;
