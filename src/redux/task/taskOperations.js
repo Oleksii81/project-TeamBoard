@@ -58,7 +58,7 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
-export const addCard = createAsyncThunk(
+/*export const addCard = createAsyncThunk(
   'card/add',
   async (form, { rejectWithValue, dispatch }) => {
     try {
@@ -106,4 +106,4 @@ export const replaceCard = createAsyncThunk(
       return rejectWithValue(error.message);
     }
   }
-);
+);*/
