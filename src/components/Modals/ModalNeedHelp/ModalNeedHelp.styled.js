@@ -107,7 +107,6 @@ export const IconHelp = styled.svg`
   height: 18px;
   fill: none;
   stroke: var(--logoIcon);
-  stroke: white;
 
   @media (max-width: 768px) {
     left: 313px;
