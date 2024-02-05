@@ -15,6 +15,8 @@ const BoardItem = ({ id, icon, title }) => {
   // const handleEditContact = id => dispatch(editContact(id));
   // const handleDeleteContact = id => dispatch(deleteContact(id));
 
+  //<button onClick={() => handleEditContact(id)}>
+  //<button onClick={() => handleDeleteContact(id)}>
   return (
     <ItemContainer>
       <svg width="18" height="18">
@@ -23,12 +25,15 @@ const BoardItem = ({ id, icon, title }) => {
 
       <Title>{title}</Title>
       <ButtonContainer>
-        <button onClick={() => handleEditContact(id)}>
+        <button>
+        
           <svg width="16" height="16" stroke="white" stroke-opacity="0.5">
             <use href={'#icon-pencil'}></use>
           </svg>
         </button>
-        <button onClick={() => handleDeleteContact(id)}>
+        <button>
+        
+        
           <svg width="16" height="16" stroke="white" stroke-opacity="0.5">
             <use href={'#icon-trash'}></use>
           </svg>
