@@ -5,10 +5,9 @@ export const ModalContainerHelp = styled.div`
   border-radius: 8px;
   z-index: 20;
   position: fixed;
-  padding: 24px;
+  padding-top: 23px;
   width: 400px;
-  height: 334px;
-  padding-left: 7px;
+  height: 355px;
 
   @media (max-width: 768px) {
     width: 339px;
@@ -21,7 +20,6 @@ export const FormHelp = styled.form`
 `;
 
 export const ModalTitleHelp = styled.h2`
-  margin: 0;
   margin-left: 24px;
   font-weight: 500;
   font-size: 18px;
@@ -32,11 +30,11 @@ export const ModalTitleHelp = styled.h2`
 export const InputHelp = styled.input`
   border: 1px solid var(--needHelpBtn);
   border-radius: 8px;
-  background-color: black;
   background-color: var(--helpBgColor);
   width: 352px;
   height: 49px;
-  margin: 24px 24px 0 24px;
+  margin-left: 24px;
+  margin-right: 24px;
   padding-left: 15px;
   color: white;
   color: var(--primaryTextColor);
@@ -90,7 +88,7 @@ export const CommentHelp = styled.textarea`
 export const BtnSendHelp = styled.button`
   border-radius: 8px;
   cursor: pointer;
-  width: 370px;
+  width: 352px;
   height: 49px;
   margin: 24px;
   background-color: var(--greenGreenBlueColor);
@@ -102,15 +100,16 @@ export const BtnSendHelp = styled.button`
 
 export const IconHelp = styled.svg`
   position: relative;
-  left: 390px;
+  left: 370px;
   bottom: 34px;
   cursor: pointer;
   width: 18px;
   height: 18px;
   fill: none;
   stroke: var(--logoIcon);
+  stroke: white;
 
   @media (max-width: 768px) {
-    left: 319px;
+    left: 313px;
   }
 `;
