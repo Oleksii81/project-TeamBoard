@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 770px;
-  max-width: 1440px;
+  height: 604px;
+  /* max-width: 1440px; */
   padding-top: 166px;
   background-image: linear-gradient(to bottom, white, rgba(190, 219, 176, 1));
 `;
@@ -20,22 +20,31 @@ export const StyledWelcomePage = styled.div`
   margin-right: auto;
 `;
 
-export const Link = styled(NavLink)`
-  border-radius: 8px;
-  width: 344px;
-  height: 49px;
+export const StyledLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  height: 88px;
+`
+
+export const StyledLink = styled(NavLink)`
   color: #161616;
   text-decoration: none;
+  padding: 14px 0 14px 0;
 
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  text-align: center;
 
-  &.hover {
+  &:hover {
     color: #fff;
     background: #161616;
+    border-radius: 8px;
+    width: 344px;
+    height: 49px;
+    text-align: center;
   }
 `;
 

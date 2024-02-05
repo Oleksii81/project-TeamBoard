@@ -1,5 +1,6 @@
-import { ThemeWrapper, ThemeSelectWraper, ThemeTitle, ThemeItems, StyledP } from "./HeaderSwitchTheme.styled";
+import { ThemeWrapper, ThemeSelectWraper, ThemeTitle, ThemeItems,ThemeSelectIcon } from "./HeaderSwitchTheme.styled";
 import { useState, useEffect } from "react";
+import sprite from '../../../images/sprite.svg'
 
 const HeaderSwitchTheme = () => {
     const [theme, setTheme] = useState('light');
@@ -21,7 +22,11 @@ const HeaderSwitchTheme = () => {
 
     return (
         <ThemeWrapper>
-            <ThemeTitle onClick={toogleList}>Theme</ThemeTitle>
+            <ThemeTitle onClick={toogleList}>Theme
+                <ThemeSelectIcon>
+                    <use href={sprite + "#icon-chevron-down"} />
+            </ThemeSelectIcon>
+            </ThemeTitle>
             {list && (
                 <ThemeSelectWraper theme={theme} onClick={toogleList}>
                     <ThemeItems onClick={() => handleThemeChange('light')}>Light</ThemeItems>
@@ -30,7 +35,6 @@ const HeaderSwitchTheme = () => {
                 </ThemeSelectWraper>
             )
             }
-        <StyledP>SDGFHJK</StyledP>
             
         </ThemeWrapper>
 )

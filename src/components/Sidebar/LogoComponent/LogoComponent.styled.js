@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LogoComponent = styled.div`
+export const LogoComponentStyled = styled.div`
   height: 32px;
   display: flex;
   gap: 8px;

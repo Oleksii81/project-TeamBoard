@@ -5,8 +5,7 @@ export const Heading = styled.p`
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
-  /* color: rgba(255, 255, 255, 0.5); */
-  color: black;
+  color: var(--popupColor); 
   margin-bottom: 8px;
 `;
 
@@ -16,8 +15,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--modalGorizontalBorderColor);
+  border-bottom: 1px solid var(--modalGorizontalBorderColor);
   margin-bottom: 40px;
 `;
 
@@ -26,8 +25,7 @@ export const Text = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  /* color: #fff; */
-  color: black;
+  color: var( --primaryTextColor);
 `;
 export const Button = styled.button`
   display: flex;
@@ -37,12 +35,12 @@ export const Button = styled.button`
   height: 36px;
   border-radius: 6px;
   border: none;
-  background-color: rgba(190, 219, 176, 1);
+  background-color: var(--createNewBoardIconBgColor);
   cursor: pointer;
   transition: background-color 250ms ease-in-out;
 
   &:hover {
-    background-color: rgba(157, 200, 136, 1);
+    background-color: var(--btnColorHover);
   }
 
   svg {

@@ -4,14 +4,14 @@ import { ModalCustom } from './ModalBord.styled';
 
 Modal.setAppElement('#root');
 
-const ModalBord = ({ isOpen, closeModal, onSubmit }) => {
+const ModalBord = ({ isOpen, closeModal }) => {
   return (
     <ModalCustom
       isOpen={isOpen}
       onRequestClose={closeModal}
       contentLabel="Modal for Board"
     >
-      <CreateBoardForm onModalSubmit={onSubmit} closeModalWindow={closeModal} />
+      <CreateBoardForm closeModalWindow={closeModal} />
     </ModalCustom>
   );
 };
