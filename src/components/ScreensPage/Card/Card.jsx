@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import EllipsisText from 'react-ellipsis-text';
 
 import ModalCard from 'components/Modals/ModalCard';
-import ModalProgress from 'components/Modal/ModalProgress';
+import ModalProgress from 'components/Modals/ModalProgress/ModalProgress';
 import ModalConfirm from './modalConfirm/ModalConfirm';
 
 import { deleteCard } from 'redux/task/taskOperations';
