@@ -54,6 +54,8 @@ code {
     monospace;
 }
 
+
+
 body[data-theme="dark"] {
   --greenGreenBlueColor: #bedbb0;
   --sidebarBgColor: #121212;
@@ -191,7 +193,7 @@ body[data-theme="light"] {
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(22, 22, 22, 0.5);
-
+  
    --iconCardColor: rgba(22, 22, 22, 0.5);
 
   --iconPlusColor: #FFFFFF;
