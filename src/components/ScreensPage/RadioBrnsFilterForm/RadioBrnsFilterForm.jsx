@@ -1,88 +1,97 @@
-import { Field, Formik, Form } from 'formik';
+import { Field, Formik } from 'formik';
 import icons from '../../../../src/images/sprite.svg';
+import { useState } from 'react';
 
 import {
   Header,
-  SvgCloseBtn,
   IconsHeader,
   IconsContainer,
-} from './CreateBoardForm.styled';
+  FormFilter,
+  FormHeadersContainer,
+} from './RadioBtnsFilterForm.styled';
 
-// const BoardFormSchema = Yup.object().shape({
-//   topic: Yup.string().min(2, 'Too short').required('This field is required!'),
-// });
+const RadioBtnsFilterForm = ({ priority }) => {
+  const [selectedPriority, setSelectedPriority] = useState('');
 
-const RadioBtnsFilterForm = ({ closeFilterModalWindow }) => {
+  const onFilterChange = value => {
+    setSelectedPriority(value);
+    console.log(value);
+  };
+
   return (
     <Formik
       initialValues={{
-        color: 'without-property',
-      }}
-      onSubmit={(values, actions) => {
-        actions.resetForm();
-        closeFilterModalWindow();
+        priority: '',
       }}
     >
-      <Form>
-        <Header>Label color</Header>
-        <IconsHeader onClick={null}>Show all</IconsHeader>
-        <SvgCloseBtn type="button" onClick={closeFilterModalWindow}>
-          <svg>
-            <use href={`${icons}#icon-close`}></use>
-          </svg>
-        </SvgCloseBtn>
-
-        <IconsContainer>
-          <label>
-            <Field
-              className="icons-filter"
-              type="radio"
-              name="color"
-              value="without-property"
-            />
-            <svg width="14px" height="14px">
+      {({ values, handleChange }) => (
+        <FormFilter>
+          <FormHeadersContainer>
+            <Header>Label color</Header>
+            <IconsHeader onClick={setSelectedPriority('')}>
+              Show all
+            </IconsHeader>
+          </FormHeadersContainer>
+          <IconsContainer priority={priority}>
+            <label>
+              <Field
+                className="icons-filter"
+                type="radio"
+                name="priority"
+                value="without-property"
+                checked={values.priority === 'without-property'}
+                onChange={() => onFilterChange('without-property')}
+              />
+              {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>
-            </svg>
-            Without property
-          </label>
-          <label>
-            <Field
-              className="icons-filter"
-              type="radio"
-              name="color"
-              value="low"
-            />
-            <svg width="14px" height="14px">
+            </svg> */}
+              Without property
+            </label>
+            <label>
+              <Field
+                className="icons-filter"
+                type="radio"
+                name="priority"
+                value="low"
+                checked={values.priority === 'low'}
+                onChange={() => onFilterChange('low')}
+              />
+              {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>
-            </svg>
-            Low
-          </label>
-          <label>
-            <Field
-              className="icons-filter"
-              type="radio"
-              name="color"
-              value="medium"
-            />
-            <svg width="14px" height="14px">
+            </svg> */}
+              Low
+            </label>
+            <label>
+              <Field
+                className="icons-filter"
+                type="radio"
+                name="priority"
+                value="medium"
+                checked={values.priority === 'medium'}
+                onChange={() => onFilterChange('medium')}
+              />
+              {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>
-            </svg>
-            Medium
-          </label>
-          <label>
-            <Field
-              className="icons-filter"
-              type="radio"
-              name="color"
-              value="high"
-            />
-            <svg width="14px" height="14px">
+            </svg> */}
+              Medium
+            </label>
+            <label>
+              <Field
+                className="icons-filter"
+                type="radio"
+                name="priority"
+                value="high"
+                checked={values.priority === 'high'}
+                onChange={() => onFilterChange('high')}
+              />
+              {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>
-            </svg>
-            High
-          </label>
-        </IconsContainer>
-      </Form>
+            </svg> */}
+              High
+            </label>
+          </IconsContainer>
+        </FormFilter>
+      )}
     </Formik>
   );
 };

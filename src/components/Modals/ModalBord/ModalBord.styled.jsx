@@ -15,6 +15,7 @@ export const ModalCustom = styled(Modal)`
   margin-right: -50%;
   transform: translate(-50%, -50%);
   padding: 0%;
+  z-index: 1000;
 
   @media screen and (min-width: 768px) {
     width: 350px;

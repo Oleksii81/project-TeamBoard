@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import RadioBtnsFilterForm from '../../../../src/components/ScreensPage/RadioBrnsFilterForm/RadioBtnsFilterForm';
+import RadioBtnsFilterForm from '../../../../src/components/ScreensPage/RadioBrnsFilterForm/RadioBrnsFilterForm';
 
 import icons from '../../../../src/images/sprite.svg';
 import {
@@ -7,6 +7,8 @@ import {
   FilterText,
   ModalWrapper,
   WindowContainer,
+  FilerModalBtn,
+  FilterFormHeading,
 } from './Filter.styled';
 
 const Filter = () => {
@@ -29,13 +31,13 @@ const Filter = () => {
       </Container>
       {window && (
         <WindowContainer>
-          <button type="button">
+          <FilerModalBtn type="button" onClick={closeFilterModal}>
             <svg width="18px" height="18px">
               <use href={`${icons}#icon-close`}></use>
             </svg>
-          </button>
-          <h3>Filters</h3>
-          <RadioBtnsFilterForm closeFilterModalWindow={closeFilterModal} />
+          </FilerModalBtn>
+          <FilterFormHeading>Filters</FilterFormHeading>
+          <RadioBtnsFilterForm />
         </WindowContainer>
       )}
     </ModalWrapper>

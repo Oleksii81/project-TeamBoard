@@ -3,18 +3,18 @@ import styled from 'styled-components';
 export const SideBarMenu = styled.div`
   padding: 24px;
   width: 260px;
-  height: 100vh;
+  height: 100%;
   background-color: var(--sidebarBgColor);
   transition: transform 0.3s linear;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: auto;
+  /* overflow: auto; */
 
   // Tablet
   @media screen and (max-width: 767px) {
     top: 0;
-    overflow: auto;
+    /* overflow: auto; */
     position: fixed;
     left: -310px;
     z-index: 100;
@@ -41,7 +41,7 @@ export const ButtonBurger = styled.button`
     position: fixed;
     top: 18px;
     left: 32px;
-    z-index: 0;
+    z-index: 100;
     &.active {
       display: none;
     }
