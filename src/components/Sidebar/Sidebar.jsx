@@ -47,7 +47,7 @@ const SideBar = () => {
 
         <LogoComponent />
         <CreateBord />
-        <BoadrsList />
+        {/* <BoadrsList /> */}
         <NeedHelp />
         <LogOut />
       </SideBarMenu>

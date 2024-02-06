@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ModalBord from '../../../../src/components/Modals/ModalBord/ModalBord';
-import { MainText, ButtonCreate } from './Text.styled';
+import { MainText, ButtonCreate, TextContainer } from './Text.styled';
 
 const Text = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ const Text = () => {
   };
 
   return (
-    <>
+    <TextContainer>
       <MainText>
         Before starting your project, it is essential
         <ButtonCreate type="button" onClick={openModal}>
@@ -29,7 +29,7 @@ const Text = () => {
         openModal={openModal}
         closeModal={closeModal}
       />
-    </>
+    </TextContainer>
   );
 };
 
