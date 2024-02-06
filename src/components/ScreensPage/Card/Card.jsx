@@ -4,7 +4,7 @@ import EllipsisText from 'react-ellipsis-text';
 
 import ModalCard from 'components/Modals/ModalCard';
 import ModalProgress from 'components/Modal/ModalProgress';
-import ModalConfirm from 'shared/components/modalConfirm/ModalConfirm';
+import ModalConfirm from './modalConfirm/ModalConfirm';
 
 import { deleteCard } from 'redux/task/taskOperations';
 import { getColumn } from 'redux/task/taskSelectors';
@@ -139,9 +139,9 @@ const Card = ({ task = {}, columnID }) => {
             </Icon>
           </IconWrapper>
         </PriorityWrapper>
-        {/* {showConfirm && (
+        {showConfirm && (
           <ModalConfirm onClose={handleClose} onConfirm={handleDelete} />
-        )} */}
+        )}
       </div>
       {showProgressModal && (
         <ModalProgress onCloseProgress={onCloseProgress} id={[_id, columnID]} />
