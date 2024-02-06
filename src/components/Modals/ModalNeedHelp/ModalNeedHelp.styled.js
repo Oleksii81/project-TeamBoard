@@ -11,8 +11,7 @@ export const ModalContainerHelp = styled.div`
   height: 355px;
 
   @media (max-width: 768px) {
-    width: 339px;
-    margin-right: 43px;
+    width: 335px;
   }
 `;
 
@@ -37,7 +36,6 @@ export const InputHelp = styled.input`
   margin-left: 24px;
   margin-right: 24px;
   padding-left: 15px;
-  color: white;
   color: var(--primaryTextColor);
 
   &::placeholder {
@@ -60,14 +58,12 @@ export const CommentHelp = styled.textarea`
   border: 1px solid var(--greenGreenBlueColor);
   height: 120px;
   border-radius: 8px;
-  background-color: black;
   background-color: var(--helpBgColor);
   width: 352px;
   height: 120px;
   margin: 14px 24px 0 24px;
   padding-left: 15px;
   padding-top: 14px;
-  color: white;
   color: var(--primaryTextColor);
 
   &::placeholder {
@@ -93,9 +89,10 @@ export const BtnSendHelp = styled.button`
   height: 49px;
   margin: 24px;
   background-color: var(--greenGreenBlueColor);
+  border: none;
 
   @media (max-width: 768px) {
-    width: 307px;
+    width: 287px;
   }
 `;
 
@@ -110,6 +107,6 @@ export const IconHelp = styled.svg`
   stroke: var(--logoIcon);
 
   @media (max-width: 768px) {
-    left: 313px;
+    left: 305px;
   }
 `;
