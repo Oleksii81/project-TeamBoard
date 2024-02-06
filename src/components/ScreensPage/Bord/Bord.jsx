@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../../images/sprite.svg';
 import {
   BackdropStyled,
   ModalWindowStyled,

@@ -7,7 +7,7 @@ import ModalConfirm from '../Card/modalConfirm/ModalConfirm';
 
 import { deleteColumn } from 'redux/task/taskOperations';
 import { getColumn } from 'redux/task/taskSelectors';
-import icons from '../../images/sprite.svg';
+import icons from '../../../images/sprite.svg';
 import { BoardItem, IconEdit, IconEditCustom, ProgName } from './Сolumn.styled';
 
 const Column = ({ title, columnId }) => {

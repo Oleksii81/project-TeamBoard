@@ -8,7 +8,7 @@ import ModalConfirm from './modalConfirm/ModalConfirm';
 
 import { deleteCard } from 'redux/task/taskOperations';
 import { getColumn } from 'redux/task/taskSelectors';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../../images/sprite.svg';
 import {
   Title,
   CardWrapper,
