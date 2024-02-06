@@ -10,7 +10,7 @@ export const SideBarMenu = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: auto;
+  /* overflow: auto; */
 
   // Tablet
   @media screen and (max-width: 767px) {
