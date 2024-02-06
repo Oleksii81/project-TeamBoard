@@ -12,6 +12,7 @@ import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React, { useState } from 'react';
 
+
 const SideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -39,15 +40,42 @@ const SideBar = () => {
             height="32"
             viewBox="0 0 32 32"
           >
+
+            <path
+              d="M4 16h24"
+              stroke="#ffffff"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-miterlimit="4"
+              stroke-width="2.5"
+            />
+            <path
+              d="M4 8h24"
+              stroke="#ffffff"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="4"
+            />
+            <path
+              d="M4 24h24"
+              stroke="#ffffff"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="4"
+            />
+
             <BurgerPath d="M4 16h24" />
             <BurgerPath d="M4 8h24" />
             <BurgerPath d="M4 24h24" />
+
           </SvgBurger>
         </ButtonBurger>
 
         <LogoComponent />
         <CreateBord />
-        <BoadrsList />
+        {/* <BoadrsList /> */}
         <NeedHelp />
         <LogOut />
       </SideBarMenu>
