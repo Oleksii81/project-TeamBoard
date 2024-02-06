@@ -20,9 +20,9 @@ export const TaskPro = styled.span`
 
 //Color logo
 export const LogoPath = styled.path`
-  fill: white; // when adding a topic, swap places
+  fill: white; // when adding a topic, swap place
 `;
 //Color Logo centeral
 export const LogoPathCentral = styled.path`
-  fill: purple; // when adding a topic, swap places
+  fill: purple; // when adding a topic, swap place
 `;

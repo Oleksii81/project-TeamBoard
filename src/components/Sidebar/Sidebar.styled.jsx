@@ -4,8 +4,8 @@ export const SideBarMenu = styled.div`
   padding: 24px;
   width: 260px;
   height: 100vh;
-  //background-color: var(--sidebarBgColor); // when adding a topic, swap places
-  background-color: purple; // when adding a topic, swap places
+  //background-color: var(--sidebarBgColor); // when adding a topic, swap place
+  background-color: purple; // when adding a topic, swap place
   transition: transform 0.3s linear;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ export const ButtonBurger = styled.button`
     border-color: transparent;
     width: 32px;
     height: 32px;
-    background-color: var(--headerBgColor); // when adding a topic, swap places
+    background-color: var(--headerBgColor); // when adding a topic, swap place
     display: block;
     position: fixed;
     top: 18px;
@@ -75,7 +75,7 @@ export const SvgBurger = styled.svg`
   top: 18px;
   left: 32px;
   stroke: var(--iconPlusColor);
-  stroke: black; //when adding a topic, swap places
+  stroke: black; //when adding a topic, swap place
   @media screen and (max-width: 375px) {
     width: 24px;
     height: 24px;
