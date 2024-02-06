@@ -26,7 +26,11 @@ const CreateBord = () => {
         </Button>
       </Container>
 
-      <ModalBord isOpen={isOpen} closeModal={() => setIsOpen(false)} />
+      <ModalBord
+        isOpen={isOpen}
+        openModal={openModal}
+        closeModal={() => setIsOpen(false)}
+      />
     </>
   );
 };

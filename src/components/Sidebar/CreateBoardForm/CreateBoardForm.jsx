@@ -34,10 +34,7 @@ import {
 } from './CreateBoardForm.styled';
 
 const BoardFormSchema = Yup.object().shape({
-  topic: Yup.string()
-    .min(2, 'Too short')
-    .max(20, 'Too long')
-    .required('This field is required!'),
+  topic: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
 const CreateBoardForm = ({ closeModalWindow }) => {

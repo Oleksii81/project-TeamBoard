@@ -1,6 +1,6 @@
 import sprite from '../../images/sprite.svg';
 import mainImage from '../../images/Image 1.png'
-import { StyledLogo, StyledWelcomePage, Link, Container } from './WelcomePageStyle';
+import { StyledLogo, StyledWelcomePage, Container, StyledLinks, StyledLink } from './WelcomePageStyle';
 
 const WelcomePage = () => {
   return (
@@ -17,8 +17,10 @@ const WelcomePage = () => {
           Supercharge your productivity and take control of your tasks with Task
           Pro - Don't wait, start achieving your goals now!
         </p>
-        <Link href="/register">Registration</Link>
-        <Link href="/login">Log In</Link>
+        <StyledLinks>
+          <StyledLink to="/auth/register">Registration</StyledLink>
+          <StyledLink to="/auth/login">Log In</StyledLink>
+        </StyledLinks>
       </StyledWelcomePage>
     </Container>
   );
