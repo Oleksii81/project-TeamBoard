@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import './fonts/fonts.css';
 import 'modern-normalize';
 
@@ -53,6 +53,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
 
 body[data-theme="dark"] {
   --greenGreenBlueColor: #bedbb0;
@@ -191,7 +193,7 @@ body[data-theme="light"] {
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(22, 22, 22, 0.5);
-
+  
    --iconCardColor: rgba(22, 22, 22, 0.5);
 
   --iconPlusColor: #FFFFFF;
@@ -319,6 +321,6 @@ body[data-theme="violet"] {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #a8acf6;
 }
-`
+`;
 
 export default GlobalStyle;
