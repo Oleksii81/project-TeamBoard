@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import EllipsisText from 'react-ellipsis-text';
 
 import ModalColumn from 'components/Modals/ModalColumn/ModalColumn';
-import ModalConfirm from 'shared/components/modalConfirm/ModalConfirm';
+import ModalConfirm from '../Card/modalConfirm/ModalConfirm';
 
 import { deleteColumn } from 'redux/task/taskOperations';
 import { getColumn } from 'redux/task/taskSelectors';
