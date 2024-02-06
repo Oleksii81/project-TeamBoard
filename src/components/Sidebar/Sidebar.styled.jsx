@@ -10,10 +10,9 @@ export const SideBarMenu = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  /* overflow: auto; */
 
   // Tablet
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     top: 0;
     overflow: auto;
     position: fixed;
@@ -37,7 +36,7 @@ export const ButtonBurger = styled.button`
   display: none;
 
   //Tablet
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     border-color: transparent;
     width: 32px;
     height: 32px;
@@ -59,7 +58,8 @@ export const Overlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: none;
+  /* background-color: none; */
+  background-color: rgba(236, 237, 253, 1); // when adding a topic, swap place
   display: none;
 
   &.active {
