@@ -1,0 +1,140 @@
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
+import { updateUserThunk } from '@/redux/Auth/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '@/redux/auth/authS';
+
+import { SpriteSVG } from '@/shared/icons/SpriteSVG';
+import userFoto from '../../images/user.png';
+
+import ModalEditUser from '@/shared/components/Modal/Modal';
+import {
+  Ellipse222,
+  Ellipse224,
+  StyledBtnClose,
+  StyledBtnEdit,
+  StyledBtnSave,
+  StyledInputAdd,
+  StyledModal,
+  StyledModalForm,
+  StyledModalHeader,
+  StyledModalInput,
+  StyledSvgWrapper,
+  StyledUserFoto,
+} from './UserInfoModal.styled';
+
+export const UserInfoModal = ({ onClose }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [changedName, setChangedName] = useState(null);
+  const [changedEmail, setChangedEmail] = useState(null);
+  const [changedPassword, setChangedPassword] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const { username, email, avatar } = useSelector(selectUser);
+
+  const handleFileChange = file => {
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    setSelectedFile(file);
+  };
+
+  const onFileChange = event => {
+    const file = event.target.files[0];
+    handleFileChange(file);
+  };
+
+  const onUpload = async event => {
+    if (event.target.type === 'file') {
+      const file = event.target.files[0];
+      handleFileChange(file);
+      return;
+    }
+
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('username', changedName || username);
+    formData.append('avatar', selectedFile);
+    formData.append('password', changedPassword || '');
+    formData.append('avatar', selectedFile);
+
+    dispatch(updateUserThunk(formData))
+      .unwrap()
+      .then(() => {
+        onClose();
+      })
+      .catch(error => {
+        console.error('Error updating user', error.message);
+      });
+  };
+
+  return (
+    <ModalEditUser onClose={onClose}>
+      <StyledModal>
+        <StyledBtnClose onClick={onClose}>
+          <SpriteSVG name="close" />
+        </StyledBtnClose>
+
+        <StyledModalHeader>
+          <StyledUserFoto
+            src={previewImage || avatar || userFoto}
+            alt={previewImage ? 'Preview' : avatar ? 'Foto' : 'Default foto'}
+          />
+
+          <StyledInputAdd
+            type="file"
+            onChange={onFileChange}
+            onClick={onUpload}
+          ></StyledInputAdd>
+          <StyledSvgWrapper
+            onClick={() => document.querySelector('input[type=file]').click()}
+          >
+            <SpriteSVG name="add-modal-photo" />
+          </StyledSvgWrapper>
+        </StyledModalHeader>
+
+        <StyledModalForm>
+          <StyledModalInput
+            value={changedName || username}
+            onChange={event => setChangedName(event.target.value)}
+          />
+          <StyledModalInput
+            type="email"
+            value={changedEmail || email}
+            onChange={event => setChangedEmail(event.target.value)}
+          />
+          <StyledModalInput
+            type="password"
+            value={changedPassword || ''}
+            onChange={event => setChangedPassword(event.target.value)}
+          />
+          <StyledBtnEdit
+            onClick={event => {
+              event.preventDefault();
+            }}
+          >
+            <SpriteSVG name="edit-02" />
+          </StyledBtnEdit>
+
+          <StyledBtnSave onClick={onUpload}>Save changes</StyledBtnSave>
+        </StyledModalForm>
+
+        <Ellipse222 />
+        <Ellipse224 />
+      </StyledModal>
+    </ModalEditUser>
+  );
+};
+
+UserInfoModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
