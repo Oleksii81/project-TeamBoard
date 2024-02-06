@@ -48,20 +48,19 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 });
 
 export const currentUser = createAsyncThunk(
-    'auth/current',
-    async (_, thunkAPI) => {
-      try {
-        const { data } = await axios.get(`/api/auth/current`);
-        if (!data) {
-          throw new Error();
-        }
-        return data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.code);
+  'auth/current',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/api/auth/current`);
+      if (!data) {
+        throw new Error();
       }
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.code);
     }
-  );
-
+  }
+);
 
 export const updateUser = createAsyncThunk(
   'users/updateUser',

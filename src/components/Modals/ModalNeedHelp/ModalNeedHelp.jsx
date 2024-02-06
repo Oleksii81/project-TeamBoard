@@ -11,8 +11,7 @@ import {
   IconHelp,
 } from './ModalNeedHelp.styled';
 // import { useDispatch } from 'react-redux';
-// import { Formik, Form, Field } from 'formik';
-// import * as Yup from 'yup';
+
 
 const stylesModal = {
   content: {

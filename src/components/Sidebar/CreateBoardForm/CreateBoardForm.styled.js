@@ -73,7 +73,7 @@ export const HeaderBackground = styled.p`
 export const BackgroundContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
   gap: 4px;
   flex-wrap: wrap;
   margin: 0 0 40px 0;
@@ -130,7 +130,7 @@ export const SvgCloseBtn = styled.button`
 
   svg {
     stroke-width: 1.5px;
-    stroke:var(--buttonColor);
+    stroke: var(--buttonColor);
     width: 18px;
     height: 18px;
   }

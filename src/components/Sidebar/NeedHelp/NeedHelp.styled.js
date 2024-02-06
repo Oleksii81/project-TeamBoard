@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const ContainerHelp = styled.div`
   background: var(--helpBgColor);
   margin: 0;
-  position: absolute;
   border-radius: 8px;
   width: 197px;
   height: 238px;
@@ -36,6 +35,10 @@ export const TextHelp = styled.p`
     letter-spacing: -0.28px;
   }
 `;
+
+export const SpanTaskPro = styled.span`
+color: var(--greenGreenBlueColor);
+`
 
 export const IconHelp = styled.svg`
   width: 20px;
