@@ -1,19 +1,19 @@
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import BoardItem from './BoardItem';
 import { BoardsContainer } from './BoadrdsList.styled';
 
-// import { selectBoards } from 'redux/selectors';
-// import { fetchBoards } from 'redux/operations';
+import { getBoard } from '../../../redux/auth/authSelectors';
+ import { createBoard } from '../../../redux/auth/authOperations';
 
 const BoardsList = () => {
-  //   const boards = useSelector(selectBoards);
-  //   const dispatch = useDispatch();
+     const boards = useSelector(getBoard);
+     const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(fetchBoards());
-  //   }, [dispatch]);
+     useEffect(() => {
+       dispatch(createBoard());
+     }, [dispatch]);
 
   return (
     <BoardsContainer>

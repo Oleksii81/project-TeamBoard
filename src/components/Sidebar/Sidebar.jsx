@@ -10,7 +10,8 @@ import BoadrsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React, { useState } from 'react';
-import sprite from '../../images/sprite.svg';
+
+/*import sprite from '../../images/sprite.svg'*/
 
 const SideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

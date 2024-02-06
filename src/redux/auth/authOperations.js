@@ -51,7 +51,7 @@ export const currentUser = createAsyncThunk(
   'auth/current',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axiosPrivateJson.get(`/api/auth/current`);
+      const { data } = await axios.get(`/api/auth/current`);
       if (!data) {
         throw new Error();
       }
@@ -118,16 +118,16 @@ export const deleteBoard = createAsyncThunk(
   }
 );
 
-//export const editBoard = createAsyncThunk(
-//  'boards/editBoard',
-//  async ({ id, data }, thunkAPI) => {
-//    try {
-//      await axios.patch(`/api/boards/${id}`, data);
-//      return { id, data };
-//    } catch (error) {
-//      return thunkAPI.rejectWithValue(error.message);
-//    }
-//  }
-//);
+export const editBoard = createAsyncThunk(
+  'boards/editBoard',
+  async ({ id, data }, thunkAPI) => {
+    try {
+      await axios.put(`/api/boards/${id}`, data);
+      return { id, data };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const updateBoardActive = createAction('auth/updateBoardActive');

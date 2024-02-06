@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
-  addCardApi,
+  /* addCardApi,*/
   addColumnApi,
   editColumnApi,
   deleteColumnApi,
@@ -58,7 +58,7 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
-export const addCard = createAsyncThunk(
+/*export const addCard = createAsyncThunk(
   'card/add',
   async (form, { rejectWithValue, dispatch }) => {
     try {
@@ -95,15 +95,15 @@ export const addCard = createAsyncThunk(
 //   }
 // );
 
-// export const replaceCard = createAsyncThunk(
-//   'card/replace',
-//   async (replace, { rejectWithValue, dispatch }) => {
-//     const [_id, column, columnID] = replace;
-//     try {
-//       const { data } = await replaceCardApi(_id, { column, columnID });
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const replaceCard = createAsyncThunk(
+  'card/replace',
+  async (replace, { rejectWithValue, dispatch }) => {
+    const [_id, column, columnID] = replace;
+    try {
+      const { data } = await replaceCardApi(_id, { column, columnID });
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);*/
