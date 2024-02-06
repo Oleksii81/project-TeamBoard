@@ -7,7 +7,7 @@ import {
   IconHelp,
   QuestionHelp,
   BtnNeedHelp,
-} from './NeedHelp.style.js';
+} from './NeedHelp.styled.js';
 
 import ModalNeedHelp from '../../Modals/ModalNeedHelp/ModalNeedHelp.jsx';
 import image from 'images/2.png';
