@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 770px;
+  height: 100vh;
   /* max-width: 1440px; */
   padding-top: 166px;
   background-image: linear-gradient(to bottom, white, rgba(190, 219, 176, 1));
