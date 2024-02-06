@@ -10,7 +10,7 @@ import {
 } from './NeedHelp.style.js';
 
 import ModalNeedHelp from '../../Modals/ModalNeedHelp/ModalNeedHelp.jsx';
-import image from 'images/imagesNeedHelp/2.png';
+import image from 'images/2.png';
 import icons from '../../../images/sprite.svg';
 
 const NeedHelp = () => {
