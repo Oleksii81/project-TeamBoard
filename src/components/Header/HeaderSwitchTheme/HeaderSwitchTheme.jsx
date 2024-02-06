@@ -10,9 +10,16 @@ const HeaderSwitchTheme = () => {
     document.body.setAttribute('data-theme', theme);
      }, [theme]);
     
+     useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        }
+    }, []);
     
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme);
+        localStorage.setItem('theme', newTheme)
         setList('false')
     }
 

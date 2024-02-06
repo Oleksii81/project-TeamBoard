@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const ModalContainerHelp = styled.div`
-  background-color: var(--themeListBgColor);
+  background-color: var(--popupBackground);
   border-radius: 8px;
   z-index: 20;
   position: fixed;
@@ -29,9 +29,9 @@ export const ModalTitleHelp = styled.h2`
 `;
 
 export const InputHelp = styled.input`
-  border: 1px solid var(--needHelpBtn);
+  border: 1px solid var(--greenGreenBlueColor);
   border-radius: 8px;
-  background-color: var(--helpBgColor);
+  background-color: var(--popupBackground);
   width: 352px;
   height: 49px;
   margin-left: 24px;
@@ -44,7 +44,7 @@ export const InputHelp = styled.input`
     font-weight: 400;
     font-size: 14px;
     letter-spacing: -0.02em;
-    color: #fff;
+    color: var(--secondaryTextColor);
   }
 
   &:focus {
@@ -61,7 +61,7 @@ export const CommentHelp = styled.textarea`
   height: 120px;
   border-radius: 8px;
   background-color: black;
-  background-color: var(--helpBgColor);
+  background-color: var(--popupBackground);
   width: 352px;
   height: 120px;
   margin: 14px 24px 0 24px;
@@ -74,7 +74,7 @@ export const CommentHelp = styled.textarea`
     font-weight: 400;
     font-size: 14px;
     letter-spacing: -0.02em;
-    color: #fff;
+    color: var(--secondaryTextColor);
   }
 
   &:focus {
@@ -88,10 +88,12 @@ export const CommentHelp = styled.textarea`
 
 export const BtnSendHelp = styled.button`
   border-radius: 8px;
+  border-color: transparent;
   cursor: pointer;
   width: 352px;
   height: 49px;
   margin: 24px;
+  color: var(--createNewBoard);
   background-color: var(--greenGreenBlueColor);
 
   @media (max-width: 768px) {
@@ -107,7 +109,7 @@ export const IconHelp = styled.svg`
   width: 18px;
   height: 18px;
   fill: none;
-  stroke: var(--logoIcon);
+  stroke: var(--buttonColor);
 
   @media (max-width: 768px) {
     left: 313px;

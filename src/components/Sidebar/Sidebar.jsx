@@ -1,35 +1,36 @@
 import {
   SideBarMenu,
-  ButtonBurger,
+  // ButtonBurger,
   Overlay,
-  SvgBurger,
-  BurgerPath,
+/*   SvgBurger,
+  BurgerPath, */
 } from './Sidebar.styled';
 import LogoComponent from './LogoComponent/LogoComponent';
 import CreateBord from './CreateBord/CreateBord';
 import BoadrsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
-import React, { useState } from 'react';
+import React from 'react';
 
-const SideBar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+const SideBar = ({isSidebarOpen, onCloseSideBar}) => {
+ /*  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
-  };
+*/
+ /*  const closeSidebar = () => {
+    isSidebarOpen = false;
+  } */
+  
   return (
     <>
       <Overlay
         className={` ${isSidebarOpen ? 'active' : ''}`}
-        onClick={closeSidebar}
+         onClick={onCloseSideBar}
       />
       <SideBarMenu className={` ${isSidebarOpen ? 'active' : ''}`}>
-        <ButtonBurger
+        {/* <ButtonBurger
           className={isSidebarOpen ? 'active' : ''}
           onClick={toggleSidebar}
         >
@@ -43,7 +44,7 @@ const SideBar = () => {
             <BurgerPath d="M4 8h24" />
             <BurgerPath d="M4 24h24" />
           </SvgBurger>
-        </ButtonBurger>
+        </ButtonBurger> */}
 
         <LogoComponent />
         <CreateBord />
@@ -53,6 +54,6 @@ const SideBar = () => {
       </SideBarMenu>
     </>
   );
-};
+ };
 
 export default SideBar;

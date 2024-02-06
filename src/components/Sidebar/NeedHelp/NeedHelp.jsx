@@ -30,7 +30,7 @@ const NeedHelp = () => {
 
       <TextHelp>
         If you need help with
-        <span style={{ color: '#bedbb0' }}> TaskPro</span>, check out our
+        <span style={{ color: 'var(--needHelpLink)' }}> TaskPro</span>, check out our
         support resources or reach out to our customer support team.
       </TextHelp>
 

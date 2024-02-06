@@ -16,7 +16,7 @@ export const Input = styled(Field)`
   border-radius: 8px;
   width: 100%;
   height: 49px;
-  box-shadow: 0 4px 16px 0 var(--themeTitleTextColor);
+  // box-shadow: 0 4px 16px 0 var(--themeTitleTextColor);
   background: var(--popupBackground);
   opacity: 0.4;
   margin-bottom: 24px;
@@ -48,7 +48,8 @@ export const IconsContainer = styled.div`
 
   svg {
     stroke-width: 1.5px;
-    stroke: var(--defaultAvatarBgColor);
+    stroke: var(--iconCardColor);
+    fill: transparent;
   }
 
   .icons-field {
@@ -56,7 +57,7 @@ export const IconsContainer = styled.div`
   }
 
   input:checked + svg {
-    stroke: var(--defaultAvatarBgColor);
+    stroke: var(--primaryTextColor);
   }
 `;
 
@@ -77,7 +78,7 @@ export const BackgroundContainer = styled.div`
   flex-wrap: wrap;
   margin: 0 0 40px 0;
   stroke-width: 1px;
-  stroke: var(--primaryTextColor);
+  stroke: var(--defaultAvatarBgColor);
   width: 252px;
 
   .background-field {
@@ -85,13 +86,14 @@ export const BackgroundContainer = styled.div`
   }
 
   input:checked + img {
-    border: 2px solid var(--cardHeaderText:);
+    border: 2px solid var(--defaultAvatarBgColor);
     border-radius: 6px;
   }
 `;
 
 export const BoardCreateBtn = styled.button`
   border-radius: 8px;
+  border-color: transparent;
   width: 100%;
   height: 49px;
   margin-left: auto;

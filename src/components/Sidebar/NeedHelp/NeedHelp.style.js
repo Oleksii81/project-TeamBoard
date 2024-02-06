@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContainerHelp = styled.div`
-  background: var(--themeListBgColor);
+  background: var(--helpBgColor);
   margin: 0;
   position: absolute;
   border-radius: 8px;
@@ -24,7 +24,7 @@ export const ImgHelp = styled.img`
 export const TextHelp = styled.p`
   width: 163px;
   margin-top: 14px;
-  color: var(--primaryTextColor);
+  color: var(--createNewBoard);
   font-size: 12px;
   line-height: 1.34;
   letter-spacing: -0.24px;
@@ -41,7 +41,7 @@ export const IconHelp = styled.svg`
   width: 20px;
   height: 20px;
   fill: none;
-  stroke: var(--logoIcon);
+  stroke: var(--createNewBoard);
 `;
 
 export const QuestionHelp = styled.span`
