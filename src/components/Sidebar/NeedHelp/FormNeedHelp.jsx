@@ -9,7 +9,7 @@ import {
   CommentHelp,
   BtnSendHelp,
   IconHelp,
-} from './FormNeedHelp.styled';
+} from '../../../components/Modals/ModalNeedHelp/ModalNeedHelp.styled';
 
 const NeedHelpSchema = Yup.object().shape({
   email: Yup.string().email().required('Email is required'),
