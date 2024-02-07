@@ -30,7 +30,7 @@ const Registration = () => {
     if (response.error) {
       alert(response.payload)
     } else {
-      navigate('/home');
+      navigate('/auth/login');
     }
     resetForm();
    };
