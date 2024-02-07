@@ -1,5 +1,11 @@
+// import { useState } from "react";
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
+// import { useSelector, useDispatch } from "react-redux";
+
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
 import icons from '../../../../src/images/sprite.svg';
 import Image1 from '../../../../src/images/background/00.png';
 import Image2 from '../../../../src/images/background/01.png';
@@ -34,39 +40,32 @@ import {
 } from './CreateBoardForm.styled';
 
 const BoardFormSchema = Yup.object().shape({
-  topic: Yup.string().min(2, 'Too short').required('This field is required!'),
+  title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
 const CreateBoardForm = ({ closeModalWindow }) => {
-  // const board = useSelector(selectBoard?);
+  // const boards = useSelector(getBoardSelector);
   // const dispatch = useDispatch();
   return (
     <Formik
       initialValues={{
-        topic: '',
+        title: '',
         icon: 'icon-project',
         background: 'Image1',
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        //  const { name, number } = values;
-        //  if (
-        //    contacts.some(
-        //      contact => contact.name.toLowerCase() === name.toLowerCase()
-        //    )
-        //  ) {
-        //    return Notify.info(`${name} is already among your contacts`);
-        //  }
+        console.log(values);
+        //  const { title, icon, background } = values;
+        //  if (boards.some(board => board.title === values.title)) {
+        //   return notify.warning('The title already exists');
+        // }
 
-        //  const contact = {
-        //    name,
-        //    number,
-        //  };
-        //  dispatch(addContact(contact))
+        //  dispatch(createBoard(values))
         //    .unwrap()
         //    .then(() =>
         //      Notify.success(
-        //        `${name} has been successfully added to your contacts`
+        //        `${title} has been successfully added to your contacts`
         //      )
         //    )
         //    .catch(error => error.message);
@@ -82,9 +81,9 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           </svg>
         </SvgCloseBtn>
 
-        <label htmlFor="topic"></label>
-        <Error name="topic" component="div" />
-        <Input name="topic" placeholder="Title" />
+        <label htmlFor="title"></label>
+        <Error name="title" component="div" />
+        <Input name="title" placeholder="Title" />
 
         <IconsHeaderIcons>Icons</IconsHeaderIcons>
         <IconsContainer>
@@ -349,6 +348,18 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           </SubmitSvgWrapper>
           Create
         </BoardCreateBtn>
+        {/* <ToastContainer
+          position="center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        /> */}
       </ModalForm>
     </Formik>
   );

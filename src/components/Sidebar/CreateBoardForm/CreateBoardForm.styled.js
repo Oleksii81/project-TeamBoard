@@ -21,6 +21,7 @@ export const Input = styled(Field)`
   opacity: 0.4;
   margin-bottom: 24px;
   padding: 0 18px;
+  position: relative;
 
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -155,7 +156,8 @@ export const SubmitSvgWrapper = styled.div`
 
 export const Error = styled(ErrorMessage)`
   color: red;
-  padding: 0;
-  margin-bottom: 7px;
+  position: absolute;
+  top: 50px;
+  left: 24px;
   font-size: 10px;
 `;
