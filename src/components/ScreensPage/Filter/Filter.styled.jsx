@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const ModalWrapper = styled.div`
-  position: relative;
-`;
-
 export const Container = styled.div`
   display: flex;
   align-items: center;

@@ -38,6 +38,8 @@ const BoardFormSchema = Yup.object().shape({
 });
 
 const CreateBoardForm = ({ closeModalWindow }) => {
+  // const board = useSelector(selectBoard?);
+  // const dispatch = useDispatch();
   return (
     <Formik
       initialValues={{
@@ -47,6 +49,27 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
+        //  const { name, number } = values;
+        //  if (
+        //    contacts.some(
+        //      contact => contact.name.toLowerCase() === name.toLowerCase()
+        //    )
+        //  ) {
+        //    return Notify.info(`${name} is already among your contacts`);
+        //  }
+
+        //  const contact = {
+        //    name,
+        //    number,
+        //  };
+        //  dispatch(addContact(contact))
+        //    .unwrap()
+        //    .then(() =>
+        //      Notify.success(
+        //        `${name} has been successfully added to your contacts`
+        //      )
+        //    )
+        //    .catch(error => error.message);
         actions.resetForm();
         closeModalWindow();
       }}

@@ -49,6 +49,7 @@ export const IconsContainer = styled.div`
   svg {
     stroke-width: 1.5px;
     stroke: var(--defaultAvatarBgColor);
+    cursor: pointer;
   }
 
   .icons-field {
@@ -84,6 +85,10 @@ export const BackgroundContainer = styled.div`
     display: none;
   }
 
+  img {
+    cursor: pointer;
+  }
+
   input:checked + img {
     border: 2px solid var(--cardHeaderText);
     border-radius: 6px;
@@ -106,6 +111,7 @@ export const BoardCreateBtn = styled.button`
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--addCardButtonColor);
+  cursor: pointer;
 
   svg {
     stroke-width: 1px;
@@ -125,6 +131,7 @@ export const SvgCloseBtn = styled.button`
   border: none;
   right: 14px;
   top: 14px;
+  cursor: pointer;
 
   svg {
     stroke-width: 1.5px;
