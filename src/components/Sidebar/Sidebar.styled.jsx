@@ -5,9 +5,7 @@ export const SideBarMenu = styled.div`
   width: 260px;
 
   height: 100vh;
-  //background-color: var(--sidebarBgColor); // when adding a topic, swap places
-  background-color: purple; // when adding a topic, swap places
-
+  background-color: var(--sidebarBgColor);
   transition: transform 0.3s linear;
   display: flex;
   flex-direction: column;
@@ -34,7 +32,7 @@ export const SideBarMenu = styled.div`
     left: -225px;
   }
 `;
-
+/* 
 export const ButtonBurger = styled.button`
   display: none;
 
@@ -53,7 +51,7 @@ export const ButtonBurger = styled.button`
       display: none;
     }
   }
-`;
+`; */
 
 export const Overlay = styled.div`
   position: fixed;
@@ -70,7 +68,7 @@ export const Overlay = styled.div`
   }
 `;
 
-export const SvgBurger = styled.svg`
+/* export const SvgBurger = styled.svg`
   width: 32px;
   height: 32px;
   position: fixed;
@@ -82,10 +80,10 @@ export const SvgBurger = styled.svg`
     width: 24px;
     height: 24px;
   }
-`;
+`; */
 
-export const BurgerPath = styled.path`
+/* export const BurgerPath = styled.path`
   stroke-linecap: round;
   stroke-miterlimit: 4;
   stroke-width: 2.5;
-`;
+`; */
