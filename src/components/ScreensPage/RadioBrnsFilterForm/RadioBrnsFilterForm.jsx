@@ -1,6 +1,6 @@
 import { Field, Formik } from 'formik';
-import icons from '../../../../src/images/sprite.svg';
-import { useState } from 'react';
+//import icons from '../../../../src/images/sprite.svg';
+//import { useState } from 'react';
 
 import {
   Header,
@@ -11,7 +11,7 @@ import {
 } from './RadioBtnsFilterForm.styled';
 
 const RadioBtnsFilterForm = ({ priority }) => {
-  const [selectedPriority, setSelectedPriority] = useState('');
+  //const [selectedPriority, setSelectedPriority] = useState('');
 
   const onFilterChange = value => {
     setSelectedPriority(value);

@@ -5,9 +5,9 @@ import {
   /*   SvgBurger,
   BurgerPath, */
 } from './Sidebar.styled';
-import LogoComponent from './LogoComponent/LogoComponent';
-import CreateBord from '../../../src/components/Sidebar/CreateBord/CreateBord';
-import BoadrsList from './BoardsList/BoardsList';
+//import LogoComponent from './LogoComponent/LogoComponent';
+//import CreateBord from '../../../src/components/Sidebar/CreateBord/CreateBord';
+//import BoadrsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React from 'react';
