@@ -4,7 +4,9 @@ import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
 import { login } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setToken } from '../../redux/auth/authSelectors';
 
 const schema = yup.object().shape({
   email: yup.string().required(),
@@ -12,24 +14,25 @@ const schema = yup.object().shape({
 });
 
 const LoginForm = () => {
-  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const onPassVisible = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget.elements;
+  const handleSubmit = async (values, {resetForm}) => {
+    const currentUser = { ...values };
 
-    // dispatch(
-      login({
-        email: form.email.value,
-        password: form.password.value,
-      })
-    // )
-    form.reset();
+    const response = await dispatch(login(currentUser, setToken))
+    
+    if (response.error) {
+      alert(response.payload);
+    } else {
+      navigate('/home');
+    }
+    resetForm();
    };
   
   return (

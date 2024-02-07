@@ -2,35 +2,37 @@ import { Form, Formik } from "formik";
 import { FormContainer, Input, StyledButton, StyledFilds, StyledLink, StyledLinks, StyledSvg } from "./RegisterFormStyled";
 import sprite from "../../images/sprite.svg";
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/authOperations";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
-  name: yup.string().required(),
+  userName: yup.string().required('Name is required'),
   email: yup.string().required(),
-  password: yup.string().required()
+  password: yup.string().required(),
 });
 
 const Registration = () => {
-  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   
   const onPassVisible = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget.elements;
-    // dispatch(
-      register({
-        name: form.name.value,
-        email: form.email.value,
-        password: form.password.value,
-      })
-    // )
-    form.reset();
+  const handleSubmit = async(values, {resetForm}) => {
+    
+    const newUser = {...values}
+    const response = await dispatch(register(newUser))
+
+    if (response.error) {
+      alert(response.payload)
+    } else {
+      navigate('/home');
+    }
+    resetForm();
    };
   
     return (
@@ -42,7 +44,7 @@ const Registration = () => {
 
         <Formik
           initialValues={{
-            name: '',
+            userName: '',
             email: '',
             password: '',
           }}
@@ -53,7 +55,7 @@ const Registration = () => {
             <StyledFilds>
               <Input
                 type="text"
-                name="name"
+                name="userName"
                 placeholder="Enter your name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
