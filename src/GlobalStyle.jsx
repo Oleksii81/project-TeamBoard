@@ -77,6 +77,7 @@ body[data-theme="dark"] {
   --popupBackground:#1F1F1F;
   --popupColor: rgba(255, 255, 255, 0.50);
   --poupHoverColor: rgba(190, 219, 176, 1);
+  --createButtonHover: #9DC888;
  
 
   --primaryTextColor: #ffffff;
@@ -170,6 +171,7 @@ body[data-theme="light"] {
    --popupBackground: #FCFCFC;
    --popupColor: rgba(22, 22, 22, 1);
    --poupHoverColor: rgba(190, 219, 176, 1);
+   --createButtonHover: #9DC888;
 
   --primaryTextColor: #161616;
   --createNewBoard: #161616;
@@ -261,6 +263,7 @@ body[data-theme="violet"] {
    --popupBackground: #FCFCFC;
   --popupColor: rgba(22, 22, 22, 1);
   --poupHoverColor: rgba(82, 85, 188, 1);
+  --createButtonHover: #7B7EDE;
 
   --primaryTextColor: #161616;
   --createNewBoard: #FFFFFF;

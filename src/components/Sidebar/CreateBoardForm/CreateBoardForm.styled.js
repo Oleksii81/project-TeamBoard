@@ -119,6 +119,7 @@ export const ModalForm = styled(Form)`
   padding: 24px;
   position: relative;
   background: var(--popupBackground);
+  border-color: var(--addCardButtonBackground);
 `;
 
 export const SvgCloseBtn = styled.button`
