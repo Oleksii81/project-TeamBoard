@@ -3,7 +3,11 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import { Route, Routes } from 'react-router';
 import HomePage from 'pages/HomePage/HomePage';
 
-// import SideBar from '../../src/components/Sidebar/Sidebar';
+import HomePage from 'pages/HomePage/HomePage';
+
+// import SideBar from '../../src/components./../src/components/Sidebar/Sidebar';
+// import Header from '../../src/components/Header/Header';
+// import ScreensPage from '../../src/components/ScreensPage/ScreensPage';
 // import Header from '../../src/components/Header/Header';
 // import ScreensPage from '../../src/components/ScreensPage/ScreensPage';
 

@@ -6,16 +6,17 @@ export const SideBarMenu = styled.div`
 
   height: 100vh;
   background-color: var(--sidebarBgColor);
+  background-color: var(--sidebarBgColor);
   transition: transform 0.3s linear;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  /* overflow: auto; */
+  /* /* overflow: auto; */
+  */
 
   // Tablet
   @media screen and (max-width: 768px) {
     top: 0;
-    /* overflow: auto; */
     /* overflow: auto; */
     position: fixed;
     left: -260px;
@@ -44,12 +45,10 @@ export const ButtonBurger = styled.button`
     height: 32px;
     background-color: var(--headerBgColor); // when adding a topic, swap places
     /* background-color: black; // when adding a topic, swap places */
-    background-color: var(--headerBgColor); // when adding a topic, swap place
     display: block;
     position: fixed;
     top: 18px;
     left: 32px;
-    z-index: 100;
     z-index: 100;
     &.active {
       display: none;

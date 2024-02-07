@@ -50,44 +50,7 @@ const LoginForm = () => {
         <StyledLink to="/auth/login">Log In</StyledLink>
       </StyledLinks>
 
-      <Formik
-        initialValues={{
-          email: '',
-          password: '',
-        }}
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-      >
-        <Form>
-          <StyledFilds>
-            <Input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-            />
-            <Input
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              placeholder="Confirm a password"
-              required
-            />
-
-            <StyledSvg onClick={onPassVisible}>
-              {showPassword ? (
-                <svg width={18} height={18}>
-                  <use stroke="gray" href={`${sprite}#icon-eye`} />
-                </svg>
-              ) : (
-                <svg width={18} height={18}>
-                  <use href={`${sprite}#icon-eye-hiden`} />
-                </svg>
-              )}
-            </StyledSvg>
-          </StyledFilds>
-          <StyledButton type="submit">Log In Now</StyledButton>
-        </Form>
-      </Formik>
+      <form action=""></form>
     </FormContainer>
   );
 };

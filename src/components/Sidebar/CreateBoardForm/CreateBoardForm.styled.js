@@ -17,6 +17,7 @@ export const Input = styled(Field)`
   width: 100%;
   height: 49px;
   // box-shadow: 0 4px 16px 0 var(--themeTitleTextColor);
+  // box-shadow: 0 4px 16px 0 var(--themeTitleTextColor);
   background: var(--popupBackground);
   opacity: 0.4;
   margin-bottom: 24px;
@@ -51,6 +52,8 @@ export const IconsContainer = styled.div`
     stroke-width: 1.5px;
     stroke: var(--iconCardColor);
     fill: transparent;
+    stroke: var(--iconCardColor);
+    fill: transparent;
   }
 
   .icons-field {
@@ -58,6 +61,7 @@ export const IconsContainer = styled.div`
   }
 
   input:checked + svg {
+    stroke: var(--primaryTextColor);
     stroke: var(--primaryTextColor);
   }
 `;

@@ -19,12 +19,12 @@ import './fonts/Poppins-SemiBold.woff2';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyle />
-    {/* <BrowserRouter basename="/project-TeamBoard">
+    <BrowserRouter basename="/project-TeamBoard">
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}> */}
-    <App />
-    {/* </PersistGate> */}
-    {/* </Provider> */}
-    {/* </BrowserRouter> */}
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,18 +1,5 @@
 import ReactModal from 'react-modal';
-import icons from '../../../images/sprite.svg';
-
-import {
-  ModalContainerHelp,
-  FormHelp,
-  InputHelp,
-  ModalTitleHelp,
-  CommentHelp,
-  BtnSendHelp,
-  IconHelp,
-} from './ModalNeedHelp.styled';
-// import { useDispatch } from 'react-redux';
-// import { Formik, Form, Field } from 'formik';
-// import * as Yup from 'yup';
+import FormNeedHelp from '../../Sidebar/NeedHelp/FormNeedHelp';
 
 const stylesModal = {
   content: {
@@ -24,6 +11,7 @@ const stylesModal = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'var(--helpBgColor)',
     backgroundColor: 'var(--helpBgColor)',
     zIndex: 120,
   },
