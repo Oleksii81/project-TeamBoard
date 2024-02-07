@@ -32,7 +32,7 @@ export const SideBarMenu = styled.div`
     left: -225px;
   }
 `;
-/* 
+ 
 export const ButtonBurger = styled.button`
   display: none;
 
@@ -52,7 +52,7 @@ export const ButtonBurger = styled.button`
       display: none;
     }
   }
-`; */
+`; 
 
 export const Overlay = styled.div`
   position: fixed;
