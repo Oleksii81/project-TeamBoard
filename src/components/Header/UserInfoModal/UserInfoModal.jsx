@@ -1,14 +1,11 @@
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-
-import { updateUserThunk } from '@/redux/Auth/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from '@/redux/auth/authS';
-
-import { SpriteSVG } from '@/shared/icons/SpriteSVG';
-import userFoto from '../../images/user.png';
-
-import ModalEditUser from '@/shared/components/Modal/Modal';
+import { updateUser } from '../../../redux/auth/authOperations';
+import { getUserData } from '../../../redux/auth/authSelectors';
+import { SpriteSVG } from 'assets/icons/SvgIcons';
+import userFoto from 'assets/img/userWhite.png';
+import ModalEditUser from 'components/Modals/ModalEditUser/ModalEditUser';
 import {
   Ellipse222,
   Ellipse224,
@@ -23,17 +20,23 @@ import {
   StyledSvgWrapper,
   StyledUserFoto,
 } from './UserInfoModal.styled';
+import { Formik, useFormik } from 'formik';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object({
+  userName: Yup.string().min(5, 'Min 5'),
+  userEmail: Yup.string().email('Invalid email'),
+  userPassword: Yup.string().min(8, 'Min 8'),
+});
 
 export const UserInfoModal = ({ onClose }) => {
+  const dispatch = useDispatch();
+  const { username, email, avatar } = useSelector(getUserData);
   const [selectedFile, setSelectedFile] = useState(null);
   const [changedName, setChangedName] = useState(null);
-  const [changedEmail, setChangedEmail] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const [changedPassword, setChangedPassword] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
-
-  const dispatch = useDispatch();
-
-  const { username, email, avatar } = useSelector(selectUser);
 
   const handleFileChange = file => {
     if (file) {
@@ -65,9 +68,8 @@ export const UserInfoModal = ({ onClose }) => {
     formData.append('username', changedName || username);
     formData.append('avatar', selectedFile);
     formData.append('password', changedPassword || '');
-    formData.append('avatar', selectedFile);
 
-    dispatch(updateUserThunk(formData))
+    dispatch(updateUser(formData))
       .unwrap()
       .then(() => {
         onClose();
@@ -76,6 +78,13 @@ export const UserInfoModal = ({ onClose }) => {
         console.error('Error updating user', error.message);
       });
   };
+  const formik = useFormik({
+    initialValues: { userName: '', userEmail: '', userPassword: '' },
+    validationSchema: validationSchema,
+    onSubmit: values => {
+      console.log(values);
+    },
+  });
 
   return (
     <ModalEditUser onClose={onClose}>
@@ -83,7 +92,7 @@ export const UserInfoModal = ({ onClose }) => {
         <StyledBtnClose onClick={onClose}>
           <SpriteSVG name="close" />
         </StyledBtnClose>
-
+        <p>Edit profile</p>
         <StyledModalHeader>
           <StyledUserFoto
             src={previewImage || avatar || userFoto}
@@ -102,30 +111,51 @@ export const UserInfoModal = ({ onClose }) => {
           </StyledSvgWrapper>
         </StyledModalHeader>
 
-        <StyledModalForm>
+        <StyledModalForm onSubmit={formik.handleSubmit}>
           <StyledModalInput
-            value={changedName || username}
-            onChange={event => setChangedName(event.target.value)}
+            name="userName"
+            placeholder="Ivetta"
+            value={formik.values.userName || username}
+            onChange={formik.handleChange}
           />
+          {formik.errors.userName && formik.touched.userName && (
+            <p style={{ color: 'red', fontSize: '10px' }}>
+              {formik.errors.userName}
+            </p>
+          )}
           <StyledModalInput
-            type="email"
-            value={changedEmail || email}
-            onChange={event => setChangedEmail(event.target.value)}
+            name="userEmail"
+            placeholder="ivetta34@gmail.com"
+            value={formik.values.userEmail || email}
+            onChange={formik.handleChange}
           />
+          {formik.errors.userEmail && formik.touched.userEmail && (
+            <p style={{ color: 'red', fontSize: '10px' }}>
+              {formik.errors.userEmail}
+            </p>
+          )}
           <StyledModalInput
-            type="password"
-            value={changedPassword || ''}
-            onChange={event => setChangedPassword(event.target.value)}
+            name="userPassword"
+            placeholder="ivetta1999.23"
+            type={showPassword ? 'text' : 'password'}
+            value={formik.values.userPassword || ''}
+            onChange={event => {
+              formik.handleChange(event);
+              setChangedPassword(event.target.value);
+            }}
           />
           <StyledBtnEdit
-            onClick={event => {
-              event.preventDefault();
-            }}
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
           >
-            <SpriteSVG name="edit-02" />
+            <SpriteSVG name={showPassword ? 'eye1' : 'eye2'} />
           </StyledBtnEdit>
-
-          <StyledBtnSave onClick={onUpload}>Save changes</StyledBtnSave>
+          {formik.errors.userPassword && formik.touched.userPassword && (
+            <p style={{ color: 'red', fontSize: '10px' }}>
+              {formik.errors.userPassword}
+            </p>
+          )}
+          <StyledBtnSave type="submit">Save</StyledBtnSave>
         </StyledModalForm>
 
         <Ellipse222 />
@@ -138,3 +168,6 @@ export const UserInfoModal = ({ onClose }) => {
 UserInfoModal.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
+
+
+

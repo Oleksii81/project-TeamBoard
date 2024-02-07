@@ -5,7 +5,6 @@ import { ModalOverlay } from './ModalEditUser.styled';
 import { createPortal } from 'react-dom';
 
 const modalRoot = document.querySelector('#modal-root');
-
 const ModalEditUser = ({ children, onClose }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
