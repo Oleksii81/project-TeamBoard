@@ -5,8 +5,6 @@ export const MainText = styled.p`
   font-weight: 400;
   font-size: 12px;
   width: 335px;
-  margin: 292px auto 380px;
-  /* margin: auto; */
 
   line-height: 1.33333;
   letter-spacing: -0.02em;
@@ -16,11 +14,7 @@ export const MainText = styled.p`
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 1.28571;
-    margin-top: 408px;
     width: 486px;
-  }
-  @media screen and (min-width: 1440px) {
-    margin-top: 281px;
   }
 `;
 

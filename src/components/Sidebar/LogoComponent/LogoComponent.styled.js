@@ -16,13 +16,14 @@ export const LogoComponentStyled = styled.div`
 export const TaskPro = styled.span`
   font-weight: 600;
   line-height: 1.5;
+  color: var(--createNewBoard);
 `;
 
 //Color logo
 export const LogoPath = styled.path`
-  fill: white; // when adding a topic, swap place
+  fill: var(--logoBackground); // when adding a topic, swap places
 `;
 //Color Logo centeral
 export const LogoPathCentral = styled.path`
-  fill: purple; // when adding a topic, swap place
+  fill: var(--logoIcon); // when adding a topic, swap places
 `;

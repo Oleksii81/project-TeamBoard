@@ -11,7 +11,8 @@ import {
   IconHelp,
 } from './ModalNeedHelp.styled';
 // import { useDispatch } from 'react-redux';
-
+// import { Formik, Form, Field } from 'formik';
+// import * as Yup from 'yup';
 
 const stylesModal = {
   content: {
@@ -23,22 +24,14 @@ const stylesModal = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: ' rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'var(--helpBgColor)',
     zIndex: 120,
   },
 };
 
 ReactModal.setAppElement('#root');
 
-const ModalNeedHelp = ({ isOpen, onClose, onSubmit }) => {
-  // const dispatch = useDispatch();
-
-  // const handleSubmit = evt => {
-  //   evt.preventDefault();
-  //   const form = evt.currentTarget;
-  //   dispatch();
-  // };
-
+const ModalNeedHelp = ({ isOpen, onClose }) => {
   return (
     <ReactModal
       isOpen={isOpen}
@@ -46,30 +39,9 @@ const ModalNeedHelp = ({ isOpen, onClose, onSubmit }) => {
       style={stylesModal}
       contentLabel="Image Modal"
     >
-      <ModalContainerHelp>
-        <ModalTitleHelp>Need help</ModalTitleHelp>
-        <IconHelp onClick={onClose}>
-          <use href={`${icons}#icon-close`}></use>
-        </IconHelp>
-        <FormHelp>
-          <InputHelp
-            type="email"
-            name="email"
-            required
-            placeholder="Email address"
-          />
-          <CommentHelp
-            type="comment"
-            name="comment"
-            required
-            placeholder="Comment"
-          />
-          <BtnSendHelp>Send</BtnSendHelp>
-        </FormHelp>
-      </ModalContainerHelp>
+      <FormNeedHelp closeModal={onClose} />
     </ReactModal>
   );
 };
-
 
 export default ModalNeedHelp;

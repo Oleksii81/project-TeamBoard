@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 
 export const ModalCustom = styled(Modal)`
   position: relative;
-  border: 1px solid rgba(190, 219, 176, 0.5);
-  background-color: #121212;
+  border: 1px solid var(--modalBorderColor);
+  background-color: var(--cardItem);
   border-radius: 8px;
   width: 335px;
   height: 433px;
