@@ -5,6 +5,7 @@ import {
   ImgHelp,
   TextHelp,
   IconHelp,
+  Span,
   QuestionHelp,
   BtnNeedHelp,
 } from './NeedHelp.styled.js';
@@ -30,7 +31,7 @@ const NeedHelp = () => {
 
       <TextHelp>
         If you need help with
-        <span style={{ color: 'var(--needHelpLink)' }}> TaskPro</span>, check out our
+        <Span> TaskPro</Span>, check out our
         support resources or reach out to our customer support team.
       </TextHelp>
 
