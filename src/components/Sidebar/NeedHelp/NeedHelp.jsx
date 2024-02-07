@@ -4,6 +4,7 @@ import {
   ContainerHelp,
   ImgHelp,
   TextHelp,
+  SpanTaskPro,
   IconHelp,
   QuestionHelp,
   BtnNeedHelp,
