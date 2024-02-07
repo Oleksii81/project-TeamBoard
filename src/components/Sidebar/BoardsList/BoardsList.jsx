@@ -10,9 +10,9 @@ import { createBoard } from '../../../redux/auth/authOperations';
 const BoardsList = () => {
   const boards = useSelector(getBoard);
   // const boards = [
-  //   { _id: '1', isActive: true, icon: 'project', title: 'Title 1' },
-  //   { _id: '2', isActive: false, icon: 'star', title: 'Title 2' },
-  //   { _id: '3', isActive: false, icon: 'puzzle', title: 'Title 3' },
+  //   { _id: '1', isActive: true, icnboard: 'project', title: 'Title 1' },
+  //   { _id: '2', isActive: false, icnboard: 'star', title: 'Title 2' },
+  //   { _id: '3', isActive: false, icnboard: 'puzzle', title: 'Title 3' },
   // ];
 
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const BoardsList = () => {
               <BoardItem
                 id={board._id}
                 isActive={board.isActive}
-                icon={board.icon}
+                icon={board.icnboard}
                 title={board.title}
               />
             </li>
