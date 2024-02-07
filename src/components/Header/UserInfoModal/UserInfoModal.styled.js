@@ -17,8 +17,8 @@ export const StyledModal = styled.div`
 `;
 
 export const StyledBtnClose = styled.button`
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   padding: 0;
   background-color: transparent;
   border: none;

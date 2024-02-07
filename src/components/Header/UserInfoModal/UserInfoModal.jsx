@@ -148,7 +148,7 @@ export const UserInfoModal = ({ onClose }) => {
             type="button"
             onClick={() => setShowPassword(!showPassword)}
           >
-            <SpriteSVG name={showPassword ? 'eye1' : 'eye2'} />
+            <SpriteSVG name= 'eye1' />
           </StyledBtnEdit>
           {formik.errors.userPassword && formik.touched.userPassword && (
             <p style={{ color: 'red', fontSize: '10px' }}>
