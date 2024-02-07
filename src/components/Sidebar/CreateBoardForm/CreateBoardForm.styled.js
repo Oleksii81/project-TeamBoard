@@ -21,6 +21,7 @@ export const Input = styled(Field)`
   opacity: 0.4;
   margin-bottom: 24px;
   padding: 0 18px;
+  position: relative;
 
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -85,6 +86,10 @@ export const BackgroundContainer = styled.div`
     display: none;
   }
 
+  img {
+    cursor: pointer;
+  }
+
   input:checked + img {
     border: 2px solid var(--defaultAvatarBgColor);
     border-radius: 6px;
@@ -108,10 +113,15 @@ export const BoardCreateBtn = styled.button`
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--addCardButtonColor);
+  cursor: pointer;
 
   svg {
     stroke-width: 1px;
     stroke: var(--addPlusIconColor);
+  }
+
+  &:hover {
+    background-color: var(—createButtonHover);
   }
 `;
 
@@ -127,6 +137,7 @@ export const SvgCloseBtn = styled.button`
   border: none;
   right: 14px;
   top: 14px;
+  cursor: pointer;
 
   svg {
     stroke-width: 1.5px;
@@ -150,7 +161,8 @@ export const SubmitSvgWrapper = styled.div`
 
 export const Error = styled(ErrorMessage)`
   color: red;
-  padding: 0;
-  margin-bottom: 7px;
+  position: absolute;
+  top: 50px;
+  left: 24px;
   font-size: 10px;
 `;

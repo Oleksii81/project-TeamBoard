@@ -8,9 +8,15 @@ export const Container = styled.div`
   /* overflow: scroll; */
   z-index: 0;
   width: 100%;
+  height: calc(-60px + 100vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (min-width: 375px) {
     width: 100%;
+    height: calc(-60px + 100vh);
   }
 
   @media screen and (min-width: 768px) {

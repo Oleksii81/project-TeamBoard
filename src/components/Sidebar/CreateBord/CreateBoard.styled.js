@@ -5,12 +5,13 @@ export const Heading = styled.p`
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: var(--textBoardColor); 
+  color: var(--textBoardColor);
   margin-bottom: 8px;
 `;
 
 export const Container = styled.div`
-  height: 70px;
+  padding: 14px 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

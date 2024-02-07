@@ -37,8 +37,8 @@ export const TextHelp = styled.p`
 `;
 
 export const SpanTaskPro = styled.span`
-color: var(--greenGreenBlueColor);
-`
+  color: var(--greenGreenBlueColor);
+`;
 
 export const IconHelp = styled.svg`
   width: 20px;

@@ -4,12 +4,12 @@ import Filter from '../../../src/components/ScreensPage/Filter/Filter';
 
 const ScreensPage = () => {
   return (
-    <>
+    <section>
       <Container>
         <Filter />
         <Text />
       </Container>
-    </>
+    </section>
   );
 };
 
