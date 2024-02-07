@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { User } from './Header/User/User';
 import { UserInfoModal } from './Header/UserInfoModal/UserInfoModal';
-import  Header  from './Header/Header';
+
 
 const UserModalTest = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,8 +15,7 @@ const UserModalTest = () => {
     };
   return (
       <div>
-          <Header/>
-      <button onClick={handleOpenModal}>
+       <button onClick={handleOpenModal}>
         <User />
       </button>
       {isModalOpen && <UserInfoModal onClose={handleCloseModal} />}

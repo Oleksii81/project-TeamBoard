@@ -20,7 +20,7 @@ import {
   StyledSvgWrapper,
   StyledUserFoto,
 } from './UserInfoModal.styled';
-import { Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
@@ -33,7 +33,7 @@ export const UserInfoModal = ({ onClose }) => {
   const dispatch = useDispatch();
   const { username, email, avatar } = useSelector(getUserData);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [changedName, setChangedName] = useState(null);
+  const [changedName] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [changedPassword, setChangedPassword] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
