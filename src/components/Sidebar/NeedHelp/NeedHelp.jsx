@@ -31,7 +31,7 @@ const NeedHelp = () => {
 
       <TextHelp>
         If you need help with
-        <SpanTaskPro > TaskPro</SpanTaskPro>, check out our
+        <SpanTaskPro> TaskPro</SpanTaskPro>, check out our
         support resources or reach out to our customer support team.
       </TextHelp>
 
