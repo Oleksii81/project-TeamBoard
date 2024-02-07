@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-TeamBoard/static/css/main.5a51cd21.css",
-    "main.js": "/project-TeamBoard/static/js/main.99e76c39.js",
+    "main.js": "/project-TeamBoard/static/js/main.0bfa2aae.js",
     "static/media/Poppins-Regular.woff": "/project-TeamBoard/static/media/Poppins-Regular.ab6122bd28174ddf9eeb.woff",
     "static/media/Poppins-SemiBold.woff": "/project-TeamBoard/static/media/Poppins-SemiBold.ee8ae013a422a80622c6.woff",
     "static/media/Poppins-Medium.woff": "/project-TeamBoard/static/media/Poppins-Medium.c162ccbbda8bd6839b3a.woff",
@@ -12,10 +12,10 @@
     "static/media/sprite.svg": "/project-TeamBoard/static/media/sprite.90a04d8c66088f268bd5ce8fa7274a8b.svg",
     "index.html": "/project-TeamBoard/index.html",
     "main.5a51cd21.css.map": "/project-TeamBoard/static/css/main.5a51cd21.css.map",
-    "main.99e76c39.js.map": "/project-TeamBoard/static/js/main.99e76c39.js.map"
+    "main.0bfa2aae.js.map": "/project-TeamBoard/static/js/main.0bfa2aae.js.map"
   },
   "entrypoints": [
     "static/css/main.5a51cd21.css",
-    "static/js/main.99e76c39.js"
+    "static/js/main.0bfa2aae.js"
   ]
 }
