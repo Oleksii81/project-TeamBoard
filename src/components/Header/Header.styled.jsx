@@ -10,6 +10,7 @@ export const HeaderWrapper = styled.div`
     z-index: 5;
 //colors
     background: var(--headerBgColor);
+    background: black;
 //padding
     padding: 20px;
     gap: 14px;

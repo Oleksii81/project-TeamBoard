@@ -42,6 +42,7 @@ export const ButtonBurger = styled.button`
     width: 32px;
     height: 32px;
     background-color: var(--headerBgColor); // when adding a topic, swap places
+    /* background-color: black; // when adding a topic, swap places */
     display: block;
     position: fixed;
     top: 18px;
