@@ -11,6 +11,7 @@ export const ContainerHelp = styled.div`
   @media (min-width: 768px) {
     width: 212px;
     height: 272px;
+    padding-left: 20px;
   }
 `;
 
@@ -20,10 +21,9 @@ export const ImgHelp = styled.img`
 `;
 
 export const TextHelp = styled.p`
-  font-family: 'Poppins', sans-serif;
   width: 163px;
   margin-top: 14px;
-  color: var(--primaryTextColor);
+  color: var(--createNewBoard);
   font-size: 12px;
   line-height: 1.34;
   letter-spacing: -0.24px;
@@ -37,18 +37,17 @@ export const TextHelp = styled.p`
 `;
 
 export const SpanTaskPro = styled.span`
-color: var(--greenGreenBlueColor);
-`
+  color: var(--greenGreenBlueColor);
+`;
 
 export const IconHelp = styled.svg`
   width: 20px;
   height: 20px;
   fill: none;
-  stroke: var(--needHelpBtn);
+  stroke: var(--createNewBoard);
 `;
 
 export const QuestionHelp = styled.span`
-  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 12px;
   letter-spacing: -0.02em;
