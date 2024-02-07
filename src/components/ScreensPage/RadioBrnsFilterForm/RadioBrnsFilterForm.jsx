@@ -4,7 +4,7 @@ import { Field, Formik } from 'formik';
 
 import {
   Header,
-  IconsHeader,
+ // IconsHeader,
   IconsContainer,
   FormFilter,
   FormHeadersContainer,
