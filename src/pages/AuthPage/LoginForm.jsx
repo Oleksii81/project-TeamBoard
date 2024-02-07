@@ -2,15 +2,35 @@ import { Form, Formik } from 'formik';
 import { FormContainer, Input, StyledButton, StyledFilds, StyledLink, StyledLinks, StyledSvg } from './LoginFormStyled';
 import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
+import { login } from '../../redux/auth/authOperations';
+import * as yup from 'yup';
+// import { useDispatch } from 'react-redux';
+
+const schema = yup.object().shape({
+  email: yup.string().required(),
+  password: yup.string().required(),
+});
 
 const LoginForm = () => {
+  // const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const onPassVisible = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (values, action) => { };
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget.elements;
+
+    // dispatch(
+      login({
+        email: form.email.value,
+        password: form.password.value,
+      })
+    // )
+    form.reset();
+   };
   
   return (
     <FormContainer>
@@ -21,18 +41,20 @@ const LoginForm = () => {
 
       <Formik
         initialValues={{
-          name: '',
+          email: '',
           password: '',
         }}
         onSubmit={handleSubmit}
+        validationSchema={schema}
       >
         <Form>
           <StyledFilds>
-            <Input type="text" name="name" placeholder="Enter your name" />
+            <Input type="email" name="email" placeholder="Enter your email" required />
             <Input
               type={showPassword ? 'text' : 'password'}
               name="password"
-              placeholder="Create your password"
+              placeholder="Confirm a password"
+              required
             />
 
             <StyledSvg onClick={onPassVisible}>
@@ -47,7 +69,7 @@ const LoginForm = () => {
               )}
             </StyledSvg>
           </StyledFilds>
-          <StyledButton type="button">Log In Now</StyledButton>
+          <StyledButton type="submit">Log In Now</StyledButton>
         </Form>
       </Formik>
     </FormContainer>
