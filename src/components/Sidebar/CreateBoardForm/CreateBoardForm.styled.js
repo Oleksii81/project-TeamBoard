@@ -119,6 +119,10 @@ export const BoardCreateBtn = styled.button`
     stroke-width: 1px;
     stroke: var(--addPlusIconColor);
   }
+
+  &:hover {
+    background-color: var(—createButtonHover);
+  }
 `;
 
 export const ModalForm = styled(Form)`
