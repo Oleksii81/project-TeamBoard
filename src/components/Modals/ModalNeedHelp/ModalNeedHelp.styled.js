@@ -58,11 +58,11 @@ export const CommentHelp = styled.textarea`
   border: 1px solid var(--greenGreenBlueColor);
   height: 120px;
   border-radius: 8px;
+  background-color: black;
   background-color: var(--popupBackground);
   width: 352px;
   height: 120px;
   margin: 14px 24px 0 24px;
-  resize: none;
   padding-left: 15px;
   padding-top: 14px;
   color: var(--primaryTextColor);
