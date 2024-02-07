@@ -2,14 +2,13 @@
 import styled from 'styled-components';
 
 export const ModalContainerHelp = styled.div`
-  background-color: var(--themeListBgColor);
+  background-color: var(--popupBackground);
   border-radius: 8px;
   z-index: 20;
   position: fixed;
   padding-top: 23px;
   width: 400px;
   height: 355px;
-
 
   @media (max-width: 768px) {
     width: 335px;
@@ -29,12 +28,10 @@ export const ModalTitleHelp = styled.h2`
 `;
 
 export const InputHelp = styled.input`
-  font-family: 'Poppins', sans-serif;
   border: 1px solid var(--greenGreenBlueColor);
   border-radius: 8px;
-  opacity: 0.4;
- background: var(--popupBackground);
-   width: 352px;
+  background-color: var(--popupBackground);
+  width: 352px;
   height: 49px;
   margin-left: 24px;
   margin-right: 24px;
@@ -45,6 +42,7 @@ export const InputHelp = styled.input`
     font-weight: 400;
     font-size: 14px;
     letter-spacing: -0.02em;
+    color: var(--secondaryTextColor);
   }
 
   &:focus {
@@ -57,24 +55,23 @@ export const InputHelp = styled.input`
 `;
 
 export const CommentHelp = styled.textarea`
-  font-family: 'Poppins', sans-serif;
   border: 1px solid var(--greenGreenBlueColor);
- background: var(--popupBackground);
-   height: 120px;
+  height: 120px;
   border-radius: 8px;
-  opacity: 0.4;
+  background-color: black;
+  background-color: var(--popupBackground);
   width: 352px;
   height: 120px;
   margin: 14px 24px 0 24px;
   padding-left: 15px;
   padding-top: 14px;
-  resize: none;
   color: var(--primaryTextColor);
 
   &::placeholder {
     font-weight: 400;
     font-size: 14px;
     letter-spacing: -0.02em;
+    color: var(--secondaryTextColor);
   }
 
   &:focus {
@@ -87,11 +84,13 @@ export const CommentHelp = styled.textarea`
 `;
 
 export const BtnSendHelp = styled.button`
- border-radius: 8px;
+  border-radius: 8px;
+  border-color: transparent;
   cursor: pointer;
   width: 352px;
   height: 49px;
   margin: 24px;
+  color: var(--createNewBoard);
   background-color: var(--greenGreenBlueColor);
   border: none;
 
