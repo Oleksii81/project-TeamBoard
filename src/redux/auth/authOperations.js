@@ -16,7 +16,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post('/api/auth/signin', credentials);
+      const response = await axios.post('/api/auth/signup', credentials);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (err) {
@@ -29,7 +29,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post('/api/auth/login', credentials);
+      const response = await axios.post('/api/auth/signin', credentials);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (err) {
@@ -48,26 +48,25 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 });
 
 export const currentUser = createAsyncThunk(
-    'auth/current',
-    async (_, thunkAPI) => {
-      try {
-        const { data } = await axios.get(`/api/auth/current`);
-        if (!data) {
-          throw new Error();
-        }
-        return data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.code);
+  'auth/current',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/api/auth/current`);
+      if (!data) {
+        throw new Error();
       }
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.code);
     }
-  );
-
+  }
+);
 
 export const updateUser = createAsyncThunk(
   'users/updateUser',
   async (formData, thunkAPI) => {
     try {
-      const { data } = await axios.patch('/api/auth', formData, {
+      const { data } = await axios.put('/api/auth', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

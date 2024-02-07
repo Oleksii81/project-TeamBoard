@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import './fonts/fonts.css';
 import 'modern-normalize';
 
@@ -54,6 +54,8 @@ code {
     monospace;
 }
 
+
+
 body[data-theme="dark"] {
   --greenGreenBlueColor: #bedbb0;
   --sidebarBgColor: #121212;
@@ -78,6 +80,7 @@ body[data-theme="dark"] {
  
 
   --primaryTextColor: #ffffff;
+  --createNewBoard: #ffffff;
   --secondaryTextColor: rgba(255, 255, 255, 0.5);
   --popupTextColor: rgba(255, 255, 255, 0.5);
   --themeTitleTextColor: rgba(255, 255, 255, 0.8);
@@ -95,6 +98,7 @@ body[data-theme="dark"] {
 
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
+  --needHelpLink: #BEDBB0;
   --iconLogOut: #bedbb0;
   --placeholder:rgba(255, 255, 255, 1);
   --userSvgFill: #161616;
@@ -168,6 +172,7 @@ body[data-theme="light"] {
    --poupHoverColor: rgba(190, 219, 176, 1);
 
   --primaryTextColor: #161616;
+  --createNewBoard: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
   --popupTextColor: #161616;
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
@@ -184,6 +189,7 @@ body[data-theme="light"] {
     --cardItemText: ##5C5C5C;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #161616;
+  --needHelpLink: #BEDBB0;
    --iconLogOut: #bedbb0;
   --placeholder: rgba(22, 22, 22, 1);
   --userSvgFill: #FFFFFF;
@@ -191,7 +197,7 @@ body[data-theme="light"] {
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(22, 22, 22, 0.5);
-
+  
    --iconCardColor: rgba(22, 22, 22, 0.5);
 
   --iconPlusColor: #FFFFFF;
@@ -257,6 +263,7 @@ body[data-theme="violet"] {
   --poupHoverColor: rgba(82, 85, 188, 1);
 
   --primaryTextColor: #161616;
+  --createNewBoard: #FFFFFF;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
   --popupTextColor: #161616;
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
@@ -270,6 +277,7 @@ body[data-theme="violet"] {
     --cardItem: #FFFFFF;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
+  --needHelpLink: #5255BC;
   --iconLogOut: #FFFFFF;
   --placeholder:#161616;
   --userSvgFill: #FFFFFF;
@@ -319,6 +327,6 @@ body[data-theme="violet"] {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #a8acf6;
 }
-`
+`;
 
 export default GlobalStyle;
