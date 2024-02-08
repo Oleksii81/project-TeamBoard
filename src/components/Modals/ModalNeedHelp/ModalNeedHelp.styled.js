@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const ModalContainerHelp = styled.div`
   background-color: var(--popupBackground);
   border-radius: 8px;
+  border-color: var(--addCardButtonBackground);
   z-index: 20;
   position: fixed;
   padding-top: 23px;
