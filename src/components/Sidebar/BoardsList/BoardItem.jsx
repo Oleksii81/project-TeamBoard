@@ -11,24 +11,30 @@ import {
 
 import icons from '../../../images/sprite.svg';
 
-import { editBoard, deleteBoard } from '../../../redux/auth/authOperations';
+import {
+  // editBoard,
+  deleteBoard,
+} from '../../../redux/auth/authOperations';
 
 const BoardItem = ({ id, isActive, icon, title }) => {
   const dispatch = useDispatch();
-  const handleEditContact = id => dispatch(editBoard(id));
+
+  const handleEditContact = id => {
+    // dispatch(editBoard(id))
+  };
   const handleDeleteContact = id => dispatch(deleteBoard(id));
 
   return (
     <ItemContainer className={isActive ? 'activeBoard' : ''}>
-      <Icon className={isActive ? 'activeBoard' : ''}>
+      <Icon className={isActive ? 'activeBoardIcon' : ''}>
         <svg width="18" height="18">
-          <use href={`${icons}#icon-${icon}`}></use>
+          <use href={`${icons}#${icon}`}></use>
         </svg>
       </Icon>
-      <Title className={isActive ? 'activeBoard' : ''}>{title}</Title>
+      <Title className={isActive ? 'activeBoardTitle' : ''}>{title}</Title>
       <ButtonContainer>
         <Button
-          className={isActive ? 'activeBoard' : ''}
+          className={isActive ? 'activeBoardButton' : ''}
           onClick={() => handleEditContact(id)}
         >
           <svg width="16" height="16">
@@ -36,7 +42,7 @@ const BoardItem = ({ id, isActive, icon, title }) => {
           </svg>
         </Button>
         <Button
-          className={isActive ? 'activeBoard' : ''}
+          className={isActive ? 'activeBoardButton' : ''}
           onClick={() => handleDeleteContact(id)}
         >
           <svg width="16" height="16">

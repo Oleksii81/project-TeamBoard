@@ -40,7 +40,6 @@ import {
 } from './CreateBoardForm.styled';
 import { getBoard } from '../../../redux/auth/authSelectors';
 import { createBoard } from '../../../redux/auth/authOperations';
-import { nanoid } from 'nanoid';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
@@ -53,30 +52,28 @@ const CreateBoardForm = ({ closeModalWindow }) => {
     <Formik
       initialValues={{
         title: '',
-        icon: 'icon-project',
+        icnboard: 'icon-project',
         background: 'Image1',
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
         console.log(values);
         const { title } = values;
-        // if (boards.some(board => board.title === values.title)) {
-        //   // return notify.warning('The title already exists');
-        //   console.log('The title already exists');
-        // }
+        if (boards.some(board => board.title === values.title)) {
+          // return notify.warning('The title already exists');
+          console.log('The title already exists');
+          return;
+        }
 
-        boards.push({ ...values, _id: nanoid() });
-        console.log(boards);
-
-        // dispatch(createBoard(values))
-        //   .unwrap()
-        //   .then(() =>
-        //     //  Notify.success(
-        //     //    `${title} has been successfully added to your contacts`
-        //     //  )
-        //     console.log(`${title} has been successfully added to your contacts`)
-        //   )
-        //   .catch(error => error.message);
+        dispatch(createBoard({ ...values, isActive: true }))
+          .unwrap()
+          .then(() =>
+            //  Notify.success(
+            //    `${title} has been successfully added to your contacts`
+            //  )
+            console.log(`${title} has been successfully added to your contacts`)
+          )
+          .catch(error => error.message);
         actions.resetForm();
         closeModalWindow();
       }}
@@ -99,7 +96,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-project"
             />
             <svg width="18px" height="18px">
@@ -110,7 +107,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-star"
             />
             <svg width="18px" height="18px">
@@ -121,7 +118,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-loading"
             />
             <svg width="18px" height="18px">
@@ -132,7 +129,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-puzzle"
             />
             <svg width="18px" height="18px">
@@ -143,7 +140,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-container"
             />
             <svg width="18px" height="18px">
@@ -154,7 +151,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-lightning"
             />
             <svg width="18px" height="18px">
@@ -165,7 +162,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-colors"
             />
             <svg width="18px" height="18px">
@@ -176,7 +173,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-hexagon"
             />
             <svg width="18px" height="18px">
