@@ -267,6 +267,7 @@ body[data-theme="violet"] {
   --createButtonHover: #7B7EDE;
 
 
+
   --primaryTextColor: #161616;
   --createNewBoard: #FFFFFF;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);

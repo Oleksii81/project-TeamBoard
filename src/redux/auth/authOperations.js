@@ -132,6 +132,18 @@ export const editBoard = createAsyncThunk(
   }
 );
 
+export const updateTheme = createAsyncThunk(
+  'api/auth/theme',
+  async (theme, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/api/auth/theme', { theme });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 // export const updateBoardActive = createAction('auth/updateBoardActive');
 export const updateBoardActive = createAsyncThunk(
   'boards/updateBoardActive',

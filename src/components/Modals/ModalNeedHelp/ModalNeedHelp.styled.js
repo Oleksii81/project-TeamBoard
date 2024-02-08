@@ -1,5 +1,20 @@
+import styled from "styled-components";
+import ReactModal from 'react-modal';
 
-import styled from 'styled-components';
+export const OverlayModal = styled(ReactModal)`
+  position: relative;
+  border-radius: 8px;
+  width: 335px;
+  height: 433px;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 0%;
+  z-index: 1000;
+`
 
 export const ModalContainerHelp = styled.div`
   background-color: var(--popupBackground);

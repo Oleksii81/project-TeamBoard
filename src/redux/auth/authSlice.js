@@ -10,6 +10,7 @@ import {
   deleteBoard,
   editBoard,
   updateBoardActive,
+  updateTheme,
 } from './authOperations';
 
 export const authSlice = createSlice({
@@ -88,6 +89,9 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = payload;
         toast.error('Invalid password');
+      })
+      .addCase(updateTheme.fulfilled, (state, { payload }) => {
+        state.user.theme = payload.theme;
       })
       .addCase(createBoard.fulfilled, (state, { payload }) => {
         state.user.boards.push(payload);
