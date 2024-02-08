@@ -1,17 +1,5 @@
 import ReactModal from 'react-modal';
-import icons from '../../../images/sprite.svg';
-
-import {
-  ModalContainerHelp,
-  FormHelp,
-  InputHelp,
-  ModalTitleHelp,
-  CommentHelp,
-  BtnSendHelp,
-  IconHelp,
-} from './ModalNeedHelp.styled';
-// import { useDispatch } from 'react-redux';
-
+import FormNeedHelp from '../../Sidebar/NeedHelp/FormNeedHelp';
 
 const stylesModal = {
   content: {
@@ -30,44 +18,18 @@ const stylesModal = {
 
 ReactModal.setAppElement('#root');
 
-const ModalNeedHelp = ({ isOpen, onClose, onSubmit }) => {
-  // const dispatch = useDispatch();
-
-  // const handleSubmit = evt => {
-  //   evt.preventDefault();
-  //   const form = evt.currentTarget;
-  //   dispatch();
-  // };
-
+const ModalNeedHelp = ({ isOpen, onClose }) => {
+ 
   return (
+     
     <ReactModal
       isOpen={isOpen}
       onRequestClose={onClose}
       style={stylesModal}
       contentLabel="Image Modal"
     >
-      <ModalContainerHelp>
-        <ModalTitleHelp>Need help</ModalTitleHelp>
-        <IconHelp onClick={onClose}>
-          <use href={`${icons}#icon-close`}></use>
-        </IconHelp>
-        <FormHelp>
-          <InputHelp
-            type="email"
-            name="email"
-            required
-            placeholder="Email address"
-          />
-          <CommentHelp
-            type="comment"
-            name="comment"
-            required
-            placeholder="Comment"
-          />
-          <BtnSendHelp>Send</BtnSendHelp>
-        </FormHelp>
-      </ModalContainerHelp>
-    </ReactModal>
+      <FormNeedHelp closeModal={onClose}/>
+      </ReactModal>
   );
 };
 

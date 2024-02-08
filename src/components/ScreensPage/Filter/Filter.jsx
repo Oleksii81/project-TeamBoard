@@ -5,7 +5,6 @@ import icons from '../../../../src/images/sprite.svg';
 import {
   Container,
   FilterText,
-  ModalWrapper,
   WindowContainer,
   FilerModalBtn,
   FilterFormHeading,
@@ -22,7 +21,7 @@ const Filter = () => {
     setWindow(false);
   };
   return (
-    <ModalWrapper>
+    <>
       <Container>
         <svg width="16px" height="16px">
           <use href={`${icons}#icon-filter`}></use>
@@ -40,7 +39,7 @@ const Filter = () => {
           <RadioBtnsFilterForm />
         </WindowContainer>
       )}
-    </ModalWrapper>
+    </>
   );
 };
 

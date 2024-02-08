@@ -64,6 +64,7 @@ export const CommentHelp = styled.textarea`
   width: 352px;
   height: 120px;
   margin: 14px 24px 0 24px;
+  resize: none;
   padding-left: 15px;
   padding-top: 14px;
   color: var(--primaryTextColor);

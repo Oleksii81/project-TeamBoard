@@ -1,20 +1,20 @@
 import { Field, Formik } from 'formik';
-import icons from '../../../../src/images/sprite.svg';
-import { useState } from 'react';
+//import icons from '../../../../src/images/sprite.svg';
+//import { useState } from 'react';
 
 import {
   Header,
-  IconsHeader,
+ // IconsHeader,
   IconsContainer,
   FormFilter,
   FormHeadersContainer,
 } from './RadioBtnsFilterForm.styled';
 
 const RadioBtnsFilterForm = ({ priority }) => {
-  const [selectedPriority, setSelectedPriority] = useState('');
+  //const [selectedPriority, setSelectedPriority] = useState('');
 
   const onFilterChange = value => {
-    setSelectedPriority(value);
+   // setSelectedPriority(value);
     console.log(value);
   };
 
@@ -28,9 +28,9 @@ const RadioBtnsFilterForm = ({ priority }) => {
         <FormFilter>
           <FormHeadersContainer>
             <Header>Label color</Header>
-            <IconsHeader onClick={setSelectedPriority('')}>
+        {/*    <IconsHeader onClick={setSelectedPriority('')}> 
               Show all
-            </IconsHeader>
+            </IconsHeader> */}
           </FormHeadersContainer>
           <IconsContainer priority={priority}>
             <label>

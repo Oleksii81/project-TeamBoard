@@ -23,7 +23,7 @@ export const ImgHelp = styled.img`
 export const TextHelp = styled.p`
   width: 163px;
   margin-top: 14px;
-  color: var(--createNewBoard);
+  color: var(--primaryTextColor);
   font-size: 12px;
   line-height: 1.34;
   letter-spacing: -0.24px;
@@ -36,15 +36,15 @@ export const TextHelp = styled.p`
   }
 `;
 
-export const SpanTaskPro = styled.span`
-color: var(--greenGreenBlueColor);
-`
+export const Span = styled.span`
+  color: var(--greenGreenBlueColor);
+`;
 
 export const IconHelp = styled.svg`
   width: 20px;
   height: 20px;
   fill: none;
-  stroke: var(--createNewBoard);
+  stroke: var(--primaryTextColor);
 `;
 
 export const QuestionHelp = styled.span`
@@ -52,7 +52,7 @@ export const QuestionHelp = styled.span`
   font-size: 12px;
   letter-spacing: -0.02em;
   cursor: pointer;
-  color: var(--needHelpBtn);
+  color: var(--primaryTextColor);
   padding-top: 19px;
 `;
 

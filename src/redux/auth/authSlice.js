@@ -19,7 +19,7 @@ export const authSlice = createSlice({
       email: '',
       name: '',
       avatarURL: '',
-      theme: 'dark',
+      theme: 'light',
       boards: [],
     },
     token: '',
