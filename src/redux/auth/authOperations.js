@@ -85,7 +85,6 @@ export const patchBoard = createAsyncThunk(
       const { data } = await axios.put(`/api/boards`, {
         boards: boardId,
       });
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -98,7 +97,7 @@ export const createBoard = createAsyncThunk(
   async (boardData, thunkAPI) => {
     try {
       const response = await addBoardApi(boardData);
-      const payload = { isActive: true, ...response.data };
+      const payload = { ...response.data, isActive: true };
       return payload;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -143,3 +142,17 @@ export const updateTheme = createAsyncThunk(
 );
 
 export const updateBoardActive = createAction('auth/updateBoardActive');
+// export const updateBoardActive = createAsyncThunk(
+//   'boards/updateBoardActive',
+//   async (id, thunkAPI) => {
+//     console.log(id);
+//     try {
+//       const { data } = await patchBoardApi(id, true);
+//       console.log(data);
+//       return data;
+//     } catch (error) {
+//       console.log(error.message);
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

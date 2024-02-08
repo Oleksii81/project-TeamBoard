@@ -121,7 +121,7 @@ export const BoardCreateBtn = styled.button`
   }
 
   &:hover {
-    background-color: var(—createButtonHover);
+    background-color: var(--createButtonHover);
   }
 `;
 
@@ -129,7 +129,8 @@ export const ModalForm = styled(Form)`
   padding: 24px;
   position: relative;
   background: var(--popupBackground);
-  border-color: var(--addCardButtonBackground);
+  border: 1px solid var(--addCardButtonBackground);
+  border-radius: 8px;
 `;
 
 export const SvgCloseBtn = styled.button`
