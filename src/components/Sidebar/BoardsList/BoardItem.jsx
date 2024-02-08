@@ -1,45 +1,50 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   ItemContainer,
   Title,
   ButtonContainer,
-  CurrentLine,
-} from './BoardItem.styled';
+  // CurrentLine,
+  Button,
+  Icon,
+} from './BoardsList.styled';
 
-// import { editContact } from 'redux/operations';
-// import { deleteContact } from 'redux/operations';
+import icons from '../../../images/sprite.svg';
 
-const BoardItem = ({ id, icon, title }) => {
-  // const dispatch = useDispatch();
-  // const handleEditContact = id => dispatch(editContact(id));
-  // const handleDeleteContact = id => dispatch(deleteContact(id));
+import { editBoard, deleteBoard } from '../../../redux/auth/authOperations';
 
-  //<button onClick={() => handleEditContact(id)}>
-  //<button onClick={() => handleDeleteContact(id)}>
+const BoardItem = ({ id, isActive, icon, title }) => {
+  const dispatch = useDispatch();
+  const handleEditContact = id => dispatch(editBoard(id));
+  const handleDeleteContact = id => dispatch(deleteBoard(id));
+
   return (
-    <ItemContainer>
-      <svg width="18" height="18">
-        <use href={`#icon-${icon}`}></use>
-      </svg>
-
-      <Title>{title}</Title>
+    <ItemContainer className={isActive ? 'activeBoard' : ''}>
+      <Icon className={isActive ? 'activeBoard' : ''}>
+        <svg width="18" height="18">
+          <use href={`${icons}#icon-${icon}`}></use>
+        </svg>
+      </Icon>
+      <Title className={isActive ? 'activeBoard' : ''}>{title}</Title>
       <ButtonContainer>
-        <button>
-        
-          <svg width="16" height="16" stroke="white" stroke-opacity="0.5">
-            <use href={'#icon-pencil'}></use>
+        <Button
+          className={isActive ? 'activeBoard' : ''}
+          onClick={() => handleEditContact(id)}
+        >
+          <svg width="16" height="16">
+            <use href={`${icons}#icon-pencil`}></use>
           </svg>
-        </button>
-        <button>
-        
-        
-          <svg width="16" height="16" stroke="white" stroke-opacity="0.5">
-            <use href={'#icon-trash'}></use>
+        </Button>
+        <Button
+          className={isActive ? 'activeBoard' : ''}
+          onClick={() => handleDeleteContact(id)}
+        >
+          <svg width="16" height="16">
+            <use href={`${icons}#icon-trash`}></use>
           </svg>
-        </button>
+        </Button>
       </ButtonContainer>
-      <CurrentLine />
+      {/* <CurrentLine /> */}
     </ItemContainer>
   );
 };

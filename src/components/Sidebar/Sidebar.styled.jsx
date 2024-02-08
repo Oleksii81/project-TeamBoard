@@ -3,19 +3,19 @@ import styled from 'styled-components';
 export const SideBarMenu = styled.div`
   padding: 24px;
   width: 260px;
+
   height: 100vh;
-  //background-color: var(--sidebarBgColor); // when adding a topic, swap places
-  background-color: purple; // when adding a topic, swap places
+  background-color: var(--sidebarBgColor);
   transition: transform 0.3s linear;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: auto;
+  /* overflow: auto; */
 
   // Tablet
   @media screen and (max-width: 767px) {
     top: 0;
-    overflow: auto;
+    /* overflow: auto; */
     position: fixed;
     left: -260px;
     z-index: 100;
@@ -32,7 +32,7 @@ export const SideBarMenu = styled.div`
     left: -225px;
   }
 `;
-
+ 
 export const ButtonBurger = styled.button`
   display: none;
 
@@ -42,16 +42,17 @@ export const ButtonBurger = styled.button`
     width: 32px;
     height: 32px;
     background-color: var(--headerBgColor); // when adding a topic, swap places
+    /* background-color: black; // when adding a topic, swap places */
     display: block;
     position: fixed;
     top: 18px;
     left: 32px;
-    z-index: 0;
+    z-index: 100;
     &.active {
       display: none;
     }
   }
-`;
+`; 
 
 export const Overlay = styled.div`
   position: fixed;
@@ -68,7 +69,7 @@ export const Overlay = styled.div`
   }
 `;
 
-export const SvgBurger = styled.svg`
+/* export const SvgBurger = styled.svg`
   width: 32px;
   height: 32px;
   position: fixed;
@@ -80,10 +81,10 @@ export const SvgBurger = styled.svg`
     width: 24px;
     height: 24px;
   }
-`;
+`; */
 
-export const BurgerPath = styled.path`
+/* export const BurgerPath = styled.path`
   stroke-linecap: round;
   stroke-miterlimit: 4;
   stroke-width: 2.5;
-`;
+`; */
