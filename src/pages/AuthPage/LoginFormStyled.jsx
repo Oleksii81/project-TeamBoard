@@ -89,7 +89,7 @@ export const EmailErrorMessage = styled(ErrorMessage)`
   top: 49px;
   left: 8px;
   font-size: 12px;
-  color: #b9426e;
+  color: red;
 `;
 
 export const PassErrorMessage = styled(ErrorMessage)`
@@ -97,5 +97,5 @@ export const PassErrorMessage = styled(ErrorMessage)`
   top: 112px;
   left: 8px;
   font-size: 12px;
-  color: #b9426e;
+  color: red;
 `;

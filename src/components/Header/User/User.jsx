@@ -1,27 +1,14 @@
-import { useState } from 'react';
-
-import { selectUser } from '../../../../redux/Auth/selectors';
 import { useSelector } from 'react-redux';
-
-import { UserLogoPopup } from '../UserLogoPopup/UserLogoPopup.styled.js';
-import userFoto from '../../images/user.png';
-
+import { getUserData } from '../../../redux/auth/authSelectors';
+import userFoto from 'assets/img/userWhite.png';
 import {
   StyledBtnProfile,
   StyledImgProfile,
   StyledProfileName,
-  // StyledProfileEmail,
-  // StyledProfilePassword
 } from './User.styled';
 
-export const User = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const { username, avatar } = useSelector(selectUser);
-
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
+export const User = ({ handleOpenModal }) => {
+ const { username, avatar } = useSelector(getUserData);
 
   const editString = name => {
     if (name) {
@@ -33,16 +20,13 @@ export const User = () => {
 
   return (
     <>
-      <StyledBtnProfile onClick={togglePopup}>
+      <StyledBtnProfile onClick={handleOpenModal}>
         {(avatar && <StyledImgProfile src={avatar} alt="Foto" />) || (
           <StyledImgProfile src={userFoto} alt="Default Foto" />
         )}
 
         <StyledProfileName>{editString(username)}</StyledProfileName>
-        {/* <div>Email: {email}</div>
-        <div>Password: {password}</div> */}
       </StyledBtnProfile>
-      <UserLogoPopup isOpen={isOpen} togglePopup={togglePopup} />
     </>
   );
 };

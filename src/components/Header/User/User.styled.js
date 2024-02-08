@@ -17,7 +17,7 @@ export const StyledBtnProfile = styled.button`
 export const StyledImgProfile = styled.img`
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 8%;
 
   @media screen and (min-width: 768px) {
     width: 44px;
@@ -27,7 +27,7 @@ export const StyledImgProfile = styled.img`
 
 export const StyledProfileName = styled.p`
   color: red;
-  font-family: 'Manrope-500', sans-serif;
+  font-family: 'Poppins-500', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
