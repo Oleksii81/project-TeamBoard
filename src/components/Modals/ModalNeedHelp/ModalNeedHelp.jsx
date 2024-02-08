@@ -1,7 +1,20 @@
 import ReactModal from 'react-modal';
-
 import FormNeedHelp from '../../Sidebar/NeedHelp/FormNeedHelp';
-import { OverlayModal } from './ModalNeedHelp.styled';
+
+const stylesModal = {
+  content: {
+    position: 'fixed',
+    inset: '0',
+    top: '0',
+    width: '100%',
+    height: '100%,',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'var(--helpBgColor)',
+    zIndex: 120,
+  },
+};
 
 ReactModal.setAppElement('#root');
 
@@ -9,14 +22,16 @@ const ModalNeedHelp = ({ isOpen, onClose }) => {
  
   return (
      
-    <OverlayModal
+    <ReactModal
       isOpen={isOpen}
       onRequestClose={onClose}
+      style={stylesModal}
+      contentLabel="Image Modal"
     >
       <FormNeedHelp closeModal={onClose}/>
-      </OverlayModal>
+      </ReactModal>
   );
-  };
+};
 
 
 export default ModalNeedHelp;

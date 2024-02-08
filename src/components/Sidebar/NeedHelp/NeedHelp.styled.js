@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContainerHelp = styled.div`
   background: var(--helpBgColor);
-  margin-top: auto;
+  margin: 0;
   border-radius: 8px;
   width: 197px;
   height: 238px;
