@@ -3,7 +3,6 @@ import ReactModal from 'react-modal';
 
 export const OverlayModal = styled(ReactModal)`
   position: relative;
-  border: 1px solid var(--addCardButtonBackground); 
    border-radius: 8px;
   width: 335px;
   height: 433px;
@@ -20,6 +19,7 @@ export const OverlayModal = styled(ReactModal)`
 export const ModalContainerHelp = styled.div`
   background-color: var(--popupBackground);
   border-radius: 8px;
+    border: 1px solid var(--addCardButtonBackground); 
   z-index: 20;
   position: fixed;
   padding-top: 23px;
