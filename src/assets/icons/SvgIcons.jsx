@@ -20,13 +20,13 @@ export const SpriteSVG = ({ name }) => {
         <svg id="icon-add_photo" viewBox="0 0 24 24">
           <path
             fill="#BEDBB0"
-            style="fill: var(--color1, #546081)"
+            style={{ fill: 'var(--color1, #546081)' }}
             d="M18 0H6C2.68629 0 0 2.68629 0 6V18C0 21.3137 2.68629 24 6 24H18C21.3137 24 24 21.3137 24 18V6C24 2.68629 21.3137 0 18 0Z"
           ></path>
           <path
             fill="none"
             stroke="#f3f3f3"
-            style="stroke: var(--color2, #f3f3f3)"
+            style={{ stroke: 'var(--color2, #f3f3f3)' }}
             strokeLinejoin="round"
             strokeLinecap="round"
             strokeMiterlimit="4"
