@@ -4,12 +4,10 @@ import {
 } from './Sidebar.styled';
 import LogoComponent from './LogoComponent/LogoComponent';
 import CreateBord from './CreateBord/CreateBord';
+import BoardsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React from 'react';
-import LogoComponent from './LogoComponent/LogoComponent';
-import CreateBord from './CreateBord/CreateBord';
-import BoardsList from './BoardsList/BoardsList';
 
 const SideBar = ({ isSidebarOpen, onCloseSideBar }) => {
   return (

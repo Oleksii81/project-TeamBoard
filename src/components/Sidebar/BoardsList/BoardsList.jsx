@@ -5,7 +5,7 @@ import BoardItem from './BoardItem';
 import { BoardsContainer } from './BoardsList.styled';
 
 import { getBoardSelector } from '../../../redux/auth/authSelectors';
-import { updateBoardActive } from '../../../redux/auth/authOperations';
+import { patchBoard } from '../../../redux/auth/authOperations';
 
 const BoardsList = () => {
   const boards = useSelector(getBoardSelector);
@@ -13,12 +13,11 @@ const BoardsList = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch();
+    dispatch(patchBoard());
   }, [dispatch]);
 
   const handleClickActive = id => {
     console.log(id);
-    dispatch(updateBoardActive(id, true));
   };
 
   return (
