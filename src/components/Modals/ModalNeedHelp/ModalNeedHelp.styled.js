@@ -3,8 +3,8 @@ import ReactModal from 'react-modal';
 
 export const OverlayModal = styled(ReactModal)`
   position: relative;
-  border: 1px solid rgba(190, 219, 176, 0.5);
-  border-radius: 8px;
+  border: 1px solid var(--addCardButtonBackground); 
+   border-radius: 8px;
   width: 335px;
   height: 433px;
   top: 50%;
