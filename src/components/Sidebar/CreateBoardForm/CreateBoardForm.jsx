@@ -1,10 +1,10 @@
 // import { useState } from "react";
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 // import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
 import Image1 from '../../../../src/images/background/00.png';
@@ -38,14 +38,17 @@ import {
   SubmitSvgWrapper,
   Error,
 } from './CreateBoardForm.styled';
+import { getBoard } from '../../../redux/auth/authSelectors';
+import { createBoard } from '../../../redux/auth/authOperations';
+import { nanoid } from 'nanoid';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
 const CreateBoardForm = ({ closeModalWindow }) => {
-  // const boards = useSelector(getBoardSelector);
-  // const dispatch = useDispatch();
+  const boards = useSelector(getBoard);
+  const dispatch = useDispatch();
   return (
     <Formik
       initialValues={{
@@ -56,19 +59,24 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
         console.log(values);
-        //  const { title, icon, background } = values;
-        //  if (boards.some(board => board.title === values.title)) {
-        //   return notify.warning('The title already exists');
+        const { title } = values;
+        // if (boards.some(board => board.title === values.title)) {
+        //   // return notify.warning('The title already exists');
+        //   console.log('The title already exists');
         // }
 
-        //  dispatch(createBoard(values))
-        //    .unwrap()
-        //    .then(() =>
-        //      Notify.success(
-        //        `${title} has been successfully added to your contacts`
-        //      )
-        //    )
-        //    .catch(error => error.message);
+        boards.push({ ...values, _id: nanoid() });
+        console.log(boards);
+
+        // dispatch(createBoard(values))
+        //   .unwrap()
+        //   .then(() =>
+        //     //  Notify.success(
+        //     //    `${title} has been successfully added to your contacts`
+        //     //  )
+        //     console.log(`${title} has been successfully added to your contacts`)
+        //   )
+        //   .catch(error => error.message);
         actions.resetForm();
         closeModalWindow();
       }}

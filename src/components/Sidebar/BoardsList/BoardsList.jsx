@@ -4,22 +4,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import BoardItem from './BoardItem';
 import { BoardsContainer } from './BoardsList.styled';
 
-import { getBoard } from '../../../redux/auth/authSelectors';
-import { createBoard } from '../../../redux/auth/authOperations';
+import { getBoardSelector } from '../../../redux/auth/authSelectors';
+// import { createBoard } from '../../../redux/auth/authOperations';
 
 const BoardsList = () => {
-  const boards = useSelector(getBoard);
+  const boards = useSelector(getBoardSelector);
   // const boards = [
   //   { _id: '1', isActive: true, icnboard: 'project', title: 'Title 1' },
   //   { _id: '2', isActive: false, icnboard: 'star', title: 'Title 2' },
   //   { _id: '3', isActive: false, icnboard: 'puzzle', title: 'Title 3' },
   // ];
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(createBoard());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(createBoard());
+  // }, [dispatch]);
 
   console.log(boards);
 
