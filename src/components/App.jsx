@@ -8,11 +8,9 @@ import HomePage from 'pages/HomePage/HomePage';
 export const App = () => {
   return (
     <>
-      <>
-        <SideBar />
-        <ScreensPage />
-        <Header />
-      </>
+      <SideBar />
+      <ScreensPage />
+      <Header />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/auth/:id" element={<AuthPage />} />
