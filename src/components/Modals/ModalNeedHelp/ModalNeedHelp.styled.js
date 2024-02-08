@@ -107,7 +107,6 @@ export const BtnSendHelp = styled.button`
   width: 352px;
   height: 49px;
   margin: 24px;
-  color: var(--createNewBoard);
   background-color: var(--greenGreenBlueColor);
   border: none;
 
