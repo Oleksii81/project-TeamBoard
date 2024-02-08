@@ -173,6 +173,7 @@ body[data-theme="light"] {
    --poupHoverColor: rgba(190, 219, 176, 1);
    --createButtonHover: #9DC888;
 
+
   --primaryTextColor: #161616;
   --createNewBoard: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
@@ -264,6 +265,7 @@ body[data-theme="violet"] {
   --popupColor: rgba(22, 22, 22, 1);
   --poupHoverColor: rgba(82, 85, 188, 1);
   --createButtonHover: #7B7EDE;
+
 
   --primaryTextColor: #161616;
   --createNewBoard: #FFFFFF;
