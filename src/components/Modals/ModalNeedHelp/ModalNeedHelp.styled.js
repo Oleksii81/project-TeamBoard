@@ -1,11 +1,25 @@
-
+import ReactModal from 'react-modal';
 import styled from 'styled-components';
+
+export const OverlayModal = styled(ReactModal)`
+  position: relative;
+  border-radius: 8px;
+  width: 335px;
+  height: 433px;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 0%;
+  z-index: 1000;
+`
 
 export const ModalContainerHelp = styled.div`
   background-color: var(--popupBackground);
   border-radius: 8px;
-  border-color: var(--addCardButtonBackground);
-  z-index: 20;
+  border: 1px solid var(--modalBorderColor);
   position: fixed;
   padding-top: 23px;
   width: 400px;
@@ -92,7 +106,7 @@ export const BtnSendHelp = styled.button`
   width: 352px;
   height: 49px;
   margin: 24px;
-  color: var(--createNewBoard);
+  color: var(--addCardButtonColor);
   background-color: var(--greenGreenBlueColor);
   border: none;
 
