@@ -19,6 +19,10 @@ import {
   StyledModalInput,
   StyledSvgWrapper,
   StyledUserFoto,
+  EditProfileText,
+  StyledError,
+  StyledErrorMail,
+  StyledErrorName,
 } from './UserInfoModal.styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -92,7 +96,7 @@ export const UserInfoModal = ({ onClose }) => {
         <StyledBtnClose onClick={onClose}>
           <SpriteSVG name="close" />
         </StyledBtnClose>
-        <p>Edit profile</p>
+        <EditProfileText>Edit profile</EditProfileText>
         <StyledModalHeader>
           <StyledUserFoto
             src={previewImage || avatar || userFoto}
@@ -119,9 +123,9 @@ export const UserInfoModal = ({ onClose }) => {
             onChange={formik.handleChange}
           />
           {formik.errors.userName && formik.touched.userName && (
-            <p style={{ color: 'red', fontSize: '10px' }}>
+            <StyledErrorName>
               {formik.errors.userName}
-            </p>
+            </StyledErrorName>
           )}
           <StyledModalInput
             name="userEmail"
@@ -130,34 +134,31 @@ export const UserInfoModal = ({ onClose }) => {
             onChange={formik.handleChange}
           />
           {formik.errors.userEmail && formik.touched.userEmail && (
-            <p style={{ color: 'red', fontSize: '10px' }}>
-              {formik.errors.userEmail}
-            </p>
+            <StyledErrorMail>{formik.errors.userEmail}</StyledErrorMail>
           )}
-          <StyledModalInput
-            name="userPassword"
-            placeholder="ivetta1999.23"
-            type={showPassword ? 'text' : 'password'}
-            value={formik.values.userPassword || ''}
-            onChange={event => {
-              formik.handleChange(event);
-              setChangedPassword(event.target.value);
-            }}
-          />
-          <StyledBtnEdit
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            <SpriteSVG name= 'eye1' />
-          </StyledBtnEdit>
+          <div style={{ position: 'relative' }}>
+            <StyledModalInput
+              name="userPassword"
+              placeholder="ivetta1999.23"
+              type={showPassword ? 'text' : 'password'}
+              value={formik.values.userPassword || ''}
+              onChange={event => {
+                formik.handleChange(event);
+                setChangedPassword(event.target.value);
+              }}
+            />
+            <StyledBtnEdit
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <SpriteSVG name="eye1" />
+            </StyledBtnEdit>
+          </div>
           {formik.errors.userPassword && formik.touched.userPassword && (
-            <p style={{ color: 'red', fontSize: '10px' }}>
-              {formik.errors.userPassword}
-            </p>
+            <StyledError>{formik.errors.userPassword}</StyledError>
           )}
-          <StyledBtnSave type="submit">Save</StyledBtnSave>
+          <StyledBtnSave type="submit">Send</StyledBtnSave>
         </StyledModalForm>
-
         <Ellipse222 />
         <Ellipse224 />
       </StyledModal>
@@ -168,6 +169,3 @@ export const UserInfoModal = ({ onClose }) => {
 UserInfoModal.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
-
-
-

@@ -1,7 +1,6 @@
-import AuthPage from "pages/AuthPage/AuthPage";
-import WelcomePage from "pages/WelcomePage/WelcomePage";
-import { Route, Routes } from "react-router";
-import UserModalTest from "./UserModalTest";
+import AuthPage from 'pages/AuthPage/AuthPage';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import { Route, Routes } from 'react-router';
 import SideBar from '../../src/components/Sidebar/Sidebar';
 import Header from '../../src/components/Header/Header';
 import ScreensPage from '../../src/components/ScreensPage/ScreensPage';
@@ -12,7 +11,6 @@ export const App = () => {
         <SideBar />
         <ScreensPage />
         <Header />
-        <UserModalTest />
       </>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
