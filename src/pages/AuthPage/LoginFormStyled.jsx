@@ -1,4 +1,4 @@
-import { Field } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -82,4 +82,20 @@ export const StyledSvg = styled.span`
   bottom: 15px;
   height: 18px;
   cursor: pointer;
+`;
+
+export const EmailErrorMessage = styled(ErrorMessage)`
+  position: absolute;
+  top: 49px;
+  left: 8px;
+  font-size: 12px;
+  color: #b9426e;
+`;
+
+export const PassErrorMessage = styled(ErrorMessage)`
+  position: absolute;
+  top: 112px;
+  left: 8px;
+  font-size: 12px;
+  color: #b9426e;
 `;
