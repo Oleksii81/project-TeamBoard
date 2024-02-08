@@ -22,7 +22,7 @@ const schema = yup.object().shape({
     .string()
     .min(8, 'Password must be at least 8 characters')
     .max(64, 'Password must be no more than 64 characters')
-    .matches(/^[a-zA-Z0-9]+$/, {
+    .matches(/^[a-zA-Z0-9!@#$%^&*]{8,64}/, {
       message:
         'Password must contain Latin letters and numbers, without spaces in different case, from 8 to 64 characters',
       excludeEmptyString: true,

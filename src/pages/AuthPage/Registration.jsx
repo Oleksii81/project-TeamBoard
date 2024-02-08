@@ -13,7 +13,7 @@ const schema = yup.object().shape({
     .string()
     .min(2, 'Name is too short!')
     .max(32, 'Name is too long!')
-    .required('Name is req!'),
+    .required('Name is required!'),
   email: yup
     .string()
     .email('Invalid email')
@@ -21,17 +21,17 @@ const schema = yup.object().shape({
       message: 'Email error',
       excludeEmptyString: true,
     })
-    .required('Email is required'),
+    .required('Email is required!'),
   password: yup
     .string()
     .min(8, 'Password must be at least 8 characters')
     .max(64, 'Password must be no more than 64 characters')
-    .matches(/^[a-zA-Z0-9]+$/, {
+    .matches(/^[a-zA-Z0-9!@#$%^&*]{8,64}/, {
       message:
         'Password must contain Latin letters and numbers, without spaces in different case, from 8 to 64 characters',
       excludeEmptyString: true,
     })
-    .required('Password is required'),
+    .required('Password is required!'),
 });
 
 const Registration = () => {
@@ -51,7 +51,7 @@ const Registration = () => {
     if (response.error) {
       toast.error(response.payload)
     } else {
-      navigate('/auth/login');
+      navigate('/home');
     }
     resetForm();
    };
