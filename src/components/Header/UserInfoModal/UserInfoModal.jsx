@@ -35,7 +35,7 @@ const validationSchema = Yup.object({
 
 export const UserInfoModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const { username, email, avatar } = useSelector(getUserData);
+  const { username, email, avatar} = useSelector(getUserData);
   const [selectedFile, setSelectedFile] = useState(null);
   const [changedName] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -69,9 +69,11 @@ export const UserInfoModal = ({ onClose }) => {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append('username', changedName || username);
     formData.append('avatar', selectedFile);
+    formData.append('username', changedName || username);
+    formData.append('email', email);
     formData.append('password', changedPassword || '');
+     
 
     dispatch(updateUser(formData))
       .unwrap()

@@ -95,15 +95,15 @@ export const StyledModalInput = styled.input`
 `;
 
 export const StyledBtnEdit = styled.button`
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   background-color: transparent;
   border: none;
   border-radius: 8px;
   position: absolute;
-  top: 17px;
-  right: 19px;
+  top: 20px;
+  right: 8px;
 `;
 
 export const StyledBtnSave = styled(StyledBtn)`
