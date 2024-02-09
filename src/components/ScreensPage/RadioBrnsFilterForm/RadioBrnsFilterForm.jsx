@@ -4,43 +4,37 @@ import { Field, Formik } from 'formik';
 
 import {
   Header,
- // IconsHeader,
+  IconsHeader,
   IconsContainer,
   FormFilter,
   FormHeadersContainer,
 } from './RadioBtnsFilterForm.styled';
 
-const RadioBtnsFilterForm = ({ priority }) => {
-  //const [selectedPriority, setSelectedPriority] = useState('');
-
-  const onFilterChange = value => {
-   // setSelectedPriority(value);
-    console.log(value);
+const RadioBtnsFilterForm = ({ onSelect, setFilterByPriority }) => {
+  const removeFilters = () => {
+    setFilterByPriority('');
   };
-
   return (
     <Formik
       initialValues={{
         priority: '',
       }}
     >
-      {({ values, handleChange }) => (
+      {({ values }) => (
         <FormFilter>
           <FormHeadersContainer>
             <Header>Label color</Header>
-        {/*    <IconsHeader onClick={setSelectedPriority('')}> 
-              Show all
-            </IconsHeader> */}
+            <IconsHeader onClick={removeFilters}>Show all</IconsHeader>
           </FormHeadersContainer>
-          <IconsContainer priority={priority}>
+          <IconsContainer>
             <label>
               <Field
                 className="icons-filter"
                 type="radio"
                 name="priority"
-                value="without-property"
-                checked={values.priority === 'without-property'}
-                onChange={() => onFilterChange('without-property')}
+                value="without"
+                // checked={values.priority === 'without-property'}
+                onChange={() => onSelect('without')}
               />
               {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>
@@ -53,8 +47,8 @@ const RadioBtnsFilterForm = ({ priority }) => {
                 type="radio"
                 name="priority"
                 value="low"
-                checked={values.priority === 'low'}
-                onChange={() => onFilterChange('low')}
+                // checked={values.priority === 'low'}
+                onChange={() => onSelect('low')}
               />
               {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>
@@ -67,8 +61,8 @@ const RadioBtnsFilterForm = ({ priority }) => {
                 type="radio"
                 name="priority"
                 value="medium"
-                checked={values.priority === 'medium'}
-                onChange={() => onFilterChange('medium')}
+                // checked={values.priority === 'medium'}
+                onChange={() => onSelect('medium')}
               />
               {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>
@@ -81,8 +75,8 @@ const RadioBtnsFilterForm = ({ priority }) => {
                 type="radio"
                 name="priority"
                 value="high"
-                checked={values.priority === 'high'}
-                onChange={() => onFilterChange('high')}
+                // checked={values.priority === 'high'}
+                onChange={() => onSelect('high')}
               />
               {/* <svg width="14px" height="14px">
               <use href={`${icons}#icon-project`}></use>

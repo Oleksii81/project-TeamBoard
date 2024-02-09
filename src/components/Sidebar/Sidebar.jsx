@@ -1,7 +1,4 @@
-import {
-  SideBarMenu,
-  Overlay,
-} from './Sidebar.styled';
+import { SideBarMenu, Overlay } from './Sidebar.styled';
 import LogoComponent from './LogoComponent/LogoComponent';
 import CreateBord from './CreateBord/CreateBord';
 import BoardsList from './BoardsList/BoardsList';
@@ -17,9 +14,9 @@ const SideBar = ({ isSidebarOpen, onCloseSideBar }) => {
         onClick={onCloseSideBar}
       />
       <SideBarMenu className={` ${isSidebarOpen ? 'active' : ''}`}>
-        <LogoComponent/>
-        <CreateBord/>
-        <BoardsList/>
+        <LogoComponent />
+        <CreateBord />
+        {/* <BoardsList /> */}
         <NeedHelp />
         <LogOut />
       </SideBarMenu>

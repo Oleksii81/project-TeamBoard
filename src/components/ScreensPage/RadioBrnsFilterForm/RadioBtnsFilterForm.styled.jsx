@@ -39,20 +39,20 @@ export const IconsHeader = styled.p`
   }
 `;
 
-const onSettingColor = props => {
-  switch (props.priority) {
-    case 'without-priority':
-      return 'rgba(255, 255, 255, 0.3)';
-    case 'low':
-      return 'rgb(143, 161, 208)';
-    case 'medium':
-      return 'rgb(224, 156, 181)';
-    case 'high':
-      return 'rgb(190, 219, 176)';
-    default:
-      return null;
-  }
-};
+// const onSettingColor = props => {
+//   switch (props.priority) {
+//     case 'without-priority':
+//       return 'rgba(255, 255, 255, 0.3)';
+//     case 'low':
+//       return 'rgb(143, 161, 208)';
+//     case 'medium':
+//       return 'rgb(224, 156, 181)';
+//     case 'high':
+//       return 'rgb(190, 219, 176)';
+//     default:
+//       return null;
+//   }
+// };
 
 export const IconsContainer = styled.div`
   display: flex;
@@ -61,8 +61,26 @@ export const IconsContainer = styled.div`
   justify-content: center;
   gap: 8px;
 
-  & input {
-    background-color: ${onSettingColor};
+  & label {
+    cursor: pointer;
+  }
+
+  & input[type='radio'] {
     margin-right: 8px;
+    cursor: pointer;
+
+    width: 14px;
+    height: 14px;
+    appearance: none;
+
+    -webkit-appearance: none;
+    border: 1px solid grey;
+    background-color: grey;
+    border-radius: 100%;
+
+    &:checked {
+      background-color: white;
+      border-width: 1px;
+    }
   }
 `;

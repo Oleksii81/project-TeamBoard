@@ -20,8 +20,8 @@ const FormNeedHelp = ({ closeModal }) => {
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
-      
-       <IconHelp onClick={closeModal}>
+
+      <IconHelp onClick={closeModal}>
         <use href={`${icons}#icon-close`}></use>
       </IconHelp>
 
@@ -54,8 +54,6 @@ const FormNeedHelp = ({ closeModal }) => {
           </FormHelp>
         )}
       </Formik>
-
-     
     </ModalContainerHelp>
   );
 };

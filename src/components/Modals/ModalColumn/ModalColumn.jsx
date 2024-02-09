@@ -1,17 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-const ModalColumn = () => {
-
-}
+const ModalColumn = () => {};
 
 export default ModalColumn;
