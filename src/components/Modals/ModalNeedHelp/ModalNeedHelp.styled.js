@@ -19,7 +19,7 @@ export const OverlayModal = styled(ReactModal)`
 export const ModalContainerHelp = styled.div`
   background-color: var(--popupBackground);
   border-radius: 8px;
-  border: 1px solid var(--addCardButtonBackgroud);
+  border-color: var(--addCardButtonBackground);
   z-index: 20;
   position: fixed;
   padding-top: 23px;
@@ -107,6 +107,7 @@ export const BtnSendHelp = styled.button`
   width: 352px;
   height: 49px;
   margin: 24px;
+  color: var(--createNewBoard);
   background-color: var(--greenGreenBlueColor);
   border: none;
 
