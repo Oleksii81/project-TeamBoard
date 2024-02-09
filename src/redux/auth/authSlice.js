@@ -11,6 +11,7 @@ import {
   editBoard,
   updateBoardActive,
   updateTheme,
+  getAllBoards,
 } from './authOperations';
 
 export const authSlice = createSlice({
@@ -83,7 +84,7 @@ export const authSlice = createSlice({
         state.user.avatarURL = payload.avatarURL;
         state.isRefreshing = false;
         state.error = null;
-        toast.success('Сhanges are successful!');
+        toast.success('Changes are successful!');
       })
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isRefreshing = false;
@@ -94,6 +95,9 @@ export const authSlice = createSlice({
         state.user.theme = payload.theme;
       })
       .addCase(createBoard.fulfilled, (state, { payload }) => {
+        state.user.boards.forEach(board => {
+          board.isActive = false;
+        });
         state.user.boards.push(payload);
         state.isRefreshing = false;
         state.error = null;
@@ -108,6 +112,7 @@ export const authSlice = createSlice({
         );
         if (indexToRemove !== -1) {
           state.user.boards.splice(indexToRemove, 1);
+          state.user.boards[0].isActive = true;
         }
         state.isRefreshing = false;
         state.error = null;
@@ -132,11 +137,25 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = payload;
       })
+      .addCase(getAllBoards.fulfilled, (state, action) => {
+        state.user.boards.forEach(board => {
+          board.isActive = false;
+        });
+        state.user.boards[0].isActive = true;
+      })
+      .addCase(getAllBoards.rejected, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.error = payload;
+      })
       .addCase(updateBoardActive, (state, action) => {
         const { boardId, isActive } = action.payload;
+        // state.user.boards.forEach(board => {
+        //   board.isActive = board._id === boardId ? isActive : false;
+        // });
         state.user.boards.forEach(board => {
-          board.isActive = board._id === boardId ? isActive : false;
+          board.isActive = false;
         });
+        state.user.boards[boardId].isActive = true;
       }),
 });
 

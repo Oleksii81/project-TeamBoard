@@ -1,6 +1,6 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { addBoardApi, deleteBoardApi } from 'services/backApi';
+import { addBoardApi, deleteBoardApi, getAllBoardApi } from 'services/backApi';
 
 axios.defaults.baseURL = 'https://project-backend-task-pro.onrender.com';
 
@@ -144,10 +144,10 @@ export const updateTheme = createAsyncThunk(
 export const updateBoardActive = createAction('auth/updateBoardActive');
 // export const updateBoardActive = createAsyncThunk(
 //   'boards/updateBoardActive',
-//   async (id, thunkAPI) => {
+//   async ({ id, isActive }, thunkAPI) => {
 //     console.log(id);
 //     try {
-//       const { data } = await patchBoardApi(id, true);
+//       const { data } = await patchBoardApi({ id, isActive });
 //       console.log(data);
 //       return data;
 //     } catch (error) {
@@ -156,3 +156,17 @@ export const updateBoardActive = createAction('auth/updateBoardActive');
 //     }
 //   }
 // );
+
+export const getAllBoards = createAsyncThunk(
+  'boards/getAllBoards',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await getAllBoardApi();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

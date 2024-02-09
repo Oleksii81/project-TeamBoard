@@ -5,23 +5,28 @@ import BoardItem from './BoardItem';
 import { BoardsContainer } from './BoardsList.styled';
 
 import { getBoardSelector } from '../../../redux/auth/authSelectors';
-
-import { getBoardApi } from '../../../services/backApi';
+// import { getBoardApi, patchBoardApi } from '../../../services/backApi';
+import {
+  getAllBoards,
+  updateBoardActive,
+} from '../../../redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
 
 const BoardsList = () => {
   const boards = useSelector(getBoardSelector);
   console.log(boards);
 
-  useEffect(() => {}, []);
-
-  const handleClickActive = id => getBoardApi(id);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllBoards());
+  }, [dispatch]);
 
   return (
     <BoardsContainer>
-      {boards !== undefined && boards.length > 0 && (
+      {boards && boards.length > 0 && (
         <ul>
           {boards.map(board => (
-            <li key={board._id} onClick={() => handleClickActive(board._id)}>
+            <li key={board._id} onClick={() => updateBoardActive(board._id)}>
               <BoardItem
                 id={board._id}
                 isActive={board.isActive}

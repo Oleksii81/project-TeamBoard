@@ -59,13 +59,13 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       onSubmit={(values, actions) => {
         console.log(values);
         const { title } = values;
-        if (boards !== undefined && boards.some(board => board.title === values.title)) {
+        if (boards && boards.some(board => board.title === values.title)) {
           // return notify.warning('The title already exists');
           console.log('The title already exists');
           return;
         }
 
-        dispatch(createBoard({ ...values, isActive: true }))
+        dispatch(createBoard({ ...values }))
           .unwrap()
           .then(() =>
             //  Notify.success(
