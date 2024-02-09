@@ -4,30 +4,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import BoardItem from './BoardItem';
 import { BoardsContainer } from './BoardsList.styled';
 
-import { getBoard } from '../../../redux/auth/authSelectors';
-import { createBoard } from '../../../redux/auth/authOperations';
+import { getBoardSelector } from '../../../redux/auth/authSelectors';
+import { patchBoard } from '../../../redux/auth/authOperations';
 
 const BoardsList = () => {
-  const boards = useSelector(getBoard);
-  // const boards = [
-  //   { _id: '1', isActive: true, icnboard: 'project', title: 'Title 1' },
-  //   { _id: '2', isActive: false, icnboard: 'star', title: 'Title 2' },
-  //   { _id: '3', isActive: false, icnboard: 'puzzle', title: 'Title 3' },
-  // ];
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(createBoard());
-  }, [dispatch]);
-
+  const boards = useSelector(getBoardSelector);
   console.log(boards);
 
-  const handleClickActive = () => {};
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(patchBoard());
+  }, [dispatch]);
+
+  const handleClickActive = id => {
+    console.log(id);
+  };
 
   return (
     <BoardsContainer>
-      {boards.length > 0 && boards[1] !== null && (
+      {boards.length > 0 && (
         <ul>
           {boards.map(board => (
             <li key={board._id} onClick={() => handleClickActive(board._id)}>

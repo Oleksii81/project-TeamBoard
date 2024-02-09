@@ -27,7 +27,7 @@ export const Icon = styled.div`
   fill: none;
   stroke: var(--textBoardColor);
 
-  &.activeBoard {
+  &.activeBoardIcon {
     stroke: var(--createNewBoard);
   }
 `;
@@ -39,7 +39,7 @@ export const Title = styled.p`
 
   color: var(--textBoardColor);
 
-  &.activeBoard {
+  &.activeBoardTitle {
     color: var(--createNewBoard);
     opacity: 1;
   }
@@ -58,7 +58,8 @@ export const Button = styled.button`
   fill: none;
   stroke: none;
 
-  &.activeBoard {
+  &:hover,
+  &.activeBoardButton {
     stroke: var(--textBoardColor);
     cursor: pointer;
   }

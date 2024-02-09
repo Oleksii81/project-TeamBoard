@@ -1,7 +1,6 @@
-import ReactModal from 'react-modal';
-
 import FormNeedHelp from '../../Sidebar/NeedHelp/FormNeedHelp';
 import { OverlayModal } from './ModalNeedHelp.styled';
+import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#root');
 
@@ -16,7 +15,7 @@ const ModalNeedHelp = ({ isOpen, onClose }) => {
       <FormNeedHelp closeModal={onClose}/>
       </OverlayModal>
   );
-  };
+};
 
 
 export default ModalNeedHelp;

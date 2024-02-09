@@ -4,6 +4,10 @@ const baseUrl = 'https://project-backend-task-pro.onrender.com';
 
 axios.defaults.baseURL = baseUrl;
 
+export const fetchHelpApi = async data => {
+  return await axios.post(`/api/help`, { ...data });
+};
+
 /* BOARDS */
 export const getAllBoardApi = async id => {
     return await axios.get(`/api/boards`).then(res => res);
@@ -19,6 +23,10 @@ export const getBoardApi = async id => {
 
 export const deleteBoardApi = async id => {
    return await axios.delete(`/api/boards/${id}`).then(res => res);
+ };
+
+export const patchBoardApi = async (id, isActive) => {
+   return await axios.patch(`/api/boards/active/${id}`, isActive).then(res => res);
  };
 
  /* COLUMN */
