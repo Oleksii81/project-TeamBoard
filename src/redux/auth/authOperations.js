@@ -1,4 +1,4 @@
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { addBoardApi, deleteBoardApi, getAllBoardApi } from 'services/backApi';
 
@@ -141,21 +141,19 @@ export const updateTheme = createAsyncThunk(
   }
 );
 
-export const updateBoardActive = createAction('auth/updateBoardActive');
-// export const updateBoardActive = createAsyncThunk(
-//   'boards/updateBoardActive',
-//   async ({ id, isActive }, thunkAPI) => {
-//     console.log(id);
-//     try {
-//       const { data } = await patchBoardApi({ id, isActive });
-//       console.log(data);
-//       return data;
-//     } catch (error) {
-//       console.log(error.message);
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const updateBoardActive = createAsyncThunk(
+  'boards/updateBoardActive',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`/api/boards/active/${id}`, {
+        isActive: true,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const getAllBoards = createAsyncThunk(
   'boards/getAllBoards',
@@ -165,7 +163,6 @@ export const getAllBoards = createAsyncThunk(
       console.log(data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

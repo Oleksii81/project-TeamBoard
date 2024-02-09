@@ -147,15 +147,19 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = payload;
       })
-      .addCase(updateBoardActive, (state, action) => {
-        const { boardId, isActive } = action.payload;
-        // state.user.boards.forEach(board => {
-        //   board.isActive = board._id === boardId ? isActive : false;
-        // });
+      .addCase(updateBoardActive.fulfilled, (state, { payload }) => {
+        const id = payload[0]._id;
+        const indexToActive = state.user.boards.findIndex(
+          board => board._id === id
+        );
         state.user.boards.forEach(board => {
           board.isActive = false;
         });
-        state.user.boards[boardId].isActive = true;
+        state.user.boards[indexToActive].isActive = true;
+      })
+      .addCase(updateBoardActive.rejected, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.error = payload;
       }),
 });
 

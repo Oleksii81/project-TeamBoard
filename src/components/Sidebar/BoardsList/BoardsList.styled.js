@@ -58,7 +58,6 @@ export const Button = styled.button`
   fill: none;
   stroke: none;
 
-  &:hover,
   &.activeBoardButton {
     stroke: var(--textBoardColor);
     cursor: pointer;
