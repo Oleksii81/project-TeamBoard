@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100vh;
-  /* max-width: 1440px; */
   padding-top: 166px;
   background-image: linear-gradient(to bottom, white, rgba(190, 219, 176, 1));
 `;
@@ -14,10 +13,26 @@ export const StyledWelcomePage = styled.div`
   align-items: center;
   flex-direction: column;
   text-align: center;
-  width: 473px;
+  max-width: 100%;
   height: 438px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: 375px){
+    width: 335px;
+  }
+  @media screen and (min-width: 765px) {
+    width: 473px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+export const StyledImg = styled.img`
+  @media screen and (max-width: 765px) {
+    width: 124px;
+    height: 124px;
+  }
 `;
 
 export const StyledLinks = styled.div`
@@ -46,13 +61,35 @@ export const StyledLink = styled(NavLink)`
     height: 49px;
     text-align: center;
   }
+  @media screen and (max-width: 765px) {
+    &:hover{
+      width: 335px;
+    }
+  }
 `;
 
 export const StyledLogo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 24px 0 8px 0;
+  margin: 24px 0 24px 0;
   gap: 14px;
   height: 60px;
-`
+
+  @media screen and (max-width: 765px) {
+    margin-top: 14px;
+  }
+`;
+
+export const StyledSvg = styled.svg`
+  @media screen and (max-width: 765px) {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
+export const StyledText = styled.h1`
+  @media screen and (max-width: 765px) {
+    font-size: 28px;
+  }
+`;
