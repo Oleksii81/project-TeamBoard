@@ -21,6 +21,10 @@ export const deleteBoardApi = async id => {
    return await axios.delete(`/api/boards/${id}`).then(res => res);
  };
 
+export const patchBoardApi = async (id, isActive) => {
+   return await axios.patch(`/api/boards/active/${id}`, isActive).then(res => res);
+ };
+
  /* COLUMN */
 
 export const addColumnApi = async columnForm => {
