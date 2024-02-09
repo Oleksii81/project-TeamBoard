@@ -22,7 +22,7 @@ const BoardsList = () => {
 
   return (
     <BoardsContainer>
-      {boards.length > 0 && (
+      {boards !== undefined && boards.length > 0 && (
         <ul>
           {boards.map(board => (
             <li key={board._id} onClick={() => handleClickActive(board._id)}>
