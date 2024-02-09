@@ -6,6 +6,7 @@ import { BoardsContainer } from './BoardsList.styled';
 
 import { getBoardSelector } from '../../../redux/auth/authSelectors';
 import { patchBoard } from '../../../redux/auth/authOperations';
+import { getBoardApi } from '../../../services/backApi';
 
 const BoardsList = () => {
   const boards = useSelector(getBoardSelector);
@@ -16,9 +17,7 @@ const BoardsList = () => {
     dispatch(patchBoard());
   }, [dispatch]);
 
-  const handleClickActive = id => {
-    console.log(id);
-  };
+  const handleClickActive = id => dispatch(getBoardApi(id));
 
   return (
     <BoardsContainer>
