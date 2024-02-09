@@ -8,21 +8,34 @@ export const StyledLinks = styled.div`
 export const StyledLink = styled(NavLink)`
   color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
-  margin-left: 14px;
+  margin-right: 14px;
 
   &.active {
     color: #fff;
   }
 `;
 export const FormContainer = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
 
   border-radius: 8px;
-  width: 424px;
+  max-width: 100%;
   height: 332px;
   background: #151515;
+
+  @media screen and (min-width: 375px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 335px;
+  }
+
+  @media screen and (min-width: 765px) {
+    width: 424px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 `;
 
 export const StyledFilds = styled.div`
@@ -31,14 +44,13 @@ export const StyledFilds = styled.div`
   margin-top: 40px;
   margin-bottom: 24px;
   position: relative;
-  width: 344px;
   gap: 14px;
 `;
 
 export const Input = styled(Field)`
   border: 1px solid #bedbb0;
   border-radius: 8px;
-  /* width: 344px; */
+  width: 100%;
   height: 49px;
   padding-left: 18px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
@@ -66,7 +78,7 @@ export const StyledButton = styled.button`
   color: #161616;
   background: #bedbb0;
   border-radius: 8px;
-  width: 344px;
+  width: 100%;
   height: 49px;
   text-align: center;
   cursor: pointer;
