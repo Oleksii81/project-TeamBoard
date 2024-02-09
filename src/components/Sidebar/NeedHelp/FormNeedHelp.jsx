@@ -10,13 +10,14 @@ import {
   BtnSendHelp,
   IconHelp,
 } from '../../../components/Modals/ModalNeedHelp/ModalNeedHelp.styled';
+import { fetchHelpApi } from 'services/backApi';
 
 const NeedHelpSchema = Yup.object().shape({
   email: Yup.string().email().required('Email is required'),
   comment: Yup.string().required('Comment is required'),
 });
 
-const FormNeedHelp = ({ closeModal }) => {
+const FormNeedHelp = ({ closeModal, handleSubmit }) => {
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
@@ -31,12 +32,13 @@ const FormNeedHelp = ({ closeModal }) => {
           comment: '',
         }}
         validationSchema={NeedHelpSchema}
-        onSubmit={(values, actions) => {
-          actions.resetForm();
+        onSubmit={(values, {resetForm}) => {
+          fetchHelpApi(values);
+          resetForm();
           closeModal();
         }}
       >
-        {({ handleSubmit }) => (
+        {(
           <FormHelp onSubmit={handleSubmit}>
             <InputHelp
               type="email"
