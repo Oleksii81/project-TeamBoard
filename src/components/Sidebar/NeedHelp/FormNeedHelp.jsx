@@ -17,7 +17,7 @@ const NeedHelpSchema = Yup.object().shape({
   comment: Yup.string().required('Comment is required'),
 });
 
-const FormNeedHelp = ({ closeModal, handleSubmit }) => {
+const FormNeedHelp = ({ closeModal, handleSubmit, userEmail }) => {
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
@@ -28,13 +28,13 @@ const FormNeedHelp = ({ closeModal, handleSubmit }) => {
 
       <Formik
         initialValues={{
-          email: '',
+          email: userEmail,
           comment: '',
         }}
         validationSchema={NeedHelpSchema}
         onSubmit={(values, {resetForm}) => {
-          fetchHelpApi(values);
-          resetForm();
+         fetchHelpApi(values);
+         resetForm();
           closeModal();
         }}
       >
