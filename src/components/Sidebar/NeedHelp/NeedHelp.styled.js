@@ -8,6 +8,7 @@ export const ContainerHelp = styled.div`
   width: 197px;
   height: 238px;
   padding: 16px;
+  margin-top: auto;
 
   @media (min-width: 768px) {
     width: 212px;
