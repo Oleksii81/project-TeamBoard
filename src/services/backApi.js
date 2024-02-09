@@ -17,9 +17,16 @@ export const addBoardApi = async boardForm => {
    return await axios.post('/api/boards', { ...boardForm }).then(res => res);
  };
 
-export const getBoardApi = async id => {
-   return await axios.get(`/api/boards/${id}`).then(res => res);
- };
+ export const getBoardApi = async id => {
+  try {
+    const response = await axios.get(`/api/boards/${id}`);
+    const data = response.data;
+    const isActive = response.status === 200;
+    return { ...data, isActive };
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const deleteBoardApi = async id => {
    return await axios.delete(`/api/boards/${id}`).then(res => res);
