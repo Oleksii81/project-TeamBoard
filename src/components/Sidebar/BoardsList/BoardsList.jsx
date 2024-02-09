@@ -1,23 +1,20 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import BoardItem from './BoardItem';
 import { BoardsContainer } from './BoardsList.styled';
 
 import { getBoardSelector } from '../../../redux/auth/authSelectors';
-import { patchBoard } from '../../../redux/auth/authOperations';
+
 import { getBoardApi } from '../../../services/backApi';
 
 const BoardsList = () => {
   const boards = useSelector(getBoardSelector);
   console.log(boards);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(patchBoard());
-  }, [dispatch]);
+  useEffect(() => {}, []);
 
-  const handleClickActive = id => dispatch(getBoardApi(id));
+  const handleClickActive = id => getBoardApi(id);
 
   return (
     <BoardsContainer>
