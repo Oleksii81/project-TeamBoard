@@ -66,7 +66,7 @@ export const updateUser = createAsyncThunk(
   'users/updateUser',
   async (formData, thunkAPI) => {
     try {
-      const { data } = await axios.put('/api/auth', formData, {
+      const { data } = await axios.put('/api/auth/users', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
