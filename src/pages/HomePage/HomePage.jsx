@@ -1,5 +1,5 @@
 import Header from 'components/Header/Header';
-// import ScreensPage from 'components/ScreensPage/ScreensPage';
+import ScreensPage from 'components/ScreensPage/ScreensPage';
 import Sidebar from 'components/Sidebar/Sidebar';
 import { useState } from 'react';
 
@@ -18,7 +18,7 @@ const HomePage = () => {
         <>
         <Sidebar isSidebarOpen={isSidebarOpen} onCloseSideBar={closeSidebar}/>
         <Header  toggleSidebar={toggleSidebar}/>
-        {/* <ScreensPage /> */}
+        <ScreensPage /> 
           
         </>
       );

@@ -25,7 +25,7 @@ export const ImgHelp = styled.img`
 export const TextHelp = styled.p`
   width: 163px;
   margin-top: 14px;
-  color: var(--primaryTextColor);
+  color: var(--needHelpBtn);
   font-size: 12px;
   line-height: 1.34;
   letter-spacing: -0.24px;
@@ -46,7 +46,7 @@ export const IconHelp = styled.svg`
   width: 20px;
   height: 20px;
   fill: none;
-  stroke: var(--primaryTextColor);
+  stroke: var(--needHelpBtn);
 `;
 
 export const QuestionHelp = styled.span`
@@ -54,7 +54,7 @@ export const QuestionHelp = styled.span`
   font-size: 12px;
   letter-spacing: -0.02em;
   cursor: pointer;
-  color: var(--primaryTextColor);
+  color: var(--needHelpBtn);
   padding-top: 19px;
 `;
 

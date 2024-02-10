@@ -21,7 +21,7 @@ export const Header = styled.h3`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
 `;
 
 export const IconsHeader = styled.p`
@@ -39,20 +39,6 @@ export const IconsHeader = styled.p`
   }
 `;
 
-const onSettingColor = props => {
-  switch (props.priority) {
-    case 'without-priority':
-      return 'rgba(255, 255, 255, 0.3)';
-    case 'low':
-      return 'rgb(143, 161, 208)';
-    case 'medium':
-      return 'rgb(224, 156, 181)';
-    case 'high':
-      return 'rgb(190, 219, 176)';
-    default:
-      return null;
-  }
-};
 
 export const IconsContainer = styled.div`
   display: flex;
@@ -60,9 +46,6 @@ export const IconsContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 8px;
+  
 
-  & input {
-    background-color: ${onSettingColor};
-    margin-right: 8px;
-  }
 `;

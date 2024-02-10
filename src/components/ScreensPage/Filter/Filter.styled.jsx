@@ -30,7 +30,7 @@ export const Container = styled.div`
 
   svg {
     stroke-width: 1.5px;
-    stroke: rgba(255, 255, 255, 0.8);
+    stroke: var(--themeTitleTextColor);
   }
 `;
 
@@ -39,15 +39,16 @@ export const FilterText = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--themeTitleTextColor);
 `;
 
 export const WindowContainer = styled.div`
   position: absolute;
   right: 20px;
   top: 40px;
+  background-color: var(--popupBackground);
 
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  border: 1px solid var(--modalGorizontalBorderColor);
   border-radius: 8px;
   width: 300px;
   height: 234px;
@@ -66,7 +67,7 @@ export const FilerModalBtn = styled.button`
 
   svg {
     stroke-width: 1.5px;
-    stroke: #fff;
+    stroke: var(--primaryTextColor);
   }
 `;
 
@@ -75,7 +76,7 @@ export const FilterFormHeading = styled.h3`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
   position: relative;
 
   &::after {
@@ -85,7 +86,7 @@ export const FilterFormHeading = styled.h3`
     right: 0;
     width: 100%;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--modalGorizontalBorderColor);
     margin-bottom: 14px;
   }
 `;
