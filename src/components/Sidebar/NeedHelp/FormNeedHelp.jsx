@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
+import { useSelector } from 'react-redux';
 import * as Yup from 'yup';
+
 import icons from '../../../images/sprite.svg';
 import {
   ModalContainerHelp,
@@ -10,14 +12,20 @@ import {
   BtnSendHelp,
   IconHelp,
 } from '../../../components/Modals/ModalNeedHelp/ModalNeedHelp.styled';
-import { fetchHelpApi } from 'services/backApi';
+
+import { fetchHelpApi } from '../../../services/backApi';
+import { getUserEmail } from '../../../redux/auth/authSelectors';
+
 
 const NeedHelpSchema = Yup.object().shape({
   email: Yup.string().email().required('Email is required'),
   comment: Yup.string().required('Comment is required'),
 });
 
-const FormNeedHelp = ({ closeModal, handleSubmit, userEmail }) => {
+
+const FormNeedHelp = ({ closeModal }) => {
+  const userEmail = useSelector(getUserEmail);
+
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
@@ -28,7 +36,7 @@ const FormNeedHelp = ({ closeModal, handleSubmit, userEmail }) => {
 
       <Formik
         initialValues={{
-          email: userEmail,
+          email: `${userEmail}`,
           comment: '',
         }}
         validationSchema={NeedHelpSchema}
@@ -39,7 +47,7 @@ const FormNeedHelp = ({ closeModal, handleSubmit, userEmail }) => {
         }}
       >
         {(
-          <FormHelp onSubmit={handleSubmit}>
+          <FormHelp>
             <InputHelp
               type="email"
               name="email"
