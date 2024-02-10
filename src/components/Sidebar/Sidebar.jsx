@@ -16,7 +16,7 @@ const SideBar = ({ isSidebarOpen, onCloseSideBar }) => {
       <SideBarMenu className={` ${isSidebarOpen ? 'active' : ''}`}>
         <LogoComponent />
         <CreateBord />
-        {/* <BoardsList /> */}
+        <BoardsList />
         <NeedHelp />
         <LogOut />
       </SideBarMenu>

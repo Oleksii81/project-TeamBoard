@@ -20,72 +20,54 @@ const RadioBtnsFilterForm = ({ onSelect, setFilterByPriority }) => {
         priority: '',
       }}
     >
-      {({ values }) => (
-        <FormFilter>
-          <FormHeadersContainer>
-            <Header>Label color</Header>
-            <IconsHeader onClick={removeFilters}>Show all</IconsHeader>
-          </FormHeadersContainer>
-          <IconsContainer>
-            <label>
-              <Field
-                className="icons-filter"
-                type="radio"
-                name="priority"
-                value="without"
-                // checked={values.priority === 'without-property'}
-                onChange={() => onSelect('without')}
-              />
-              {/* <svg width="14px" height="14px">
-              <use href={`${icons}#icon-project`}></use>
-            </svg> */}
-              Without property
-            </label>
-            <label>
-              <Field
-                className="icons-filter"
-                type="radio"
-                name="priority"
-                value="low"
-                // checked={values.priority === 'low'}
-                onChange={() => onSelect('low')}
-              />
-              {/* <svg width="14px" height="14px">
-              <use href={`${icons}#icon-project`}></use>
-            </svg> */}
-              Low
-            </label>
-            <label>
-              <Field
-                className="icons-filter"
-                type="radio"
-                name="priority"
-                value="medium"
-                // checked={values.priority === 'medium'}
-                onChange={() => onSelect('medium')}
-              />
-              {/* <svg width="14px" height="14px">
-              <use href={`${icons}#icon-project`}></use>
-            </svg> */}
-              Medium
-            </label>
-            <label>
-              <Field
-                className="icons-filter"
-                type="radio"
-                name="priority"
-                value="high"
-                // checked={values.priority === 'high'}
-                onChange={() => onSelect('high')}
-              />
-              {/* <svg width="14px" height="14px">
-              <use href={`${icons}#icon-project`}></use>
-            </svg> */}
-              High
-            </label>
-          </IconsContainer>
-        </FormFilter>
-      )}
+      <FormFilter>
+        <FormHeadersContainer>
+          <Header>Label color</Header>
+          <IconsHeader onClick={removeFilters}>Show all</IconsHeader>
+        </FormHeadersContainer>
+        <IconsContainer>
+          <label>
+            <Field
+              className="icons-filter"
+              type="radio"
+              name="priority"
+              value="without"
+              onChange={() => onSelect('without')}
+            />
+            Without property
+          </label>
+          <label>
+            <Field
+              className="icons-filter"
+              type="radio"
+              name="priority"
+              value="low"
+              onChange={() => onSelect('low')}
+            />
+            Low
+          </label>
+          <label>
+            <Field
+              className="icons-filter"
+              type="radio"
+              name="priority"
+              value="medium"
+              onChange={() => onSelect('medium')}
+            />
+            Medium
+          </label>
+          <label>
+            <Field
+              className="icons-filter"
+              type="radio"
+              name="priority"
+              value="high"
+              onChange={() => onSelect('high')}
+            />
+            High
+          </label>
+        </IconsContainer>
+      </FormFilter>
     </Formik>
   );
 };

@@ -8,7 +8,7 @@ import { BoardName, ColumnAddBtn, SvgDiv } from './AddBoardBtn.styled';
 
 export const AddBoardBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const boards = useSelector(getBoard);
+  const boards = useSelector(getBoard);
 
   const openModal = () => {
     setIsOpen(true);
@@ -16,10 +16,7 @@ export const AddBoardBtn = () => {
 
   return (
     <>
-      <BoardName>
-        {/* {boards.title} */}
-        Title
-      </BoardName>
+      <BoardName>{boards.title}</BoardName>
 
       <ColumnAddBtn type="button" onClick={openModal}>
         <SvgDiv>
