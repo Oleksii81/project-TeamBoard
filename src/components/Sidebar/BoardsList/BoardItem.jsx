@@ -52,6 +52,7 @@ const BoardItem = ({ id, isActive, icon, title }) => {
       </ButtonContainer>
       <CurrentLine className={isActive ? 'activeLine' : ''} />
       <EditModalBord
+        id={id}
         isOpen={isOpen}
         openModal={openModal}
         closeModal={() => setIsOpen(false)}

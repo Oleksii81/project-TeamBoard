@@ -1,17 +1,17 @@
 import Modal from 'react-modal';
-import EditBoardForm from '../../../../src/components/Sidebar/EditBoardForm/EditBoardForm';
+import EditBoardForm from '../../Sidebar/EditBoardForm/EditBoardForm';
 import { ModalCustom } from './ModalBord.styled';
 
 Modal.setAppElement('#root');
 
-const EditModalBord = ({ isOpen, closeModal }) => {
+const EditModalBord = ({ isOpen, closeModal, id }) => {
   return (
     <ModalCustom
       isOpen={isOpen}
       onRequestClose={closeModal}
       contentLabel="Modal for Edit Board"
     >
-      <EditBoardForm closeModalWindow={closeModal} />
+      <EditBoardForm id={id} closeModalWindow={closeModal} />
     </ModalCustom>
   );
 };

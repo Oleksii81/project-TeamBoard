@@ -37,43 +37,49 @@ import {
   SubmitSvgWrapper,
   Error,
 } from './EditBoardForm.styled';
-import { getBoard } from '../../../redux/auth/authSelectors';
-import { createBoard } from '../../../redux/auth/authOperations';
+import { editBoard } from '../../../redux/auth/authOperations';
+import { getBoardSelector } from '../../../redux/auth/authSelectors';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
-const EditBoardForm = ({ closeModalWindow }) => {
-  const boards = useSelector(getBoard);
-  // const title = useSelector(getBoardSelector);
-
+const EditBoardForm = ({ closeModalWindow, id }) => {
   const dispatch = useDispatch();
+
+  const boards = useSelector(getBoardSelector);
+  const { title, icnboard, background } = boards.find(board => {
+    return board._id === id;
+  });
 
   return (
     <Formik
       initialValues={{
-        title: '',
-        icnboard: 'icon-project',
-        background: 1,
+        title: title,
+        icnboard: icnboard,
+        background: background,
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
         console.log(values);
-        const { title } = values;
-        if (boards && boards.some(board => board.title === values.title)) {
+
+        if (
+          title === values.title ??
+          icnboard === values.icnboard ??
+          background === values.background
+        ) {
           // return notify.warning('The title already exists');
-          console.log('The title already exists');
+          console.log('Data does not change');
           return;
         }
 
-        dispatch(createBoard({ ...values }))
+        dispatch(editBoard(id, { ...values }))
           .unwrap()
           .then(() =>
             //  Notify.success(
             //    `${title} has been successfully added to your contacts`
             //  )
-            console.log(`${title} has been successfully added to your contacts`)
+            console.log('Board has been successfully updated')
           )
           .catch(error => error.message);
         actions.resetForm();
