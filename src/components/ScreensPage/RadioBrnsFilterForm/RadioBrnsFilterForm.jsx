@@ -1,6 +1,4 @@
 import { Field, Formik } from 'formik';
-//import icons from '../../../../src/images/sprite.svg';
-//import { useState } from 'react';
 
 import {
   Header,
