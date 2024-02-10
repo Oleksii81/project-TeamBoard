@@ -1,24 +1,46 @@
-import AuthPage from 'pages/AuthPage/AuthPage';
-import WelcomePage from 'pages/WelcomePage/WelcomePage';
-import { Route, Routes } from 'react-router';
-import HomePage from 'pages/HomePage/HomePage';
+import { Navigate, Route, Routes } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { Suspense, lazy, useEffect } from 'react';
+import { PrivateRoute, RestrictedRoute } from './AuthRoutes';
+import { refreshUser } from '../redux/auth/authOperations';
+import { isLogin, isRefreshing } from '../redux/auth/authSelectors';
+import { isLoading } from '../redux/task/taskSelectors';
+import Loader from './Loader/Loader';
 
-// import SideBar from '../../src/components/Sidebar/Sidebar';
-// import Header from '../../src/components/Header/Header';
-// import ScreensPage from '../../src/components/ScreensPage/ScreensPage';
-
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
+const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
 export const App = () => {
-  return (
-    // <>
-    //   <SideBar />
-    //   <ScreensPage />
-    //   <Header />
-    // </>
+  const dispatch = useDispatch();
+  const isRefresh = useSelector(isRefreshing);
+  const isAuth = useSelector(isLogin);
+  const spinner = useSelector(isLoading);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+  return isRefresh || spinner ? (
+    <Loader />
+  ) : (
+    <Suspense fallback={<Loader />}>
     <Routes>
-      <Route path="/" element={<WelcomePage />} />
-      <Route path="/auth/:id" element={<AuthPage />} />
-      <Route path="/home" element={<HomePage />} />
+      <Route
+            path="/"
+            element={
+              isAuth ? <Navigate to="/home" replace={true} /> : <WelcomePage />
+            }
+          />
+      <Route
+            path="/auth/:id"
+            element={<RestrictedRoute component={AuthPage} redirectTo="/home" />}
+          />
+          <Route
+            path="/home"
+            element={<PrivateRoute component={HomePage} redirectTo="/" />}
+          ></Route>
+          <Route path="*" element={<WelcomePage />} />
     </Routes>
+    </Suspense>
   );
 };

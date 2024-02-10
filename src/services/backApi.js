@@ -50,7 +50,7 @@ export const deleteColumnApi = async columnId => {
    return await axios.delete(`api/columns/${columnId}`).then(res => res);
 };
 
-/* CARD 
+/* CARD */
 
 export const addCardApi = async form => {
   return await axios.post('/api/tasks', { ...form }).then(res => res);
@@ -79,4 +79,4 @@ export const replaceCardApi = async (id, columns) => {
   data.idCard = id;
   data.columnOld = columnID;
   return { data };
-}; */
+}; 
