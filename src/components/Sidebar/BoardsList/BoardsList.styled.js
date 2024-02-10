@@ -8,6 +8,11 @@ export const BoardsContainer = styled.div`
   overflow-y: auto;
   margin-bottom: 40px;
   scrollbar-width: none;
+
+  @media screen and (max-width: 375px) {
+    width: 225px;
+    left: -14px;
+  }
 `;
 
 export const ItemContainer = styled.div`
@@ -78,5 +83,9 @@ export const CurrentLine = styled.div`
 
   &.activeLine {
     background: var(--iconLogOut);
+  }
+
+  @media screen and (max-width: 375px) {
+    left: 221px;
   }
 `;
