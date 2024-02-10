@@ -1,9 +1,8 @@
-// import { useState } from "react";
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 
-// import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
@@ -57,21 +56,17 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
         const { title } = values;
         if (boards && boards.some(board => board.title === values.title)) {
-          // return notify.warning('The title already exists');
-          console.log('The title already exists');
-          return;
+          return toast.warning('The title already exists');
         }
 
-        dispatch(createBoard({ ...values }))
+        dispatch(createBoard(values))
           .unwrap()
           .then(() =>
-            //  Notify.success(
-            //    `${title} has been successfully added to your contacts`
-            //  )
-            console.log(`${title} has been successfully added to your contacts`)
+            toast.success(
+              `${title} has been successfully added to your contacts`
+            )
           )
           .catch(error => error.message);
         actions.resetForm();
@@ -353,7 +348,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           </SubmitSvgWrapper>
           Create
         </BoardCreateBtn>
-        {/* <ToastContainer
+        <ToastContainer
           position="center"
           autoClose={5000}
           hideProgressBar={false}
@@ -364,7 +359,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           draggable
           pauseOnHover
           theme="light"
-        /> */}
+        />
       </ModalForm>
     </Formik>
   );

@@ -39,21 +39,6 @@ export const IconsHeader = styled.p`
   }
 `;
 
-const onSettingColor = props => {
-  switch (props.priority) {
-    case 'without-priority':
-      return 'rgba(255, 255, 255, 0.3)';
-    case 'low':
-      return 'rgb(143, 161, 208)';
-    case 'medium':
-      return 'rgb(224, 156, 181)';
-    case 'high':
-      return 'rgb(190, 219, 176)';
-    default:
-      return null;
-  }
-};
-
 export const IconsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,7 +47,6 @@ export const IconsContainer = styled.div`
   gap: 8px;
 
   & input {
-    background-color: ${onSettingColor};
     margin-right: 8px;
   }
 `;
