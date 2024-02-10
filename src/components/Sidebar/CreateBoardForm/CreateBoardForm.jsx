@@ -53,7 +53,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       initialValues={{
         title: '',
         icnboard: 'icon-project',
-        background: 'Image1',
+        background: 1,
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
@@ -189,7 +189,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image1"
+              value="1"
             />
             <Img src={Image1} alt="background 1" />
           </label>
@@ -199,7 +199,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image8"
+              value="8"
             />
             <Img src={Image8} alt="background 8" />
           </label>
@@ -209,7 +209,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image3"
+              value="3"
             />
             <Img src={Image3} alt="background 3" />
           </label>
@@ -219,7 +219,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image2"
+              value="2"
             />
             <Img src={Image2} alt="background 2" />
           </label>
@@ -229,7 +229,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image9"
+              value="9"
             />
             <Img src={Image9} alt="background 9" />
           </label>
@@ -239,7 +239,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image4"
+              value="4"
             />
             <Img src={Image4} alt="background 4" />
           </label>
@@ -249,7 +249,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image5"
+              value="5"
             />
             <Img src={Image5} alt="background 5" />
           </label>
@@ -259,7 +259,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image10"
+              value="10"
             />
             <Img src={Image10} alt="background 10" />
           </label>
@@ -269,7 +269,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image6"
+              value="6"
             />
             <Img src={Image6} alt="background 6" />
           </label>
@@ -279,7 +279,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image11"
+              value="11"
             />
             <Img src={Image11} alt="background 11" />
           </label>
@@ -289,7 +289,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image7"
+              value="7"
             />
             <Img src={Image7} alt="background 7" />
           </label>
@@ -299,7 +299,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image12"
+              value="12"
             />
             <Img src={Image12} alt="background 12" />
           </label>
@@ -309,7 +309,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image13"
+              value="13"
             />
             <Img src={Image13} alt="background 13" />
           </label>
@@ -319,7 +319,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image14"
+              value="14"
             />
             <Img src={Image14} alt="background 14" />
           </label>
@@ -329,7 +329,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image15"
+              value="15"
             />
             <Img src={Image15} alt="background 15" />
           </label>
@@ -339,7 +339,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image16"
+              value="16"
             />
             <Img src={Image16} alt="background 16" />
           </label>
