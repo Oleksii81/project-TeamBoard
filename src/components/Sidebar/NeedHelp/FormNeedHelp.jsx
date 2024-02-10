@@ -23,14 +23,14 @@ const NeedHelpSchema = Yup.object().shape({
 });
 
 
-const FormNeedHelp = ({ closeModal }) => {
+const FormNeedHelp = ({ onClose }) => {
   const userEmail = useSelector(getUserEmail);
 
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
       
-       <IconHelp onClick={closeModal}>
+       <IconHelp onClose={onClose}>
         <use href={`${icons}#icon-close`}></use>
       </IconHelp>
 
@@ -40,25 +40,28 @@ const FormNeedHelp = ({ closeModal }) => {
           comment: '',
         }}
         validationSchema={NeedHelpSchema}
-        onSubmit={(values, {resetForm}) => {
-         fetchHelpApi(values);
-         resetForm();
-          closeModal();
+        onSubmit={(values, {resetForm}) => { 
+          fetchHelpApi(values);
+          resetForm();
+          onClose();
         }}
       >
-        {(
+        {({ handleChange, values }) =>(
           <FormHelp>
             <InputHelp
               type="email"
               name="email"
               required
               placeholder="Email address"
+              onChange={handleChange}
+              value={values.email}
             />
             <CommentHelp
               type="comment"
               name="comment"
               required
               placeholder="Comment"
+              onChange={handleChange}
             />
             <BtnSendHelp type="submit">Send</BtnSendHelp>
           </FormHelp>
