@@ -16,6 +16,7 @@ const ScreensPage = () => {
   const onFilterChange = newFilter => {
     console.log(newFilter);
     setFilterByPriority(newFilter);
+    console.log(filterByPriority);
   };
 
   // const visibleCards = cards.filter(card => card.priority === filterByPriority);

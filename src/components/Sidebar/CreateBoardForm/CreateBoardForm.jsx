@@ -57,15 +57,12 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
         const { title } = values;
         if (boards && boards.some(board => board.title === values.title)) {
-          // return notify.warning('The title already exists');
-          console.log('The title already exists');
-          return;
+          return toast.warning('The title already exists');
         }
 
-        dispatch(createBoard({ ...values }))
+        dispatch(createBoard(values))
           .unwrap()
           .then(() =>
             toast.success(
