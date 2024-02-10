@@ -4,7 +4,7 @@ import {
   ItemContainer,
   Title,
   ButtonContainer,
-  // CurrentLine,
+  CurrentLine,
   Button,
   Icon,
 } from './BoardsList.styled';
@@ -49,7 +49,7 @@ const BoardItem = ({ id, isActive, icon, title }) => {
           </svg>
         </Button>
       </ButtonContainer>
-      {/* <CurrentLine /> */}
+      <CurrentLine className={isActive ? 'activeLine' : ''} />
     </ItemContainer>
   );
 };
