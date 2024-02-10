@@ -64,9 +64,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
         dispatch(createBoard(values))
           .unwrap()
           .then(() =>
-            toast.success(
-              `${title} has been successfully added to your contacts`
-            )
+            toast.success(`${title} has been successfully added to your boards`)
           )
           .catch(error => error.message);
         actions.resetForm();
@@ -350,15 +348,12 @@ const CreateBoardForm = ({ closeModalWindow }) => {
         </BoardCreateBtn>
         <ToastContainer
           position="center"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
-          closeOnClick
           rtl={false}
-          pauseOnFocusLoss
           draggable
-          pauseOnHover
-          theme="light"
+          theme="dark"
         />
       </ModalForm>
     </Formik>
