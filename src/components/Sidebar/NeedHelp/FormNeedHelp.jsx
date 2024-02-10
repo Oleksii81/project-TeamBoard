@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
+import { useSelector } from 'react-redux';
 import * as Yup from 'yup';
+
 import icons from '../../../images/sprite.svg';
 import {
   ModalContainerHelp,
@@ -10,47 +12,54 @@ import {
   BtnSendHelp,
   IconHelp,
 } from '../../../components/Modals/ModalNeedHelp/ModalNeedHelp.styled';
-import { fetchHelpApi } from 'services/backApi';
+
+import { fetchHelpApi } from '../../../services/backApi';
+import { getUserEmail } from '../../../redux/auth/authSelectors';
 
 const NeedHelpSchema = Yup.object().shape({
   email: Yup.string().email().required('Email is required'),
   comment: Yup.string().required('Comment is required'),
 });
 
-const FormNeedHelp = ({ closeModal, handleSubmit, userEmail }) => {
+const FormNeedHelp = ({ onClose }) => {
+  const userEmail = useSelector(getUserEmail);
+
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
 
-      <IconHelp onClick={closeModal}>
+      <IconHelp onClose={onClose}>
         <use href={`${icons}#icon-close`}></use>
       </IconHelp>
 
       <Formik
         initialValues={{
-          email: userEmail,
+          email: `${userEmail}`,
           comment: '',
         }}
         validationSchema={NeedHelpSchema}
-        onSubmit={(values, {resetForm}) => {
-         fetchHelpApi(values);
-         resetForm();
-          closeModal();
+        onSubmit={(values, { resetForm }) => {
+          fetchHelpApi(values);
+          resetForm();
+          onClose();
         }}
       >
-        {(
-          <FormHelp onSubmit={handleSubmit}>
+        {({ handleChange, values }) => (
+          <FormHelp>
             <InputHelp
               type="email"
               name="email"
               required
               placeholder="Email address"
+              onChange={handleChange}
+              value={values.email}
             />
             <CommentHelp
               type="comment"
               name="comment"
               required
               placeholder="Comment"
+              onChange={handleChange}
             />
             <BtnSendHelp type="submit">Send</BtnSendHelp>
           </FormHelp>
