@@ -11,7 +11,6 @@ import {
   editBoard,
   updateBoardActive,
   updateTheme,
-  getAllBoards,
 } from './authOperations';
 
 export const authSlice = createSlice({
@@ -134,16 +133,6 @@ export const authSlice = createSlice({
         state.error = null;
       })
       .addCase(editBoard.rejected, (state, { payload }) => {
-        state.isRefreshing = false;
-        state.error = payload;
-      })
-      .addCase(getAllBoards.fulfilled, (state, action) => {
-        state.user.boards.forEach(board => {
-          board.isActive = false;
-        });
-        state.user.boards[0].isActive = true;
-      })
-      .addCase(getAllBoards.rejected, (state, { payload }) => {
         state.isRefreshing = false;
         state.error = payload;
       })

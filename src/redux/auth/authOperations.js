@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { addBoardApi, deleteBoardApi, getAllBoardApi } from 'services/backApi';
+import { addBoardApi, deleteBoardApi } from 'services/backApi';
 
 axios.defaults.baseURL = 'https://project-backend-task-pro.onrender.com';
 
@@ -148,19 +148,6 @@ export const updateBoardActive = createAsyncThunk(
       const { data } = await axios.patch(`/api/boards/active/${id}`, {
         isActive: true,
       });
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const getAllBoards = createAsyncThunk(
-  'boards/getAllBoards',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await getAllBoardApi();
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
