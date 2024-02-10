@@ -125,9 +125,7 @@ export const UserInfoModal = ({ onClose }) => {
             onChange={formik.handleChange}
           />
           {formik.errors.userName && formik.touched.userName && (
-            <StyledErrorName>
-              {formik.errors.userName}
-            </StyledErrorName>
+            <StyledErrorName>{formik.errors.userName}</StyledErrorName>
           )}
           <StyledModalInput
             name="userEmail"
@@ -159,7 +157,9 @@ export const UserInfoModal = ({ onClose }) => {
           {formik.errors.userPassword && formik.touched.userPassword && (
             <StyledError>{formik.errors.userPassword}</StyledError>
           )}
-          <StyledBtnSave type="submit">Send</StyledBtnSave>
+          <StyledBtnSave onClick={onUpload} type="submit">
+            Send
+          </StyledBtnSave>
         </StyledModalForm>
         <Ellipse222 />
         <Ellipse224 />
