@@ -10,6 +10,11 @@ import {
   CurrentLine,
   DetailsContainer,
   Detail,
+  DetailName,
+  DetailText,
+  DetailCircle,
+  Line,
+  DivFlex,
 } from './CardsList.styled';
 
 import icons from '../../../images/sprite.svg';
@@ -30,33 +35,48 @@ const BoardItem = ({ id, title, description, priority, deadline }) => {
     <ItemCardContainer>
       <Title>{title}</Title>
       <Description>{description}</Description>
+      <Line />
       <DetailsContainer>
-        <Detail>Priority</Detail>
-        <Detail>Deadline</Detail>
+        <Detail>
+          <DetailName>Priority</DetailName>
+          <DivFlex>
+            <DetailCircle />
+            <DetailText>{priority}</DetailText>
+          </DivFlex>
+        </Detail>
+        <Detail>
+          <DetailName>Deadline</DetailName>
+          <DetailText>{deadline}</DetailText>
+        </Detail>
+        <ButtonContainer>
+          <Button className="bell">
+            <svg width="16" height="16">
+              <use href={`${icons}#icon-bell`}></use>
+            </svg>
+          </Button>
+          <Button
+          //   onClick={() => dispatch(replaceCard(id))}
+          >
+            <svg width="16" height="16">
+              <use href={`${icons}#icon-goto`}></use>
+            </svg>
+          </Button>
+          <Button
+          //   onClick={() => openModal()}
+          >
+            <svg width="16" height="16">
+              <use href={`${icons}#icon-pencil`}></use>
+            </svg>
+          </Button>
+          <Button
+          //   onClick={() => dispatch(deleteCard(id))}
+          >
+            <svg width="16" height="16">
+              <use href={`${icons}#icon-trash`}></use>
+            </svg>
+          </Button>
+        </ButtonContainer>
       </DetailsContainer>
-      <ButtonContainer>
-        <Button
-        //   onClick={() => dispatch(replaceCard(id))}
-        >
-          <svg width="16" height="16">
-            <use href={`${icons}#icon-goto`}></use>
-          </svg>
-        </Button>
-        <Button
-        //   onClick={() => openModal()}
-        >
-          <svg width="16" height="16">
-            <use href={`${icons}#icon-pencil`}></use>
-          </svg>
-        </Button>
-        <Button
-        //   onClick={() => dispatch(deleteCard(id))}
-        >
-          <svg width="16" height="16">
-            <use href={`${icons}#icon-trash`}></use>
-          </svg>
-        </Button>
-      </ButtonContainer>
       <CurrentLine />
       {/* <EditModalCard
         id={id}

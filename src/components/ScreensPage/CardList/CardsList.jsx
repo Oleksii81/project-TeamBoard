@@ -7,26 +7,33 @@ import { CardsContainer } from './CardsList.styled';
 
 const CadrsList = () => {
   //   const cards = useSelector();
-  // const cards = [
-  //   {
-  //     id: '1',
-  //     title: 'Title1',
-  //     description: 'description1',
-  //     priority: 'priority',
-  //     deadline: 'deadline',
-  //   },
-  //   {
-  //     id: '2',
-  //     title: 'Title2',
-  //     description: 'description2',
-  //     priority: 'priority',
-  //     deadline: 'deadline',
-  //   },
-  // ];
+  const cards = [
+    {
+      _id: '1',
+      title: 'The Watch Spot Design',
+      description: 'description1',
+      priority: 'Low',
+      deadline: '12/05/2023',
+    },
+    {
+      _id: '2',
+      title: 'Research and Analysis',
+      description: 'description2',
+      priority: 'Medium',
+      deadline: '12/05/2023',
+    },
+    {
+      _id: '3',
+      title: 'Concept Development',
+      description: 'description3',
+      priority: 'Without',
+      deadline: '12/05/2023',
+    },
+  ];
 
   return (
     <CardsContainer>
-      {cards && cards.length > 0 && (
+      {
         <ul>
           {cards.map(card => (
             <li key={card._id}>
@@ -40,7 +47,7 @@ const CadrsList = () => {
             </li>
           ))}
         </ul>
-      )}
+      }
     </CardsContainer>
   );
 };
