@@ -50,22 +50,22 @@ export const deleteColumnApi = async columnId => {
    return await axios.delete(`api/columns/${columnId}`).then(res => res);
 };
 
-/* CARD 
+/* CARD */
 
 export const addCardApi = async form => {
-  return await axios.post('/api/tasks', { ...form }).then(res => res);
+  return await axios.post('/api/cards', { ...form }).then(res => res);
 };
 
 export const editCardApi = async (id, body, column) => {
   const { data } = await axios
-    .patch(`/api/tasks/${id}`, { ...body })
+    .patch(`/api/cards/${id}`, { ...body })
     .then(res => res);
   data.column = column;
   return { data };
 };
 
 export const deleteCardApi = async (id, column) => {
-  const { data } = await axios.delete(`/api/tasks/${id}`).then(res => res);
+  const { data } = await axios.delete(`/api/cards/${id}`).then(res => res);
   data.column = column;
   return { data };
 };
@@ -73,10 +73,10 @@ export const deleteCardApi = async (id, column) => {
 export const replaceCardApi = async (id, columns) => {
   const { column, columnID } = columns;
   const { data } = await axios
-    .patch(`/api/tasks/${id}/replace`, { column })
+    .patch(`/api/cards/${id}/replace`, { column })
     .then(res => res);
   data.columnNew = column;
   data.idCard = id;
   data.columnOld = columnID;
   return { data };
-}; */
+}; 

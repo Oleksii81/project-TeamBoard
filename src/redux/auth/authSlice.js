@@ -6,6 +6,7 @@ import {
   login,
   logout,
   updateUser,
+  refreshUser,
   createBoard,
   deleteBoard,
   editBoard,
@@ -89,6 +90,16 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = payload;
         toast.error('Invalid password');
+      })
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
       })
       .addCase(updateTheme.fulfilled, (state, { payload }) => {
         state.user.theme = payload.theme;

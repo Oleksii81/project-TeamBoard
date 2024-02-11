@@ -19,7 +19,7 @@ const ScreensPage = () => {
 
   // const visibleCards = cards.filter(card => card.priority === filterByPriority);
 
-  return boards.length ? (
+  return boards && boards.length ? (
     <section>
       <Bord
         setFilterByPriority={setFilterByPriority}
