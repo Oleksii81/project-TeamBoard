@@ -6,6 +6,7 @@ import {
   login,
   logout,
   updateUser,
+  refreshUser,
   createBoard,
   deleteBoard,
   editBoard,
@@ -83,17 +84,30 @@ export const authSlice = createSlice({
         state.user.avatarURL = payload.avatarURL;
         state.isRefreshing = false;
         state.error = null;
-        toast.success('Сhanges are successful!');
+        toast.success('Changes are successful!');
       })
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isRefreshing = false;
         state.error = payload;
         toast.error('Invalid password');
       })
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+      })
       .addCase(updateTheme.fulfilled, (state, { payload }) => {
         state.user.theme = payload.theme;
       })
       .addCase(createBoard.fulfilled, (state, { payload }) => {
+        state.user.boards.forEach(board => {
+          board.isActive = false;
+        });
         state.user.boards.push(payload);
         state.isRefreshing = false;
         state.error = null;
@@ -108,6 +122,7 @@ export const authSlice = createSlice({
         );
         if (indexToRemove !== -1) {
           state.user.boards.splice(indexToRemove, 1);
+          state.user.boards[0].isActive = true;
         }
         state.isRefreshing = false;
         state.error = null;
@@ -117,14 +132,12 @@ export const authSlice = createSlice({
         state.error = payload;
       })
       .addCase(editBoard.fulfilled, (state, { payload }) => {
-        const targetBoard = state.user.boards.find(
+        const indexActive = state.user.boards.findIndex(
           board => board._id === payload.id
         );
-        if (targetBoard) {
-          targetBoard.title = payload.data.title;
-          targetBoard.icon = payload.data.icon;
-          targetBoard.background = payload.data.background;
-        }
+        state.user.boards[indexActive].title = payload.data.title;
+        state.user.boards[indexActive].icnboard = payload.data.icnboard;
+        state.user.boards[indexActive].background = payload.data.background;
         state.isRefreshing = false;
         state.error = null;
       })
@@ -132,11 +145,19 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = payload;
       })
-      .addCase(updateBoardActive, (state, action) => {
-        const { boardId, isActive } = action.payload;
+      .addCase(updateBoardActive.fulfilled, (state, { payload }) => {
+        const id = payload[0]._id;
+        const indexToActive = state.user.boards.findIndex(
+          board => board._id === id
+        );
         state.user.boards.forEach(board => {
-          board.isActive = board._id === boardId ? isActive : false;
+          board.isActive = false;
         });
+        state.user.boards[indexToActive].isActive = true;
+      })
+      .addCase(updateBoardActive.rejected, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.error = payload;
       }),
 });
 

@@ -4,8 +4,12 @@ const baseUrl = 'https://project-backend-task-pro.onrender.com';
 
 axios.defaults.baseURL = baseUrl;
 
+export const fetchHelpApi = async data => {
+  return await axios.post(`/api/help`, { ...data });
+};
+
 /* BOARDS */
-export const getAllBoardApi = async id => {
+export const getAllBoardApi = async () => {
     return await axios.get(`/api/boards`).then(res => res);
    };
 
@@ -13,9 +17,16 @@ export const addBoardApi = async boardForm => {
    return await axios.post('/api/boards', { ...boardForm }).then(res => res);
  };
 
-export const getBoardApi = async id => {
-   return await axios.get(`/api/boards/${id}`).then(res => res);
- };
+ export const getBoardApi = async id => {
+  try {
+    const response = await axios.get(`/api/boards/${id}`);
+    const data = response.data;
+    const isActive = response.status === 200;
+    return { ...data, isActive };
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const deleteBoardApi = async id => {
    return await axios.delete(`/api/boards/${id}`).then(res => res);
@@ -23,49 +34,60 @@ export const deleteBoardApi = async id => {
 
  /* COLUMN */
 
-export const addColumnApi = async columnForm => {
-   return await axios.post('/api/columns/', { ...columnForm }).then(res => res);
+export const addColumnApi = async (columnForm, idBoard)  => {
+   return await axios.post(`/api/columns/${idBoard}`, { ...columnForm }).then(res => res);
  };
 
-export const editColumnApi = async (id, body) => {
-   return await axios.patch(`/api/columns/${id}`, body).then(res => res);
+export const editColumnApi = async (idBoard, idColumn, body) => {
+   return await axios.patch(`/api/columns/${idBoard}/${idColumn}`, body).then(res => res);
  };
 
-export const getColumnApi = async ({ id }) => {
-   return await axios.get(`api/columns/${id}`).then(res => res);
+export const getColumnApi = async ({ idBoard }) => {
+   return await axios.get(`api/columns/${idBoard}`).then(res => res);
  };
 
-export const deleteColumnApi = async columnId => {
-   return await axios.delete(`api/columns/${columnId}`).then(res => res);
+export const getOneColumnApi = async ({ idBoard, idColumn }) => {
+   return await axios.get(`api/columns/${idBoard}/${idColumn}`).then(res => res);
+ };
+
+export const deleteColumnApi = async idColumn => {
+   return await axios.delete(`api/columns/${idColumn}`).then(res => res);
 };
 
-/* CARD 
-
-export const addCardApi = async form => {
-  return await axios.post('/api/tasks', { ...form }).then(res => res);
+/* CARD */
+export const getColumnCards = async idColumn => {
+  return await axios.get(`api/cards/${idColumn}`).then(res => res);
 };
 
-export const editCardApi = async (id, body, column) => {
+export const getOneCardApi = async ({ idColumn, idCard }) => {
+  return await axios.get(`api/cards/${idColumn}/${idCard}`).then(res => res);
+};
+
+export const addCardApi = async (form, idColumn)  => {
+  return await axios.post(`/api/cards/${idColumn}`, { ...form }).then(res => res);
+};
+
+export const editCardApi = async (idColumn, idCard, body, column) => {
   const { data } = await axios
-    .patch(`/api/tasks/${id}`, { ...body })
+    .put(`api/cards/${idColumn}/${idCard}`, { ...body })
     .then(res => res);
   data.column = column;
   return { data };
 };
 
-export const deleteCardApi = async (id, column) => {
-  const { data } = await axios.delete(`/api/tasks/${id}`).then(res => res);
+export const deleteCardApi = async (idColumn, idCard, column) => {
+  const { data } = await axios.delete(`/api/cards/${idColumn}/${idCard}`).then(res => res);
   data.column = column;
   return { data };
 };
 
 export const replaceCardApi = async (id, columns) => {
-  const { column, columnID } = columns;
+  const { column, idColumn } = columns;
   const { data } = await axios
-    .patch(`/api/tasks/${id}/replace`, { column })
+    .patch(`/api/cards/${idColumn}/${id}`, { column })
     .then(res => res);
   data.columnNew = column;
   data.idCard = id;
-  data.columnOld = columnID;
+  data.columnOld = idColumn;
   return { data };
-}; */
+}; 

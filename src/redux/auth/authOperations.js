@@ -1,4 +1,4 @@
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { addBoardApi, deleteBoardApi } from 'services/backApi';
 
@@ -78,6 +78,26 @@ export const updateUser = createAsyncThunk(
   }
 );
 
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (!persistedToken) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.get('/api/auth/current');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const patchBoard = createAsyncThunk(
   'auth/updateBoard',
   async ({ boardId }, thunkAPI) => {
@@ -85,7 +105,6 @@ export const patchBoard = createAsyncThunk(
       const { data } = await axios.put(`/api/boards`, {
         boards: boardId,
       });
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -98,7 +117,7 @@ export const createBoard = createAsyncThunk(
   async (boardData, thunkAPI) => {
     try {
       const response = await addBoardApi(boardData);
-      const payload = { isActive: true, ...response.data };
+      const payload = { ...response.data, isActive: true };
       return payload;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -120,9 +139,9 @@ export const deleteBoard = createAsyncThunk(
 
 export const editBoard = createAsyncThunk(
   'boards/editBoard',
-  async ({ id, data }, thunkAPI) => {
+  async ({ id, values }, thunkAPI) => {
     try {
-      await axios.put(`/api/boards/${id}`, data);
+      const { data } = await axios.put(`/api/boards/${id}`, values);
       return { id, data };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -142,4 +161,16 @@ export const updateTheme = createAsyncThunk(
   }
 );
 
-export const updateBoardActive = createAction('auth/updateBoardActive');
+export const updateBoardActive = createAsyncThunk(
+  'boards/updateBoardActive',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`/api/boards/active/${id}`, {
+        isActive: true,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -24,23 +24,23 @@ export const App = () => {
     <Loader />
   ) : (
     <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            isAuth ? <Navigate to="/home" replace={true} /> : <WelcomePage />
-          }
-        />
-        <Route
-          path="/auth/:id"
-          element={<RestrictedRoute component={AuthPage} redirectTo="/home" />}
-        />
-        <Route
-          path="/home"
-          element={<PrivateRoute component={HomePage} redirectTo="/" />}
-        ></Route>
-        <Route path="*" element={<WelcomePage />} />
-      </Routes>
+    <Routes>
+      <Route
+            path="/"
+            element={
+              isAuth ? <Navigate to="/home" replace={true} /> : <WelcomePage />
+            }
+          />
+      <Route
+            path="/auth/:id"
+            element={<RestrictedRoute component={AuthPage} redirectTo="/home" />}
+          />
+          <Route
+            path="/home"
+            element={<PrivateRoute component={HomePage} redirectTo="/" />}
+          ></Route>
+          <Route path="*" element={<WelcomePage />} />
+    </Routes>
     </Suspense>
   );
 };

@@ -1,28 +1,27 @@
-// import { useState } from "react";
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
-import Image1 from '../../../../src/images/background/00.png';
-import Image2 from '../../../../src/images/background/01.png';
-import Image3 from '../../../../src/images/background/02.png';
-import Image4 from '../../../../src/images/background/03.png';
-import Image5 from '../../../../src/images/background/04.png';
-import Image6 from '../../../../src/images/background/05.png';
-import Image7 from '../../../../src/images/background/06.png';
-import Image8 from '../../../../src/images/background/07.png';
-import Image9 from '../../../../src/images/background/08.png';
-import Image10 from '../../../../src/images/background/09.png';
-import Image11 from '../../../../src/images/background/10.png';
-import Image12 from '../../../../src/images/background/11.png';
-import Image13 from '../../../../src/images/background/12.png';
-import Image14 from '../../../../src/images/background/13.png';
-import Image15 from '../../../../src/images/background/14.png';
-import Image16 from '../../../../src/images/background/15.png';
+import Image0 from '../../../../src/images/background/00.png';
+import Image1 from '../../../../src/images/background/07.png';
+import Image2 from '../../../../src/images/background/02.png';
+import Image3 from '../../../../src/images/background/01.png';
+import Image4 from '../../../../src/images/background/08.png';
+import Image5 from '../../../../src/images/background/03.png';
+import Image6 from '../../../../src/images/background/04.png';
+import Image7 from '../../../../src/images/background/09.png';
+import Image8 from '../../../../src/images/background/05.png';
+import Image9 from '../../../../src/images/background/10.png';
+import Image10 from '../../../../src/images/background/06.png';
+import Image11 from '../../../../src/images/background/11.png';
+import Image12 from '../../../../src/images/background/12.png';
+import Image13 from '../../../../src/images/background/13.png';
+import Image14 from '../../../../src/images/background/14.png';
+import Image15 from '../../../../src/images/background/15.png';
 
 import {
   Header,
@@ -38,37 +37,36 @@ import {
   SubmitSvgWrapper,
   Error,
 } from './CreateBoardForm.styled';
+import { getBoard } from '../../../redux/auth/authSelectors';
+import { createBoard } from '../../../redux/auth/authOperations';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
 const CreateBoardForm = ({ closeModalWindow }) => {
-  // const boards = useSelector(getBoardSelector);
-  // const dispatch = useDispatch();
+  const boards = useSelector(getBoard);
+  const dispatch = useDispatch();
   return (
     <Formik
       initialValues={{
         title: '',
-        icon: 'icon-project',
-        background: 'Image1',
+        icnboard: 'icon-project',
+        background: '0',
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
-        //  const { title, icon, background } = values;
-        //  if (boards.some(board => board.title === values.title)) {
-        //   return notify.warning('The title already exists');
-        // }
+        const { title } = values;
+        if (boards && boards.some(board => board.title === values.title)) {
+          return toast.warning('The title already exists');
+        }
 
-        //  dispatch(createBoard(values))
-        //    .unwrap()
-        //    .then(() =>
-        //      Notify.success(
-        //        `${title} has been successfully added to your contacts`
-        //      )
-        //    )
-        //    .catch(error => error.message);
+        dispatch(createBoard(values))
+          .unwrap()
+          .then(() =>
+            toast.success(`${title} has been successfully added to your boards`)
+          )
+          .catch(error => error.message);
         actions.resetForm();
         closeModalWindow();
       }}
@@ -91,7 +89,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-project"
             />
             <svg width="18px" height="18px">
@@ -102,7 +100,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-star"
             />
             <svg width="18px" height="18px">
@@ -113,7 +111,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-loading"
             />
             <svg width="18px" height="18px">
@@ -124,7 +122,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-puzzle"
             />
             <svg width="18px" height="18px">
@@ -135,7 +133,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-container"
             />
             <svg width="18px" height="18px">
@@ -146,7 +144,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-lightning"
             />
             <svg width="18px" height="18px">
@@ -157,7 +155,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-colors"
             />
             <svg width="18px" height="18px">
@@ -168,7 +166,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
             <Field
               className="icons-field"
               type="radio"
-              name="icon"
+              name="icnboard"
               value="icon-hexagon"
             />
             <svg width="18px" height="18px">
@@ -184,7 +182,17 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image1"
+              value="0"
+            />
+            <Img src={Image0} alt="background 0" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="1"
             />
             <Img src={Image1} alt="background 1" />
           </label>
@@ -194,27 +202,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image8"
-            />
-            <Img src={Image8} alt="background 8" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="Image3"
-            />
-            <Img src={Image3} alt="background 3" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="Image2"
+              value="2"
             />
             <Img src={Image2} alt="background 2" />
           </label>
@@ -224,9 +212,9 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image9"
+              value="3"
             />
-            <Img src={Image9} alt="background 9" />
+            <Img src={Image3} alt="background 3" />
           </label>
 
           <label>
@@ -234,7 +222,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image4"
+              value="4"
             />
             <Img src={Image4} alt="background 4" />
           </label>
@@ -244,7 +232,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image5"
+              value="5"
             />
             <Img src={Image5} alt="background 5" />
           </label>
@@ -254,17 +242,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image10"
-            />
-            <Img src={Image10} alt="background 10" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="Image6"
+              value="6"
             />
             <Img src={Image6} alt="background 6" />
           </label>
@@ -274,17 +252,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image11"
-            />
-            <Img src={Image11} alt="background 11" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="Image7"
+              value="7"
             />
             <Img src={Image7} alt="background 7" />
           </label>
@@ -294,7 +262,47 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image12"
+              value="8"
+            />
+            <Img src={Image8} alt="background 8" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="9"
+            />
+            <Img src={Image9} alt="background 9" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="10"
+            />
+            <Img src={Image10} alt="background 10" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="11"
+            />
+            <Img src={Image11} alt="background 11" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="12"
             />
             <Img src={Image12} alt="background 12" />
           </label>
@@ -304,7 +312,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image13"
+              value="13"
             />
             <Img src={Image13} alt="background 13" />
           </label>
@@ -314,7 +322,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image14"
+              value="14"
             />
             <Img src={Image14} alt="background 14" />
           </label>
@@ -324,19 +332,9 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="Image15"
+              value="15"
             />
             <Img src={Image15} alt="background 15" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="Image16"
-            />
-            <Img src={Image16} alt="background 16" />
           </label>
         </BackgroundContainer>
 
@@ -348,18 +346,15 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           </SubmitSvgWrapper>
           Create
         </BoardCreateBtn>
-        {/* <ToastContainer
+        <ToastContainer
           position="center"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
-          closeOnClick
           rtl={false}
-          pauseOnFocusLoss
           draggable
-          pauseOnHover
-          theme="light"
-        /> */}
+          theme="dark"
+        />
       </ModalForm>
     </Formik>
   );

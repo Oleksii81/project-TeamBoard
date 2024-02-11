@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
 export const BoardsContainer = styled.div`
+  position: relative;
+  width: 260px;
+  left: -24px;
   min-height: 61px;
   overflow-y: auto;
   margin-bottom: 40px;
+  scrollbar-width: none;
+
+  @media screen and (max-width: 375px) {
+    width: 225px;
+    left: -14px;
+  }
 `;
 
 export const ItemContainer = styled.div`
@@ -11,14 +20,13 @@ export const ItemContainer = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
-  padding: 20px 0px;
+  padding: 20px 24px;
   margin-bottom: 4px;
 
   &:hover,
   &:active,
   &.activeBoard {
     background: var(--currentProjBgColor);
-    background-opacity: 0.4;
     cursor: pointer;
   }
 `;
@@ -27,7 +35,7 @@ export const Icon = styled.div`
   fill: none;
   stroke: var(--textBoardColor);
 
-  &.activeBoard {
+  &.activeBoardIcon {
     stroke: var(--createNewBoard);
   }
 `;
@@ -39,7 +47,7 @@ export const Title = styled.p`
 
   color: var(--textBoardColor);
 
-  &.activeBoard {
+  &.activeBoardTitle {
     color: var(--createNewBoard);
     opacity: 1;
   }
@@ -57,8 +65,10 @@ export const Button = styled.button`
   border: none;
   fill: none;
   stroke: none;
+  display: none;
 
-  &.activeBoard {
+  &.activeBoardButton {
+    display: block;
     stroke: var(--textBoardColor);
     cursor: pointer;
   }
@@ -68,6 +78,14 @@ export const CurrentLine = styled.div`
   border-radius: 4px 0 0 4px;
   width: 4px;
   height: 61px;
+  position: absolute;
+  left: 256px;
 
-  background: #bedbb0;
+  &.activeLine {
+    background: var(--iconLogOut);
+  }
+
+  @media screen and (max-width: 375px) {
+    left: 221px;
+  }
 `;

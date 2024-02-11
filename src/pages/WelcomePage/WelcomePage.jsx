@@ -1,17 +1,17 @@
 import sprite from '../../images/sprite.svg';
 import mainImage from '../../images/Image 1.png'
-import { StyledLogo, StyledWelcomePage, Container, StyledLinks, StyledLink } from './WelcomePageStyle';
+import { StyledLogo, StyledWelcomePage, Container, StyledLinks, StyledLink, StyledImg, StyledSvg, StyledText } from './WelcomePageStyle';
 
 const WelcomePage = () => {
   return (
     <Container>
       <StyledWelcomePage>
-        <img src={mainImage} alt="Icon" />
+        <StyledImg src={mainImage} alt="Icon" />
         <StyledLogo>
-          <svg width={48} height={48}>
+          <StyledSvg width={48} height={48}>
             <use href={`${sprite}#icon-logo`}></use>
-          </svg>
-          <h1>Task Pro</h1>
+          </StyledSvg>
+          <StyledText>Task Pro</StyledText>
         </StyledLogo>
         <p>
           Supercharge your productivity and take control of your tasks with Task

@@ -4,8 +4,8 @@ import ReactModal from 'react-modal';
 export const OverlayModal = styled(ReactModal)`
   position: relative;
   border-radius: 8px;
-  width: 335px;
-  height: 433px;
+  width: 400px;
+  height: 355px;
   top: 50%;
   right: auto;
   bottom: auto;
@@ -19,7 +19,7 @@ export const OverlayModal = styled(ReactModal)`
 export const ModalContainerHelp = styled.div`
   background-color: var(--popupBackground);
   border-radius: 8px;
-  border-color: var(--addCardButtonBackground);
+  border: 1px solid var(--addCardButtonBackground);
   z-index: 20;
   position: fixed;
   padding-top: 23px;
@@ -28,6 +28,7 @@ export const ModalContainerHelp = styled.div`
 
   @media (max-width: 768px) {
     width: 335px;
+    margin-left: 30px;
   }
 `;
 
@@ -107,13 +108,16 @@ export const BtnSendHelp = styled.button`
   width: 352px;
   height: 49px;
   margin: 24px;
-  color: var(--createNewBoard);
   background-color: var(--greenGreenBlueColor);
   border: none;
-
+  color: var(--addCardButtonColor);
+  &:hover {
+    background-color: var(--btnColorHover);
+  }
   @media (max-width: 768px) {
     width: 287px;
   }
+ 
 `;
 
 export const IconHelp = styled.svg`
