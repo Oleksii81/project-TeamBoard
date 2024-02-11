@@ -13,7 +13,7 @@ import {
   DetailText,
   DetailCircle,
   DivFlex,
-  // CurrentLine,
+  CurrentLine,
 } from './CardsList.styled';
 
 import icons from '../../../images/sprite.svg';
@@ -39,7 +39,7 @@ const BoardItem = ({ id, title, description, priority, deadline }) => {
         <div>
           <DetailName>Priority</DetailName>
           <DivFlex>
-            <DetailCircle />
+            <DetailCircle priority={priority} />
             <DetailText>{priority}</DetailText>
           </DivFlex>
         </div>
@@ -76,7 +76,7 @@ const BoardItem = ({ id, title, description, priority, deadline }) => {
           </Button>
         </ButtonContainer>
       </DetailsContainer>
-      {/* <CurrentLine /> */}
+      <CurrentLine priority={priority} />
       {/* <ModalEditCard
         id={id}
         isOpen={isOpen}

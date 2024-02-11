@@ -12,7 +12,6 @@ export const CardsContainer = styled.div`
 `;
 
 export const ItemCardContainer = styled.div`
-  display: relative;
   width: 334px;
   height: 154px;
   border-radius: 8px;
@@ -21,6 +20,7 @@ export const ItemCardContainer = styled.div`
   background: var(--cardItem);
   cursor: pointer;
 `;
+
 export const Title = styled.p`
   font-weight: 600;
   font-size: 14px;
@@ -80,7 +80,12 @@ export const DetailCircle = styled.div`
   width: 12px;
   height: 12px;
   border-radius: 100%;
-  background: red;
+  background-color: ${({ priority }) => {
+    if (priority === 'Low') return '#8FA1D0';
+    if (priority === 'Medium') return '#E09CB5';
+    if (priority === 'High') return '#BEDBB0';
+    return '#535353';
+  }};
 `;
 
 export const ButtonContainer = styled.div`
@@ -108,10 +113,16 @@ export const Button = styled.button`
 `;
 
 export const CurrentLine = styled.div`
-  position: absolute;
+  position: relative;
   width: 4px;
   height: 154px;
   border-radius: 4px 0 0 4px;
-  background: red;
-  left: 0;
+  left: -20px;
+  top: -141px;
+  background-color: ${({ priority }) => {
+    if (priority === 'Low') return '#8FA1D0';
+    if (priority === 'Medium') return '#E09CB5';
+    if (priority === 'High') return '#BEDBB0';
+    return '#535353';
+  }};
 `;
