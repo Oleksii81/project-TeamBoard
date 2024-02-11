@@ -8,6 +8,7 @@ import {
   Span,
   QuestionHelp,
   BtnNeedHelp,
+  ContainerText,
 } from './NeedHelp.styled.js';
 
 import ModalNeedHelp from '../../Modals/ModalNeedHelp/ModalNeedHelp.jsx';
@@ -16,6 +17,8 @@ import icons from '../../../images/sprite.svg';
 
 const NeedHelp = ({onCloseSideBar}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hoverText, setHoverText] = useState(false);
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -43,6 +46,8 @@ const NeedHelp = ({onCloseSideBar}) => {
 
   return (
     <ContainerHelp>
+
+    <ContainerText isVisible={hoverText}>
       <ImgHelp src={image} alt="Help" />
 
       <TextHelp>
@@ -50,8 +55,9 @@ const NeedHelp = ({onCloseSideBar}) => {
         <Span> TaskPro</Span>, check out our
         support resources or reach out to our customer support team.
       </TextHelp>
+       </ContainerText>
 
-      <BtnNeedHelp>
+      <BtnNeedHelp onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}>
         <IconHelp>
           <use href={`${icons}#icon-help`}></use>
         </IconHelp>

@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, /*useDispatch */} from 'react-redux';
 import { useState } from 'react';
 import { getBoard } from '../../../redux/auth/authSelectors';
 import icons from '../../../../src/images/sprite.svg';

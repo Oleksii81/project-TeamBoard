@@ -28,6 +28,7 @@ export const ModalContainerHelp = styled.div`
 
   @media (max-width: 768px) {
     width: 335px;
+    margin-left: 30px;
   }
 `;
 
