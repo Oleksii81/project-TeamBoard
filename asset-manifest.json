@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/project-TeamBoard/static/css/main.5a51cd21.css",
-    "main.js": "/project-TeamBoard/static/js/main.d0dc7cb2.js",
+    "main.js": "/project-TeamBoard/static/js/main.d1a290ee.js",
     "static/js/223.4ae8ebfd.chunk.js": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js",
     "static/js/490.dc22a24e.chunk.js": "/project-TeamBoard/static/js/490.dc22a24e.chunk.js",
-    "static/css/810.8616ff78.chunk.css": "/project-TeamBoard/static/css/810.8616ff78.chunk.css",
-    "static/js/810.6a2e2be9.chunk.js": "/project-TeamBoard/static/js/810.6a2e2be9.chunk.js",
+    "static/css/438.6698a83f.chunk.css": "/project-TeamBoard/static/css/438.6698a83f.chunk.css",
+    "static/js/438.a1d5a1d0.chunk.js": "/project-TeamBoard/static/js/438.a1d5a1d0.chunk.js",
     "static/js/306.25996cc4.chunk.js": "/project-TeamBoard/static/js/306.25996cc4.chunk.js",
     "static/js/911.8d92024f.chunk.js": "/project-TeamBoard/static/js/911.8d92024f.chunk.js",
     "static/js/609.ffd88e77.chunk.js": "/project-TeamBoard/static/js/609.ffd88e77.chunk.js",
@@ -19,20 +19,19 @@
     "static/media/Image 1.png": "/project-TeamBoard/static/media/Image 1.47ac3097a0f12b998d37.png",
     "static/media/sprite.svg": "/project-TeamBoard/static/media/sprite.90a04d8c66088f268bd5ce8fa7274a8b.svg",
     "index.html": "/project-TeamBoard/index.html",
-    "static/media/logout.svg": "/project-TeamBoard/static/media/logout.3c6371574e2dbef9c044dbf437450472.svg",
     "static/media/burger.svg": "/project-TeamBoard/static/media/burger.42365862ef7a4ae41847d66223ea8d09.svg",
     "main.5a51cd21.css.map": "/project-TeamBoard/static/css/main.5a51cd21.css.map",
-    "main.d0dc7cb2.js.map": "/project-TeamBoard/static/js/main.d0dc7cb2.js.map",
+    "main.d1a290ee.js.map": "/project-TeamBoard/static/js/main.d1a290ee.js.map",
     "223.4ae8ebfd.chunk.js.map": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js.map",
     "490.dc22a24e.chunk.js.map": "/project-TeamBoard/static/js/490.dc22a24e.chunk.js.map",
-    "810.8616ff78.chunk.css.map": "/project-TeamBoard/static/css/810.8616ff78.chunk.css.map",
-    "810.6a2e2be9.chunk.js.map": "/project-TeamBoard/static/js/810.6a2e2be9.chunk.js.map",
+    "438.6698a83f.chunk.css.map": "/project-TeamBoard/static/css/438.6698a83f.chunk.css.map",
+    "438.a1d5a1d0.chunk.js.map": "/project-TeamBoard/static/js/438.a1d5a1d0.chunk.js.map",
     "306.25996cc4.chunk.js.map": "/project-TeamBoard/static/js/306.25996cc4.chunk.js.map",
     "911.8d92024f.chunk.js.map": "/project-TeamBoard/static/js/911.8d92024f.chunk.js.map",
     "609.ffd88e77.chunk.js.map": "/project-TeamBoard/static/js/609.ffd88e77.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a51cd21.css",
-    "static/js/main.d0dc7cb2.js"
+    "static/js/main.d1a290ee.js"
   ]
 }
