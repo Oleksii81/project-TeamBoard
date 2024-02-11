@@ -9,7 +9,7 @@ export const fetchHelpApi = async data => {
 };
 
 /* BOARDS */
-export const getAllBoardApi = async id => {
+export const getAllBoardApi = async () => {
     return await axios.get(`/api/boards`).then(res => res);
    };
 
@@ -30,10 +30,6 @@ export const addBoardApi = async boardForm => {
 
 export const deleteBoardApi = async id => {
    return await axios.delete(`/api/boards/${id}`).then(res => res);
- };
-
-export const patchBoardApi = async (id, isActive) => {
-   return await axios.patch(`/api/boards/active/${id}`, isActive).then(res => res);
  };
 
  /* COLUMN */

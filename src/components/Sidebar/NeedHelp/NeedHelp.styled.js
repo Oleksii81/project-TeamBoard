@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 export const ContainerHelp = styled.div`
-  background: var(--helpBgColor);
-  margin: 0;
   margin-top: auto;
+  background: var(--helpBgColor);
   border-radius: 8px;
   width: 197px;
   height: 238px;
   padding: 16px;
-  margin-top: auto;
 
   @media (min-width: 768px) {
     width: 212px;

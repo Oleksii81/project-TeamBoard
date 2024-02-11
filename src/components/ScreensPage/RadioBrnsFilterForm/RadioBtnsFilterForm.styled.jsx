@@ -48,4 +48,7 @@ export const IconsContainer = styled.div`
   gap: 8px;
   
 
+  & input {
+    margin-right: 8px;
+  }
 `;

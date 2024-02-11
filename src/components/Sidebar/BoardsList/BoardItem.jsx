@@ -4,7 +4,7 @@ import {
   ItemContainer,
   Title,
   ButtonContainer,
-  // CurrentLine,
+  CurrentLine,
   Button,
   Icon,
 } from './BoardsList.styled';
@@ -19,10 +19,9 @@ import {
 const BoardItem = ({ id, isActive, icon, title }) => {
   const dispatch = useDispatch();
 
-  const handleEditContact = id => {
+  const handleEditBoard = id => {
     // dispatch(editBoard(id))
   };
-  const handleDeleteContact = id => dispatch(deleteBoard(id));
 
   return (
     <ItemContainer className={isActive ? 'activeBoard' : ''}>
@@ -35,7 +34,7 @@ const BoardItem = ({ id, isActive, icon, title }) => {
       <ButtonContainer>
         <Button
           className={isActive ? 'activeBoardButton' : ''}
-          onClick={() => handleEditContact(id)}
+          onClick={() => handleEditBoard(id)}
         >
           <svg width="16" height="16">
             <use href={`${icons}#icon-pencil`}></use>
@@ -43,14 +42,14 @@ const BoardItem = ({ id, isActive, icon, title }) => {
         </Button>
         <Button
           className={isActive ? 'activeBoardButton' : ''}
-          onClick={() => handleDeleteContact(id)}
+          onClick={() => dispatch(deleteBoard(id))}
         >
           <svg width="16" height="16">
             <use href={`${icons}#icon-trash`}></use>
           </svg>
         </Button>
       </ButtonContainer>
-      {/* <CurrentLine /> */}
+      <CurrentLine className={isActive ? 'activeLine' : ''} />
     </ItemContainer>
   );
 };

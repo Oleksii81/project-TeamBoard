@@ -10,7 +10,7 @@ import {
   FilterFormHeading,
 } from './Filter.styled';
 
-const Filter = () => {
+const Filter = ({ onChangeFilter, setFilterByPriority }) => {
   const [window, setWindow] = useState(false);
   
 
@@ -37,7 +37,10 @@ const Filter = () => {
             </svg>
           </FilerModalBtn>
           <FilterFormHeading>Filters</FilterFormHeading>
-          <RadioBtnsFilterForm/>
+          <RadioBtnsFilterForm
+            onSelect={onChangeFilter}
+            setFilterByPriority={setFilterByPriority}
+          />
         </WindowContainer>
       )}
     </>

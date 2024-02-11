@@ -4,8 +4,8 @@ import ReactModal from 'react-modal';
 export const OverlayModal = styled(ReactModal)`
   position: relative;
   border-radius: 8px;
-  width: 335px;
-  height: 433px;
+  width: 400px;
+  height: 355px;
   top: 50%;
   right: auto;
   bottom: auto;
