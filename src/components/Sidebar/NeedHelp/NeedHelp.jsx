@@ -8,6 +8,7 @@ import {
   Span,
   QuestionHelp,
   BtnNeedHelp,
+  ConatainerText,
 } from './NeedHelp.styled.js';
 
 import ModalNeedHelp from '../../Modals/ModalNeedHelp/ModalNeedHelp.jsx';
@@ -15,7 +16,9 @@ import image from 'images/need-help.png';
 import icons from '../../../images/sprite.svg';
 
 const NeedHelp = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [hoverText, setHoverText] = useState(false);
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -27,6 +30,8 @@ const NeedHelp = () => {
 
   return (
     <ContainerHelp>
+
+    <ConatainerText isVisible={hoverText}>
       <ImgHelp src={image} alt="Help" />
 
       <TextHelp>
@@ -34,8 +39,9 @@ const NeedHelp = () => {
         <Span> TaskPro</Span>, check out our
         support resources or reach out to our customer support team.
       </TextHelp>
+       </ConatainerText>
 
-      <BtnNeedHelp>
+      <BtnNeedHelp onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}>
         <IconHelp>
           <use href={`${icons}#icon-help`}></use>
         </IconHelp>
