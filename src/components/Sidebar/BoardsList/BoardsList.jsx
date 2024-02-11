@@ -10,13 +10,20 @@ import { updateBoardActive } from '../../../redux/auth/authOperations';
 const BoardsList = () => {
   const boards = useSelector(getBoardSelector);
 
+  let reverseBoards = [];
+  if (boards) {
+    boards.map(board => {
+      return reverseBoards.unshift(board);
+    });
+  }
+
   const dispatch = useDispatch();
 
   return (
     <BoardsContainer>
       {boards && boards.length > 0 && (
         <ul>
-          {boards.map(board => (
+          {reverseBoards.map(board => (
             <li
               key={board._id}
               onClick={() => dispatch(updateBoardActive(board._id))}

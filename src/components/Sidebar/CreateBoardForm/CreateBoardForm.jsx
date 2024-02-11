@@ -53,11 +53,10 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       initialValues={{
         title: '',
         icnboard: 'icon-project',
-        background: 1,
+        background: '1',
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
         const { title } = values;
         if (boards && boards.some(board => board.title === values.title)) {
           // return notify.warning('The title already exists');

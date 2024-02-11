@@ -61,7 +61,6 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
 
         if (
           title === values.title ??
@@ -73,7 +72,7 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
           return;
         }
 
-        dispatch(editBoard(id, { ...values }))
+        dispatch(editBoard({ id, values }))
           .unwrap()
           .then(() =>
             //  Notify.success(
