@@ -16,9 +16,7 @@ export const Input = styled(Field)`
   border-radius: 8px;
   width: 100%;
   height: 49px;
-  // box-shadow: 0 4px 16px 0 var(--themeTitleTextColor);
   background: var(--popupBackground);
-  opacity: 0.4;
   margin-bottom: 24px;
   padding: 0 18px;
   position: relative;
