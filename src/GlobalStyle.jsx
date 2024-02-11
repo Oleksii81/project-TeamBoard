@@ -153,6 +153,7 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="light"] {
+  --userBgColor:#fcfcfc;
   --greenGreenBlueColor: #bedbb0;
   --sidebarBgColor: #FFFFFF;
   --helpBgColor: #F6F6F7;

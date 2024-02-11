@@ -7,8 +7,6 @@ import { SpriteSVG } from 'assets/icons/SvgIcons';
 import userFoto from 'assets/img/userWhite.png';
 import ModalEditUser from 'components/Modals/ModalEditUser/ModalEditUser';
 import {
-  Ellipse222,
-  Ellipse224,
   StyledBtnClose,
   StyledBtnEdit,
   StyledBtnSave,
@@ -69,8 +67,9 @@ export const UserInfoModal = ({ onClose }) => {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append('username', changedName || username);
     formData.append('avatar', selectedFile);
+    formData.append('username', changedName || username);
+    formData.append('email', email);
     formData.append('password', changedPassword || '');
 
     dispatch(updateUser(formData))
@@ -85,8 +84,18 @@ export const UserInfoModal = ({ onClose }) => {
   const formik = useFormik({
     initialValues: { userName: '', userEmail: '', userPassword: '' },
     validationSchema: validationSchema,
-    onSubmit: values => {
-      console.log(values);
+    onSubmit: async values => {
+      try {
+        const formData = new FormData();
+        formData.append('avatar', selectedFile);
+        formData.append('username', values.userName);
+        formData.append('email', values.userEmail);
+        formData.append('password', values.userPassword);
+        dispatch(updateUser(formData));
+        onClose(); // Закрываем модальное окно после успешной отправки данных
+      } catch (error) {
+        console.error('Error updating user', error.message);
+      }
     },
   });
 
@@ -123,9 +132,7 @@ export const UserInfoModal = ({ onClose }) => {
             onChange={formik.handleChange}
           />
           {formik.errors.userName && formik.touched.userName && (
-            <StyledErrorName>
-              {formik.errors.userName}
-            </StyledErrorName>
+            <StyledErrorName>{formik.errors.userName}</StyledErrorName>
           )}
           <StyledModalInput
             name="userEmail"
@@ -159,8 +166,6 @@ export const UserInfoModal = ({ onClose }) => {
           )}
           <StyledBtnSave type="submit">Send</StyledBtnSave>
         </StyledModalForm>
-        <Ellipse222 />
-        <Ellipse224 />
       </StyledModal>
     </ModalEditUser>
   );
