@@ -1,9 +1,8 @@
-// import { useState } from "react";
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 
-// import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
@@ -59,14 +58,13 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       onSubmit={(values, actions) => {
         const { title } = values;
         if (boards && boards.some(board => board.title === values.title)) {
-          // return notify.warning('The title already exists');
-          console.log('The title already exists');
-          return;
+          return toast.warning('The title already exists');
         }
 
-        dispatch(createBoard({ ...values }))
+        dispatch(createBoard(values))
           .unwrap()
           .then(() =>
+            toast.success(`${title} has been successfully added to your boards`)
             //  Notify.success(
             //    `${title} has been successfully added to your contacts`
             //  )
@@ -352,18 +350,15 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           </SubmitSvgWrapper>
           Create
         </BoardCreateBtn>
-        {/* <ToastContainer
+        <ToastContainer
           position="center"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
-          closeOnClick
           rtl={false}
-          pauseOnFocusLoss
           draggable
-          pauseOnHover
-          theme="light"
-        /> */}
+          theme="dark"
+        />
       </ModalForm>
     </Formik>
   );
