@@ -65,10 +65,6 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           .unwrap()
           .then(() =>
             toast.success(`${title} has been successfully added to your boards`)
-            //  Notify.success(
-            //    `${title} has been successfully added to your contacts`
-            //  )
-            console.log(`${title} has been successfully added to your boards`)
           )
           .catch(error => error.message);
         actions.resetForm();
