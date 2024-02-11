@@ -19,10 +19,7 @@ export const StyledImgProfile = styled.img`
   height: 32px;
   border-radius: 8%;
 
-  @media screen and (min-width: 768px) {
-    width: 44px;
-    height: 44px;
-  }
+
 `;
 
 export const StyledProfileName = styled.p`

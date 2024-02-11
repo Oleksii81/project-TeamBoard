@@ -11,6 +11,7 @@ export const StyledModal = styled.div`
   top: 50%;
   left: 50%;
   margin-bottom: 25px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   @media screen and (min-width: 768px) {
     width: 400 px;
   }
@@ -95,15 +96,15 @@ export const StyledModalInput = styled.input`
 `;
 
 export const StyledBtnEdit = styled.button`
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   background-color: transparent;
   border: none;
   border-radius: 8px;
   position: absolute;
-  top: 17px;
-  right: 19px;
+  top: 20px;
+  right: 8px;
 `;
 
 export const StyledBtnSave = styled(StyledBtn)`
@@ -117,34 +118,6 @@ export const StyledBtnSave = styled(StyledBtn)`
   &:focus {
     background-color: var(--btnColorHover);
   }
-`;
-
-export const Ellipse222 = styled.div`
-  // pointer-events: none;
-  // z-index: -1;
-  // width: 283.617px;
-  // height: 306.702px;
-  // border-radius: 306.702px;
-  // // background: rgba(188, 230, 210, 0.4);
-  // // filter: blur(104.8543701171875px);
-
-  // position: absolute;
-  // top: -153px;
-  // left: -84px;
-`;
-
-export const Ellipse224 = styled.div`
-  // pointer-events: none;
-  // z-index: -1;
-  // width: 362px;
-  // height: 358px;
-  // border-radius: 362px;
-  // background: rgba(64, 112, 205, 0.5);
-  // filter: blur(104.8543701171875px);
-
-  // position: absolute;
-  // bottom: -271px;
-  // right: -304px;
 `;
 export const EditProfileText = styled.p`
   font-family: 'Poppins-600', sans-serif;

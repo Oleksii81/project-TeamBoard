@@ -66,7 +66,7 @@ export const updateUser = createAsyncThunk(
   'users/updateUser',
   async (formData, thunkAPI) => {
     try {
-      const { data } = await axios.put('/api/auth', formData, {
+      const { data } = await axios.put('/api/auth/users', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -139,9 +139,9 @@ export const deleteBoard = createAsyncThunk(
 
 export const editBoard = createAsyncThunk(
   'boards/editBoard',
-  async ({ id, data }, thunkAPI) => {
+  async ({ id, values }, thunkAPI) => {
     try {
-      await axios.put(`/api/boards/${id}`, data);
+      const { data } = await axios.put(`/api/boards/${id}`, values);
       return { id, data };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -36,31 +36,40 @@ import {
   Img,
   SubmitSvgWrapper,
   Error,
-} from './CreateBoardForm.styled';
-import { getBoard } from '../../../redux/auth/authSelectors';
-import { createBoard } from '../../../redux/auth/authOperations';
+} from './EditBoardForm.styled';
+import { editBoard } from '../../../redux/auth/authOperations';
+import { getBoardSelector } from '../../../redux/auth/authSelectors';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
-const CreateBoardForm = ({ closeModalWindow }) => {
-  const boards = useSelector(getBoard);
+const EditBoardForm = ({ closeModalWindow, id }) => {
   const dispatch = useDispatch();
+
+  const boards = useSelector(getBoardSelector);
+  const { title, icnboard, background } = boards.find(board => {
+    return board._id === id;
+  });
+
   return (
     <Formik
       initialValues={{
-        title: '',
-        icnboard: 'icon-project',
-        background: '0',
+        title: title,
+        icnboard: icnboard,
+        background: background,
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        if (boards && boards.some(board => board.title === values.title)) {
-          return toast.warning('The title already exists');
+        if (
+          title === values.title &&
+          icnboard === values.icnboard &&
+          background === values.background
+        ) {
+          return toast.warning('Data does not changed');
         }
 
-        dispatch(createBoard(values))
+        dispatch(editBoard({ id, values }))
           .unwrap()
           .then()
           .catch(error => error.message);
@@ -69,7 +78,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       }}
     >
       <ModalForm>
-        <Header>New board</Header>
+        <Header>Edit board</Header>
         <SvgCloseBtn type="button" onClick={closeModalWindow}>
           <svg>
             <use href={`${icons}#icon-close`}></use>
@@ -341,11 +350,11 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               <use href={`${icons}#icon-plus`}></use>
             </svg>
           </SubmitSvgWrapper>
-          Create
+          Edit
         </BoardCreateBtn>
         <ToastContainer
           style={{ width: '280px' }}
-          position="top-center"
+          position="bottom-center"
           autoClose={1500}
           transition={Slide}
           closeOnClick={true}
@@ -359,4 +368,4 @@ const CreateBoardForm = ({ closeModalWindow }) => {
   );
 };
 
-export default CreateBoardForm;
+export default EditBoardForm;
