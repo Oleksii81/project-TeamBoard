@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const SideBarMenu = styled.div`
-
   padding: 24px;
   width: 260px;
-  // height: 100vh;
+  height: 100vh;
   background-color: var(--sidebarBgColor);
   transition: transform 0.3s linear;
   display: flex;
@@ -12,7 +11,8 @@ export const SideBarMenu = styled.div`
   // overflow: auto;
 
   /* Tablet */
-  @media screen and (max-width: 767px) {
+  // @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1439px) {
     top: 0;
     position: absolute;
     left: -260px;
@@ -24,29 +24,29 @@ export const SideBarMenu = styled.div`
   }
 
   /* Mobile */
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 767px) {
     padding: 14px;
     max-width: 225px;
     width: 225px;
     left: -225px;
   }
 
-  /* Desktop - Sidebar visible for screens larger than 768px */
-  @media screen and (min-width: 768px) {
+  /* Desktop - Sidebar visible for screens larger than 1439px */
+  @media screen and (min-width: 1439px) {
     left: 0;
     position: absolute;
   }
 
-  @media screen and (min-height: 662px) {
+  /* @media screen and (min-height: 662px) {
     height: 100vh;
-  }
+  } */
 `;
 
 export const ButtonBurger = styled.button`
   display: none;
 
   /* Tablet */
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1439px) {
     border-color: transparent;
     width: 32px;
     height: 32px;
@@ -77,4 +77,3 @@ export const Overlay = styled.div`
     z-index: 9;
   }
 `;
-
