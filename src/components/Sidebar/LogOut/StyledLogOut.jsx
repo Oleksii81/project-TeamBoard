@@ -1,8 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledImg = styled.div`
   width: 32px;
   height: 32px;
+  fill: none;
+  stroke: var(--iconLogOut);
 `;
 
 export const StyledDiv = styled.div`
