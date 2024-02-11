@@ -125,7 +125,7 @@ export const authSlice = createSlice({
           board => board._id === payload.id
         );
         state.user.boards[indexActive].title = payload.data.title;
-        state.user.boards[indexActive].icon = payload.data.icon;
+        state.user.boards[indexActive].icnboard = payload.data.icnboard;
         state.user.boards[indexActive].background = payload.data.background;
         state.isRefreshing = false;
         state.error = null;

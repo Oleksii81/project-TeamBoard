@@ -6,22 +6,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
-import Image1 from '../../../../src/images/background/00.png';
-import Image2 from '../../../../src/images/background/01.png';
-import Image3 from '../../../../src/images/background/02.png';
-import Image4 from '../../../../src/images/background/03.png';
-import Image5 from '../../../../src/images/background/04.png';
-import Image6 from '../../../../src/images/background/05.png';
-import Image7 from '../../../../src/images/background/06.png';
-import Image8 from '../../../../src/images/background/07.png';
-import Image9 from '../../../../src/images/background/08.png';
-import Image10 from '../../../../src/images/background/09.png';
-import Image11 from '../../../../src/images/background/10.png';
-import Image12 from '../../../../src/images/background/11.png';
-import Image13 from '../../../../src/images/background/12.png';
-import Image14 from '../../../../src/images/background/13.png';
-import Image15 from '../../../../src/images/background/14.png';
-import Image16 from '../../../../src/images/background/15.png';
+import Image0 from '../../../../src/images/background/00.png';
+import Image1 from '../../../../src/images/background/07.png';
+import Image2 from '../../../../src/images/background/02.png';
+import Image3 from '../../../../src/images/background/01.png';
+import Image4 from '../../../../src/images/background/08.png';
+import Image5 from '../../../../src/images/background/03.png';
+import Image6 from '../../../../src/images/background/04.png';
+import Image7 from '../../../../src/images/background/09.png';
+import Image8 from '../../../../src/images/background/05.png';
+import Image9 from '../../../../src/images/background/10.png';
+import Image10 from '../../../../src/images/background/06.png';
+import Image11 from '../../../../src/images/background/11.png';
+import Image12 from '../../../../src/images/background/12.png';
+import Image13 from '../../../../src/images/background/13.png';
+import Image14 from '../../../../src/images/background/14.png';
+import Image15 from '../../../../src/images/background/15.png';
 
 import {
   Header,
@@ -51,6 +51,7 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
   const { title, icnboard, background } = boards.find(board => {
     return board._id === id;
   });
+  console.log(title, icnboard, background);
 
   return (
     <Formik
@@ -61,16 +62,15 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-
-        if (
-          title === values.title ??
-          icnboard === values.icnboard ??
-          background === values.background
-        ) {
-          // return notify.warning('The title already exists');
-          console.log('Data does not change');
-          return;
-        }
+        // if (
+        //   title === values.title ||
+        //   icnboard === values.icnboard ||
+        //   background === values.background
+        // ) {
+        //   // return notify.warning('The title already exists');
+        //   console.log('Data does not change');
+        //   return;
+        // }
 
         dispatch(editBoard({ id, values }))
           .unwrap()
@@ -196,29 +196,19 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
               className="background-field"
               type="radio"
               name="background"
+              value="0"
+            />
+            <Img src={Image0} alt="background 0" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
               value="1"
             />
             <Img src={Image1} alt="background 1" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="8"
-            />
-            <Img src={Image8} alt="background 8" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="3"
-            />
-            <Img src={Image3} alt="background 3" />
           </label>
 
           <label>
@@ -236,9 +226,9 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="9"
+              value="3"
             />
-            <Img src={Image9} alt="background 9" />
+            <Img src={Image3} alt="background 3" />
           </label>
 
           <label>
@@ -266,16 +256,6 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="10"
-            />
-            <Img src={Image10} alt="background 10" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
               value="6"
             />
             <Img src={Image6} alt="background 6" />
@@ -286,9 +266,9 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="11"
+              value="7"
             />
-            <Img src={Image11} alt="background 11" />
+            <Img src={Image7} alt="background 7" />
           </label>
 
           <label>
@@ -296,9 +276,39 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
               className="background-field"
               type="radio"
               name="background"
-              value="7"
+              value="8"
             />
-            <Img src={Image7} alt="background 7" />
+            <Img src={Image8} alt="background 8" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="9"
+            />
+            <Img src={Image9} alt="background 9" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="10"
+            />
+            <Img src={Image10} alt="background 10" />
+          </label>
+
+          <label>
+            <Field
+              className="background-field"
+              type="radio"
+              name="background"
+              value="11"
+            />
+            <Img src={Image11} alt="background 11" />
           </label>
 
           <label>
@@ -339,16 +349,6 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
               value="15"
             />
             <Img src={Image15} alt="background 15" />
-          </label>
-
-          <label>
-            <Field
-              className="background-field"
-              type="radio"
-              name="background"
-              value="16"
-            />
-            <Img src={Image16} alt="background 16" />
           </label>
         </BackgroundContainer>
 
