@@ -20,13 +20,12 @@ const Header = ({ toggleSidebar }) => {
         };
         window.addEventListener('resize', handleResize);
 
-        // Clean up event listener
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
 
-    if (windowWidth >= 767) {
+    if (windowWidth >= 768) {
          Object.assign(burgerIconStyles, {
             display: 'none'
         });

@@ -21,7 +21,7 @@ export const Header = styled.h3`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
 `;
 
 export const IconsHeader = styled.p`
@@ -39,12 +39,14 @@ export const IconsHeader = styled.p`
   }
 `;
 
+
 export const IconsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   gap: 8px;
+  
 
   & input {
     margin-right: 8px;
