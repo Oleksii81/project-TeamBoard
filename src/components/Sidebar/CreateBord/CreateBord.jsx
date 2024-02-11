@@ -12,10 +12,10 @@ const CreateBord = ({onCloseSideBar}) => {
   };
   
   const handleButtonClick = () => {
-     const currentWidth = window.innerWidth;
-    const thresholdWidth = 768;
+    const currentWidth = window.innerWidth;
 
-  if (currentWidth <= thresholdWidth) {
+
+  if (currentWidth <= 768) {
     openModal();
     onCloseSideBar();
   } else {

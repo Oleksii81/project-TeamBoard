@@ -5,7 +5,7 @@ export const StyledModal = styled.div`
   width: 335px;
   padding: 24px 24px;
   border-radius: 8px;
-  background-color: #fcfcfc;
+  background-color: var(--popupBackground);
   transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
@@ -26,7 +26,7 @@ export const StyledBtnClose = styled.button`
   top: 14px;
   right: 14px;
   svg {
-    stroke: black;
+    stroke: var(--buttonColor);
   }
 `;
 
@@ -79,9 +79,9 @@ export const StyledModalInput = styled.input`
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  color: #161616;
+  color: var(--primaryTextColor);
   background-color: transparent;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--greenGreenBlueColor);
   border-radius: 8px;
   opacity: 0.8;
 
@@ -90,7 +90,7 @@ export const StyledModalInput = styled.input`
   }
 
   &:focus {
-    outline: 1px solid #9dc888;
+    outline: 1px solid var(--createButtonHover);
   }
 `;
 
@@ -111,12 +111,11 @@ export const StyledBtnSave = styled(StyledBtn)`
   padding: 18px 96px;
   font-family: 'Poppins-600', sans-serif;
   line-height: 18px;
-  color: #161616;
-  background-color: #bedbb0;
+  color: var(--addCardButtonColor);
+  background-color: var(--addCardButtonBackground);
   &:hover,
   &:focus {
-    background-color: #9dc888;
-    color: #161616;
+    background-color: var(--btnColorHover);
   }
 `;
 
@@ -150,6 +149,7 @@ export const Ellipse224 = styled.div`
 export const EditProfileText = styled.p`
   font-family: 'Poppins-600', sans-serif;
   line-height: 18px;
+  color: var(--buttonColor)
 `;
 export const StyledErrorMail = styled.p`
   position: absolute;

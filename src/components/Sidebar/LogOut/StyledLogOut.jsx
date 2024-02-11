@@ -15,6 +15,6 @@ export const StyledDiv = styled.div`
 
   font-weight: 500;
   font-size: 16px;
-  color: #fff;
+  color: var(--createNewBoard);
   cursor: pointer;
 `;
