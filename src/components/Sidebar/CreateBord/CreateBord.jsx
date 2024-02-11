@@ -15,7 +15,7 @@ const CreateBord = ({onCloseSideBar}) => {
     const currentWidth = window.innerWidth;
 
 
-  if (currentWidth <= 768) {
+  if (currentWidth <= 1439) {
     openModal();
     onCloseSideBar();
   } else {

@@ -30,10 +30,9 @@ const NeedHelp = ({onCloseSideBar}) => {
 
   const handleButtonClick = () => {
      const currentWidth = window.innerWidth;
-    const thresholdWidth = 768;
 
 
-  if (currentWidth <= thresholdWidth) {
+  if (currentWidth <= 1439) {
     openModal();
     onCloseSideBar();
     
