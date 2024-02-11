@@ -5,22 +5,21 @@ import {
   ItemCardContainer,
   Title,
   Description,
+  Line,
   ButtonContainer,
   Button,
-  CurrentLine,
   DetailsContainer,
-  Detail,
   DetailName,
   DetailText,
   DetailCircle,
-  Line,
   DivFlex,
+  // CurrentLine,
 } from './CardsList.styled';
 
 import icons from '../../../images/sprite.svg';
 
 // import { deleteCard, replaceCard } from '../../../redux/task/taskOperations';
-// import EditModalCard from 'components/Modals/ModalBord/EditModalBoard';
+// import ModalEditCard from 'components/Modals/ModalCard/ModalEditCard';
 
 const BoardItem = ({ id, title, description, priority, deadline }) => {
   //   const dispatch = useDispatch();
@@ -37,17 +36,17 @@ const BoardItem = ({ id, title, description, priority, deadline }) => {
       <Description>{description}</Description>
       <Line />
       <DetailsContainer>
-        <Detail>
+        <div>
           <DetailName>Priority</DetailName>
           <DivFlex>
             <DetailCircle />
             <DetailText>{priority}</DetailText>
           </DivFlex>
-        </Detail>
-        <Detail>
+        </div>
+        <div>
           <DetailName>Deadline</DetailName>
           <DetailText>{deadline}</DetailText>
-        </Detail>
+        </div>
         <ButtonContainer>
           <Button className="bell">
             <svg width="16" height="16">
@@ -77,8 +76,8 @@ const BoardItem = ({ id, title, description, priority, deadline }) => {
           </Button>
         </ButtonContainer>
       </DetailsContainer>
-      <CurrentLine />
-      {/* <EditModalCard
+      {/* <CurrentLine /> */}
+      {/* <ModalEditCard
         id={id}
         isOpen={isOpen}
         openModal={openModal}
