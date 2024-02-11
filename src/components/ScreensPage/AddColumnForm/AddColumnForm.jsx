@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 // import { getColumn } from '../../../../src/redux/task/taskSelectors';
 // import { addColumn } from '../../../../src/redux/task/taskOperations';
 import icons from '../../../../src/images/sprite.svg';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, /*toast */} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
