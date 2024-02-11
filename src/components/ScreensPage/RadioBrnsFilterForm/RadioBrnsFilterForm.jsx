@@ -92,6 +92,7 @@ const RadioBtnsFilterForm = ({ priority }) => {
            
           ))}
             </RadioGroup>
+          </FormControl>
         </FormFilter>
       )}
     </Formik>
