@@ -78,6 +78,26 @@ export const updateUser = createAsyncThunk(
   }
 );
 
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (!persistedToken) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.get('/api/auth/current');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const patchBoard = createAsyncThunk(
   'auth/updateBoard',
   async ({ boardId }, thunkAPI) => {
@@ -119,9 +139,9 @@ export const deleteBoard = createAsyncThunk(
 
 export const editBoard = createAsyncThunk(
   'boards/editBoard',
-  async ({ id, data }, thunkAPI) => {
+  async ({ id, values }, thunkAPI) => {
     try {
-      await axios.put(`/api/boards/${id}`, data);
+      const { data } = await axios.put(`/api/boards/${id}`, values);
       return { id, data };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -21,7 +21,9 @@ body {
   font-weight: 400;
   transition: 0.3s ease;
   background-color: var(--boardBgColor);
+  
 }
+
 
 ul,
 ol {
@@ -177,7 +179,7 @@ body[data-theme="light"] {
   --primaryTextColor: #161616;
   --createNewBoard: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
-  --popupTextColor: #161616;
+  --popupTextColor: rgba(22, 22, 22, 0.5);
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
   --textBoardColor: rgba(22, 22, 22, 0.5);
 
@@ -271,7 +273,7 @@ body[data-theme="violet"] {
   --primaryTextColor: #161616;
   --createNewBoard: #FFFFFF;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
-  --popupTextColor: #161616;
+  --popupTextColor: rgba(22, 22, 22, 0.5);
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
    --textBoardColor: rgba(255, 255, 255, 0.5);
 

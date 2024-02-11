@@ -16,7 +16,9 @@ export const Input = styled(Field)`
   border-radius: 8px;
   width: 100%;
   height: 49px;
+  // box-shadow: 0 4px 16px 0 var(--themeTitleTextColor);
   background: var(--popupBackground);
+  opacity: 0.4;
   margin-bottom: 24px;
   padding: 0 18px;
   position: relative;
@@ -26,72 +28,6 @@ export const Input = styled(Field)`
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--primaryTextColor);
-`;
-
-export const IconsHeaderIcons = styled.p`
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: var(--primaryTextColor);
-  margin: 0 0 14px 0;
-`;
-
-export const IconsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 8px;
-  margin: 0 0 24px 0;
-  padding: 0;
-
-  svg {
-    stroke-width: 1.5px;
-    stroke: var(--iconCardColor);
-    fill: transparent;
-  }
-
-  .icons-field {
-    display: none;
-  }
-
-  input:checked + svg {
-    stroke: var(--primaryTextColor);
-  }
-`;
-
-export const HeaderBackground = styled.p`
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: var(--primaryTextColor);
-  margin: 0 0 14px 0;
-`;
-
-export const BackgroundContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 4px;
-  flex-wrap: wrap;
-  margin: 0 0 40px 0;
-  stroke-width: 1px;
-  stroke: var(--defaultAvatarBgColor);
-  width: 252px;
-
-  .background-field {
-    display: none;
-  }
-
-  img {
-    cursor: pointer;
-  }
-
-  input:checked + img {
-    border: 2px solid var(--defaultAvatarBgColor);
-    border-radius: 6px;
-  }
 `;
 
 export const BoardCreateBtn = styled.button`
@@ -125,6 +61,7 @@ export const BoardCreateBtn = styled.button`
 
 export const ModalForm = styled(Form)`
   padding: 24px;
+  height: 100%;
   position: relative;
   background: var(--popupBackground);
   border: 1px solid var(--addCardButtonBackground);
@@ -146,12 +83,6 @@ export const SvgCloseBtn = styled.button`
     height: 18px;
   }
 `;
-
-export const Img = styled.img`
-  width: 28px;
-  height: 28px;
-`;
-
 export const SubmitSvgWrapper = styled.div`
   width: 28px;
   height: 28px;

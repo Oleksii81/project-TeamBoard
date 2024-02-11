@@ -26,6 +26,12 @@ const NeedHelpSchema = Yup.object().shape({
 const FormNeedHelp = ({ onClose }) => {
   const userEmail = useSelector(getUserEmail);
 
+  const handleSubmit = (values, { resetForm }) => {
+    fetchHelpApi(values);
+    resetForm();
+    onClose();
+  };
+
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
@@ -40,11 +46,7 @@ const FormNeedHelp = ({ onClose }) => {
           comment: '',
         }}
         validationSchema={NeedHelpSchema}
-        onSubmit={(values, {resetForm}) => { 
-          fetchHelpApi(values);
-          resetForm();
-          onClose();
-        }}
+        onSubmit={handleSubmit}
       >
         {({ handleChange, values }) =>(
           <FormHelp>
@@ -68,7 +70,6 @@ const FormNeedHelp = ({ onClose }) => {
         )}
       </Formik>
 
-     
     </ModalContainerHelp>
   );
 };

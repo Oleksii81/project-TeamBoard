@@ -28,6 +28,7 @@ export const ModalContainerHelp = styled.div`
 
   @media (max-width: 768px) {
     width: 335px;
+    margin-left: 30px;
   }
 `;
 
@@ -109,10 +110,14 @@ export const BtnSendHelp = styled.button`
   margin: 24px;
   background-color: var(--greenGreenBlueColor);
   border: none;
-
+  color: var(--addCardButtonColor);
+  &:hover {
+    background-color: var(--btnColorHover);
+  }
   @media (max-width: 768px) {
     width: 287px;
   }
+ 
 `;
 
 export const IconHelp = styled.svg`

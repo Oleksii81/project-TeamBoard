@@ -2,7 +2,7 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
@@ -36,35 +36,49 @@ import {
   Img,
   SubmitSvgWrapper,
   Error,
-} from './CreateBoardForm.styled';
-import { getBoard } from '../../../redux/auth/authSelectors';
-import { createBoard } from '../../../redux/auth/authOperations';
+} from './EditBoardForm.styled';
+import { editBoard } from '../../../redux/auth/authOperations';
+import { getBoardSelector } from '../../../redux/auth/authSelectors';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
-const CreateBoardForm = ({ closeModalWindow }) => {
-  const boards = useSelector(getBoard);
+const EditBoardForm = ({ closeModalWindow, id }) => {
   const dispatch = useDispatch();
+
+  const boards = useSelector(getBoardSelector);
+  const { title, icnboard, background } = boards.find(board => {
+    return board._id === id;
+  });
+  console.log(title, icnboard, background);
+
   return (
     <Formik
       initialValues={{
-        title: '',
-        icnboard: 'icon-project',
-        background: '0',
+        title: title,
+        icnboard: icnboard,
+        background: background,
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        const { title } = values;
-        if (boards && boards.some(board => board.title === values.title)) {
-          return toast.warning('The title already exists');
-        }
+        // if (
+        //   title === values.title ||
+        //   icnboard === values.icnboard ||
+        //   background === values.background
+        // ) {
+        //   // return notify.warning('The title already exists');
+        //   console.log('Data does not change');
+        //   return;
+        // }
 
-        dispatch(createBoard(values))
+        dispatch(editBoard({ id, values }))
           .unwrap()
           .then(() =>
-            toast.success(`${title} has been successfully added to your boards`)
+            //  Notify.success(
+            //    `${title} has been successfully added to your contacts`
+            //  )
+            console.log('Board has been successfully updated')
           )
           .catch(error => error.message);
         actions.resetForm();
@@ -72,7 +86,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       }}
     >
       <ModalForm>
-        <Header>New board</Header>
+        <Header>Edit board</Header>
         <SvgCloseBtn type="button" onClick={closeModalWindow}>
           <svg>
             <use href={`${icons}#icon-close`}></use>
@@ -344,20 +358,23 @@ const CreateBoardForm = ({ closeModalWindow }) => {
               <use href={`${icons}#icon-plus`}></use>
             </svg>
           </SubmitSvgWrapper>
-          Create
+          Edit
         </BoardCreateBtn>
-        <ToastContainer
+        {/* <ToastContainer
           position="center"
-          autoClose={3000}
+          autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}
+          closeOnClick
           rtl={false}
+          pauseOnFocusLoss
           draggable
-          theme="dark"
-        />
+          pauseOnHover
+          theme="light"
+        /> */}
       </ModalForm>
     </Formik>
   );
 };
 
-export default CreateBoardForm;
+export default EditBoardForm;

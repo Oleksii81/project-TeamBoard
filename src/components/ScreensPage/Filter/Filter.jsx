@@ -10,8 +10,9 @@ import {
   FilterFormHeading,
 } from './Filter.styled';
 
-const Filter = () => {
+const Filter = ({ onChangeFilter, setFilterByPriority }) => {
   const [window, setWindow] = useState(false);
+  
 
   const toggleWindow = () => {
     setWindow(!window);
@@ -23,7 +24,7 @@ const Filter = () => {
   return (
     <>
       <Container>
-        <svg width="16px" height="16px">
+        <svg width="16px" height="16px" fill='transparent'> 
           <use href={`${icons}#icon-filter`}></use>
         </svg>
         <FilterText onClick={toggleWindow}>Filters</FilterText>
@@ -36,7 +37,10 @@ const Filter = () => {
             </svg>
           </FilerModalBtn>
           <FilterFormHeading>Filters</FilterFormHeading>
-          <RadioBtnsFilterForm />
+          <RadioBtnsFilterForm
+            onSelect={onChangeFilter}
+            setFilterByPriority={setFilterByPriority}
+          />
         </WindowContainer>
       )}
     </>
