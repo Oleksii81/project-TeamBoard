@@ -58,7 +58,7 @@ export const QuestionHelp = styled.span`
   padding-top: 19px;
 `;
 
-export const ConatainerText = styled.div`
+export const ContainerText = styled.div`
    background-color: var(--helpBgColor);
     margin-top: -204px;
     width: 211px;
@@ -79,7 +79,7 @@ export const BtnNeedHelp = styled.div`
   cursor: pointer;
   position: relative;
 
-  &:hover + ${ConatainerText} {
+  &:hover + ${ContainerText} {
     display: block;
   }
 `;

@@ -8,7 +8,7 @@ import {
   Span,
   QuestionHelp,
   BtnNeedHelp,
-  ConatainerText,
+  ContainerText,
 } from './NeedHelp.styled.js';
 
 import ModalNeedHelp from '../../Modals/ModalNeedHelp/ModalNeedHelp.jsx';
@@ -31,7 +31,7 @@ const NeedHelp = () => {
   return (
     <ContainerHelp>
 
-    <ConatainerText isVisible={hoverText}>
+    <ContainerText isVisible={hoverText}>
       <ImgHelp src={image} alt="Help" />
 
       <TextHelp>
@@ -39,7 +39,7 @@ const NeedHelp = () => {
         <Span> TaskPro</Span>, check out our
         support resources or reach out to our customer support team.
       </TextHelp>
-       </ConatainerText>
+       </ContainerText>
 
       <BtnNeedHelp onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}>
         <IconHelp>
