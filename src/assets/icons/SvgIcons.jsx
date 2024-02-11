@@ -147,14 +147,14 @@ export const SpriteSVG = ({ name }) => {
           <path
             d="M.75 9s3-6 8.25-6 8.25 6 8.25 6-3 6-8.25 6S.75 9 .75 9Z"
             stroke="#161616"
-            stroke-width="1.3"
+            stroke-width="1"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M9 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z"
             stroke="#161616"
-            stroke-width="1.3"
+            stroke-width="1"
             stroke-linecap="round"
             stroke-linejoin="round"
           />

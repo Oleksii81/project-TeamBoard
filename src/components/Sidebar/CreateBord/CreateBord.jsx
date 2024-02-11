@@ -4,12 +4,25 @@ import { useState } from 'react';
 import { Heading, Button, Text, Container } from './CreateBoard.styled';
 import icons from '../../../images/sprite.svg';
 
-const CreateBord = () => {
+const CreateBord = ({onCloseSideBar}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
     setIsOpen(true);
   };
+  
+  const handleButtonClick = () => {
+     const currentWidth = window.innerWidth;
+    const thresholdWidth = 768;
+
+  if (currentWidth <= thresholdWidth) {
+    openModal();
+    onCloseSideBar();
+  } else {
+    openModal();
+  }
+
+  }
 
   return (
     <>
@@ -19,7 +32,7 @@ const CreateBord = () => {
           Create a <br />
           new board
         </Text>
-        <Button onClick={openModal}>
+        <Button onClick={handleButtonClick}>
           <svg width="40px" height="36px">
             <use href={`${icons}#icon-plus`}></use>
           </svg>

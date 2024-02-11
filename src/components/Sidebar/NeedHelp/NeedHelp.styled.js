@@ -5,12 +5,13 @@ export const ContainerHelp = styled.div`
   background: var(--helpBgColor);
   border-radius: 8px;
   width: 197px;
-  height: 238px;
-  padding: 16px;
+  height: 65px;
+  padding-top: 27px;
+  padding-left: 19px;
 
-  @media (min-width: 768px) {
+
+  @media (min-width:375px) and (max-width: 1770px) {
     width: 212px;
-    height: 272px;
     padding-left: 20px;
   }
 `;
@@ -18,12 +19,13 @@ export const ContainerHelp = styled.div`
 export const ImgHelp = styled.img`
   width: 54px;
   height: 78px;
+  margin-top: 10px;
 `;
 
 export const TextHelp = styled.p`
   width: 163px;
   margin-top: 14px;
-  color: var(--primaryTextColor);
+  color: var(--needHelpBtn);
   font-size: 12px;
   line-height: 1.34;
   letter-spacing: -0.24px;
@@ -44,7 +46,7 @@ export const IconHelp = styled.svg`
   width: 20px;
   height: 20px;
   fill: none;
-  stroke: var(--primaryTextColor);
+  stroke: var(--needHelpBtn);
 `;
 
 export const QuestionHelp = styled.span`
@@ -52,12 +54,32 @@ export const QuestionHelp = styled.span`
   font-size: 12px;
   letter-spacing: -0.02em;
   cursor: pointer;
-  color: var(--primaryTextColor);
+  color: var(--needHelpBtn);
   padding-top: 19px;
+`;
+
+export const ContainerText = styled.div`
+   background-color: var(--helpBgColor);
+    margin-top: -204px;
+    width: 211px;
+    margin-left: -19px;
+    padding-left: 20px;
+    border-radius: 8px;
+    display: ${props => props.isVisible ? 'block' : 'none'};
+
+  @media(max-width:375px) {
+    width: 197px;
+  }
 `;
 
 export const BtnNeedHelp = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 8px;
+  cursor: pointer;
+  position: relative;
+
+  &:hover + ${ContainerText} {
+    display: block;
+  }
 `;

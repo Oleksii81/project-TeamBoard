@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import icon from '../../../images/logout.svg';
+import icons from '../../../images/sprite.svg';
 import { StyledDiv, StyledImg } from './StyledLogOut';
 import { logout } from '../../../redux/auth/authOperations';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +16,11 @@ const LogOut = () => {
 
     return (
       <StyledDiv onClick={onLogOut}>
-        <StyledImg src={icon} alt="logout" />
+        <StyledImg >
+          <svg width="32" height="32">
+            <use href={`${icons}#icon-logout`}></use>
+          </svg>
+        </StyledImg>
         <p>Log Out</p>
       </StyledDiv>
     );
