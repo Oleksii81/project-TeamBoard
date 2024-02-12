@@ -21,14 +21,12 @@ export const Container = styled.div`
 
   @media screen and (min-width: 768px) {
     padding: 26px 32px 96px;
-    width: 100%;
+    width: calc(-260px + 100vw);
+    left: 260px;
     top: 68px;
   }
 
   @media screen and (min-width: 1440px) {
     padding: 10px 20px 36px;
-    width: calc(-260px + 100vw);
-
-    left: 260px;
   }
 `;
