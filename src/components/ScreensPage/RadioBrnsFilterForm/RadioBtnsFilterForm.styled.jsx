@@ -30,9 +30,9 @@ export const IconsHeader = styled.p`
   font-size: 12px;
   letter-spacing: -0.02em;
   text-decoration: underline;
-  color: rgba(255, 255, 255, 0.5);
   transition: 250ms opacity ease-in-out;
   cursor: pointer;
+  color: var(--popupTextColor);
 
   &:hover {
     opacity: 0.7;
