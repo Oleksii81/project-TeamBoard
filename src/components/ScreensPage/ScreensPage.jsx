@@ -5,7 +5,6 @@ import Text from '../../../src/components/ScreensPage/Text/Text';
 import Filter from '../../../src/components/ScreensPage/Filter/Filter';
 import Bord from '../../../src/components/ScreensPage/Bord/Bord';
 import { getBoard } from '../../../src/redux/auth/authSelectors';
-import { ColumnHeader } from './ColumnHeader/ColumnHeader'; // don't forget to delete
 
 const ScreensPage = () => {
   const boards = useSelector(getBoard);
@@ -34,7 +33,6 @@ const ScreensPage = () => {
           setFilterByPriority={setFilterByPriority}
           onChangeFilter={onFilterChange}
           />
-          {/* <ColumnHeader/>  */}
         <Text />
       </Container>
     </section>

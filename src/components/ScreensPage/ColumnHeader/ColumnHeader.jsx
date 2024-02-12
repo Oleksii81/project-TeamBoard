@@ -1,4 +1,4 @@
-import { useState, useSelector } from "react"
+import { useState } from "react"
 import {
     ColumnHeaderWrapper,
     ColumnHeaderText,
@@ -7,10 +7,11 @@ import {
 } from "./ColumnHeader.styled"
 import icons from "../../../images/sprite.svg"
 import ModalCard from "components/Modals/ModalCard/ModalCard"
+import DateCalendarReferenceDate from "./EditModal/Calendar"
 
 export const ColumnHeader = ({column}) => {
     const [isModalOpen, SetIsModalOpen] = useState(false)
-    // const { title } = column
+    const { title } = column
     
     const onClick = () => {
         SetIsModalOpen(!isModalOpen);
@@ -22,7 +23,7 @@ export const ColumnHeader = ({column}) => {
     return (
         <>
             <ColumnHeaderWrapper>
-                <ColumnHeaderText>Default // title</ColumnHeaderText>
+                <ColumnHeaderText>{title}</ColumnHeaderText>
                
                 <ColumnHeaderButton onClick={onClick}>
                     <ColumnHeaderIcon>
@@ -40,7 +41,8 @@ export const ColumnHeader = ({column}) => {
              openModal={onClick}
              closeModal={() => SetIsModalOpen(false)}
             /> 
-           
+
+           <DateCalendarReferenceDate></DateCalendarReferenceDate>
         </>
     )
 }
