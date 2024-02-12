@@ -33,11 +33,9 @@ const validationSchema = Yup.object({
 
 export const UserInfoModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const { username, email, avatar } = useSelector(getUserData);
+  const { name, email, avatarURL } = useSelector(getUserData);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [changedName] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [changedPassword, setChangedPassword] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
 
   const handleFileChange = file => {
@@ -56,39 +54,14 @@ export const UserInfoModal = ({ onClose }) => {
     const file = event.target.files[0];
     handleFileChange(file);
   };
-
-  const onUpload = async event => {
-    if (event.target.type === 'file') {
-      const file = event.target.files[0];
-      handleFileChange(file);
-      return;
-    }
-
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append('avatar', selectedFile);
-    formData.append('username', changedName || username);
-    formData.append('email', email);
-    formData.append('password', changedPassword || '');
-
-    dispatch(updateUser(formData))
-      .unwrap()
-      .then(() => {
-        onClose();
-      })
-      .catch(error => {
-        console.error('Error updating user', error.message);
-      });
-  };
   const formik = useFormik({
-    initialValues: { userName: '', userEmail: '', userPassword: '' },
+    initialValues: { userName: name, userEmail: email, userPassword: '' },
     validationSchema: validationSchema,
     onSubmit: async values => {
       try {
         const formData = new FormData();
         formData.append('avatar', selectedFile);
-        formData.append('username', values.userName);
+        formData.append('userName', values.userName);
         formData.append('email', values.userEmail);
         formData.append('password', values.userPassword);
         dispatch(updateUser(formData));
@@ -108,15 +81,11 @@ export const UserInfoModal = ({ onClose }) => {
         <EditProfileText>Edit profile</EditProfileText>
         <StyledModalHeader>
           <StyledUserFoto
-            src={previewImage || avatar || userFoto}
-            alt={previewImage ? 'Preview' : avatar ? 'Foto' : 'Default foto'}
+            src={previewImage || avatarURL || userFoto}
+            alt={previewImage ? 'Preview' : avatarURL ? 'Foto' : 'Default foto'}
           />
 
-          <StyledInputAdd
-            type="file"
-            onChange={onFileChange}
-            onClick={onUpload}
-          ></StyledInputAdd>
+          <StyledInputAdd type="file" onChange={onFileChange} />
           <StyledSvgWrapper
             onClick={() => document.querySelector('input[type=file]').click()}
           >
@@ -126,8 +95,7 @@ export const UserInfoModal = ({ onClose }) => {
         <StyledModalForm onSubmit={formik.handleSubmit}>
           <StyledModalInput
             name="userName"
-            placeholder="Ivetta"
-            value={formik.values.userName || username}
+            value={formik.values.userName || name}
             onChange={formik.handleChange}
           />
           {formik.errors.userName && formik.touched.userName && (
@@ -135,7 +103,6 @@ export const UserInfoModal = ({ onClose }) => {
           )}
           <StyledModalInput
             name="userEmail"
-            placeholder="ivetta34@gmail.com"
             value={formik.values.userEmail || email}
             onChange={formik.handleChange}
           />
@@ -145,13 +112,10 @@ export const UserInfoModal = ({ onClose }) => {
           <div style={{ position: 'relative' }}>
             <StyledModalInput
               name="userPassword"
-              placeholder="ivetta1999.23"
+              placeholder="Password"
               type={showPassword ? 'text' : 'password'}
               value={formik.values.userPassword || ''}
-              onChange={event => {
-                formik.handleChange(event);
-                setChangedPassword(event.target.value);
-              }}
+              onChange={formik.handleChange}
             />
             <StyledBtnEdit
               type="button"
