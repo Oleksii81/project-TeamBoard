@@ -25,14 +25,11 @@ const AddColumnFormSchema = Yup.object().shape({
 const AddColumnForm = ({ closeModalWindow }) => {
   const columns = useSelector(getColumn);
   const dispatch = useDispatch();
-  console.log(dispatch);
   const boards = useSelector(getBoard);
-  console.log(boards);
 
   const activeBoard = boards.find(board => board.isActive);
-  console.log(activeBoard);
   const idBoard = activeBoard._id;
-  console.log(idBoard);
+
   return (
     <Formik
       initialValues={{
@@ -42,7 +39,7 @@ const AddColumnForm = ({ closeModalWindow }) => {
       onSubmit={(values, actions) => {
         actions.resetForm();
         closeModalWindow();
-        if (columns.some(column => column.title === values.title)) {
+        if (columns?.some(column => column.title === values.title)) {
           return toast.warning('The title already exists');
         }
 
