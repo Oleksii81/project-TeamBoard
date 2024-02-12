@@ -1,15 +1,15 @@
 import { useSelector } from 'react-redux';
 import { AddBoardBtn } from '../../../../src/components/ScreensPage/AddBoardBtn/AddBoardBtn';
 import Filter from '../../../../src/components/ScreensPage/Filter/Filter';
-import CardList from '../Card/CardList';
+// import CardList from '../Card/CardList';
 import { ContainerMain } from './Bord.styled';
 
-import { getBoardBg } from '../../../../src/redux/task/taskSelectors';
+// import { getBoardBg } from '../../../../src/redux/task/taskSelectors';
 import { getBoard } from '../../../redux/auth/authSelectors';
 import ColumnsList from '../../../../src/components/ScreensPage/ColumnsList/ColumnsList';
 
 const Bord = ({ onChangeFilter, setFilterByPriority }) => {
-  const background = useSelector(getBoardBg);
+  // const background = useSelector(getBoardBg);
   const boards = useSelector(getBoard);
   console.log(boards);
 

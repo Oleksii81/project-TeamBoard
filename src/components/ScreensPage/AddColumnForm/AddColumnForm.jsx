@@ -39,7 +39,7 @@ const AddColumnForm = ({ closeModalWindow }) => {
       onSubmit={(values, actions) => {
         actions.resetForm();
         closeModalWindow();
-        if (columns?.some(column => column.title === values.title)) {
+        if (columns && columns.some(column => column.title === values.title)) {
           return toast.warning('The title already exists');
         }
 
