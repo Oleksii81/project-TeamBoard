@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
-   addCardApi,
+  addCardApi,
   addColumnApi,
   editColumnApi,
   deleteColumnApi,
@@ -25,9 +25,9 @@ export const getBoardId = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   'column/add',
-  async (idBoard, columnForm, { rejectWithValue, dispatch }) => {
+  async ({ values, idBoard }, { rejectWithValue, dispatch }) => {
     try {
-      const { data } = await addColumnApi(idBoard, columnForm);
+      const { data } = await addColumnApi(values, idBoard);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -72,41 +72,41 @@ export const addCard = createAsyncThunk(
   }
 );
 
- export const getOneCard = createAsyncThunk(
-   'card/getOne',
-   async ({ idColumn, idCard }, { rejectWithValue, dispatch }) => {
-     try {
-       const { data } = await getOneCardApi({ idColumn, idCard });
-       return data;
-     } catch (error) {
-       return rejectWithValue(error.message);
-     }
-   }
- );
-
- export const editCard = createAsyncThunk(
-   'card/edit',
-   async ({ id, body, column }, { rejectWithValue, dispatch }) => {
-     try {
-       const { data } = await editCardApi(id, body, column);
-       return data;
-     } catch (error) {
-       return rejectWithValue(error.message);
-     }
-   }
- );
-
- export const deleteCard = createAsyncThunk(
-   'card/delete',
-   async ({ _id, columnID }, { rejectWithValue, dispatch }) => {
+export const getOneCard = createAsyncThunk(
+  'card/getOne',
+  async ({ idColumn, idCard }, { rejectWithValue, dispatch }) => {
     try {
-       const { data } = await deleteCardApi(_id, columnID);
-       return data;
-     } catch (error) {
-       return rejectWithValue(error.message);
-     }
-   }
- );
+      const { data } = await getOneCardApi({ idColumn, idCard });
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editCard = createAsyncThunk(
+  'card/edit',
+  async ({ id, body, column }, { rejectWithValue, dispatch }) => {
+    try {
+      const { data } = await editCardApi(id, body, column);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteCard = createAsyncThunk(
+  'card/delete',
+  async ({ _id, columnID }, { rejectWithValue, dispatch }) => {
+    try {
+      const { data } = await deleteCardApi(_id, columnID);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const replaceCard = createAsyncThunk(
   'card/replace',

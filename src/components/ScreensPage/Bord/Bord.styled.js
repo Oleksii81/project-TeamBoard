@@ -1,10 +1,57 @@
 import styled from 'styled-components';
 
 export const ContainerMain = styled.div`
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+
+  @media screen and (min-width: 320px) {
+    background-image: ${props =>
+      props.background !== '00' &&
+      `url("${props.background.background_mobile_jpeg_1x}")`};
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: ${props =>
+        props.background !== '00' &&
+        `url("${props.background.background_mobile_jpeg_2x}")`};
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: ${props =>
+      props.background !== '00' &&
+      `url("${props.background.background_mobile_jpeg_2x}")`};
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: ${props =>
+        props.background !== '00' &&
+        `url("${props.background.background_tablet_jpeg_2x}")`};
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: calc(100vw - 260px);
+    background-image: ${props =>
+      props.background !== '00' &&
+      `url("${props.background.background_decktop_jpeg_1x}")`};
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: ${props =>
+        props.background !== '00' &&
+        `url("${props.background.background_decktop_jpeg_2x}")`};
+    }
+  }
+
   padding: 14px 20px;
   display: flex;
+  flex-direction: row-reverse;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 34px;
 
   position: absolute;
