@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import RadioBtnsFilterForm from '../../../../src/components/ScreensPage/RadioBrnsFilterForm/RadioBrnsFilterForm';
+// import RadioBtnsFilterForm from '../../../../src/components/ScreensPage/RadioBrnsFilterForm/RadioBrnsFilterForm';
 
 import icons from '../../../../src/images/sprite.svg';
 import {
@@ -12,7 +12,6 @@ import {
 
 const Filter = ({ onChangeFilter, setFilterByPriority }) => {
   const [window, setWindow] = useState(false);
-  
 
   const toggleWindow = () => {
     setWindow(!window);
@@ -24,7 +23,7 @@ const Filter = ({ onChangeFilter, setFilterByPriority }) => {
   return (
     <>
       <Container>
-        <svg width="16px" height="16px" fill='transparent'> 
+        <svg width="16px" height="16px" fill="transparent">
           <use href={`${icons}#icon-filter`}></use>
         </svg>
         <FilterText onClick={toggleWindow}>Filters</FilterText>
@@ -37,10 +36,10 @@ const Filter = ({ onChangeFilter, setFilterByPriority }) => {
             </svg>
           </FilerModalBtn>
           <FilterFormHeading>Filters</FilterFormHeading>
-          <RadioBtnsFilterForm
+          {/* <RadioBtnsFilterForm
             onSelect={onChangeFilter}
             setFilterByPriority={setFilterByPriority}
-          />
+          /> */}
         </WindowContainer>
       )}
     </>
