@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { AddBoardBtn } from '../../../../src/components/ScreensPage/AddBoardBtn/AddBoardBtn';
 import Filter from '../../../../src/components/ScreensPage/Filter/Filter';
+import CardList from '../Card/CardList';
 import { ContainerMain } from './Bord.styled';
 
 import { getBoardBg } from '../../../../src/redux/task/taskSelectors';
@@ -17,15 +18,13 @@ const Bord = ({ onChangeFilter, setFilterByPriority }) => {
 
   return (
     <>
-      <ContainerMain background={activeBoard}>
-        {activeBoard && <AddBoardBtn />}
-        {activeBoard && (
-          <Filter
-            onChangeFilter={onChangeFilter}
-            setFilterByPriority={setFilterByPriority}
-          />
-        )}
-        {activeBoard && <ColumnsList activeBoard={activeBoard} />}
+      <ContainerMain>
+        <CardList filterByPriority={null} />
+        <AddBoardBtn />
+        <Filter
+          onChangeFilter={onChangeFilter}
+          setFilterByPriority={setFilterByPriority}
+        />
       </ContainerMain>
     </>
   );

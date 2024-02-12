@@ -33,7 +33,7 @@ const ScreensPage = () => {
         <Filter
           setFilterByPriority={setFilterByPriority}
           onChangeFilter={onFilterChange}
-        />
+          />
         <Text />
       </Container>
     </section>
