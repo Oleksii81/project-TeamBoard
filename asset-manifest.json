@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/project-TeamBoard/static/css/main.5a51cd21.css",
-    "main.js": "/project-TeamBoard/static/js/main.5701ab5b.js",
+    "main.js": "/project-TeamBoard/static/js/main.a2889c01.js",
     "static/js/223.4ae8ebfd.chunk.js": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js",
     "static/js/490.dc22a24e.chunk.js": "/project-TeamBoard/static/js/490.dc22a24e.chunk.js",
-    "static/css/819.99390a00.chunk.css": "/project-TeamBoard/static/css/819.99390a00.chunk.css",
-    "static/js/819.edf13ced.chunk.js": "/project-TeamBoard/static/js/819.edf13ced.chunk.js",
+    "static/css/57.ae353163.chunk.css": "/project-TeamBoard/static/css/57.ae353163.chunk.css",
+    "static/js/57.9969d558.chunk.js": "/project-TeamBoard/static/js/57.9969d558.chunk.js",
     "static/js/306.25996cc4.chunk.js": "/project-TeamBoard/static/js/306.25996cc4.chunk.js",
     "static/js/911.8d92024f.chunk.js": "/project-TeamBoard/static/js/911.8d92024f.chunk.js",
     "static/js/609.ffd88e77.chunk.js": "/project-TeamBoard/static/js/609.ffd88e77.chunk.js",
@@ -21,17 +21,17 @@
     "index.html": "/project-TeamBoard/index.html",
     "static/media/burger.svg": "/project-TeamBoard/static/media/burger.42365862ef7a4ae41847d66223ea8d09.svg",
     "main.5a51cd21.css.map": "/project-TeamBoard/static/css/main.5a51cd21.css.map",
-    "main.5701ab5b.js.map": "/project-TeamBoard/static/js/main.5701ab5b.js.map",
+    "main.a2889c01.js.map": "/project-TeamBoard/static/js/main.a2889c01.js.map",
     "223.4ae8ebfd.chunk.js.map": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js.map",
     "490.dc22a24e.chunk.js.map": "/project-TeamBoard/static/js/490.dc22a24e.chunk.js.map",
-    "819.99390a00.chunk.css.map": "/project-TeamBoard/static/css/819.99390a00.chunk.css.map",
-    "819.edf13ced.chunk.js.map": "/project-TeamBoard/static/js/819.edf13ced.chunk.js.map",
+    "57.ae353163.chunk.css.map": "/project-TeamBoard/static/css/57.ae353163.chunk.css.map",
+    "57.9969d558.chunk.js.map": "/project-TeamBoard/static/js/57.9969d558.chunk.js.map",
     "306.25996cc4.chunk.js.map": "/project-TeamBoard/static/js/306.25996cc4.chunk.js.map",
     "911.8d92024f.chunk.js.map": "/project-TeamBoard/static/js/911.8d92024f.chunk.js.map",
     "609.ffd88e77.chunk.js.map": "/project-TeamBoard/static/js/609.ffd88e77.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a51cd21.css",
-    "static/js/main.5701ab5b.js"
+    "static/js/main.a2889c01.js"
   ]
 }
