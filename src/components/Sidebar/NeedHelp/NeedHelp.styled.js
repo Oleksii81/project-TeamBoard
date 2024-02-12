@@ -55,14 +55,15 @@ export const QuestionHelp = styled.span`
   letter-spacing: -0.02em;
   cursor: pointer;
   color: var(--needHelpBtn);
-  padding-top: 19px;
+  padding-top: 15px;
+  margin-bottom: 2px;
 `;
 
 export const ContainerText = styled.div`
    background-color: var(--helpBgColor);
     margin-top: -204px;
-    width: 211px;
-    margin-left: -19px;
+    width: 212px;
+    margin-left: -20px;
     padding-left: 20px;
     border-radius: 8px;
     display: ${props => props.isVisible ? 'block' : 'none'};
