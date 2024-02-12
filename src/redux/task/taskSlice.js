@@ -5,6 +5,7 @@ import {
    addColumn,
    editColumn,
    deleteColumn,
+   getOneCard,
     addCard,
    editCard,
    deleteCard,
@@ -73,6 +74,18 @@ const initialState = {
          .addCase(deleteColumn.rejected, (state, action) => {
            state.error = action.error.message;
          })
+         .addCase(getOneCard.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(getOneCard.fulfilled, (state, action) => {
+          state.loading = false;
+          state.card = action.payload;
+        })
+        .addCase(getOneCard.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        })
          .addCase(addCard.pending, state => {
            state.error = null;
            state.isRefreshing = true;

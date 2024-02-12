@@ -6,6 +6,7 @@ import {
   deleteColumnApi,
   getBoardApi,
   editCardApi,
+  getOneCardApi,
   deleteCardApi,
   replaceCardApi,
 } from '../../services/backApi';
@@ -24,9 +25,9 @@ export const getBoardId = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   'column/add',
-  async (columnForm, { rejectWithValue, dispatch }) => {
+  async (idBoard, columnForm, { rejectWithValue, dispatch }) => {
     try {
-      const { data } = await addColumnApi(columnForm);
+      const { data } = await addColumnApi(idBoard, columnForm);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -70,6 +71,18 @@ export const addCard = createAsyncThunk(
     }
   }
 );
+
+ export const getOneCard = createAsyncThunk(
+   'card/getOne',
+   async ({ idColumn, idCard }, { rejectWithValue, dispatch }) => {
+     try {
+       const { data } = await getOneCardApi({ idColumn, idCard });
+       return data;
+     } catch (error) {
+       return rejectWithValue(error.message);
+     }
+   }
+ );
 
  export const editCard = createAsyncThunk(
    'card/edit',
