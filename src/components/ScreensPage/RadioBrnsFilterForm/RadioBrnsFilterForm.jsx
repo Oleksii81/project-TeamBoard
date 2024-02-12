@@ -1,40 +1,41 @@
-
 import { Formik } from 'formik';
 //import icons from '../../../../src/images/sprite.svg';
 import { useState } from 'react';
-import { Radio, FormControlLabel, RadioGroup, FormControl } from '@mui/material';
-
+import {
+  Radio,
+  FormControlLabel,
+  RadioGroup,
+  FormControl,
+} from '@mui/material';
 
 import {
   Header,
- // IconsHeader,
+  IconsHeader,
   // IconsContainer,
-
   FormFilter,
   FormHeadersContainer,
 } from './RadioBtnsFilterForm.styled';
 
 const buttonColor = [
-  { value: 'Without priority', color: '#FFFFFF' },
+  { value: 'Without priority', color: 'var(--calendarWithoutColor)' },
   { value: 'Low', color: '#8FA1D0' },
   { value: 'Medium', color: '#E09CB5' },
-  {value: 'High', color: '#BEDBB0'}
-]
+  { value: 'High', color: '#BEDBB0' },
+];
 
 const RadioBtnsFilterForm = ({ priority }) => {
   const [selectedValue, setSelectedValue] = useState('');
   const removeFilters = () => {
     setSelectedValue('');
-  }
- 
-  const primaryTextColor = `var(--primaryTextColor)`;
+  };
 
+  const primaryTextColor = `var(--primaryTextColor)`;
 
   const onRadioChange = event => {
     const { value } = event.target;
     console.log(value);
     setSelectedValue(value);
-  }
+  };
 
   return (
     <Formik
@@ -56,6 +57,7 @@ const RadioBtnsFilterForm = ({ priority }) => {
             key={button.value}
             sx={{
               color: 'red',
+              marginBottom: '8px',
               '& .Mui-checked.MuiRadio-root': {
                 color: button.color,
               },
@@ -76,7 +78,6 @@ const RadioBtnsFilterForm = ({ priority }) => {
               },
               '& .MuiTypography-root': {
                 marginLeft: 1,
-                marginBottom: 1,
                 color:
                   selectedValue === button.value
                     ? primaryTextColor
@@ -92,6 +93,7 @@ const RadioBtnsFilterForm = ({ priority }) => {
            
           ))}
             </RadioGroup>
+          </FormControl>
         </FormFilter>
       )}
     </Formik>

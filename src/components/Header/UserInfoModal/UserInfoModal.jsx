@@ -84,7 +84,7 @@ export const UserInfoModal = ({ onClose }) => {
   const formik = useFormik({
     initialValues: { userName: '', userEmail: '', userPassword: '' },
     validationSchema: validationSchema,
-    onSubmit: values => {
+    onSubmit: async values => {
       try {
         const formData = new FormData();
         formData.append('avatar', selectedFile);

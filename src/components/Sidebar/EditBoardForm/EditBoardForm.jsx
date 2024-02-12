@@ -2,7 +2,7 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 
-// import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
@@ -51,7 +51,6 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
   const { title, icnboard, background } = boards.find(board => {
     return board._id === id;
   });
-  console.log(title, icnboard, background);
 
   return (
     <Formik
@@ -62,24 +61,17 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        // if (
-        //   title === values.title ||
-        //   icnboard === values.icnboard ||
-        //   background === values.background
-        // ) {
-        //   // return notify.warning('The title already exists');
-        //   console.log('Data does not change');
-        //   return;
-        // }
+        if (
+          title === values.title &&
+          icnboard === values.icnboard &&
+          background === values.background
+        ) {
+          return toast.warning('Data does not changed');
+        }
 
         dispatch(editBoard({ id, values }))
           .unwrap()
-          .then(() =>
-            //  Notify.success(
-            //    `${title} has been successfully added to your contacts`
-            //  )
-            console.log('Board has been successfully updated')
-          )
+          .then()
           .catch(error => error.message);
         actions.resetForm();
         closeModalWindow();
@@ -360,18 +352,17 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
           </SubmitSvgWrapper>
           Edit
         </BoardCreateBtn>
-        {/* <ToastContainer
-          position="center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        /> */}
+        <ToastContainer
+          style={{ width: '280px' }}
+          position="bottom-center"
+          autoClose={1500}
+          transition={Slide}
+          closeOnClick={true}
+          pauseOnHover={false}
+          draggable={false}
+          limit={1}
+          theme="colored"
+        />
       </ModalForm>
     </Formik>
   );
