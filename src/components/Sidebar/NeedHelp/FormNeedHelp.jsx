@@ -23,20 +23,20 @@ const NeedHelpSchema = Yup.object().shape({
 });
 
 
-const FormNeedHelp = ({ onClose }) => {
+const FormNeedHelp = ({ closeModal }) => {
   const userEmail = useSelector(getUserEmail);
 
   const handleSubmit = (values, { resetForm }) => {
     fetchHelpApi(values);
     resetForm();
-    onClose();
+    closeModal();
   };
 
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
       
-       <IconHelp onClose={onClose}>
+       <IconHelp onClick={closeModal}>
         <use href={`${icons}#icon-close`}></use>
       </IconHelp>
 
