@@ -31,7 +31,7 @@ const AddColumnForm = ({ closeModalWindow }) => {
       }}
       validationSchema={AddColumnFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
+        // console.log(values);
         actions.resetForm();
         closeModalWindow();
         // if (columns.some(column => column.title === values.title)) {
