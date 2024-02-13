@@ -103,8 +103,8 @@ export const StyledBtnEdit = styled.button`
   border: none;
   border-radius: 8px;
   position: absolute;
-  top: 20px;
-  right: 8px;
+  top: 19px;
+  right: 12px;
 `;
 
 export const StyledBtnSave = styled(StyledBtn)`

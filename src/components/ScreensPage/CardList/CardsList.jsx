@@ -5,8 +5,11 @@ import { CardsContainer } from './CardsList.styled';
 
 // import { getCarddSelector } from '../../../redux/task/taskSelectors';
 
-const CadrsList = () => {
-  //   const cards = useSelector();
+const CadrsList = ({ columnId }) => {
+  // console.log(columnId);
+  // const cards = useSelector();
+  // console.log(cards);
+
   const cards = [
     {
       _id: '1',
@@ -46,6 +49,7 @@ const CadrsList = () => {
               />
             </li>
           ))}
+
         </ul>
       }
     </CardsContainer>
