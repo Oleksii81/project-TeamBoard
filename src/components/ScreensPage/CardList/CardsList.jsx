@@ -9,6 +9,7 @@ const CadrsList = ({ columnId }) => {
   // console.log(columnId);
   // const cards = useSelector();
   // console.log(cards);
+
   const cards = [
     {
       _id: '1',
@@ -37,18 +38,18 @@ const CadrsList = ({ columnId }) => {
     <CardsContainer>
       {
         <ul>
-          {cards &&
-            cards.map(card => (
-              <li key={card._id}>
-                <CardItem
-                  id={card._id}
-                  title={card.title}
-                  description={card.description}
-                  priority={card.priority}
-                  deadline={card.deadline}
-                />
-              </li>
-            ))}
+          {cards.map(card => (
+            <li key={card._id}>
+              <CardItem
+                id={card._id}
+                title={card.title}
+                description={card.description}
+                priority={card.priority}
+                deadline={card.deadline}
+              />
+            </li>
+          ))}
+
         </ul>
       }
     </CardsContainer>

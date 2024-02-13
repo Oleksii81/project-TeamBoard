@@ -33,11 +33,9 @@ const validationSchema = Yup.object({
 
 export const UserInfoModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const { username, email, avatar } = useSelector(getUserData);
+  const { name, email, avatarURL } = useSelector(getUserData);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [changedName] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [changedPassword, setChangedPassword] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
 
   const handleFileChange = file => {
@@ -81,8 +79,9 @@ export const UserInfoModal = ({ onClose }) => {
         console.error('Error updating user', error.message);
       });
   };
+
   const formik = useFormik({
-    initialValues: { userName: '', userEmail: '', userPassword: '' },
+    initialValues: { userName: name, userEmail: email, userPassword: '' },
     validationSchema: validationSchema,
     onSubmit: async values => {
       try {
@@ -108,27 +107,21 @@ export const UserInfoModal = ({ onClose }) => {
         <EditProfileText>Edit profile</EditProfileText>
         <StyledModalHeader>
           <StyledUserFoto
-            src={previewImage || avatar || userFoto}
-            alt={previewImage ? 'Preview' : avatar ? 'Foto' : 'Default foto'}
+            src={previewImage || avatarURL || userFoto}
+            alt={previewImage ? 'Preview' : avatarURL ? 'Foto' : 'Default foto'}
           />
 
-          <StyledInputAdd
-            type="file"
-            onChange={onFileChange}
-            onClick={onUpload}
-          ></StyledInputAdd>
+          <StyledInputAdd type="file" onChange={onFileChange} />
           <StyledSvgWrapper
             onClick={() => document.querySelector('input[type=file]').click()}
           >
             <SpriteSVG name="add-modal-photo" />
           </StyledSvgWrapper>
         </StyledModalHeader>
-
         <StyledModalForm onSubmit={formik.handleSubmit}>
           <StyledModalInput
             name="userName"
-            placeholder="Ivetta"
-            value={formik.values.userName || username}
+            value={formik.values.userName || name}
             onChange={formik.handleChange}
           />
           {formik.errors.userName && formik.touched.userName && (
@@ -136,7 +129,6 @@ export const UserInfoModal = ({ onClose }) => {
           )}
           <StyledModalInput
             name="userEmail"
-            placeholder="ivetta34@gmail.com"
             value={formik.values.userEmail || email}
             onChange={formik.handleChange}
           />
@@ -146,13 +138,10 @@ export const UserInfoModal = ({ onClose }) => {
           <div style={{ position: 'relative' }}>
             <StyledModalInput
               name="userPassword"
-              placeholder="ivetta1999.23"
+              placeholder="Password"
               type={showPassword ? 'text' : 'password'}
               value={formik.values.userPassword || ''}
-              onChange={event => {
-                formik.handleChange(event);
-                setChangedPassword(event.target.value);
-              }}
+              onChange={formik.handleChange}
             />
             <StyledBtnEdit
               type="button"
@@ -164,7 +153,9 @@ export const UserInfoModal = ({ onClose }) => {
           {formik.errors.userPassword && formik.touched.userPassword && (
             <StyledError>{formik.errors.userPassword}</StyledError>
           )}
-          <StyledBtnSave type="submit">Send</StyledBtnSave>
+          <StyledBtnSave type="submit" onClick={formik.handleSubmit}>
+            Send
+          </StyledBtnSave>
         </StyledModalForm>
       </StyledModal>
     </ModalEditUser>
