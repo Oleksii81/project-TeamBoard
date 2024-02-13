@@ -1,9 +1,9 @@
-//import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-//import { ToastContainer, toast, Slide } from 'react-toastify';
+import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
@@ -13,7 +13,7 @@ import {
     EditCardTextArea,
     EditCardLabel,
     EditCardButton,
-    //EditCardSvg
+    EditCardSvg
 } from "./EditColumn.styled"
 import { SubmitSvgWrapper, SvgCloseBtn } from 'components/ScreensPage/AddColumnForm/AddColumnForm.styled';
 import icons from '../../../../images/sprite.svg'

@@ -17,9 +17,9 @@ export const RadioButtons = () => {
     ];
     
      const [selectedValue, setSelectedValue] = useState('');
- // const removeFilters = () => {
- //   setSelectedValue('');
- // };
+  const removeFilters = () => {
+    setSelectedValue('');
+  };
 
   const primaryTextColor = `var(--primaryTextColor)`;
 
