@@ -18,7 +18,10 @@ import { getUserEmail } from '../../../redux/auth/authSelectors';
 
 
 const NeedHelpSchema = Yup.object().shape({
-  email: Yup.string().email().required('Email is required'),
+  email: Yup.string().email('Invalid email').matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
+      message: 'Email error',
+      excludeEmptyString: true,
+    }).required('Email is required'),
   comment: Yup.string().required('Comment is required'),
 });
 
