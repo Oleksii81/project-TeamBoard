@@ -4,7 +4,7 @@ export const BoardName = styled.h2`
   /* margin-bottom: 39px; */
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: -0.02em;
   color: #fff;
   position: absolute;

@@ -54,6 +54,32 @@ export const UserInfoModal = ({ onClose }) => {
     const file = event.target.files[0];
     handleFileChange(file);
   };
+
+  const onUpload = async event => {
+    if (event.target.type === 'file') {
+      const file = event.target.files[0];
+      handleFileChange(file);
+      return;
+    }
+
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('avatar', selectedFile);
+    formData.append('username', changedName || username);
+    formData.append('email', email);
+    formData.append('password', changedPassword || '');
+
+    dispatch(updateUser(formData))
+      .unwrap()
+      .then(() => {
+        onClose();
+      })
+      .catch(error => {
+        console.error('Error updating user', error.message);
+      });
+  };
+
   const formik = useFormik({
     initialValues: { userName: name, userEmail: email, userPassword: '' },
     validationSchema: validationSchema,
@@ -61,7 +87,7 @@ export const UserInfoModal = ({ onClose }) => {
       try {
         const formData = new FormData();
         formData.append('avatar', selectedFile);
-        formData.append('userName', values.userName);
+        formData.append('username', values.userName);
         formData.append('email', values.userEmail);
         formData.append('password', values.userPassword);
         dispatch(updateUser(formData));
