@@ -4,6 +4,7 @@ export const CardsContainer = styled.div`
   width: 350px;
   height: 486px;
   overflow-y: auto;
+  margin-top: 14px;
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
