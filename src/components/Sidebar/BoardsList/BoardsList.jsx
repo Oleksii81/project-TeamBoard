@@ -1,14 +1,17 @@
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-
 import BoardItem from './BoardItem';
 import { BoardsContainer } from './BoardsList.styled';
-
-import { getBoardSelector } from '../../../redux/auth/authSelectors';
-import { updateBoardActive } from '../../../redux/auth/authOperations';
+// import { getBoardSelector } from '../../../redux/auth/authSelectors';
+// import { useParams } from 'react-router-dom';
+import { selectBoard } from '../../../redux/task/taskSelectors';
 
 const BoardsList = () => {
-  const boards = useSelector(getBoardSelector);
+  // const { idBoard } = useParams();
+  const boards = useSelector(selectBoard);
+  console.log(boards);
+
+  // const activeBoard = boards.find(board => board._id === idBoard);
+  // const boards = useSelector(getBoardSelector);
 
   let reverseBoards = [];
   if (boards) {
@@ -17,20 +20,15 @@ const BoardsList = () => {
     });
   }
 
-  const dispatch = useDispatch();
-
   return (
     <BoardsContainer>
       {boards && boards.length > 0 && (
         <ul>
           {reverseBoards.map(board => (
-            <li
-              key={board._id}
-              onClick={() => dispatch(updateBoardActive(board._id))}
-            >
+            <li key={board._id}>
               <BoardItem
+                to={`/home/${board._id}`}
                 id={board._id}
-                isActive={board.isActive}
                 icon={board.icnboard}
                 title={board.title}
               />

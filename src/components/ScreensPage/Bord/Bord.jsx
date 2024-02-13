@@ -14,31 +14,32 @@ import {
 // import { getActiveBoard } from '../../../redux/task/taskOperations';
 import ColumnsList from '../../../../src/components/ScreensPage/ColumnsList/ColumnsList';
 import { BoardName } from '../AddBoardBtn/AddBoardBtn.styled';
+import { useParams } from 'react-router-dom';
 
 const Bord = ({ onChangeFilter, setFilterByPriority }) => {
   const boards = useSelector(selectBoard);
   // console.log(boards);
 
-  const activeBoard = boards.find(board => board.isActive);
   // console.log(activeBoard);
 
   // const dispatch = useDispatch();
   // dispatch(getActiveBoard(id))
 
+  const { idBoard } = useParams();
+  const activeBoard = boards.find(board => board._id === idBoard);
+
   return (
     <>
-      {activeBoard && (
-        <ContainerMain background={activeBoard}>
-          <BoardName>{activeBoard.title}</BoardName>
+      <ContainerMain background={activeBoard}>
+        <BoardName>{activeBoard.title}</BoardName>
 
-          <ColumnsList activeBoard={activeBoard} />
-          <AddBoardBtn />
-          <Filter
-            onChangeFilter={onChangeFilter}
-            setFilterByPriority={setFilterByPriority}
-          />
-        </ContainerMain>
-      )}
+        <ColumnsList activeBoard={activeBoard} />
+        <AddBoardBtn />
+        <Filter
+          onChangeFilter={onChangeFilter}
+          setFilterByPriority={setFilterByPriority}
+        />
+      </ContainerMain>
     </>
   );
 };
