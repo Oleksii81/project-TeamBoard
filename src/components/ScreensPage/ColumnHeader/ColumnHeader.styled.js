@@ -3,11 +3,8 @@ import styled from "styled-components";
 export const ColumnHeaderWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content:space-between;
     padding: 20px;
-    position: absolute;
-    left: 0;
-    top: 48px;
     width: 334px;
     height: 56px;
     border-radius: 8px;
@@ -16,7 +13,6 @@ export const ColumnHeaderWrapper = styled.div`
 `
 
 export const ColumnHeaderText = styled.p`
-    position: absolute;
     left: 20px;
     font-family: "Poppins", sans-serif;
     font-weight: 500;

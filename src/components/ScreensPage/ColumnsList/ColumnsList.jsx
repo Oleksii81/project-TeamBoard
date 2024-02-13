@@ -1,57 +1,47 @@
-import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
-// import BoardItem from './BoardItem';
-import {} from './ColumnsList.styled';
+import { ColumnItem } from './ColumnsList.styled';
 
-import { getColumn } from '../../../redux/task/taskSelectors';
-// import { updateBoardActive } from '../../../redux/auth/authOperations';
-// import Column from '../../../../src/components/ScreensPage/Column/Column';
-// import { getBoard } from '../../../redux/auth/authSelectors';
-// import { getBoardId } from '../../../redux/task/taskOperations.js';
-// import { ColumnHeader } from '../../../../src/components/ScreensPage/ColumnHeader/ColumnHeader';
+import { ColumnHeader } from '../../../../src/components/ScreensPage/ColumnHeader/ColumnHeader';
+import CardList from '../CardList/CardsList';
+import AddBoardBtn from '../AddBoardBtn/AddBoardBtn';
+// import { getColumn } from '../../../redux/task/taskSelectors';
 
-const ColumnsList = () => {
-  // const boards = useSelector(getBoard);
-  // const dispatch = useDispatch();
-  // console.log(boards);
-
-  // const activeBoard = boards.find(board => board.isActive);
-  // console.log(activeBoard);
-
-  // const columns = activeBoard.column;
+const ColumnsList = ({ activeBoard }) => {
+  // const columns = useSelector(getColumn);
   // console.log(columns);
 
-  // const getColumnById = () => {
-  // dispatch(getBoardId(activeBoard._id));
-  const columns = useSelector(getColumn);
-  console.log(columns);
+  const columns = [
+    {
+      _id: '1',
+      title: 'Column 1',
+      owner: `${activeBoard._id}`,
+    },
+    {
+      _id: '2',
+      title: 'Column 2',
+      owner: `${activeBoard._id}`,
+    },
+    {
+      _id: '3',
+      title: 'Column 3',
+      owner: `${activeBoard._id}`,
+    },
+  ];
 
-  // };
-  // const columns = getColumnById();
-  // console.log(columns);
-
-  // const columns = dispatch(getBoardId(activeBoard._id));
-  // console.log(columns);
-
-  if (columns && columns.length) {
-    return (
-      <div>
-        {
-          <ul>
-            {columns && columns.map(column => (
-              <li key={column._id}>
-                {/* <ColumnHeader column={column} /> */}
-                <p>{column.title}</p>
-              </li>
-            ))}
-          </ul>
-        }
-      </div>
-    );
-  } else {
-    return <div>No columns available</div>;
-  }
+  return (
+    <ColumnItem>
+      {columns &&
+        columns.map(column => (
+          <li key={column._id}>
+            <ColumnHeader columnId={column._id} title={column.title} />
+            <CardList columnId={column._id} filterByPriority={null} />
+            {/* ??? <AddAnotherCard columnId={column._id} /> ??? */}
+            <AddBoardBtn/> {/*для візуалізації кнопки*/}
+          </li>
+        ))}
+    </ColumnItem>
+  );
 };
 
 export default ColumnsList;

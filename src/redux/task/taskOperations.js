@@ -11,8 +11,8 @@ import {
   replaceCardApi,
 } from '../../services/backApi';
 
-export const getBoardId = createAsyncThunk(
-  'task/getBoard',
+export const getActiveBoard = createAsyncThunk(
+  'task/getActiveBoard',
   async (id, { rejectWithValue }) => {
     try {
       const { data } = await getBoardApi(id);

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-  getBoardId,
+  getActiveBoard,
   addColumn,
   editColumn,
   deleteColumn,
@@ -14,17 +14,18 @@ import {
 import { logout } from '../auth/authOperations';
 
 const initialState = {
-  id: '',
-  title: '',
-  icon: '',
-  background: '',
+  board: {
+    id: '',
+    title: '',
+    background: '0',
+  },
   columns: [],
   error: null,
   isRefreshing: false,
 };
 
 const boardSlice = createSlice({
-  name: 'notes',
+  name: 'task',
   initialState,
   reducers: {
     changePart: (state, { payload }) => {
@@ -33,14 +34,15 @@ const boardSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(getBoardId.pending, state => {
+      .addCase(getActiveBoard.pending, state => {
         state.error = null;
       })
-      .addCase(getBoardId.fulfilled, (state, { payload }) => {
+      .addCase(getActiveBoard.fulfilled, (state, { payload }) => {
+        state.board = payload;
+        state.columns = [];
         state.error = null;
-        return { ...payload, error: null };
       })
-      .addCase(getBoardId.rejected, (state, action) => {
+      .addCase(getActiveBoard.rejected, (state, action) => {
         state.error = action.error.message;
       })
       .addCase(addColumn.pending, state => {

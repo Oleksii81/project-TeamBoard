@@ -49,10 +49,8 @@ export const ContainerMain = styled.div`
 
   padding: 14px 20px;
   display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 34px;
+  flex-direction: row;
+  gap: 18px;
 
   position: absolute;
   top: 60px;
