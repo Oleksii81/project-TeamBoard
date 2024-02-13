@@ -5,7 +5,7 @@ export const Container = styled.div`
   top: 60px;
   left: 0;
   padding: 14px 20px 60px;
-  /* overflow: scroll; */
+  overflow-y: auto;
   z-index: 0;
   width: 100%;
   height: calc(-60px + 100vh);
