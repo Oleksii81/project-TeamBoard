@@ -37,7 +37,7 @@ const ColumnsList = ({ activeBoard }) => {
             <ColumnHeader columnId={column._id} title={column.title} />
             <CardList columnId={column._id} filterByPriority={null} />
             {/* ??? <AddAnotherCard columnId={column._id} /> ??? */}
-            <AddBoardBtn/> {/*для візуалізації кнопки*/}
+            <AddBoardBtn /> {/*для візуалізації кнопки*/}
           </li>
         ))}
     </ColumnItem>
