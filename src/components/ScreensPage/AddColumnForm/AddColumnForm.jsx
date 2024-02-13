@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getColumn } from '../../../../src/redux/task/taskSelectors';
 import { addColumn } from '../../../../src/redux/task/taskOperations';
 import icons from '../../../../src/images/sprite.svg';
-import { ToastContainer, toast, Slide } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getBoard } from '../../../redux/auth/authSelectors';
 
@@ -72,15 +72,14 @@ const AddColumnForm = ({ closeModalWindow }) => {
           Add
         </BoardCreateBtn>
         <ToastContainer
-          style={{ width: '280px' }}
-          position="top-center"
-          autoClose={1500}
-          transition={Slide}
-          closeOnClick={true}
-          pauseOnHover={false}
-          draggable={false}
-          limit={1}
-          theme="colored"
+          position="center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          draggable
+          theme="light"
         />
       </ModalForm>
     </Formik>
