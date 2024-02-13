@@ -29,7 +29,8 @@ const Bord = ({ onChangeFilter, setFilterByPriority }) => {
     <>
       {activeBoard && (
         <ContainerMain background={activeBoard}>
-          {activeBoard && <BoardName>{activeBoard.title}</BoardName>}
+          <BoardName>{activeBoard.title}</BoardName>
+
           <ColumnsList activeBoard={activeBoard} />
           <AddBoardBtn />
           <Filter
