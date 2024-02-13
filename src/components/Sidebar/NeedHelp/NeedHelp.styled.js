@@ -68,13 +68,10 @@ export const ContainerText = styled.div`
     border-radius: 8px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    display: ${props => props.isVisible ? 'block' : 'none'};
 
-  @media(max-width:375px) {
-    width: 197px;
-  }
+    display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
 
-  @media(min-width:376px) and (max-width: 768px) {
+  @media(min-width:375px) and (max-width: 768px) {
     width: 197px;
   }
 `;
