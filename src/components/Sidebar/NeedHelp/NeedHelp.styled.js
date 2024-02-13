@@ -71,7 +71,7 @@ export const ContainerText = styled.div`
 
     display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
 
-  @media(min-width:375px) and (max-width: 768px) {
+  @media(min-width:120px) and (max-width: 768px) {
     width: 197px;
   }
 `;
