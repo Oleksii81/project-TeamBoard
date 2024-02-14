@@ -26,7 +26,7 @@ export const SideBarMenu = styled.div`
   /* Mobile */
   @media screen and (max-width: 767px) {
     padding: 14px;
-    max-width: 225px;
+    /* max-width: 225px; */
     width: 225px;
     left: -225px;
   }
