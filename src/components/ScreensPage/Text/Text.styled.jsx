@@ -49,7 +49,7 @@ export const MainText = styled.p`
     font-size: 14px;
     line-height: 1.28571;
     width: 486px;
-    left: calc((100% - 486px)/2);
+    /* left: calc(260px + ((100vw - 260px - 486px)/2)); */
   }
   @media screen and (min-width: 1440px) {
     left: calc((100% - 226px)/2);
