@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const BoardsContainer = styled.div`
   position: relative;
@@ -6,16 +7,17 @@ export const BoardsContainer = styled.div`
   left: -24px;
   min-height: 61px;
   overflow-y: auto;
+  overflow-x: hidden;
   margin-bottom: 40px;
-  scrollbar-width: none;
+  cursor: pointer;
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 767px) {
     width: 225px;
     left: -14px;
   }
 `;
 
-export const ItemContainer = styled.div`
+export const ItemContainer = styled(NavLink)`
   height: 61px;
   display: flex;
   gap: 8px;
@@ -25,18 +27,41 @@ export const ItemContainer = styled.div`
 
   &:hover,
   &:active,
-  &.activeBoard {
+  & .activeBoard {
     background: var(--currentProjBgColor);
-    cursor: pointer;
+  }
+
+  &.active {
+    background: var(--currentProjBgColor);
+
+    & .activeBoardIcon {
+      & svg {
+        stroke: var(--createNewBoard);
+      }
+    }
+
+    & .activeBoardTitle {
+      color: var(--createNewBoard);
+      opacity: 1;
+    }
+
+    & .activeBoardButton {
+      display: block;
+      cursor: pointer;
+      & svg {
+        stroke: var(--textBoardColor);
+      }
+    }
+    & .activeLine {
+      background: var(--iconLogOut);
+    }
   }
 `;
 
 export const Icon = styled.div`
-  fill: none;
-  stroke: var(--textBoardColor);
-
-  &.activeBoardIcon {
-    stroke: var(--createNewBoard);
+  & svg {
+    fill: none;
+    stroke: var(--textBoardColor);
   }
 `;
 
@@ -46,11 +71,6 @@ export const Title = styled.p`
   letter-spacing: -0.02em;
 
   color: var(--textBoardColor);
-
-  &.activeBoardTitle {
-    color: var(--createNewBoard);
-    opacity: 1;
-  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -66,12 +86,6 @@ export const Button = styled.button`
   fill: none;
   stroke: none;
   display: none;
-
-  &.activeBoardButton {
-    display: block;
-    stroke: var(--textBoardColor);
-    cursor: pointer;
-  }
 `;
 
 export const CurrentLine = styled.div`
@@ -79,13 +93,13 @@ export const CurrentLine = styled.div`
   width: 4px;
   height: 61px;
   position: absolute;
-  left: 256px;
+  left: 248px;
 
-  &.activeLine {
-    background: var(--iconLogOut);
-  }
+  @media screen and (max-width: 767px) {
+    left: 213px;
 
-  @media screen and (max-width: 375px) {
-    left: 221px;
+    & .activeLine {
+      background: var(--iconLogOut);
+    }
   }
 `;

@@ -1,11 +1,12 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getColumn } from '../../../../src/redux/task/taskSelectors';
-// import { addColumn } from '../../../../src/redux/task/taskOperations';
+import { useSelector, useDispatch } from 'react-redux';
+import { getColumn } from '../../../../src/redux/task/taskSelectors';
+import { addColumn } from '../../../../src/redux/task/taskOperations';
 import icons from '../../../../src/images/sprite.svg';
-import { ToastContainer, /*toast */} from 'react-toastify';
+import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+//import { getBoard } from '../../../redux/auth/authSelectors';
 
 import {
   Input,
@@ -16,14 +17,18 @@ import {
   SubmitSvgWrapper,
   ModalForm,
 } from './AddColumnForm.styled';
+import { useParams } from 'react-router-dom';
 
 const AddColumnFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
 const AddColumnForm = ({ closeModalWindow }) => {
-  //   const columns = useSelector(getColumn);
-  //   const dispatch = useDispatch();
+  const { idBoard } = useParams();
+  console.log(idBoard);
+  const columns = useSelector(getColumn);
+  const dispatch = useDispatch();
+
   return (
     <Formik
       initialValues={{
@@ -34,16 +39,16 @@ const AddColumnForm = ({ closeModalWindow }) => {
         console.log(values);
         actions.resetForm();
         closeModalWindow();
-        // if (columns.some(column => column.title === values.title)) {
-        //   return toast.warning('The title already exists');
-        // }
+        if (columns && columns.some(column => column.title === values.title)) {
+          return toast.warning('The title already exists');
+        }
 
-        // dispatch(addColumn(values))
-        //   .unwrap()
-        //   .then(() =>
-        //     toast.success(`${columns.title} has been successfully added`)
-        //   )
-        //   .catch(error => error.message);
+        dispatch(addColumn({ values, idBoard }))
+          .unwrap()
+          .then(() =>
+            toast.success(`${values.title} has been successfully added`)
+          )
+          .catch(error => error.message);
       }}
     >
       <ModalForm>
@@ -67,14 +72,15 @@ const AddColumnForm = ({ closeModalWindow }) => {
           Add
         </BoardCreateBtn>
         <ToastContainer
-          position="center"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          draggable
-          theme="light"
+          style={{ width: '280px' }}
+          position="top-center"
+          autoClose={1500}
+          transition={Slide}
+          closeOnClick={true}
+          pauseOnHover={false}
+          draggable={false}
+          limit={1}
+          theme="colored"
         />
       </ModalForm>
     </Formik>

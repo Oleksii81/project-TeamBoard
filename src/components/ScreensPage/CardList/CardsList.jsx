@@ -3,10 +3,14 @@
 import CardItem from './CardItem';
 import { CardsContainer } from './CardsList.styled';
 
-// import { getCarddSelector } from '../../../redux/task/taskSelectors';
+// import { getCarddSelector } from '../../../src/redux/task/taskSelectors';
 
-const CadrsList = () => {
-  //   const cards = useSelector();
+const CadrsList = ({ columnId }) => {
+  // console.log(columnId);
+  // const cards = useSelector(getCarddSelector);
+  // console.log(cards);
+  
+
   const cards = [
     {
       _id: '1',
@@ -38,6 +42,7 @@ const CadrsList = () => {
           {cards.map(card => (
             <li key={card._id}>
               <CardItem
+                columnId={columnId}
                 id={card._id}
                 title={card.title}
                 description={card.description}
