@@ -8,9 +8,10 @@ export const BoardsContainer = styled.div`
   min-height: 61px;
   overflow-y: auto;
   margin-bottom: 40px;
-  scrollbar-width: none;
+  scrollbar-width: 2px;
+  cursor: pointer;
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 767px) {
     width: 225px;
     left: -14px;
   }
@@ -28,7 +29,6 @@ export const ItemContainer = styled(NavLink)`
   &:active,
   & .activeBoard {
     background: var(--currentProjBgColor);
-    /* cursor: pointer; */
   }
 
   &.active {
@@ -47,10 +47,11 @@ export const ItemContainer = styled(NavLink)`
 
     & .activeBoardButton {
       display: block;
-      stroke: var(--textBoardColor);
       cursor: pointer;
+      & svg {
+        stroke: var(--textBoardColor);
+      }
     }
-
     & .activeLine {
       background: var(--iconLogOut);
     }
@@ -92,9 +93,13 @@ export const CurrentLine = styled.div`
   width: 4px;
   height: 61px;
   position: absolute;
-  left: 256px;
+  left: 252px;
 
-  @media screen and (max-width: 375px) {
-    left: 221px;
+  @media screen and (max-width: 767px) {
+    left: 217px;
+
+    & .activeLine {
+      background: var(--iconLogOut);
+    }
   }
 `;
