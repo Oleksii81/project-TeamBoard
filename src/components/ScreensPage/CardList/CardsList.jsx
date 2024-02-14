@@ -9,6 +9,7 @@ const CadrsList = ({ columnId }) => {
   // console.log(columnId);
   // const cards = useSelector(getCarddSelector);
   // console.log(cards);
+  
 
   const cards = [
     {
@@ -41,6 +42,7 @@ const CadrsList = ({ columnId }) => {
           {cards.map(card => (
             <li key={card._id}>
               <CardItem
+                columnId={columnId}
                 id={card._id}
                 title={card.title}
                 description={card.description}

@@ -1,5 +1,5 @@
-// import { useDispatch } from 'react-redux';
-// import { useState } from 'react';
+ import { useDispatch } from 'react-redux';
+ import { useState } from 'react';
 
 import {
   ItemCardContainer,
@@ -19,9 +19,25 @@ import {
 import icons from '../../../images/sprite.svg';
 
 // import { deleteCard, replaceCard } from '../../../redux/task/taskOperations';
+import { deleteCard } from '../../../redux/task/taskOperations';
+import ModalCard from '../../Modals/ModalCard/ModalCard';
+
 // import ModalEditCard from 'components/Modals/ModalCard/ModalEditCard';
 
-const BoardItem = ({ id, title, description, priority, deadline }) => {
+const BoardItem = ({ columnId, id, title, description, priority, deadline }) => {
+  const dispatch = useDispatch();
+
+  const [isModalOpen, SetIsModalOpen] = useState(false);
+  const onClick = () => {
+    SetIsModalOpen(!isModalOpen);
+  };
+
+
+  const handleCardDelete = () => {
+    dispatch(deleteCard({ columnID: columnId, _id: id, }))
+    console.log(columnId)
+    console.log(id)
+  }
   //   const dispatch = useDispatch();
 
   //   const [isOpen, setIsOpen] = useState(false);
@@ -61,14 +77,14 @@ const BoardItem = ({ id, title, description, priority, deadline }) => {
             </svg>
           </Button>
           <Button
-          //   onClick={() => openModal()}
+             onClick={onClick}
           >
             <svg width="16" height="16">
               <use href={`${icons}#icon-pencil`}></use>
             </svg>
           </Button>
           <Button
-          //   onClick={() => dispatch(deleteCard(id))}
+             onClick={handleCardDelete}
           >
             <svg width="16" height="16">
               <use href={`${icons}#icon-trash`}></use>
@@ -77,12 +93,13 @@ const BoardItem = ({ id, title, description, priority, deadline }) => {
         </ButtonContainer>
       </DetailsContainer>
       <CurrentLine priority={priority} />
-      {/* <ModalEditCard
+      <ModalCard
         id={id}
-        isOpen={isOpen}
-        openModal={openModal}
-        closeModal={() => setIsOpen(false)}
-      /> */}
+        columnId = {columnId}
+        isOpen={isModalOpen}
+        openModal={onClick}
+        closeModal={() => SetIsModalOpen(false)}
+      /> 
     </ItemCardContainer>
   );
 };

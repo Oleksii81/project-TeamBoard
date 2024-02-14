@@ -40,6 +40,8 @@ export const MainText = styled.p`
 
   line-height: 1.33333;
   letter-spacing: -0.02em;
+  left: calc((100% - 335px)/2);
+  top: 50%;
   text-align: center;
   color: var(--secondaryTextColor);
 
@@ -47,9 +49,10 @@ export const MainText = styled.p`
     font-size: 14px;
     line-height: 1.28571;
     width: 486px;
+    left: calc((100% - 486px)/2);
   }
   @media screen and (min-width: 1440px) {
-    left: auto;
+    left: calc((100% - 226px)/2);
   }
 `;
 
