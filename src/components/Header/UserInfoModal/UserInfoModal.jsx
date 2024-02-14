@@ -26,7 +26,6 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
-  userName: Yup.string().min(5, 'Min 5'),
   userEmail: Yup.string().email('Invalid email'),
   userPassword: Yup.string().min(8, 'Min 8'),
 });
@@ -54,16 +53,24 @@ export const UserInfoModal = ({ onClose }) => {
     const file = event.target.files[0];
     handleFileChange(file);
   };
-  const formik = useFormik({
-    initialValues: { userName: name, userEmail: email, userPassword: '' },
+const formik = useFormik({
+    initialValues: { userName: '', userEmail: '', userPassword: '' },
     validationSchema: validationSchema,
     onSubmit: async values => {
       try {
         const formData = new FormData();
-        formData.append('avatar', selectedFile);
-        formData.append('userName', values.userName);
-        formData.append('email', values.userEmail);
-        formData.append('password', values.userPassword);
+        if (selectedFile) {
+          formData.append('avatar', selectedFile);
+        }
+        if (values.userName) {
+          formData.append('userName', values.userName);
+        }
+        if (values.userEmail) {
+          formData.append('email', values.userEmail);
+        }
+        if (values.userPassword) {
+          formData.append('password', values.userPassword);
+        }
         dispatch(updateUser(formData));
         onClose(); // Закрываем модальное окно после успешной отправки данных
       } catch (error) {
