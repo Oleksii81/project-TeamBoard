@@ -6,7 +6,7 @@ import { addColumn } from '../../../../src/redux/task/taskOperations';
 import icons from '../../../../src/images/sprite.svg';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getBoard } from '../../../redux/auth/authSelectors';
+//import { getBoard } from '../../../redux/auth/authSelectors';
 
 import {
   Input,
