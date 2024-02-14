@@ -35,9 +35,6 @@ export const authSlice = createSlice({
       .addCase(register.pending, state => {
         state.isRefreshing = true;
       })
-      //       userName(pin):"ggfgfgf"
-      // email(pin):"13@gmail.com"
-      // avatarLight(pin):"http://res.cloudinary.com/drj0am35a/image/upload/v1707058150/lt_user.jpg"
       .addCase(register.fulfilled, (state, { payload }) => {
         const { userName, email, avatarURL } = payload.user;
         state.user = {
@@ -96,7 +93,8 @@ export const authSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.userName;
         state.user.email = payload.email;
-        state.user.avatarURL = (payload.avatarURL && Object.values(payload.avatarURL)[0]) ?? '';
+        state.user.avatarURL =
+          (payload.avatarURL && Object.values(payload.avatarURL)[0]) ?? '';
         state.isRefreshing = false;
         state.error = null;
         toast.success('Changes are successful!');

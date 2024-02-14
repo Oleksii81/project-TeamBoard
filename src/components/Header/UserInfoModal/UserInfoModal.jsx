@@ -26,14 +26,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
-  userName: Yup.string().min(5, 'Min 5'),
+  // userName: Yup.string().max(5, 'Max 12'),
   userEmail: Yup.string().email('Invalid email'),
   userPassword: Yup.string().min(8, 'Min 8'),
 });
 
 export const UserInfoModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const { name, email, avatarURL } = useSelector(getUserData);
+  const { name, email, password, avatarURL } = useSelector(getUserData);
   const [selectedFile, setSelectedFile] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
@@ -54,44 +54,26 @@ export const UserInfoModal = ({ onClose }) => {
     const file = event.target.files[0];
     handleFileChange(file);
   };
-
-  // const onUpload = async event => {
-  //   if (event.target.type === 'file') {
-  //     const file = event.target.files[0];
-  //     handleFileChange(file);
-  //     return;
-  //   }
-
-  //   event.preventDefault();
-
-  //   const formData = new FormData();
-  //   formData.append('avatar', selectedFile);
-  //   formData.append('username', changedName || username);
-  //   formData.append('email', email);
-  //   formData.append('password', changedPassword || '');
-
-  //   dispatch(updateUser(formData))
-  //     .unwrap()
-  //     .then(() => {
-  //       onClose();
-  //     })
-  //     .catch(error => {
-  //       console.error('Error updating user', error.message);
-  //     });
-  // };
-
-  const formik = useFormik({
-    initialValues: { userName: name, userEmail: email, userPassword: '' },
+const formik = useFormik({
+    initialValues: { userName: '', userEmail: '', userPassword: '' },
     validationSchema: validationSchema,
     onSubmit: async values => {
       try {
         const formData = new FormData();
-        formData.append('avatar', selectedFile);
-        formData.append('username', values.userName);
-        formData.append('email', values.userEmail);
-        formData.append('password', values.userPassword);
+        if (selectedFile) {
+          formData.append('avatar', selectedFile);
+        }
+        if (values.userName) {
+          formData.append('userName', values.userName);
+        }
+        if (values.userEmail) {
+          formData.append('email', values.userEmail);
+        }
+        if (values.userPassword) {
+          formData.append('password', values.userPassword);
+        }
         dispatch(updateUser(formData));
-        onClose(); // Закрываем модальное окно после успешной отправки данных
+        onClose(); 
       } catch (error) {
         console.error('Error updating user', error.message);
       }
@@ -140,7 +122,7 @@ export const UserInfoModal = ({ onClose }) => {
               name="userPassword"
               placeholder="Password"
               type={showPassword ? 'text' : 'password'}
-              value={formik.values.userPassword || ''}
+              value={formik.values.userPassword || password}
               onChange={formik.handleChange}
             />
             <StyledBtnEdit
