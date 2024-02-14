@@ -17,7 +17,7 @@ import {
 } from './RadioBtnsFilterForm.styled';
 
 const buttonColor = [
-  { value: 'Without priority', color: '#FFFFFF' },
+  { value: 'Without priority', color: 'var(--calendarWithoutColor)' },
   { value: 'Low', color: '#8FA1D0' },
   { value: 'Medium', color: '#E09CB5' },
   { value: 'High', color: '#BEDBB0' },
@@ -56,6 +56,7 @@ const RadioBtnsFilterForm = ({ priority }) => {
                   key={button.value}
                   sx={{
                     color: 'red',
+                    marginBottom: '8px',
                     '& .Mui-checked.MuiRadio-root': {
                       color: button.color,
                     },
@@ -76,7 +77,6 @@ const RadioBtnsFilterForm = ({ priority }) => {
                     },
                     '& .MuiTypography-root': {
                       marginLeft: 1,
-                      marginBottom: 1,
                       color:
                         selectedValue === button.value
                           ? primaryTextColor
@@ -89,6 +89,7 @@ const RadioBtnsFilterForm = ({ priority }) => {
                   onChange={onRadioChange}
                 />
               ))}
+
             </RadioGroup>
           </FormControl>
         </FormFilter>

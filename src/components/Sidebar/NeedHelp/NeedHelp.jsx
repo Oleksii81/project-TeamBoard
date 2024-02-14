@@ -17,7 +17,7 @@ import icons from '../../../images/sprite.svg';
 
 const NeedHelp = ({onCloseSideBar}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hoverText, setHoverText] = useState(false);
+  const [isHoverText, setIsHoverText] = useState(false);
 
 
   const openModal = () => {
@@ -30,10 +30,9 @@ const NeedHelp = ({onCloseSideBar}) => {
 
   const handleButtonClick = () => {
      const currentWidth = window.innerWidth;
-    const thresholdWidth = 768;
 
 
-  if (currentWidth <= thresholdWidth) {
+  if (currentWidth <= 1439) {
     openModal();
     onCloseSideBar();
     
@@ -47,7 +46,7 @@ const NeedHelp = ({onCloseSideBar}) => {
   return (
     <ContainerHelp>
 
-    <ContainerText isVisible={hoverText}>
+    <ContainerText isVisible={isHoverText}>
       <ImgHelp src={image} alt="Help" />
 
       <TextHelp>
@@ -57,7 +56,7 @@ const NeedHelp = ({onCloseSideBar}) => {
       </TextHelp>
        </ContainerText>
 
-      <BtnNeedHelp onMouseEnter={() => setHoverText(true)} onMouseLeave={() => setHoverText(false)}>
+      <BtnNeedHelp onMouseEnter={() => setIsHoverText(true)} onMouseLeave={() => setIsHoverText(false)}>
         <IconHelp>
           <use href={`${icons}#icon-help`}></use>
         </IconHelp>

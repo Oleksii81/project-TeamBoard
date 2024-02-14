@@ -1,14 +1,47 @@
 import styled from 'styled-components';
 
+export const TextContainer = styled.div`
+  position: absolute;
+  top: 60px;
+  left: 0;
+  padding: 14px 20px 60px;
+  overflow-y: auto;
+  z-index: 0;
+  width: 100%;
+  height: calc(-60px + 100vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 375px) {
+    width: 100%;
+    height: calc(-60px + 100vh);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 26px 32px 96px;
+
+    top: 68px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 10px 20px 36px;
+    width: calc(-260px + 100vw);
+    left: 260px;
+  }
+`;
+
 export const MainText = styled.p`
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 12px;
   width: 335px;
-  /* position: absolute; */
 
   line-height: 1.33333;
   letter-spacing: -0.02em;
+  left: calc((100% - 335px)/2);
+  top: 50%;
   text-align: center;
   color: var(--secondaryTextColor);
 
@@ -19,7 +52,7 @@ export const MainText = styled.p`
     /* left: calc(260px + ((100vw - 260px - 486px)/2)); */
   }
   @media screen and (min-width: 1440px) {
-    left: auto;
+    left: calc((100% - 226px)/2);
   }
 `;
 

@@ -18,25 +18,28 @@ import { getUserEmail } from '../../../redux/auth/authSelectors';
 
 
 const NeedHelpSchema = Yup.object().shape({
-  email: Yup.string().email().required('Email is required'),
+  email: Yup.string().email('Invalid email').matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
+      message: 'Email error',
+      excludeEmptyString: true,
+    }).required('Email is required'),
   comment: Yup.string().required('Comment is required'),
 });
 
 
-const FormNeedHelp = ({ onClose }) => {
+const FormNeedHelp = ({ closeModal }) => {
   const userEmail = useSelector(getUserEmail);
 
   const handleSubmit = (values, { resetForm }) => {
     fetchHelpApi(values);
     resetForm();
-    onClose();
+    closeModal();
   };
 
   return (
     <ModalContainerHelp>
       <ModalTitleHelp>Need help</ModalTitleHelp>
       
-       <IconHelp onClose={onClose}>
+       <IconHelp onClick={closeModal}>
         <use href={`${icons}#icon-close`}></use>
       </IconHelp>
 

@@ -3,16 +3,16 @@ import styled from 'styled-components';
 export const ContainerHelp = styled.div`
   margin-top: auto;
   background: var(--helpBgColor);
-  border-radius: 8px;
-  width: 197px;
+  width: 212px;
   height: 65px;
-  padding-top: 27px;
-  padding-left: 19px;
+  padding-left: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 
+  @media(max-width:768px) {
+    width: 197px;
+    padding-top: 18px;
 
-  @media (min-width:375px) and (max-width: 1770px) {
-    width: 212px;
-    padding-left: 20px;
   }
 `;
 
@@ -55,19 +55,23 @@ export const QuestionHelp = styled.span`
   letter-spacing: -0.02em;
   cursor: pointer;
   color: var(--needHelpBtn);
-  padding-top: 19px;
+  padding-top: 15px;
+  margin-bottom: 2px;
 `;
 
 export const ContainerText = styled.div`
    background-color: var(--helpBgColor);
     margin-top: -204px;
-    width: 211px;
-    margin-left: -19px;
+    width: 212px;
+    margin-left: -20px;
     padding-left: 20px;
     border-radius: 8px;
-    display: ${props => props.isVisible ? 'block' : 'none'};
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 
-  @media(max-width:375px) {
+    display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
+
+  @media(min-width:375px) and (max-width: 768px) {
     width: 197px;
   }
 `;
@@ -77,9 +81,9 @@ export const BtnNeedHelp = styled.div`
   align-items: flex-end;
   gap: 8px;
   cursor: pointer;
-  position: relative;
-
+  
   &:hover + ${ContainerText} {
     display: block;
+
   }
 `;
