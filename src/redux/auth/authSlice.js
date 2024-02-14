@@ -35,8 +35,17 @@ export const authSlice = createSlice({
       .addCase(register.pending, state => {
         state.isRefreshing = true;
       })
+      //       userName(pin):"ggfgfgf"
+      // email(pin):"13@gmail.com"
+      // avatarLight(pin):"http://res.cloudinary.com/drj0am35a/image/upload/v1707058150/lt_user.jpg"
       .addCase(register.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
+        const { userName, email, avatarURL } = payload.user;
+        state.user = {
+          ...state.user,
+          email: email,
+          name: userName,
+          avatarURL: (avatarURL && Object.values(avatarURL)[0]) ?? '',
+        };
         state.token = payload.token;
         state.isLoggedIn = true;
         state.isRefreshing = false;
@@ -50,7 +59,14 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(login.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
+        const { userName, email, avatarURL } = payload.user;
+        state.user = {
+          ...state.user,
+          email: email,
+          name: userName,
+
+          avatarURL: (avatarURL && Object.values(avatarURL)[0]) ?? '',
+        };
         state.token = payload.token;
         state.isLoggedIn = true;
         state.isRefreshing = false;
@@ -78,10 +94,9 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
-        state.user.name = payload.name;
+        state.user.name = payload.userName;
         state.user.email = payload.email;
-        state.user.theme = payload.theme;
-        state.user.avatarURL = payload.avatarURL;
+        state.user.avatarURL = (payload.avatarURL && Object.values(payload.avatarURL)[0]) ?? '';
         state.isRefreshing = false;
         state.error = null;
         toast.success('Changes are successful!');
@@ -97,6 +112,8 @@ export const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.isLoggedIn = true;
         state.isRefreshing = false;
+        state.user.name = payload.userName;
+        state.user.email = payload.email;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;

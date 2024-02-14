@@ -8,6 +8,7 @@ import { getBoard } from '../../../src/redux/auth/authSelectors';
 
 const ScreensPage = () => {
   const boards = useSelector(getBoard);
+  // const activeBoard = boards.find(board => board.isActive);
 
   const [filterByPriority, setFilterByPriority] = useState('');
   // const [cards, setCards] = useState([]);
@@ -32,7 +33,7 @@ const ScreensPage = () => {
         <Filter
           setFilterByPriority={setFilterByPriority}
           onChangeFilter={onFilterChange}
-        />
+          />
         <Text />
       </Container>
     </section>
