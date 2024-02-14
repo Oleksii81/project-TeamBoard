@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const ContainerForBtnandColumns = styled.div`
+  overflow-x: scroll;
+  scrollbar-width: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 18px;
+
+  width: 100%;
+`;
+
 export const ContainerMain = styled.div`
   overflow: auto;
   background-position-y: bottom;

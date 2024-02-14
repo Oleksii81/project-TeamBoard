@@ -13,14 +13,18 @@ const ColumnsList = () => {
   const { idBoard } = useParams();
   const activeBoard = boards.find(board => board._id === idBoard);
 
-  if (activeBoard) {
+  if (idBoard === activeBoard._id) {
     return (
       <ColumnItem>
         {columns &&
-          columns.length &&
+          columns.length > 0 &&
           columns.map(column => (
             <li key={column._id}>
-              <ColumnHeader id={column._id} title={column.title} idBoard={activeBoard._id}/>
+              <ColumnHeader
+                id={column._id}
+                title={column.title}
+                idBoard={activeBoard._id}
+              />
               <CardList columnId={column._id} filterByPriority={null} />
               {/* <AddAnotherCard columnId={column._id} /> */}
             </li>
