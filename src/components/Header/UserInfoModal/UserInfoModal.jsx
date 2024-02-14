@@ -26,13 +26,17 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
+<<<<<<< Updated upstream
+=======
+  // userName: Yup.string().max(5, 'Max 12'),
+>>>>>>> Stashed changes
   userEmail: Yup.string().email('Invalid email'),
   userPassword: Yup.string().min(8, 'Min 8'),
 });
 
 export const UserInfoModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const { name, email, avatarURL } = useSelector(getUserData);
+  const { name, email, password, avatarURL } = useSelector(getUserData);
   const [selectedFile, setSelectedFile] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
@@ -121,7 +125,7 @@ const formik = useFormik({
               name="userPassword"
               placeholder="Password"
               type={showPassword ? 'text' : 'password'}
-              value={formik.values.userPassword || ''}
+              value={formik.values.userPassword || password}
               onChange={formik.handleChange}
             />
             <StyledBtnEdit
