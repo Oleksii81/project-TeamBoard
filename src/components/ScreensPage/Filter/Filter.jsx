@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import RadioBtnsFilterForm from '../../../../src/components/ScreensPage/RadioBrnsFilterForm/RadioBrnsFilterForm';
+import RadioBtnsFilterForm from '../../../../src/components/ScreensPage/RadioBrnsFilterForm/RadioBrnsFilterForm';
 
 import icons from '../../../../src/images/sprite.svg';
 import {
@@ -36,10 +36,10 @@ const Filter = ({ onChangeFilter, setFilterByPriority }) => {
             </svg>
           </FilerModalBtn>
           <FilterFormHeading>Filters</FilterFormHeading>
-          {/* <RadioBtnsFilterForm
+          <RadioBtnsFilterForm
             onSelect={onChangeFilter}
             setFilterByPriority={setFilterByPriority}
-          /> */}
+          />
         </WindowContainer>
       )}
     </>

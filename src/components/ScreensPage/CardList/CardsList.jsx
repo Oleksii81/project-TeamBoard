@@ -3,11 +3,11 @@
 import CardItem from './CardItem';
 import { CardsContainer } from './CardsList.styled';
 
-// import { getCarddSelector } from '../../../redux/task/taskSelectors';
+// import { getCarddSelector } from '../../../src/redux/task/taskSelectors';
 
 const CadrsList = ({ columnId }) => {
   // console.log(columnId);
-  // const cards = useSelector();
+  // const cards = useSelector(getCarddSelector);
   // console.log(cards);
 
   const cards = [
@@ -49,7 +49,6 @@ const CadrsList = ({ columnId }) => {
               />
             </li>
           ))}
-
         </ul>
       }
     </CardsContainer>
