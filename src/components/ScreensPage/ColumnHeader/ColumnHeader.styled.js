@@ -8,6 +8,7 @@ export const ColumnHeaderWrapper = styled.div`
     width: 334px;
     height: 56px;
     border-radius: 8px;
+    margin-bottom: 14px;
     background-color: var(--headerBgColor);
     color: var(--primaryTextColor);
 `

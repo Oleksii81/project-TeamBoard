@@ -70,8 +70,8 @@ const boardSlice = createSlice({
         state.isRefreshing = true;
         state.error = null;
       })
-      .addCase(deleteColumn.fulfilled, (state, { payload }) => {
-        state.columns = state.columns.filter(col => col._id !== payload.id);
+      .addCase(deleteColumn.fulfilled, (state, action) => {
+      state.columns = state.columns.filter(col => col._id !== action.payload.id);
       })
       .addCase(deleteColumn.rejected, (state, action) => {
         state.error = action.error.message;

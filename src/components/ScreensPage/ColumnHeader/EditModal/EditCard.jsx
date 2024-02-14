@@ -13,15 +13,18 @@ import {
     EditCardTextArea,
     EditCardLabel,
     EditCardButton,
-    //EditCardSvg
 } from "./EditColumn.styled"
 import { SubmitSvgWrapper, SvgCloseBtn } from 'components/ScreensPage/AddColumnForm/AddColumnForm.styled';
 import icons from '../../../../images/sprite.svg'
 import { RadioButtons } from 'components/ScreensPage/RadioBrnsFilterForm/RadioButtons';
+import { useDispatch } from "react-redux";
+import { editCard } from "../../../../redux/task/taskOperations";
 
 
-const EditColumn = ({ closeModalWindow }) => {
-  
+const EditCard = ({ closeModalWindow, id, columnId }) => {
+
+  const dispatch = useDispatch();
+
    return (
     <EditCardWrapper>
       <EditCardTitle>My Form</EditCardTitle>
@@ -31,17 +34,19 @@ const EditColumn = ({ closeModalWindow }) => {
                    message: ""
                }}
         validationSchema={Yup.object({
-          firstName: Yup.string().required("Required"),
-          lastName: Yup.string().required("Required"),
-          email: Yup.string().email("Invalid email address").required("Required")
+          taskName: Yup.string().required("Title is required"),
+          message: Yup.string().required("Description is required"),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
+           onSubmit ={(values, actions) => {
+        dispatch(editCard({ idColumn: columnId, id: id, body: values }))
+          .unwrap()
+          .then()
+          .catch(error => error.message);
+              actions.resetForm();
+        closeModalWindow();
+      }}
+       >
+
         <Form>
             <SvgCloseBtn type="button" onClick={closeModalWindow}>
             <svg>
@@ -60,7 +65,7 @@ const EditColumn = ({ closeModalWindow }) => {
                    <div style={{ marginLeft: '10px' , marginBottom: '14px'}}>
                        <RadioButtons />
                    </div>
-                   <EditCardLabel>Deadline</EditCardLabel>
+           <EditCardLabel>Deadline</EditCardLabel>
             
                    <EditCardButton type="submit">
                       <SubmitSvgWrapper>
@@ -76,4 +81,4 @@ const EditColumn = ({ closeModalWindow }) => {
   );
 };
 
-export default EditColumn;
+export default EditCard;

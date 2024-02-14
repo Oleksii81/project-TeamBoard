@@ -55,8 +55,8 @@ export const getOneColumnApi = async ({ idBoard, idColumn }) => {
   return await axios.get(`api/columns/${idBoard}/${idColumn}`).then(res => res);
 };
 
-export const deleteColumnApi = async idColumn => {
-  return await axios.delete(`api/columns/${idColumn}`).then(res => res);
+export const deleteColumnApi = async ({ idBoard, idColumn }) => {
+  return await axios.delete(`api/columns/${idBoard}/${idColumn}`).then(res => res);
 };
 
 /* CARD */

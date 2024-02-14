@@ -20,7 +20,7 @@ const ColumnsList = () => {
           columns.length &&
           columns.map(column => (
             <li key={column._id}>
-              <ColumnHeader id={column._id} title={column.title} />
+              <ColumnHeader id={column._id} title={column.title} idBoard={activeBoard._id}/>
               <CardList columnId={column._id} filterByPriority={null} />
               {/* <AddAnotherCard columnId={column._id} /> */}
             </li>
