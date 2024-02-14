@@ -5,7 +5,7 @@ import BoardsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React from 'react';
-import Card from '../../components/ScreensPage/Card/Card';
+//import Card from '../../components/ScreensPage/Card/Card';
 
 const SideBar = ({ isSidebarOpen, onCloseSideBar }) => {
   return (
