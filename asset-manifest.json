@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/project-TeamBoard/static/css/main.834c7005.css",
-    "main.js": "/project-TeamBoard/static/js/main.0309568b.js",
+    "main.css": "/project-TeamBoard/static/css/main.dda3ca2b.css",
+    "main.js": "/project-TeamBoard/static/js/main.065cc80d.js",
     "static/js/223.4ae8ebfd.chunk.js": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js",
     "static/js/490.6d82e6f7.chunk.js": "/project-TeamBoard/static/js/490.6d82e6f7.chunk.js",
-    "static/js/137.5c4ea40f.chunk.js": "/project-TeamBoard/static/js/137.5c4ea40f.chunk.js",
+    "static/js/137.102339f2.chunk.js": "/project-TeamBoard/static/js/137.102339f2.chunk.js",
     "static/media/Poppins-Regular.woff": "/project-TeamBoard/static/media/Poppins-Regular.ab6122bd28174ddf9eeb.woff",
     "static/media/Poppins-SemiBold.woff": "/project-TeamBoard/static/media/Poppins-SemiBold.ee8ae013a422a80622c6.woff",
     "static/media/Poppins-Medium.woff": "/project-TeamBoard/static/media/Poppins-Medium.c162ccbbda8bd6839b3a.woff",
@@ -16,14 +16,14 @@
     "static/media/sprite.svg": "/project-TeamBoard/static/media/sprite.90a04d8c66088f268bd5ce8fa7274a8b.svg",
     "index.html": "/project-TeamBoard/index.html",
     "static/media/burger.svg": "/project-TeamBoard/static/media/burger.42365862ef7a4ae41847d66223ea8d09.svg",
-    "main.834c7005.css.map": "/project-TeamBoard/static/css/main.834c7005.css.map",
-    "main.0309568b.js.map": "/project-TeamBoard/static/js/main.0309568b.js.map",
+    "main.dda3ca2b.css.map": "/project-TeamBoard/static/css/main.dda3ca2b.css.map",
+    "main.065cc80d.js.map": "/project-TeamBoard/static/js/main.065cc80d.js.map",
     "223.4ae8ebfd.chunk.js.map": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js.map",
     "490.6d82e6f7.chunk.js.map": "/project-TeamBoard/static/js/490.6d82e6f7.chunk.js.map",
-    "137.5c4ea40f.chunk.js.map": "/project-TeamBoard/static/js/137.5c4ea40f.chunk.js.map"
+    "137.102339f2.chunk.js.map": "/project-TeamBoard/static/js/137.102339f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.834c7005.css",
-    "static/js/main.0309568b.js"
+    "static/css/main.dda3ca2b.css",
+    "static/js/main.065cc80d.js"
   ]
 }
