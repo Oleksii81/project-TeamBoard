@@ -2,6 +2,7 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 
+
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -39,6 +40,7 @@ import {
 } from './EditBoardForm.styled';
 import { editBoard } from '../../../redux/auth/authOperations';
 import { getBoardSelector } from '../../../redux/auth/authSelectors';
+import { useParams } from 'react-router';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
@@ -46,10 +48,11 @@ const BoardFormSchema = Yup.object().shape({
 
 const EditBoardForm = ({ closeModalWindow, id }) => {
   const dispatch = useDispatch();
+  const { idBoard } = useParams();
 
   const boards = useSelector(getBoardSelector);
   const { title, icnboard, background } = boards.find(board => {
-    return board._id === id;
+    return board._id === idBoard;
   });
 
   return (
