@@ -72,7 +72,7 @@ const formik = useFormik({
           formData.append('password', values.userPassword);
         }
         dispatch(updateUser(formData));
-        onClose(); // Закрываем модальное окно после успешной отправки данных
+        onClose(); 
       } catch (error) {
         console.error('Error updating user', error.message);
       }
