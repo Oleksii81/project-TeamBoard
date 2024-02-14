@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import icons from '../../../../src/images/sprite.svg';
-import ModalAddColumn from '../../../../src/components/Modals/ModalAddColumn/ModalAddColumn';
+import ModalAddColumn from '../../Modals/ModalAddColumn/ModalAddColumn';
 
-import { ColumnAddBtn, SvgDiv } from './AddBoardBtn.styled';
+import { ColumnAddBtn, SvgDiv } from './AddColumnBtn.styled';
 
 export const AddBoardBtn = () => {
   const [isOpen, setIsOpen] = useState(false);

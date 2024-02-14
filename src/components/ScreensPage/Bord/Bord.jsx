@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { AddBoardBtn } from '../../../../src/components/ScreensPage/AddBoardBtn/AddBoardBtn';
+import { AddBoardBtn } from '../AddColumnBtn/AddColumnBtn';
 import Filter from '../../../../src/components/ScreensPage/Filter/Filter';
 // import CardList from '../Card/CardList';
 import { ContainerMain } from './Bord.styled';
 
 import { selectBoard } from '../../../../src/redux/task/taskSelectors';
 import ColumnsList from '../../../../src/components/ScreensPage/ColumnsList/ColumnsList';
-import { BoardName } from '../AddBoardBtn/AddBoardBtn.styled';
+import { BoardName } from '../AddColumnBtn/AddColumnBtn.styled';
 import { useParams } from 'react-router-dom';
 
 const Bord = ({ onChangeFilter, setFilterByPriority }) => {
@@ -23,7 +23,7 @@ const Bord = ({ onChangeFilter, setFilterByPriority }) => {
       <ContainerMain background={activeBoard}>
         <BoardName>{activeBoard.title}</BoardName>
 
-        <ColumnsList activeBoard={activeBoard} />
+        <ColumnsList />
         <AddBoardBtn />
         <Filter
           onChangeFilter={onChangeFilter}

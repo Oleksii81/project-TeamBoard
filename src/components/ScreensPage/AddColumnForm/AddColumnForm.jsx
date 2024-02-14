@@ -17,18 +17,17 @@ import {
   SubmitSvgWrapper,
   ModalForm,
 } from './AddColumnForm.styled';
+import { useParams } from 'react-router-dom';
 
 const AddColumnFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
 });
 
 const AddColumnForm = ({ closeModalWindow }) => {
+  const { idBoard } = useParams();
+  console.log(idBoard);
   const columns = useSelector(getColumn);
   const dispatch = useDispatch();
-  const boards = useSelector(getBoard);
-
-  const activeBoard = boards.find(board => board.isActive);
-  const idBoard = activeBoard._id;
 
   return (
     <Formik
@@ -37,6 +36,7 @@ const AddColumnForm = ({ closeModalWindow }) => {
       }}
       validationSchema={AddColumnFormSchema}
       onSubmit={(values, actions) => {
+        console.log(values);
         actions.resetForm();
         closeModalWindow();
         if (columns && columns.some(column => column.title === values.title)) {
