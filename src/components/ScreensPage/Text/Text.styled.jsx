@@ -5,7 +5,7 @@ export const MainText = styled.p`
   font-weight: 400;
   font-size: 12px;
   width: 335px;
-  position: absolute;
+  /* position: absolute; */
 
   line-height: 1.33333;
   letter-spacing: -0.02em;
@@ -16,7 +16,7 @@ export const MainText = styled.p`
     font-size: 14px;
     line-height: 1.28571;
     width: 486px;
-    left: calc(260px + ((100vw - 260px - 486px)/2));
+    /* left: calc(260px + ((100vw - 260px - 486px)/2)); */
   }
   @media screen and (min-width: 1440px) {
     left: auto;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import ReactModal from 'react-modal';
 
 export const OverlayModal = styled(ReactModal)`
@@ -14,7 +14,7 @@ export const OverlayModal = styled(ReactModal)`
   transform: translate(-50%, -50%);
   padding: 0%;
   z-index: 1000;
-`
+`;
 
 export const ModalContainerHelp = styled.div`
   background-color: var(--popupBackground);
@@ -117,7 +117,6 @@ export const BtnSendHelp = styled.button`
   @media (max-width: 768px) {
     width: 287px;
   }
- 
 `;
 
 export const IconHelp = styled.svg`
