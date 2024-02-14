@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { getColumn } from "../../../redux/task/taskSelectors";
 import { CardContainer } from "./CardList.styled";
-// import tasks from 'components/ScreensPage/Card/CardsObj.json';
+import Card from "./Card";
 
 const CardList = ({ filterByPriority }) => {
   const columns = useSelector(getColumn);
@@ -16,7 +16,7 @@ const CardList = ({ filterByPriority }) => {
               .filter(task => task.priority===filterByPriority)
               .map(task => (
                 <li key={task._id}>
-                  <p>{task.title}</p>
+                  <Card key={task._id} task ={task} columnID={el._id} />
                 </li>
               )))}
       </ul>
