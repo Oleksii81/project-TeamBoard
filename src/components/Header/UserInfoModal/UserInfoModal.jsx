@@ -26,10 +26,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
-<<<<<<< Updated upstream
-=======
   // userName: Yup.string().max(5, 'Max 12'),
->>>>>>> Stashed changes
   userEmail: Yup.string().email('Invalid email'),
   userPassword: Yup.string().min(8, 'Min 8'),
 });
