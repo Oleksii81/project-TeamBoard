@@ -1,5 +1,5 @@
 import { Container } from './ScreensPage.styled';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Text from '../../../src/components/ScreensPage/Text/Text';
 // import Filter from '../../../src/components/ScreensPage/Filter/Filter';
@@ -13,11 +13,11 @@ const ScreensPage = () => {
   const { idBoard } = useParams();
   const activeBoard = boards.find(board => board._id === idBoard);
 
-  const [filterByPriority, setFilterByPriority] = useState('');
+  // const [filterByPriority, setFilterByPriority] = useState('');
   // const [cards, setCards] = useState([]);
-  const onFilterChange = newFilter => {
-    setFilterByPriority(newFilter);
-  };
+  // const onFilterChange = newFilter => {
+  //   setFilterByPriority(newFilter);
+  // };
 
   // const visibleCards = cards.filter(card => card.priority === filterByPriority);
 
@@ -26,8 +26,8 @@ const ScreensPage = () => {
       {activeBoard && boards && boards.length > 0 ? (
         <section>
           <Bord
-            setFilterByPriority={setFilterByPriority}
-            onChangeFilter={onFilterChange}
+          // setFilterByPriority={setFilterByPriority}
+          // onChangeFilter={onFilterChange}
           />
         </section>
       ) : (
