@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AddBoardBtn } from '../AddColumnBtn/AddColumnBtn';
 import Filter from '../../../../src/components/ScreensPage/Filter/Filter';
 // import CardList from '../Card/CardList';
@@ -8,15 +8,31 @@ import { selectBoard } from '../../../../src/redux/task/taskSelectors';
 import ColumnsList from '../../../../src/components/ScreensPage/ColumnsList/ColumnsList';
 import { BoardName } from '../AddColumnBtn/AddColumnBtn.styled';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getActiveBoard } from '../../../redux/task/taskOperations';
 
 const Bord = ({ onChangeFilter, setFilterByPriority }) => {
   const boards = useSelector(selectBoard);
-  console.log(boards);
 
   const { idBoard } = useParams();
+  const dispatch = useDispatch();
 
   const activeBoard = boards.find(board => board._id === idBoard);
   console.log(activeBoard);
+
+  useEffect(() => {
+    const fetchBoardData = () => {
+      if (idBoard) {
+        try {
+          dispatch(getActiveBoard(idBoard));
+        } catch (error) {
+          return error.message;
+        }
+      }
+    };
+
+    fetchBoardData();
+  }, [dispatch, idBoard]);
 
   return (
     <>

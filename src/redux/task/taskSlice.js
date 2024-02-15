@@ -48,7 +48,7 @@ const boardSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(addColumn.fulfilled, (state, { payload }) => {
-        state.columns.push(payload);
+        state.columns.push({ ...payload, cards: [] });
       })
       .addCase(addColumn.rejected, (state, action) => {
         state.error = action.error.message;
