@@ -26,7 +26,7 @@ const ColumnsList = () => {
                 idBoard={activeBoard._id}
               />
               {/* <CardList columnId={column._id} filterByPriority={null} /> */}
-              <AddAnotherCartBtn />
+              <AddAnotherCartBtn idColumn={column._id} />
             </li>
           ))}
       </ColumnItem>

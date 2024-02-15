@@ -8,7 +8,7 @@ import {
 import AddModalCard from './AddModalCard';
 import { useState } from 'react';
 
-const AddAnotherCartBtn = () => {
+const AddAnotherCartBtn = ({idColumn}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -32,6 +32,7 @@ const AddAnotherCartBtn = () => {
         isOpen={isOpen}
         openModal={openModal}
         closeModal={closeModal}
+        idColumn = {idColumn}
       />
     </>
   );
