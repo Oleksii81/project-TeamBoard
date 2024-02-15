@@ -142,7 +142,7 @@ export const editBoard = createAsyncThunk(
   async ({ id, values }, thunkAPI) => {
     try {
       const { data } = await axios.put(`/api/boards/${id}`, values);
-      return { id, data };
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

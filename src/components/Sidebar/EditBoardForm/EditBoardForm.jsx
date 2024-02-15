@@ -2,7 +2,6 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 
-
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -51,9 +50,9 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
   const { idBoard } = useParams();
 
   const boards = useSelector(getBoardSelector);
-  const { title, icnboard, background } = boards.find(board => {
-    return board._id === idBoard;
-  });
+  const { title, icnboard, background } = boards.find(
+    board => board._id === idBoard
+  );
 
   return (
     <Formik
@@ -72,7 +71,7 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
           return toast.warning('Data does not changed');
         }
 
-        dispatch(editBoard({ id, values }))
+        dispatch(editBoard({ id: idBoard, values }))
           .unwrap()
           .then()
           .catch(error => error.message);

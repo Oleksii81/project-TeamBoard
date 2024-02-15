@@ -135,9 +135,10 @@ export const authSlice = createSlice({
         const indexToRemove = state.user.boards.findIndex(
           board => board._id === payload
         );
-        if (indexToRemove !== -1) {
+        if (state.user.boards.length === 1) {
+          state.user.boards = [];
+        } else if (indexToRemove !== -1) {
           state.user.boards.splice(indexToRemove, 1);
-          state.user.boards[0].isActive = false;
         }
         state.isRefreshing = false;
         state.error = null;
@@ -150,9 +151,7 @@ export const authSlice = createSlice({
         const indexActive = state.user.boards.findIndex(
           board => board._id === payload._id
         );
-        state.user.boards[indexActive].title = payload.data.title;
-        state.user.boards[indexActive].icnboard = payload.data.icnboard;
-        state.user.boards[indexActive].background = payload.data.background;
+        state.user.boards[indexActive] = {...payload}
         state.isRefreshing = false;
         state.error = null;
       })
