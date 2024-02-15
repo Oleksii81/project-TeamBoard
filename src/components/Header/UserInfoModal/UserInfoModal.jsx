@@ -6,6 +6,7 @@ import { getUserData } from '../../../redux/auth/authSelectors';
 import { SpriteSVG } from 'assets/icons/SvgIcons';
 import userFoto from 'assets/img/userWhite.png';
 import ModalEditUser from 'components/Modals/ModalEditUser/ModalEditUser';
+import sprite from '../../../images/sprite.svg';
 import {
   StyledBtnClose,
   StyledBtnEdit,
@@ -37,7 +38,11 @@ export const UserInfoModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
-
+  
+  const onPassVisible = () => {
+    setShowPassword(!showPassword);
+  };
+ 
   const handleFileChange = file => {
     if (file) {
       const reader = new FileReader();
@@ -54,7 +59,7 @@ export const UserInfoModal = ({ onClose }) => {
     const file = event.target.files[0];
     handleFileChange(file);
   };
-const formik = useFormik({
+  const formik = useFormik({
     initialValues: { userName: '', userEmail: '', userPassword: '' },
     validationSchema: validationSchema,
     onSubmit: async values => {
@@ -73,7 +78,7 @@ const formik = useFormik({
           formData.append('password', values.userPassword);
         }
         dispatch(updateUser(formData));
-        onClose(); 
+        onClose();
       } catch (error) {
         console.error('Error updating user', error.message);
       }
@@ -125,11 +130,16 @@ const formik = useFormik({
               value={formik.values.userPassword || password}
               onChange={formik.handleChange}
             />
-            <StyledBtnEdit
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              <SpriteSVG name="eye1" />
+            <StyledBtnEdit type="button" onClick={onPassVisible}>
+              {showPassword ? (
+                <svg width={18} height={18}>
+                  <use stroke="gray" href={`${sprite}#icon-eye`} />
+                </svg>
+              ) : (
+                <svg width={18} height={18}>
+                  <use href={`${sprite}#icon-eye-hiden`} />
+                </svg>
+              )}
             </StyledBtnEdit>
           </div>
           {formik.errors.userPassword && formik.touched.userPassword && (

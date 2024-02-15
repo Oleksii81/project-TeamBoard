@@ -103,7 +103,7 @@ export const StyledBtnEdit = styled.button`
   border: none;
   border-radius: 8px;
   position: absolute;
-  top: 19px;
+  top: 15px;
   right: 12px;
 `;
 
