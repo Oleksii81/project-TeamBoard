@@ -158,9 +158,7 @@ export const authSlice = createSlice({
         const indexActive = state.user.boards.findIndex(
           board => board._id === payload._id
         );
-        state.user.boards[indexActive].title = payload.data.title;
-        state.user.boards[indexActive].icnboard = payload.data.icnboard;
-        state.user.boards[indexActive].background = payload.data.background;
+        state.user.boards[indexActive] = { ...payload };
         state.isRefreshing = false;
         state.error = null;
       })
