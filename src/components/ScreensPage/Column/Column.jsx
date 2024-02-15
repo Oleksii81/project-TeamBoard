@@ -68,7 +68,7 @@ const Column = ({ title, columnId }) => {
           onClose={handleClose}
           onConfirm={handleDelete}
           title={
-            tasksInColumn[0]?.tasks?.length
+            tasksInColumn[0]?.cards?.length
               ? 'There are tasks inside the column. Are you sure to delete this column?'
               : 'Are you sure?'
           }
