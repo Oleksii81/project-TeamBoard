@@ -1,4 +1,4 @@
-import { useDispatch, /*useSelector*/} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
 import {
@@ -25,36 +25,38 @@ const BoardItem = ({ to, id, icon, title }) => {
   };
 
   return (
-    <ItemContainer to={to} className={'activeBoard'}>
-      <Icon className={'activeBoardIcon'}>
-        <svg width="18" height="18">
-          <use href={`${icons}#${icon}`}></use>
-        </svg>
-      </Icon>
-      <Title className={'activeBoardTitle'}>{title}</Title>
-      <ButtonContainer>
-        <Button className={'activeBoardButton'} onClick={() => openModal()}>
-          <svg width="16" height="16">
-            <use href={`${icons}#icon-pencil`}></use>
+    <>
+      <ItemContainer to={to} className={'activeBoard'}>
+        <Icon className={'activeBoardIcon'}>
+          <svg width="18" height="18">
+            <use href={`${icons}#${icon}`}></use>
           </svg>
-        </Button>
-        <Button
-          className={'activeBoardButton'}
-          onClick={() => dispatch(deleteBoard(id))}
-        >
-          <svg width="16" height="16">
-            <use href={`${icons}#icon-trash`}></use>
-          </svg>
-        </Button>
-      </ButtonContainer>
-      <CurrentLine className={'activeLine'} />
+        </Icon>
+        <Title className={'activeBoardTitle'}>{title}</Title>
+        <ButtonContainer>
+          <Button className={'activeBoardButton'} onClick={() => openModal()}>
+            <svg width="16" height="16">
+              <use href={`${icons}#icon-pencil`}></use>
+            </svg>
+          </Button>
+          <Button
+            className={'activeBoardButton'}
+            onClick={() => dispatch(deleteBoard(id))}
+          >
+            <svg width="16" height="16">
+              <use href={`${icons}#icon-trash`}></use>
+            </svg>
+          </Button>
+        </ButtonContainer>
+        <CurrentLine className={'activeLine'} />
+      </ItemContainer>
       <EditModalBord
         id={id}
         isOpen={isOpen}
         openModal={openModal}
         closeModal={() => setIsOpen(false)}
       />
-    </ItemContainer>
+    </>
   );
 };
 

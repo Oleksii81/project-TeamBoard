@@ -7,8 +7,8 @@ export const BoardsContainer = styled.div`
   left: -24px;
   min-height: 61px;
   overflow-y: auto;
+  overflow-x: hidden;
   margin-bottom: 40px;
-  scrollbar-width: 2px;
   cursor: pointer;
 
   @media screen and (max-width: 767px) {
@@ -93,10 +93,10 @@ export const CurrentLine = styled.div`
   width: 4px;
   height: 61px;
   position: absolute;
-  left: 252px;
+  left: 248px;
 
   @media screen and (max-width: 767px) {
-    left: 217px;
+    left: 213px;
 
     & .activeLine {
       background: var(--iconLogOut);

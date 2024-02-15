@@ -6,7 +6,6 @@ import { selectBoard } from '../../../redux/task/taskSelectors';
 
 const BoardsList = () => {
   const boards = useSelector(selectBoard);
-  console.log(boards);
 
   let reverseBoards = [];
   if (boards) {
