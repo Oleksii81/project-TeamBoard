@@ -6,7 +6,7 @@ export const BoardName = styled.h2`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--addAnotherColumnBtnBgColor);
   position: absolute;
   top: 14px;
   left: 20px;
@@ -25,7 +25,7 @@ export const ColumnAddBtn = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #121212;
+  background-color: var(--addAnotherColumnBtnBgColor);
   cursor: pointer;
   border-radius: 8px;
   padding: 14px 79px;
@@ -35,20 +35,20 @@ export const ColumnAddBtn = styled.div`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--primaryTextColor);
 `;
 
 export const SvgDiv = styled.div`
   width: 28px;
   height: 28px;
   border-radius: 6px;
-  background-color: #fff;
+  background-color: var(--plusButtonBackground);
   display: flex;
   align-items: center;
   justify-content: center;
   & svg {
     stroke-width: 1px;
-    stroke: #121212;
+    stroke: var(--headerBgColor);
     width: 20px;
     height: 20px;
   }

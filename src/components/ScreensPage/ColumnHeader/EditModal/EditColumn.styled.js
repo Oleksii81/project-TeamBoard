@@ -62,6 +62,7 @@ export const EditCardButton = styled.button`
     gap: 8px;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
 
     svg {
     stroke-width: 1px;

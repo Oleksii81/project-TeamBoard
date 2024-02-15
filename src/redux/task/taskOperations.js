@@ -25,9 +25,9 @@ export const getActiveBoard = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   'column/add',
-  async ({ values, idBoard }, { rejectWithValue, dispatch }) => {
+  async ({ idBoard, body }, { rejectWithValue, dispatch }) => {
     try {
-      const { data } = await addColumnApi(values, idBoard);
+      const { data } = await addColumnApi( idBoard, body );
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

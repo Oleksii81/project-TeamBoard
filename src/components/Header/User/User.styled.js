@@ -11,6 +11,7 @@ export const StyledBtnProfile = styled.button`
   cursor: pointer;
 
 
+
   @media screen and (min-width: 768px) {
     gap: 14px;
   }
@@ -25,12 +26,13 @@ export const StyledImgProfile = styled.img`
 `;
 
 export const StyledProfileName = styled.p`
-  color: #161616;
+  color: var(--primaryTextColor);;
   font-family: 'Poppins-500', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
+
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

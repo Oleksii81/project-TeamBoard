@@ -78,7 +78,7 @@ export const SvgCloseBtn = styled.button`
 
   svg {
     stroke-width: 1.5px;
-    stroke: var(--buttonColor);
+    stroke: var(--addCardButtonBackground);
     width: 18px;
     height: 18px;
   }

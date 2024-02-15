@@ -15,6 +15,7 @@ const ScreensPage = () => {
 
   // const [filterByPriority, setFilterByPriority] = useState('');
   // const [cards, setCards] = useState([]);
+
   // const onFilterChange = newFilter => {
   //   setFilterByPriority(newFilter);
   // };
