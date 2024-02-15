@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 
 import {
   register,
-  login,
   logout,
+  login,
   updateUser,
   refreshUser,
   createBoard,
