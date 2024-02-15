@@ -68,7 +68,7 @@ export const getOneCardApi = async ({ idColumn, idCard }) => {
   return await axios.get(`api/cards/${idColumn}/${idCard}`).then(res => res);
 };
 
-export const addCardApi = async (form, idColumn) => {
+export const addCardApi = async (idColumn, form) => {
   return await axios
     .post(`/api/cards/${idColumn}`, { ...form })
     .then(res => res);
