@@ -15,11 +15,13 @@ import {
   CalendarArrow,
   EditButton,
 } from './CreateCardForm.styled';
-import { RadioButtons } from './RadioButtons';
+// import { RadioButtons } from './RadioButtons';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import './Calendar.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import { addCard } from '../../../../redux/task/taskOperations';
 function formatTimestamp(timestamp) {
   const date = new Date(timestamp);
   const monthNames = [
@@ -46,7 +48,7 @@ const CreateCardSchema = Yup.object().shape({
 });
 
 const CreateCardForm = ({ closeModal }) => {
-  const [selectedRadioValue, setSelectedRadioValue] = useState('');
+  // const [selectedRadioValue, setSelectedRadioValue] = useState('');
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [unixFromat, setUnixFormat] = useState(
     new Date(new Date().toUTCString()).getTime()
@@ -56,12 +58,13 @@ const CreateCardForm = ({ closeModal }) => {
     const UTC = date.toUTCString();
     const UNIX = new Date(UTC).getTime();
     setUnixFormat(UNIX);
-    console.log(unixFromat);
     setShowDatePicker(false);
   };
   const toggleDatePicker = () => {
     setShowDatePicker(prevState => !prevState);
   };
+
+  const dispatch = useDispatch();
   return (
     <>
       <Container>
@@ -76,11 +79,13 @@ const CreateCardForm = ({ closeModal }) => {
           initialValues={{
             title: '',
             description: '',
+            priority: '',
           }}
           validationSchema={CreateCardSchema}
           onSubmit={(values, actions) => {
-            console.log('Form submitted:', values);
+            console.log(values);
             actions.setSubmitting(false); // Помечаем форму как "не отправленную"
+            dispatch(addCard(values));
           }}
         >
           {({ handleSubmit }) => (
@@ -88,10 +93,6 @@ const CreateCardForm = ({ closeModal }) => {
               onSubmit={e => {
                 e.preventDefault(); // Предотвращаем перезагрузку страницы
                 handleSubmit(e); // Вызываем стандартный обработчик отправки формы из Formik
-                console.log(e.target[0].value); // Title
-                console.log(e.target[1].value); //Description
-                console.log(selectedRadioValue); // RadioBTN
-                console.log(formatTimestamp(unixFromat)); // Date
               }}
             >
               <InputCreateCard
@@ -107,7 +108,7 @@ const CreateCardForm = ({ closeModal }) => {
                 placeholder="Description"
               />
               <EditCardLabel>Label color</EditCardLabel>
-              <RadioButtons onRadioChange={setSelectedRadioValue} />
+              {/* <RadioButtons onRadioChange={setSelectedRadioValue} /> */}
               <EditCardLabel>Deadline</EditCardLabel>
               <CalendarWrapp onClick={toggleDatePicker}>
                 <CalendarText>

@@ -1,6 +1,6 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,7 +37,7 @@ import {
   SubmitSvgWrapper,
   Error,
 } from './CreateBoardForm.styled';
-import { getBoard } from '../../../redux/auth/authSelectors';
+// import { getBoard } from '../../../redux/auth/authSelectors';
 import { createBoard } from '../../../redux/auth/authOperations';
 
 const BoardFormSchema = Yup.object().shape({

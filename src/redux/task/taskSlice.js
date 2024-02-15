@@ -14,11 +14,9 @@ import {
 import { logout } from '../auth/authOperations';
 
 const initialState = {
-  board: {
-    id: '',
-    title: '',
-    background: '0',
-  },
+  id: '',
+  title: '',
+  background: '0',
   columns: [],
   error: null,
   isRefreshing: false,
@@ -71,7 +69,9 @@ const boardSlice = createSlice({
         state.error = null;
       })
       .addCase(deleteColumn.fulfilled, (state, action) => {
-      state.columns = state.columns.filter(col => col._id !== action.payload.id);
+        state.columns = state.columns.filter(
+          col => col._id !== action.payload.id
+        );
       })
       .addCase(deleteColumn.rejected, (state, action) => {
         state.error = action.error.message;

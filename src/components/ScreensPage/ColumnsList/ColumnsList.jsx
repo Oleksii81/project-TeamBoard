@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
 import { ColumnItem } from './ColumnsList.styled';
 import { ColumnHeader } from '../../../../src/components/ScreensPage/ColumnHeader/ColumnHeader';
-import CardList from '../CardList/CardsList';
+// import CardList from '../CardList/CardsList';
 import { getColumn, selectBoard } from '../../../redux/task/taskSelectors';
 import { useParams } from 'react-router-dom';
+import AddAnotherCartBtn from '../AddAnotherCartBtn/AddAnotherCartBtn';
 
 const ColumnsList = () => {
   const columns = useSelector(getColumn);
@@ -25,8 +26,8 @@ const ColumnsList = () => {
                 title={column.title}
                 idBoard={activeBoard._id}
               />
-              <CardList columnId={column._id} filterByPriority={null} />
-              {/* <AddAnotherCard columnId={column._id} /> */}
+              {/* <CardList columnId={column._id} filterByPriority={null} /> */}
+              <AddAnotherCartBtn />
             </li>
           ))}
       </ColumnItem>
