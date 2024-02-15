@@ -23,7 +23,7 @@ export const HeaderWrapper = styled.div`
     height: 68px;
   }
   @media screen and (min-width: 1439px) {
-    width: calc(-260px + 100vw);
+    width: 100%;
     left: 260px;
   }
 `;

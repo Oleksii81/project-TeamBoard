@@ -35,7 +35,7 @@ export const deleteBoardApi = async id => {
 
 /* COLUMN */
 
-export const addColumnApi = async (columnForm, idBoard) => {
+export const addColumnApi = async (idBoard, columnForm) => {
   return await axios
     .post(`/api/columns/${idBoard}`, { ...columnForm })
     .then(res => res);

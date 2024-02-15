@@ -5,13 +5,13 @@ import { CardsContainer } from './CardsList.styled';
 
 // import { getCarddSelector } from '../../../src/redux/task/taskSelectors';
 
-const CadrsList = ({ columnId }) => {
+const CadrsList = ({ columnId, columns }) => {
   // console.log(columnId);
   // const cards = useSelector(getCarddSelector);
   // console.log(cards);
   
 
-  const cards = [
+ const cards = [
     {
       _id: '1',
       title: 'The Watch Spot Design',
@@ -33,7 +33,9 @@ const CadrsList = ({ columnId }) => {
       priority: 'Without',
       deadline: '12/05/2023',
     },
-  ];
+  ]; 
+  // const cards = columns.map(column => column.cards);
+  // console.log(cards)
 
   return (
     <CardsContainer>

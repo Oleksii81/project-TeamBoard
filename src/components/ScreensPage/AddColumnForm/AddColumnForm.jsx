@@ -24,8 +24,8 @@ const AddColumnFormSchema = Yup.object().shape({
 });
 
 const AddColumnForm = ({ closeModalWindow }) => {
-  const { idBoard } = useParams();
-  console.log(idBoard);
+  const { idBoard }  = useParams();
+  // console.log(idBoard);
   const columns = useSelector(getColumn);
   const dispatch = useDispatch();
 
@@ -35,21 +35,21 @@ const AddColumnForm = ({ closeModalWindow }) => {
         title: '',
       }}
       validationSchema={AddColumnFormSchema}
-      onSubmit={(values, actions) => {
-        console.log(values);
+       onSubmit={(values, actions) => {
+        // console.log(values);
         actions.resetForm();
         closeModalWindow();
         if (columns && columns.some(column => column.title === values.title)) {
           return toast.warning('The title already exists');
         }
 
-        dispatch(addColumn({ values, idBoard }))
+        dispatch(addColumn({ idBoard: idBoard, body: values } ))
           .unwrap()
           .then(() =>
             toast.success(`${values.title} has been successfully added`)
           )
           .catch(error => error.message);
-      }}
+      }} 
     >
       <ModalForm>
         <Header>Add Column</Header>

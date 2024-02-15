@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 const ColumnsList = () => {
   const columns = useSelector(getColumn);
   const boards = useSelector(selectBoard);
-  console.log(columns);
+  // console.log(columns);
 
   const { idBoard } = useParams();
   const activeBoard = boards.find(board => board._id === idBoard);
@@ -21,7 +21,7 @@ const ColumnsList = () => {
           columns.map(column => (
             <li key={column._id}>
               <ColumnHeader id={column._id} title={column.title} idBoard={activeBoard._id}/>
-              <CardList columnId={column._id} filterByPriority={null} />
+              <CardList columnId={column._id} filterByPriority={null} columns={ columns} />
               {/* <AddAnotherCard columnId={column._id} /> */}
             </li>
           ))}

@@ -14,11 +14,13 @@ import {
 import { logout } from '../auth/authOperations';
 
 const initialState = {
-  board: {
+   board: {
     id: '',
     title: '',
     background: '0',
-  },
+    columns: [],
+  }, 
+  // board: [],
   columns: [],
   error: null,
   isRefreshing: false,
@@ -50,7 +52,14 @@ const boardSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(addColumn.fulfilled, (state, { payload }) => {
-        state.columns.push(payload);
+        // console.log("State board:", state.board);
+        const { owner } = payload;
+        const newColumn = payload;
+        const boardIndex = state.board.filter(boar => boar._id === owner);
+        if (boardIndex) {
+          state.columns.push(newColumn)
+        } 
+         state.columns.push(payload);
       })
       .addCase(addColumn.rejected, (state, action) => {
         state.error = action.error.message;
