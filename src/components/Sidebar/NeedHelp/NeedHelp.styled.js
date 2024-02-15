@@ -8,6 +8,7 @@ export const ContainerHelp = styled.div`
   padding-left: 20px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  z-index: 1;
 
   @media(max-width:768px) {
     width: 197px;
@@ -68,10 +69,14 @@ export const ContainerText = styled.div`
     border-radius: 8px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    display: none;
 
-    display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
+    ${ContainerHelp}:hover & {
+    display: block;
+  }
 
-  @media(min-width:375px) and (max-width: 768px) {
+
+  @media(min-width:120px) and (max-width: 768px) {
     width: 197px;
   }
 `;
@@ -82,8 +87,4 @@ export const BtnNeedHelp = styled.div`
   gap: 8px;
   cursor: pointer;
   
-  &:hover + ${ContainerText} {
-    display: block;
-
-  }
 `;

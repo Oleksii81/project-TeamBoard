@@ -1,5 +1,6 @@
 import CreateCardForm from './CreateCardForm/CreateCardForm';
 import { OverlayModal } from './AddAnotherCartBtn.styled';
+import AddCard from './AddCard/AddCard';
 
 const AddModalCard = ({ isOpen, closeModal }) => {
   return (
@@ -8,7 +9,7 @@ const AddModalCard = ({ isOpen, closeModal }) => {
       onRequestClose={closeModal}
       contentLabel="Modal for Board"
     >
-      <CreateCardForm closeModal={closeModal} />
+      <AddCard closeModalWindow ={closeModal} />
     </OverlayModal>
   );
 };

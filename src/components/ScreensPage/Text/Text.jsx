@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import ModalBord from '../../../../src/components/Modals/ModalBord/ModalBord';
 import { MainText, ButtonCreate, TextContainer } from './Text.styled';
-// Add another card code
-import AddAnotherCartBtn from '../AddAnotherCartBtn/AddAnotherCartBtn';
 
 const Text = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +24,6 @@ const Text = () => {
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
       </MainText>
-      {/* Add another card code */}
-      <AddAnotherCartBtn />
       <ModalBord
         isOpen={isOpen}
         openModal={openModal}

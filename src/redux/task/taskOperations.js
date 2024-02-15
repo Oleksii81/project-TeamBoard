@@ -37,7 +37,7 @@ export const addColumn = createAsyncThunk(
 
 export const editColumn = createAsyncThunk(
   'column/edit',
-  async ({idBoard, id, body }, { rejectWithValue, dispatch }) => {
+  async ({ idBoard, id, body }, { rejectWithValue, dispatch }) => {
     try {
       const { data } = await editColumnApi(idBoard, id, body);
       return data;
@@ -49,10 +49,10 @@ export const editColumn = createAsyncThunk(
 
 export const deleteColumn = createAsyncThunk(
   'column/delete',
-  async ({ idBoard, id}, { rejectWithValue, dispatch }) => {
+  async ({ idBoard, id }, { rejectWithValue, dispatch }) => {
     try {
       await deleteColumnApi({ idBoard, idColumn: id });
-      return { id }
+      return { id };
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -98,7 +98,7 @@ export const editCard = createAsyncThunk(
 
 export const deleteCard = createAsyncThunk(
   'card/delete',
-  async ({columnID, _id }, { rejectWithValue, dispatch }) => {
+  async ({ columnID, _id }, { rejectWithValue, dispatch }) => {
     try {
       const { data } = await deleteCardApi(columnID, _id);
       return data;

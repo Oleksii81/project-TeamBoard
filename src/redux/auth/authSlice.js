@@ -56,12 +56,13 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(login.fulfilled, (state, { payload }) => {
-        const { userName, email, avatarURL } = payload.user;
+        const { userName, email, avatarURL, theme, boards } = payload.user;
         state.user = {
           ...state.user,
           email: email,
           name: userName,
-
+          boards: boards,
+          theme: theme,
           avatarURL: (avatarURL && Object.values(avatarURL)[0]) ?? '',
         };
         state.token = payload.token;
@@ -107,11 +108,16 @@ export const authSlice = createSlice({
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        const { email, userName, theme, avatarURL, boards } =
+          action.payload.user;
+        state.user.name = userName;
+        state.user.email = email;
+        state.user.theme = theme;
+        state.user.avatarURL = (avatarURL && Object.values(avatarURL)[0]) ?? '';
+        state.user.boards = boards;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.user.name = payload.userName;
-        state.user.email = payload.email;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
@@ -137,7 +143,9 @@ export const authSlice = createSlice({
         );
         if (indexToRemove !== -1) {
           state.user.boards.splice(indexToRemove, 1);
-          state.user.boards[0].isActive = true;
+          if (state.user.boards[0]) {
+            state.user.boards[0].isActive = true;
+          }
         }
         state.isRefreshing = false;
         state.error = null;
@@ -148,11 +156,9 @@ export const authSlice = createSlice({
       })
       .addCase(editBoard.fulfilled, (state, { payload }) => {
         const indexActive = state.user.boards.findIndex(
-          board => board._id === payload.id
+          board => board._id === payload._id
         );
-        state.user.boards[indexActive].title = payload.data.title;
-        state.user.boards[indexActive].icnboard = payload.data.icnboard;
-        state.user.boards[indexActive].background = payload.data.background;
+        state.user.boards[indexActive] = { ...payload };
         state.isRefreshing = false;
         state.error = null;
       })

@@ -29,7 +29,7 @@ export const ColumnAddBtn = styled.div`
   cursor: pointer;
   border-radius: 8px;
   padding: 14px 79px;
-  max-width: 335px;
+  min-width: 335px;
   height: 56px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
