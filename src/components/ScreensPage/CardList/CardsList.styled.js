@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardsContainer = styled.div`
+export const CardContainer = styled.div`
   width: 350px;
   height: 486px;
   overflow-y: auto;

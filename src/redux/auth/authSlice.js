@@ -81,7 +81,7 @@ export const authSlice = createSlice({
         state.user.name = '';
         state.user.avatarURL = '';
         state.user.theme = '';
-        state.user.boards = [];
+        // state.user.boards = [];
         state.token = '';
         state.isLoggedIn = false;
         state.isRefreshing = false;
@@ -137,7 +137,7 @@ export const authSlice = createSlice({
         );
         if (indexToRemove !== -1) {
           state.user.boards.splice(indexToRemove, 1);
-          state.user.boards[0].isActive = true;
+          state.user.boards[0].isActive = false;
         }
         state.isRefreshing = false;
         state.error = null;
@@ -148,7 +148,7 @@ export const authSlice = createSlice({
       })
       .addCase(editBoard.fulfilled, (state, { payload }) => {
         const indexActive = state.user.boards.findIndex(
-          board => board._id === payload.id
+          board => board._id === payload._id
         );
         state.user.boards[indexActive].title = payload.data.title;
         state.user.boards[indexActive].icnboard = payload.data.icnboard;

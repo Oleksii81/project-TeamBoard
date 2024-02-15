@@ -12,6 +12,13 @@ export const ButtonAddCard = styled.button`
   height: 56px;
   background-color: var(--addCardButtonBackground);
   cursor: pointer;
+  margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 52px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 16px;
+  }
   &:active {
     background-color: var(--createButtonHover);
   }

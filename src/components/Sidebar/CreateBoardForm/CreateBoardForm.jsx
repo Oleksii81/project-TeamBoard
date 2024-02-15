@@ -1,8 +1,8 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { ToastContainer, toast, Slide } from 'react-toastify';
+// import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import icons from '../../../../src/images/sprite.svg';
@@ -37,7 +37,7 @@ import {
   SubmitSvgWrapper,
   Error,
 } from './CreateBoardForm.styled';
-import { getBoard } from '../../../redux/auth/authSelectors';
+// import { getBoard } from '../../../redux/auth/authSelectors';
 import { createBoard } from '../../../redux/auth/authOperations';
 
 const BoardFormSchema = Yup.object().shape({
@@ -45,7 +45,7 @@ const BoardFormSchema = Yup.object().shape({
 });
 
 const CreateBoardForm = ({ closeModalWindow }) => {
-  const boards = useSelector(getBoard);
+  // const boards = useSelector(getBoard);
   const dispatch = useDispatch();
   return (
     <Formik
@@ -56,9 +56,9 @@ const CreateBoardForm = ({ closeModalWindow }) => {
       }}
       validationSchema={BoardFormSchema}
       onSubmit={(values, actions) => {
-        if (boards && boards.some(board => board.title === values.title)) {
-          return toast.warning('The title already exists');
-        }
+        // if (boards && boards.some(board => board.title === values.title)) {
+        //   return toast.warning('The title already exists');
+        // }
 
         dispatch(createBoard(values))
           .unwrap()
@@ -343,7 +343,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           </SubmitSvgWrapper>
           Create
         </BoardCreateBtn>
-        <ToastContainer
+        {/* <ToastContainer
           style={{ width: '280px' }}
           position="top-center"
           autoClose={1500}
@@ -353,7 +353,7 @@ const CreateBoardForm = ({ closeModalWindow }) => {
           draggable={false}
           limit={1}
           theme="colored"
-        />
+        /> */}
       </ModalForm>
     </Formik>
   );
