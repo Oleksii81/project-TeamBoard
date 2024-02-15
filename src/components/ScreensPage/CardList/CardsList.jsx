@@ -20,9 +20,9 @@ const CardList = ({ filterByPriority }) => {
               ? 'Tasks list is empty'
               : el?.cards
                   // .filter(task => task.priority === filterByPriority)
-                  .map(task => (
-                    <li key={task._id}>
-                      <CardItem key={task._id} task={task} columnID={el._id} />
+                  .map(card => (
+                    <li key={card._id}>
+                      <CardItem key={card._id} task={card} columnID={el._id} />
                     </li>
                   ))
           )}
