@@ -37,7 +37,7 @@ const boardSlice = createSlice({
       })
       .addCase(getActiveBoard.fulfilled, (state, { payload }) => {
         state.board = payload;
-        state.columns = [];
+        state.columns = payload[0].columns ?? [];
         state.error = null;
       })
       .addCase(getActiveBoard.rejected, (state, action) => {
