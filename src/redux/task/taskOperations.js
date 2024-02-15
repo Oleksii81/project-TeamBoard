@@ -16,7 +16,6 @@ export const getActiveBoard = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const { data } = await getBoardApi(id);
-      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

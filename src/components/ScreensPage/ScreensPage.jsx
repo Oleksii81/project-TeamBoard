@@ -9,7 +9,6 @@ import { useParams } from 'react-router-dom';
 
 const ScreensPage = () => {
   const boards = useSelector(getBoard);
-  console.log(boards);
 
   const { idBoard } = useParams();
   const activeBoard = boards.find(board => board._id === idBoard);
@@ -17,9 +16,7 @@ const ScreensPage = () => {
   const [filterByPriority, setFilterByPriority] = useState('');
   // const [cards, setCards] = useState([]);
   const onFilterChange = newFilter => {
-    console.log(newFilter);
     setFilterByPriority(newFilter);
-    console.log(filterByPriority);
   };
 
   // const visibleCards = cards.filter(card => card.priority === filterByPriority);

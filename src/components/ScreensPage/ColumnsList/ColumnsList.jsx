@@ -9,7 +9,6 @@ import AddAnotherCartBtn from '../AddAnotherCartBtn/AddAnotherCartBtn';
 const ColumnsList = () => {
   const columns = useSelector(getColumn);
   const boards = useSelector(selectBoard);
-  console.log(columns);
 
   const { idBoard } = useParams();
   const activeBoard = boards.find(board => board._id === idBoard);

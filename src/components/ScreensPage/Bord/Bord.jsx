@@ -18,7 +18,6 @@ const Bord = ({ onChangeFilter, setFilterByPriority }) => {
   const dispatch = useDispatch();
 
   const activeBoard = boards.find(board => board._id === idBoard);
-  console.log(activeBoard);
 
   useEffect(() => {
     const fetchBoardData = () => {

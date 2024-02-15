@@ -8,7 +8,6 @@ import { getColumn } from '../../../redux/task/taskSelectors';
 
 const CardList = ({ filterByPriority }) => {
   const columns = useSelector(getColumn);
-  console.log(columns);
 
   return (
     <CardContainer>
