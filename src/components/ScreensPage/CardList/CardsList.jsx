@@ -6,7 +6,7 @@ import { getColumn } from '../../../redux/task/taskSelectors';
 
 // import { getCarddSelector } from '../../../src/redux/task/taskSelectors';
 
-const CardList = ({ filterByPriority }) => {
+const CardList = ({ columnId }) => {
   const columns = useSelector(getColumn);
 
   return (
@@ -15,15 +15,17 @@ const CardList = ({ filterByPriority }) => {
         {columns &&
           columns.length > 0 &&
           columns.map(el =>
-            el?.cards?.length === 0
-              ? 'Tasks list is empty'
-              : el?.cards
-                  // .filter(task => task.priority === filterByPriority)
-                  .map(card => (
-                    <li key={card._id}>
-                      <CardItem key={card._id} task={card} columnID={el._id} />
-                    </li>
-                  ))
+            el?.cards
+              // .filter(task => task.priority === 'low')
+              .map(card => (
+                <li key={card._id}>
+                  <CardItem
+                    id={card._id}
+                    task={card.title}
+                    columnID={columnId}
+                  />
+                </li>
+              ))
           )}
       </ul>
     </CardContainer>
