@@ -1,5 +1,5 @@
- import { useDispatch } from 'react-redux';
- import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import {
   ItemCardContainer,
@@ -24,7 +24,14 @@ import ModalCard from '../../Modals/ModalCard/ModalCard';
 
 // import ModalEditCard from 'components/Modals/ModalCard/ModalEditCard';
 
-const BoardItem = ({ columnId, id, title, description, priority, deadline }) => {
+const BoardItem = ({
+  columnId,
+  id,
+  title,
+  description,
+  priority,
+  deadline,
+}) => {
   const dispatch = useDispatch();
 
   const [isModalOpen, SetIsModalOpen] = useState(false);
@@ -32,12 +39,11 @@ const BoardItem = ({ columnId, id, title, description, priority, deadline }) => 
     SetIsModalOpen(!isModalOpen);
   };
 
-
   const handleCardDelete = () => {
-    dispatch(deleteCard({ columnID: columnId, _id: id, }))
-    console.log(columnId)
-    console.log(id)
-  }
+    dispatch(deleteCard({ columnID: columnId, _id: id }));
+    console.log(columnId);
+    console.log(id);
+  };
   //   const dispatch = useDispatch();
 
   //   const [isOpen, setIsOpen] = useState(false);
@@ -76,16 +82,12 @@ const BoardItem = ({ columnId, id, title, description, priority, deadline }) => 
               <use href={`${icons}#icon-goto`}></use>
             </svg>
           </Button>
-          <Button
-             onClick={onClick}
-          >
+          <Button onClick={onClick}>
             <svg width="16" height="16">
               <use href={`${icons}#icon-pencil`}></use>
             </svg>
           </Button>
-          <Button
-             onClick={handleCardDelete}
-          >
+          <Button onClick={handleCardDelete}>
             <svg width="16" height="16">
               <use href={`${icons}#icon-trash`}></use>
             </svg>
@@ -95,11 +97,11 @@ const BoardItem = ({ columnId, id, title, description, priority, deadline }) => 
       <CurrentLine priority={priority} />
       <ModalCard
         id={id}
-        columnId = {columnId}
+        columnId={columnId}
         isOpen={isModalOpen}
         openModal={onClick}
         closeModal={() => SetIsModalOpen(false)}
-      /> 
+      />
     </ItemCardContainer>
   );
 };

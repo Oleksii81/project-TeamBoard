@@ -56,7 +56,9 @@ export const getOneColumnApi = async ({ idBoard, idColumn }) => {
 };
 
 export const deleteColumnApi = async ({ idBoard, idColumn }) => {
-  return await axios.delete(`api/columns/${idBoard}/${idColumn}`).then(res => res);
+  return await axios
+    .delete(`api/columns/${idBoard}/${idColumn}`)
+    .then(res => res);
 };
 
 /* CARD */
@@ -69,9 +71,7 @@ export const getOneCardApi = async ({ idColumn, idCard }) => {
 };
 
 export const addCardApi = async (idColumn, form) => {
-  return await axios
-    .post(`/api/cards/${idColumn}`, { ...form })
-    .then(res => res);
+  return await axios.post(`/api/cards/${idColumn}`, form).then(res => res);
 };
 
 export const editCardApi = async (idColumn, idCard, body, column) => {

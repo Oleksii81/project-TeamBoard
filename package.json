@@ -15,7 +15,6 @@
     "@types/aria-query": "^5.0.4",
     "axios": "^1.6.7",
     "dayjs": "^1.11.10",
-    "dayjs": "^1.11.10",
     "formik": "^2.4.5",
     "modern-normalize": "^2.0.0",
     "nanoid": "^5.0.5",
