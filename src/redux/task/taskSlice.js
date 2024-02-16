@@ -105,12 +105,12 @@ const boardSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(editCard.fulfilled, (state, { payload }) => {
-        const { column, ...task } = payload;
-        const index = state.columns.findIndex(col => col._id === column);
+        const { data, idColumn } = payload;
+        const index = state.columns.findIndex(col => col._id === idColumn);
         const indexTask = state.columns[index].cards.findIndex(
-          el => el._id === task._id
+          el => el._id === data._id
         );
-        state.columns[index].cards[indexTask] = { ...task };
+        state.columns[index].cards[indexTask] = { ...data };
       })
       .addCase(editCard.rejected, (state, action) => {
         state.error = action.error.message;

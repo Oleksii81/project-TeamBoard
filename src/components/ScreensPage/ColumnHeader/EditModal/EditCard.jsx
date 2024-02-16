@@ -2,7 +2,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Demo from '../../../ScreensPage/ColumnHeader/EditModal/Calendar';
+// import Demo from '../../../ScreensPage/ColumnHeader/EditModal/Calendar';
 
 //import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,18 +29,26 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
 
   return (
     <EditCardWrapper>
-      <EditCardTitle>Edit card</EditCardTitle>
+      <EditCardTitle>My Form</EditCardTitle>
       <Formik
         initialValues={{
-          taskName: '',
-          message: '',
+          title: '',
+          description: '',
         }}
         validationSchema={Yup.object({
-          taskName: Yup.string().required('Title is required'),
-          message: Yup.string().required('Description is required'),
+          title: Yup.string(),
+          description: Yup.string(),
         })}
         onSubmit={(values, actions) => {
-          dispatch(editCard({ idColumn: columnId, id: id, body: values }))
+          const body = {};
+          if (values.title) {
+            body.title = values.title;
+          }
+          if (values.description) {
+            body.description = values.description;
+          }
+          console.log(body);
+          dispatch(editCard({ idColumn: columnId, id: id, body }))
             .unwrap()
             .then()
             .catch(error => error.message);
@@ -58,25 +66,24 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
             <Field
               as={EditCardInput}
               type="text"
-              name="taskName"
+              name="title"
               placeholder="Title"
             />
-            <ErrorMessage name="taskName" />
+            <ErrorMessage name="title" />
           </div>
           <div>
             <Field
               as={EditCardTextArea}
-              name="message"
+              name="description"
               placeholder="Description"
             />
-            <ErrorMessage name="message" />
+            <ErrorMessage name="description" />
           </div>
           <EditCardLabel>Label color</EditCardLabel>
           <div style={{ marginLeft: '10px', marginBottom: '14px' }}>
             <RadioButtons />
           </div>
           <EditCardLabel>Deadline</EditCardLabel>
-          <Demo />
 
           <EditCardButton type="submit">
             <SubmitSvgWrapper>
