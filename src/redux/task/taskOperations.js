@@ -64,7 +64,7 @@ export const addCard = createAsyncThunk(
   async ({ idColumn, form }, { rejectWithValue, dispatch }) => {
     try {
       const { data } = await addCardApi(idColumn, form);
-      // const { columns } = form;
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

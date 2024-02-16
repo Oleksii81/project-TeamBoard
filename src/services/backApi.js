@@ -83,7 +83,9 @@ export const editCardApi = async (idColumn, idCard, body, column) => {
 };
 
 export const deleteCardApi = async (idColumn, idCard, column) => {
-  const { data } = await axios
+  const { data } = await axios;
+  console
+    .log(data)
     .delete(`/api/cards/${idColumn}/${idCard}`)
     .then(res => res);
   data.column = column;
