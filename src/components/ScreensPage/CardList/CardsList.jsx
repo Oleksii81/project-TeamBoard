@@ -13,7 +13,7 @@ const CardList = ({ columnId, selectedValue }) => {
       <ul>
         {columns.length > 0 &&
           item.cards
-            .filter(card => card.priority === selectedValue)
+            .filter(card => card?.priority.includes(selectedValue))
             .map(card => (
               <li key={card._id}>
                 <CardItem card={card} columnId={columnId} />

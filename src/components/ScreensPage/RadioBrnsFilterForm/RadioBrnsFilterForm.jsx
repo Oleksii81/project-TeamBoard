@@ -17,10 +17,10 @@ import {
 } from './RadioBtnsFilterForm.styled';
 
 const buttonColor = [
-  { value: 'Without priority', color: 'var(--calendarWithoutColor)' },
-  { value: 'Low', color: '#8FA1D0' },
-  { value: 'Medium', color: '#E09CB5' },
-  { value: 'High', color: '#BEDBB0' },
+  { value: 'without', color: 'var(--calendarWithoutColor)' },
+  { value: 'low', color: '#8FA1D0' },
+  { value: 'medium', color: '#E09CB5' },
+  { value: 'high', color: '#BEDBB0' },
 ];
 
 const RadioBtnsFilterForm = ({
