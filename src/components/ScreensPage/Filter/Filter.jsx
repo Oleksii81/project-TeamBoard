@@ -10,8 +10,17 @@ import {
   FilterFormHeading,
 } from './Filter.styled';
 
-const Filter = ({ onChangeFilter, setFilterByPriority }) => {
+const Filter = ({ onRadioChange, removeFilters, selectedValue }) => {
   const [window, setWindow] = useState(false);
+
+  // const onFilterChange = newFilter => {
+  //   setFilterByPriority(newFilter);
+  // };
+
+  // const visibleCards = cards.filter(
+  //   card => card.priority === filterByPriority
+  // );
+  // console.log(visibleCards('Without'));
 
   const toggleWindow = () => {
     setWindow(!window);
@@ -37,8 +46,9 @@ const Filter = ({ onChangeFilter, setFilterByPriority }) => {
           </FilerModalBtn>
           <FilterFormHeading>Filters</FilterFormHeading>
           <RadioBtnsFilterForm
-            onSelect={onChangeFilter}
-            setFilterByPriority={setFilterByPriority}
+            onRadioChange={onRadioChange}
+            removeFilters={removeFilters}
+            selectedValue={selectedValue}
           />
         </WindowContainer>
       )}

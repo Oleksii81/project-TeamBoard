@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 //import icons from '../../../../src/images/sprite.svg';
-import { useState } from 'react';
+// import { useState } from 'react';
 import {
   Radio,
   FormControlLabel,
@@ -23,19 +23,12 @@ const buttonColor = [
   { value: 'High', color: '#BEDBB0' },
 ];
 
-const RadioBtnsFilterForm = ({ priority }) => {
-  const [selectedValue, setSelectedValue] = useState('');
-  const removeFilters = () => {
-    setSelectedValue('');
-  };
-
+const RadioBtnsFilterForm = ({
+  onRadioChange,
+  removeFilters,
+  selectedValue,
+}) => {
   const primaryTextColor = `var(--primaryTextColor)`;
-
-  const onRadioChange = event => {
-    const { value } = event.target;
-    console.log(value);
-    setSelectedValue(value);
-  };
 
   return (
     <Formik
@@ -89,7 +82,6 @@ const RadioBtnsFilterForm = ({ priority }) => {
                   onChange={onRadioChange}
                 />
               ))}
-
             </RadioGroup>
           </FormControl>
         </FormFilter>
