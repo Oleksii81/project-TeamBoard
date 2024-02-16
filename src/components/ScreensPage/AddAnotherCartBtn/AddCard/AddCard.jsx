@@ -24,6 +24,9 @@ import { useDispatch } from 'react-redux';
 import { addCard } from '../../../../redux/task/taskOperations';
 
 const AddCard = ({ closeModalWindow, idColumn }) => {
+  const date = new Date();
+  const dateNow = date.toLocaleDateString();
+  console.log(dateNow);
   const dispatch = useDispatch();
   return (
     <EditCardWrapper>
@@ -32,6 +35,8 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
         initialValues={{
           title: '',
           description: '',
+          priority: 'without',
+          deadline: dateNow,
         }}
         validationSchema={Yup.object({
           title: Yup.string().required('Title is required'),
@@ -43,7 +48,7 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
             title,
             description,
             priority: 'without',
-            deadline: 'No deadline',
+            deadline: dateNow,
           };
           console.log({ ...form });
           console.log(idColumn);

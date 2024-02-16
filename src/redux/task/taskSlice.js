@@ -94,7 +94,6 @@ const boardSlice = createSlice({
       })
       .addCase(addCard.fulfilled, (state, { payload }) => {
         const data = payload;
-        console.log(data);
         const index = state.columns.findIndex(col => col._id === data.owner);
         state.columns[index].cards.push(data);
       })
@@ -108,10 +107,10 @@ const boardSlice = createSlice({
       .addCase(editCard.fulfilled, (state, { payload }) => {
         const { column, ...task } = payload;
         const index = state.columns.findIndex(col => col._id === column);
-        const indexTask = state.columns[index].tasks.findIndex(
+        const indexTask = state.columns[index].cards.findIndex(
           el => el._id === task._id
         );
-        state.columns[index].tasks[indexTask] = { ...task };
+        state.columns[index].cards[indexTask] = { ...task };
       })
       .addCase(editCard.rejected, (state, action) => {
         state.error = action.error.message;
@@ -121,10 +120,11 @@ const boardSlice = createSlice({
         state.error = null;
       })
       .addCase(deleteCard.fulfilled, (state, { payload }) => {
-        const { column, _id: id } = payload;
-        const index = state.columns.findIndex(col => col._id === column);
-        state.columns[index].tasks = state.columns[index].tasks.filter(
-          el => el._id !== id
+        console.log(payload);
+        const { columnId, _id } = payload;
+        const index = state.columns.findIndex(col => col._id === columnId);
+        state.columns[index].cards = state.columns[index].cards.filter(
+          el => el._id !== _id
         );
       })
       .addCase(deleteCard.rejected, (state, action) => {
@@ -138,13 +138,13 @@ const boardSlice = createSlice({
         const { columnNew, idCard, columnOld } = payload;
         const indexOld = state.columns.findIndex(col => col._id === columnOld);
         const indexNew = state.columns.findIndex(col => col._id === columnNew);
-        const task = state.columns[indexOld].tasks.filter(
+        const task = state.columns[indexOld].cards.filter(
           el => el._id === idCard
         );
-        state.columns[indexOld].tasks = state.columns[indexOld].tasks.filter(
+        state.columns[indexOld].cards = state.columns[indexOld].cards.filter(
           el => el._id !== idCard
         );
-        state.columns[indexNew].tasks.push(task[0]);
+        state.columns[indexNew].cards.push(task[0]);
       })
       .addCase(replaceCard.rejected, (state, action) => {
         state.error = action.error.message;

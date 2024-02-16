@@ -13,7 +13,6 @@ import { getActiveBoard } from '../../../redux/task/taskOperations';
 
 const Bord = ({ onChangeFilter, setFilterByPriority }) => {
   const boards = useSelector(selectBoard);
-
   const { idBoard } = useParams();
   const dispatch = useDispatch();
 

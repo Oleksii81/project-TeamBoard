@@ -18,19 +18,12 @@ import {
 
 import icons from '../../../images/sprite.svg';
 
-// import { deleteCard, replaceCard } from '../../../redux/task/taskOperations';
 import { deleteCard } from '../../../redux/task/taskOperations';
 import ModalCard from '../../Modals/ModalCard/ModalCard';
 
-// import ModalEditCard from 'components/Modals/ModalCard/ModalEditCard';
-
 const BoardItem = ({
+  card: { title, priority, description, deadline, _id },
   columnId,
-  id,
-  title,
-  description,
-  priority,
-  deadline,
 }) => {
   const dispatch = useDispatch();
 
@@ -40,17 +33,8 @@ const BoardItem = ({
   };
 
   const handleCardDelete = () => {
-    dispatch(deleteCard({ columnID: columnId, _id: id }));
-    console.log(columnId);
-    console.log(id);
+    dispatch(deleteCard({ columnId, _id }));
   };
-  //   const dispatch = useDispatch();
-
-  //   const [isOpen, setIsOpen] = useState(false);
-
-  //   const openModal = () => {
-  //     setIsOpen(true);
-  //   };
 
   return (
     <ItemCardContainer>
@@ -96,7 +80,7 @@ const BoardItem = ({
       </DetailsContainer>
       <CurrentLine priority={priority} />
       <ModalCard
-        id={id}
+        id={_id}
         columnId={columnId}
         isOpen={isModalOpen}
         openModal={onClick}
