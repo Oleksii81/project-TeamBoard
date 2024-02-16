@@ -3,24 +3,19 @@ import { useState } from 'react';
 
 export const RadioButtons = () => {
   const buttonColor = [
-    { value: 'Without priority', color: 'var(--calendarWithoutColor)' },
-    { value: 'Low', color: '#8FA1D0' },
-    { value: 'Medium', color: '#E09CB5' },
-    { value: 'High', color: '#BEDBB0' },
+    { value: 'without', color: 'var(--calendarWithoutColor)' },
+    { value: 'low', color: '#8FA1D0' },
+    { value: 'medium', color: '#E09CB5' },
+    { value: 'high', color: '#BEDBB0' },
   ];
 
   const [selectedValue, setSelectedValue] = useState('');
-  // const removeFilters = () => {
-  //   setSelectedValue('');
-  // };
-
-  const primaryTextColor = `var(--primaryTextColor)`;
-
   const onRadioChange = event => {
     const { value } = event.target;
-    console.log(value);
     setSelectedValue(value);
   };
+
+  const primaryTextColor = `var(--primaryTextColor)`;
 
   return (
     <RadioGroup row value={selectedValue} onChange={onRadioChange}>

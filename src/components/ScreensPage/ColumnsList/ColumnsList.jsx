@@ -6,7 +6,7 @@ import { getColumn, selectBoard } from '../../../redux/task/taskSelectors';
 import { useParams } from 'react-router-dom';
 import AddAnotherCartBtn from '../AddAnotherCartBtn/AddAnotherCartBtn';
 
-const ColumnsList = () => {
+const ColumnsList = ({ selectedValue }) => {
   const columns = useSelector(getColumn);
   const boards = useSelector(selectBoard);
 
@@ -25,7 +25,7 @@ const ColumnsList = () => {
                 title={column.title}
                 idBoard={activeBoard._id}
               />
-              <CardList columnId={column._id} />
+              <CardList columnId={column._id} selectedValue={selectedValue} />
               <AddAnotherCartBtn idColumn={column._id} />
             </li>
           ))}
