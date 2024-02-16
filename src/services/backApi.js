@@ -82,14 +82,9 @@ export const editCardApi = async (idColumn, idCard, body, column) => {
   return { data };
 };
 
-export const deleteCardApi = async (idColumn, idCard, column) => {
-  const { data } = await axios;
-  console
-    .log(data)
-    .delete(`/api/cards/${idColumn}/${idCard}`)
-    .then(res => res);
-  data.column = column;
-  return { data };
+export const deleteCardApi = async (idColumn, idCard) => {
+  const { data } = await axios.delete(`/api/cards/${idColumn}/${idCard}`);
+  return data;
 };
 
 export const replaceCardApi = async (id, columns) => {

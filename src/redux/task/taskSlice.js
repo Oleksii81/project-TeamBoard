@@ -94,7 +94,6 @@ const boardSlice = createSlice({
       })
       .addCase(addCard.fulfilled, (state, { payload }) => {
         const data = payload;
-        console.log(data);
         const index = state.columns.findIndex(col => col._id === data.owner);
         state.columns[index].cards.push(data);
       })
@@ -121,10 +120,11 @@ const boardSlice = createSlice({
         state.error = null;
       })
       .addCase(deleteCard.fulfilled, (state, { payload }) => {
-        const { column, _id: id } = payload;
-        const index = state.columns.findIndex(col => col._id === column);
+        console.log(payload);
+        const { columnId, _id } = payload;
+        const index = state.columns.findIndex(col => col._id === columnId);
         state.columns[index].cards = state.columns[index].cards.filter(
-          el => el._id !== id
+          el => el._id !== _id
         );
       })
       .addCase(deleteCard.rejected, (state, action) => {
