@@ -88,8 +88,8 @@ export const editCard = createAsyncThunk(
   'card/edit',
   async ({ idColumn, id, body }, { rejectWithValue, dispatch }) => {
     try {
-      const { data } = await editCardApi(idColumn, id, body);
-      return data;
+      const data = await editCardApi(idColumn, id, body);
+      return { data, idColumn };
     } catch (error) {
       return rejectWithValue(error.message);
     }

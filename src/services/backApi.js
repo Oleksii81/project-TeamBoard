@@ -74,12 +74,10 @@ export const addCardApi = async (idColumn, form) => {
   return await axios.post(`/api/cards/${idColumn}`, form).then(res => res);
 };
 
-export const editCardApi = async (idColumn, idCard, body, column) => {
+export const editCardApi = async (idColumn, idCard, body) => {
   const { data } = await axios
-    .put(`api/cards/${idColumn}/${idCard}`, { ...body })
-    .then(res => res);
-  data.column = column;
-  return { data };
+    .put(`api/cards/${idColumn}/${idCard}`, body);
+  return data;
 };
 
 export const deleteCardApi = async (idColumn, idCard) => {
