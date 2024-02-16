@@ -18,7 +18,7 @@ import {
 
 import icons from '../../../images/sprite.svg';
 
-import { deleteCard, replaceCard } from '../../../redux/task/taskOperations';
+import { deleteCard } from '../../../redux/task/taskOperations';
 import ModalCard from '../../Modals/ModalCard/ModalCard';
 
 const BoardItem = ({
