@@ -102,3 +102,7 @@
 .react-datepicker__year-text--keyboard-selected {
   background-color: inherit;
 }
+
+.react-datepicker__day:not(.react-datepicker__day--disabled) {
+  color: white;
+}
