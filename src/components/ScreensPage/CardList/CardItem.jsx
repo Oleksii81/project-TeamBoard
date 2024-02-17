@@ -36,6 +36,24 @@ const BoardItem = ({
     dispatch(deleteCard({ columnId, _id }));
   };
 
+  function formatDate(date) {
+    if (date === 'no deadline') {
+      return date;
+    }
+    date = Number(date);
+    if (!date) {
+      return;
+    }
+
+    let time = new Date(date);
+    const year = String(time.getFullYear());
+    const month = String(time.getMonth() + 1).padStart(2, '0');
+    const day = String(time.getDate()).padStart(2, '0');
+    return `${day}/${month}/${year}`;
+  }
+
+  deadline = formatDate(deadline);
+
   return (
     <ItemCardContainer>
       <Title>{title}</Title>
@@ -64,13 +82,6 @@ const BoardItem = ({
               <use href={`${icons}#icon-goto`}></use>
             </svg>
           </Button>
-          {/* <Button
-          //   onClick={() => dispatch(replaceCard(id))}
-          >
-            <svg width="16" height="16">
-              <use href={`${icons}#icon-goto`}></use>
-            </svg>
-          </Button> */}
           <Button onClick={onClick}>
             <svg width="16" height="16">
               <use href={`${icons}#icon-pencil`}></use>

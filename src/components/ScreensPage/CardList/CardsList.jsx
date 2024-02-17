@@ -4,7 +4,6 @@ import { CardContainer } from './CardsList.styled';
 import { getColumn } from '../../../redux/task/taskSelectors';
 
 const CardList = ({ columnId, selectedValue }) => {
-  console.log(selectedValue);
   const columns = useSelector(getColumn);
   const item = columns.find(column => column._id === columnId);
 

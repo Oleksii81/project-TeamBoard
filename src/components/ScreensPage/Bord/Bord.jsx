@@ -17,7 +17,6 @@ const Bord = () => {
 
   //Filter logic
   const [selectedValue, setSelectedValue] = useState('');
-  console.log(selectedValue);
 
   const removeFilters = () => {
     setSelectedValue('');
