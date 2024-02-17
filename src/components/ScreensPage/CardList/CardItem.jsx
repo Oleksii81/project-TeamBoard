@@ -18,7 +18,7 @@ import {
 
 import icons from '../../../images/sprite.svg';
 
-import { deleteCard } from '../../../redux/task/taskOperations';
+import { deleteCard, replaceCard } from '../../../redux/task/taskOperations';
 import ModalCard from '../../Modals/ModalCard/ModalCard';
 
 const BoardItem = ({
@@ -59,13 +59,18 @@ const BoardItem = ({
               <use href={`${icons}#icon-bell`}></use>
             </svg>
           </Button>
-          <Button
+          <Button onClick={() => dispatch(replaceCard({ columnId, _id }))}>
+            <svg width="16" height="16">
+              <use href={`${icons}#icon-goto`}></use>
+            </svg>
+          </Button>
+          {/* <Button
           //   onClick={() => dispatch(replaceCard(id))}
           >
             <svg width="16" height="16">
               <use href={`${icons}#icon-goto`}></use>
             </svg>
-          </Button>
+          </Button> */}
           <Button onClick={onClick}>
             <svg width="16" height="16">
               <use href={`${icons}#icon-pencil`}></use>

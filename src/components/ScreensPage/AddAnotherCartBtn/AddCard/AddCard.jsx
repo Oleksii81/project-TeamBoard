@@ -33,7 +33,7 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           title: '',
           description: '',
           priority: 'without',
-          deadline: '',
+          deadline: 'no deadline',
         }}
         validationSchema={Yup.object({
           title: Yup.string().required('Title is required'),
