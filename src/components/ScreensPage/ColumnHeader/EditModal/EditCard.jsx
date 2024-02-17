@@ -27,8 +27,8 @@ import CalendarComponent from 'components/Modals/Calendar/CalendarComponent';
 import { useState } from 'react';
 
 const EditCard = ({ closeModalWindow, id, columnId }) => {
-  // const [selectedTitle, setselectedTitle] = useState('');
-  // const [selectedDescription, setselectedDescription] = useState('');
+  const [selectedTitle, setselectedTitle] = useState('');
+  const [selectedDescription, setselectedDescription] = useState('');
   const [selectedRadioValue, setSelectedRadioValue] = useState('');
   const [selectedDate, setselectedDate] = useState('');
   const dispatch = useDispatch();
@@ -43,8 +43,8 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
         console.log(response.data);
         setSelectedRadioValue(response.data.priority);
         setselectedDate(response.data.deadline);
-        // setselectedDescription(response.data.description);
-        // setselectedTitle(response.data.title);
+        setselectedDescription(response.data.description);
+        setselectedTitle(response.data.title);
       } catch (error) {
         console.error('Error fetching card data:', error);
       }
@@ -57,7 +57,7 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
       <EditCardTitle>Edit card</EditCardTitle>
       <Formik
         initialValues={{
-          title: '',
+          title: selectedTitle,
           description: '',
           priority: 'without',
           deadline: 'no deadline',
@@ -109,19 +109,20 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
               as={EditCardInput}
               type="text"
               name="title"
-              placeholder="Title"
-            >
-              {/* {selectedTitle} */}
-            </Field>
-            <ErrorMessage name="title" />
+              placeholder="title"
+              Value={selectedTitle}
+              // onSubmit={setselectedTitle}
+            />
+            {/* <ErrorMessage name="title" /> */}
           </div>
           <div>
             <Field
               as={EditCardTextArea}
               name="description"
-              placeholder="Description"
+              placeholder="description"
+              // validateOnChange={true}
             />
-            <ErrorMessage name="description" />
+            {/* <ErrorMessage name="description" /> */}
           </div>
           <EditCardLabel>Label color</EditCardLabel>
           <div style={{ marginLeft: '10px', marginBottom: '14px' }}>

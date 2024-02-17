@@ -1,17 +1,8 @@
 import icons from '../../../images/sprite.svg';
 import {
-  //   Container,
-  //   IconCloseModal,
-  //   SvgForm,
-  //   TextAddCard,
-  //   FormCreateCard,
-  //   InputCreateCard,
-  //   CommentCreateCard,
-  //   EditCardLabel,
   CalendarWrapp,
   CalendarText,
   CalendarArrow,
-  //   EditButton,
 } from './CreateCardForm.styled';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
@@ -20,45 +11,60 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const CalendarComponent = event => {
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [unixFromat, setUnixFormat] = useState(
-    new Date(new Date().toUTCString()).getTime()
-  );
+  const [unixFormat, setUnixFormat] = useState(formatTodayDate());
 
   const toggleDatePicker = () => {
     setShowDatePicker(prevState => !prevState);
   };
-  function formatTimestamp(timestamp) {
-    const date = new Date(timestamp);
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    const month = monthNames[date.getMonth()];
-    const dayOfMonth = date.getDate();
-    return `${month} ${dayOfMonth}`;
+
+  function formatTodayDate(time) {
+    if (!time) {
+      const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ];
+
+      const currentDate = new Date();
+      const day = currentDate.getDate();
+      const monthIndex = currentDate.getMonth();
+      const month = months[monthIndex];
+
+      return ` ${day} ${month}`;
+    } else {
+      const date = new Date(time);
+      const options = { month: 'long', day: 'numeric' };
+      const formattedDate = date.toLocaleDateString('en-US', options);
+      return ` ${formattedDate} `;
+    }
   }
+
   const handleDateInputChange = date => {
     const UTC = date.toUTCString();
     const UNIX = new Date(UTC).getTime();
     setUnixFormat(UNIX);
-    // console.log(unixFromat);
+
+    event.onSelectedDate(UNIX); // Передаем новое значение в родительский компонент
+    // localStorage.setItem('selectedDate', new Date(UNIX));
+    // setUnixFormat(localStorage.getItem('selectedDate'));
+
+    formatTodayDate(UNIX);
+
     setShowDatePicker(false);
-    event.onSelectedDate(unixFromat);
   };
   return (
     <div>
       <CalendarWrapp onClick={toggleDatePicker}>
-        <CalendarText>Today, {formatTimestamp(unixFromat)}</CalendarText>
+        <CalendarText>Today, {formatTodayDate(unixFormat)}</CalendarText>
         <CalendarArrow
           style={{ width: 18, height: 18 }}
           aria-label="open theme select icon"
