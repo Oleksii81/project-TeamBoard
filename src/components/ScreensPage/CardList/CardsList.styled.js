@@ -18,7 +18,6 @@ export const ItemCardContainer = styled.div`
   padding: 14px 20px;
   margin-bottom: 8px;
   background: var(--cardItem);
-  cursor: pointer;
 `;
 
 export const Title = styled.p`
@@ -103,12 +102,12 @@ export const Button = styled.button`
   border: none;
   fill: none;
   stroke: var(--buttonColor);
-  stroke-opacity: 0.6;
   cursor: pointer;
 
   &.bell {
     margin-right: 4px;
     stroke: var(--greenGreenBlueColor);
+    cursor: auto;
   }
 `;
 

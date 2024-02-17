@@ -120,7 +120,6 @@ const boardSlice = createSlice({
         state.error = null;
       })
       .addCase(deleteCard.fulfilled, (state, { payload }) => {
-        console.log(payload);
         const { columnId, _id } = payload;
         const index = state.columns.findIndex(col => col._id === columnId);
         state.columns[index].cards = state.columns[index].cards.filter(
