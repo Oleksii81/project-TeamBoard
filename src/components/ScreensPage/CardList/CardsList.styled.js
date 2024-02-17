@@ -81,9 +81,9 @@ export const DetailCircle = styled.div`
   height: 12px;
   border-radius: 100%;
   background-color: ${({ priority }) => {
-    if (priority === 'Low') return '#8FA1D0';
-    if (priority === 'Medium') return '#E09CB5';
-    if (priority === 'High') return '#BEDBB0';
+    if (priority === 'low') return '#8FA1D0';
+    if (priority === 'medium') return '#E09CB5';
+    if (priority === 'high') return '#BEDBB0';
     return '#535353';
   }};
 `;
@@ -120,9 +120,9 @@ export const CurrentLine = styled.div`
   left: -20px;
   top: -141px;
   background-color: ${({ priority }) => {
-    if (priority === 'Low') return '#8FA1D0';
-    if (priority === 'Medium') return '#E09CB5';
-    if (priority === 'High') return '#BEDBB0';
+    if (priority === 'low') return '#8FA1D0';
+    if (priority === 'medium') return '#E09CB5';
+    if (priority === 'high') return '#BEDBB0';
     return '#535353';
   }};
 `;
