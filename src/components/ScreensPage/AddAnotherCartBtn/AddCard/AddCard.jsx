@@ -28,6 +28,7 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
   const [selectedRadioValue, setSelectedRadioValue] = useState('');
   const [selectedDate, setselectedDate] = useState('');
   const dispatch = useDispatch();
+
   return (
     <EditCardWrapper>
       <EditCardTitle>Add Card</EditCardTitle>
@@ -44,7 +45,9 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
         })}
         onSubmit={(values, actions) => {
           values.priority = selectedRadioValue;
-          values.calendar = selectedDate;
+          if (selectedDate) {
+            values.deadline = selectedDate.toString();
+          }
           // const { title, description } = values; // Assuming your Field names are cardTitle and cardDescr
           // const form = {
           //   title,
