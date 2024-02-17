@@ -24,7 +24,6 @@ const Bord = () => {
 
   const onRadioChange = event => {
     const { value } = event.target;
-    console.log(value);
     setSelectedValue(value);
   };
   //filter logic

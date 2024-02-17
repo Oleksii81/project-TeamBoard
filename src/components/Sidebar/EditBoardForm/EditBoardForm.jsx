@@ -2,7 +2,6 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 
-
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -69,7 +68,7 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
           icnboard === values.icnboard &&
           background === values.background
         ) {
-          return toast.warning('Data does not changed');
+          return toast.warning('Data has not changed');
         }
 
         dispatch(editBoard({ id, values }))

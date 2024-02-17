@@ -13,15 +13,6 @@ import {
 const Filter = ({ onRadioChange, removeFilters, selectedValue }) => {
   const [window, setWindow] = useState(false);
 
-  // const onFilterChange = newFilter => {
-  //   setFilterByPriority(newFilter);
-  // };
-
-  // const visibleCards = cards.filter(
-  //   card => card.priority === filterByPriority
-  // );
-  // console.log(visibleCards('Without'));
-
   const toggleWindow = () => {
     setWindow(!window);
   };

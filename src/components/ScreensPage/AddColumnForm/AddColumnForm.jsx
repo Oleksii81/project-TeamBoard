@@ -1,12 +1,11 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useSelector, useDispatch } from 'react-redux';
-import { getColumn } from '../../../../src/redux/task/taskSelectors';
+import { useDispatch } from 'react-redux';
+// import { getColumn } from '../../../../src/redux/task/taskSelectors';
 import { addColumn } from '../../../../src/redux/task/taskOperations';
 import icons from '../../../../src/images/sprite.svg';
-import { ToastContainer, toast, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-//import { getBoard } from '../../../redux/auth/authSelectors';
+// import { ToastContainer, toast, Slide } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 import {
   Input,
@@ -24,9 +23,8 @@ const AddColumnFormSchema = Yup.object().shape({
 });
 
 const AddColumnForm = ({ closeModalWindow }) => {
-  const { idBoard }  = useParams();
-  // console.log(idBoard);
-  const columns = useSelector(getColumn);
+  const { idBoard } = useParams();
+  // const columns = useSelector(getColumn);
   const dispatch = useDispatch();
 
   return (
@@ -35,21 +33,18 @@ const AddColumnForm = ({ closeModalWindow }) => {
         title: '',
       }}
       validationSchema={AddColumnFormSchema}
-       onSubmit={(values, actions) => {
-        // console.log(values);
+      onSubmit={(values, actions) => {
         actions.resetForm();
         closeModalWindow();
-        if (columns && columns.some(column => column.title === values.title)) {
-          return toast.warning('The title already exists');
-        }
+        // if (columns && columns.find(column => column.title === values.title)) {
+        //   return toast.warning('The title already exists');
+        // }
 
-        dispatch(addColumn({ idBoard: idBoard, body: values } ))
+        dispatch(addColumn({ idBoard: idBoard, body: values }))
           .unwrap()
-          .then(() =>
-            toast.success(`${values.title} has been successfully added`)
-          )
+          .then()
           .catch(error => error.message);
-      }} 
+      }}
     >
       <ModalForm>
         <Header>Add Column</Header>
@@ -71,7 +66,7 @@ const AddColumnForm = ({ closeModalWindow }) => {
           </SubmitSvgWrapper>
           Add
         </BoardCreateBtn>
-        <ToastContainer
+        {/* <ToastContainer
           style={{ width: '280px' }}
           position="top-center"
           autoClose={1500}
@@ -81,7 +76,7 @@ const AddColumnForm = ({ closeModalWindow }) => {
           draggable={false}
           limit={1}
           theme="colored"
-        />
+        /> */}
       </ModalForm>
     </Formik>
   );
