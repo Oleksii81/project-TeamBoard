@@ -44,19 +44,12 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           description: Yup.string().required('Description is required'),
         })}
         onSubmit={(values, actions) => {
-          values.priority = selectedRadioValue;
+          if (selectedRadioValue) {
+            values.priority = selectedRadioValue;
+          }
           if (selectedDate) {
             values.deadline = selectedDate.toString();
           }
-          // const { title, description } = values; // Assuming your Field names are cardTitle and cardDescr
-          // const form = {
-          //   title,
-          //   description,
-          //   priority: 'without',
-          //   deadline: dateNow,
-          // };
-          console.log(values);
-          console.log(idColumn);
           dispatch(addCard({ idColumn, form: values }))
             .unwrap()
             .then()
