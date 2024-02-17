@@ -22,7 +22,7 @@ import {
 import icons from '../../../../images/sprite.svg';
 import { RadioButtons } from 'components/ScreensPage/RadioBrnsFilterForm/RadioButtons';
 import { useDispatch } from 'react-redux';
-import { editCard, getOneCard } from '../../../../redux/task/taskOperations';
+import { editCard, /*getOneCard*/ } from '../../../../redux/task/taskOperations';
 import CalendarComponent from 'components/Modals/Calendar/CalendarComponent';
 import { useState } from 'react';
 
