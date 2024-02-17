@@ -54,6 +54,8 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           if (selectedDate) {
             values.deadline = selectedDate.toString();
           }
+          console.log(selectedDate);
+          console.log(new Date(selectedDate));
           dispatch(addCard({ idColumn, form: values }))
             .unwrap()
             .then()

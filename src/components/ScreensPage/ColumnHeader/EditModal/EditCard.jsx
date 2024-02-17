@@ -25,6 +25,9 @@ import { useDispatch } from 'react-redux';
 import { editCard } from '../../../../redux/task/taskOperations';
 
 
+
+
+
 import CalendarComponent from 'components/Modals/Calendar/CalendarComponent';
 import { useState } from 'react';
 
@@ -115,9 +118,10 @@ const EditCard = ({ closeModalWindow, id, columnId, title, description }) => {
             <Field
               as={EditCardTextArea}
               name="description"
-              placeholder="Description"
+              placeholder="description"
+              // validateOnChange={true}
             />
-            <ErrorMessage name="description" />
+            {/* <ErrorMessage name="description" /> */}
           </div>
           <EditCardLabel>Label color</EditCardLabel>
           <div style={{ marginLeft: '10px', marginBottom: '14px' }}>
