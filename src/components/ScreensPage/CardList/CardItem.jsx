@@ -32,10 +32,6 @@ const BoardItem = ({
     SetIsModalOpen(!isModalOpen);
   };
 
-  const handleCardDelete = () => {
-    dispatch(deleteCard({ columnId, _id }));
-  };
-
   function formatDate(date) {
     if (date === 'no deadline') {
       return date;
@@ -45,14 +41,27 @@ const BoardItem = ({
       return;
     }
 
-    let time = new Date(date);
-    const year = String(time.getFullYear());
-    const month = String(time.getMonth() + 1).padStart(2, '0');
-    const day = String(time.getDate()).padStart(2, '0');
+    let deadlineTime = new Date(date);
+    const year = String(deadlineTime.getFullYear());
+    const month = String(deadlineTime.getMonth() + 1).padStart(2, '0');
+    const day = String(deadlineTime.getDate()).padStart(2, '0');
     return `${day}/${month}/${year}`;
   }
 
-  deadline = formatDate(deadline);
+  function countDays(date) {
+    if (date === 'no deadline') {
+      return true;
+    }
+    date = Number(date);
+    if (!date) {
+      return;
+    }
+
+    const dateNow = new Date().getTime();
+    const remainingTime = date - dateNow;
+    const remDays = Math.floor(remainingTime / 1000 / (24 * 60 * 60));
+    return remDays < 1 ? false : true;
+  }
 
   return (
     <ItemCardContainer>
@@ -69,11 +78,15 @@ const BoardItem = ({
         </div>
         <div>
           <DetailName>Deadline</DetailName>
-          <DetailText>{deadline}</DetailText>
+          <DetailText>{formatDate(deadline)}</DetailText>
         </div>
         <ButtonContainer>
           <Button className="bell">
-            <svg width="16" height="16">
+            <svg
+              width="16"
+              height="16"
+              visibility={countDays(deadline) ? 'hidden' : ''}
+            >
               <use href={`${icons}#icon-bell`}></use>
             </svg>
           </Button>
@@ -87,7 +100,7 @@ const BoardItem = ({
               <use href={`${icons}#icon-pencil`}></use>
             </svg>
           </Button>
-          <Button onClick={handleCardDelete}>
+          <Button onClick={() => dispatch(deleteCard({ columnId, _id }))}>
             <svg width="16" height="16">
               <use href={`${icons}#icon-trash`}></use>
             </svg>
