@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 //import Demo from '../../../ScreensPage/ColumnHeader/EditModal/Calendar';
 //import { ToastContainer, toast, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import {
   EditCardWrapper,
@@ -40,8 +40,12 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           deadline: 'no deadline',
         }}
         validationSchema={Yup.object({
-          title: Yup.string().required('Title is required'),
-          description: Yup.string().required('Description is required'),
+          title: Yup.string()
+            .min(3, 'must be at least 3 characters')
+            .required('Title is required'),
+          description: Yup.string()
+            .min(6, 'must be at least 6 letters')
+            .required('Description is required'),
         })}
         onSubmit={(values, actions) => {
           if (selectedRadioValue) {
@@ -71,7 +75,7 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
               name="title"
               placeholder="Title"
             />
-            <ErrorMessage name="taskName" />
+            <ErrorMessage name="title" />
           </div>
           <div>
             <Field
@@ -79,7 +83,7 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
               name="description"
               placeholder="Description"
             />
-            <ErrorMessage name="message" />
+            <ErrorMessage name="description" />
           </div>
           <EditCardLabel>Label color</EditCardLabel>
           <div style={{ marginLeft: '10px', marginBottom: '14px' }}>
