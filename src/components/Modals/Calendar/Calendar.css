@@ -26,7 +26,7 @@
   margin: 0;
 }
 .react-datepicker__header {
-  background-color: #1f1f1f;
+  background-color: #534c4c;
   color: var(--primaryTextColor);
   border: none;
 }

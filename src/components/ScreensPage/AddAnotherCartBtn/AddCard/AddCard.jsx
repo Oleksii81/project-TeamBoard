@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import Demo from '../../../ScreensPage/ColumnHeader/EditModal/Calendar';
 //import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useState } from 'react';
 import {
   EditCardWrapper,
   EditCardTitle,
@@ -22,8 +22,11 @@ import icons from '../../../../images/sprite.svg';
 import { RadioButtons } from 'components/ScreensPage/RadioBrnsFilterForm/RadioButtons';
 import { useDispatch } from 'react-redux';
 import { addCard } from '../../../../redux/task/taskOperations';
+import CalendarComponent from 'components/Modals/Calendar/CalendarComponent';
 
 const AddCard = ({ closeModalWindow, idColumn }) => {
+  const [selectedRadioValue, setSelectedRadioValue] = useState('');
+  const [selectedDate, setselectedDate] = useState('');
   const dispatch = useDispatch();
   return (
     <EditCardWrapper>
@@ -40,6 +43,8 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           description: Yup.string().required('Description is required'),
         })}
         onSubmit={(values, actions) => {
+          values.priority = selectedRadioValue;
+          values.calendar = selectedDate;
           // const { title, description } = values; // Assuming your Field names are cardTitle and cardDescr
           // const form = {
           //   title,
@@ -82,10 +87,19 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           </div>
           <EditCardLabel>Label color</EditCardLabel>
           <div style={{ marginLeft: '10px', marginBottom: '14px' }}>
-            <RadioButtons />
+            <Field
+              as={RadioButtons}
+              name="priority"
+              onRadioChange={setSelectedRadioValue}
+            />
           </div>
           <EditCardLabel>Deadline</EditCardLabel>
-          <Demo />
+          <Field
+            name="deadline"
+            as={CalendarComponent}
+            onSelectedDate={setselectedDate}
+          />
+          {/* <CalendarComponent /> */}
 
           <EditCardButton type="submit">
             <SubmitSvgWrapper>

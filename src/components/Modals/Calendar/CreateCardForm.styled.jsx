@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Formik, Field, Form } from 'formik';
 export const Container = styled.div`
   height: 522px;
 `;
@@ -47,7 +47,7 @@ export const FormCreateCard = styled.form`
   height: 522px;
 `;
 
-export const InputCreateCard = styled.input`
+export const InputCreateCard = styled(Field)`
   border: 1px solid var(--greenGreenBlueColor);
   border-radius: 8px;
   background-color: var(--popupBackground);
@@ -73,35 +73,35 @@ export const InputCreateCard = styled.input`
   }
 `;
 
-export const CommentCreateCard = styled.textarea`
-  border: 1px solid var(--greenGreenBlueColor);
-  height: 120px;
-  border-radius: 8px;
-  background-color: black;
-  background-color: var(--popupBackground);
-  width: 302px;
-  height: 120px;
-  margin-bottom: 24px;
-  resize: none;
-  padding-left: 15px;
-  padding-top: 14px;
-  color: var(--primaryTextColor);
+// export const CommentCreateCard = styled.(Field)`
+//   border: 1px solid var(--greenGreenBlueColor);
+//   height: 120px;
+//   border-radius: 8px;
+//   background-color: black;
+//   background-color: var(--popupBackground);
+//   width: 302px;
+//   height: 120px;
+//   margin-bottom: 24px;
+//   resize: none;
+//   padding-left: 15px;
+//   padding-top: 14px;
+//   color: var(--primaryTextColor);
 
-  &::placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: var(--secondaryTextColor);
-  }
+//   &::placeholder {
+//     font-weight: 400;
+//     font-size: 14px;
+//     letter-spacing: -0.02em;
+//     color: var(--secondaryTextColor);
+//   }
 
-  &:focus {
-    outline: none;
-  }
+//   &:focus {
+//     outline: none;
+//   }
 
-  @media (max-width: 768px) {
-    width: 287px;
-  }
-`;
+//   @media (max-width: 768px) {
+//     width: 287px;
+//   }
+// `;
 
 export const EditCardLabel = styled.p`
   font-weight: 400;

@@ -1,7 +1,7 @@
 import { Radio, FormControlLabel, RadioGroup } from '@mui/material';
 import { useState } from 'react';
 
-export const RadioButtons = () => {
+export const RadioButtons = props => {
   const buttonColor = [
     { value: 'without', color: 'var(--calendarWithoutColor)' },
     { value: 'low', color: '#8FA1D0' },
@@ -10,8 +10,11 @@ export const RadioButtons = () => {
   ];
 
   const [selectedValue, setSelectedValue] = useState('');
+
   const onRadioChange = event => {
     const { value } = event.target;
+
+    props.onRadioChange(value);
     setSelectedValue(value);
   };
 
