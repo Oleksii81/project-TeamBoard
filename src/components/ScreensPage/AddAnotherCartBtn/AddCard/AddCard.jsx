@@ -90,12 +90,12 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
             />
           </div>
           <EditCardLabel>Deadline</EditCardLabel>
+
           <Field
             name="deadline"
             as={CalendarComponent}
             onSelectedDate={setselectedDate}
           />
-          {/* <CalendarComponent /> */}
 
           <EditCardButton type="submit">
             <SubmitSvgWrapper>
