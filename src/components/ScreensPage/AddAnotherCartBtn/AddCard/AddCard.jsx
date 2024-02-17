@@ -2,7 +2,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Demo from '../../../ScreensPage/ColumnHeader/EditModal/Calendar';
+//import Demo from '../../../ScreensPage/ColumnHeader/EditModal/Calendar';
 //import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
@@ -36,7 +36,7 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           title: '',
           description: '',
           priority: 'without',
-          deadline: '',
+          deadline: 'no deadline',
         }}
         validationSchema={Yup.object({
           title: Yup.string().required('Title is required'),
