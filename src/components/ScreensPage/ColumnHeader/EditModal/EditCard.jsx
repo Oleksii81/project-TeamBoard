@@ -22,13 +22,12 @@ import {
 import icons from '../../../../images/sprite.svg';
 import { RadioButtons } from 'components/ScreensPage/RadioBrnsFilterForm/RadioButtons';
 import { useDispatch } from 'react-redux';
-import { editCard, getOneCard } from '../../../../redux/task/taskOperations';
+import { editCard } from '../../../../redux/task/taskOperations';
+
 import CalendarComponent from 'components/Modals/Calendar/CalendarComponent';
 import { useState } from 'react';
 
-const EditCard = ({ closeModalWindow, id, columnId }) => {
-  const [selectedTitle, setselectedTitle] = useState('');
-  const [selectedDescription, setselectedDescription] = useState('');
+const EditCard = ({ closeModalWindow, id, columnId, title, description }) => {
   const [selectedRadioValue, setSelectedRadioValue] = useState('');
   const [selectedDate, setselectedDate] = useState('');
   const dispatch = useDispatch();
@@ -40,11 +39,8 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
           idColumn: columnId,
           idCard: id,
         });
-        console.log(response.data);
         setSelectedRadioValue(response.data.priority);
         setselectedDate(response.data.deadline);
-        setselectedDescription(response.data.description);
-        setselectedTitle(response.data.title);
       } catch (error) {
         console.error('Error fetching card data:', error);
       }
@@ -57,14 +53,18 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
       <EditCardTitle>Edit card</EditCardTitle>
       <Formik
         initialValues={{
-          title: selectedTitle,
-          description: '',
+          title: title,
+          description: description,
           priority: 'without',
           deadline: 'no deadline',
         }}
         validationSchema={Yup.object({
-          title: Yup.string().required('Title is required'),
-          description: Yup.string().required('Description is required'),
+          title: Yup.string()
+            .min(3, 'must be at least 3 characters')
+            .required('Title is required'),
+          description: Yup.string()
+            .min(6, 'must be at lease 6 characters')
+            .required('Description is required'),
         })}
         onSubmit={(values, actions) => {
           if (selectedRadioValue) {
@@ -86,9 +86,6 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
           if (values.deadline) {
             body.deadline = values.deadline;
           }
-          console.log(closeModalWindow, id, columnId);
-          console.log(values);
-          console.log(body);
 
           dispatch(editCard({ idColumn: columnId, id: id, body }))
             .unwrap()
@@ -109,11 +106,9 @@ const EditCard = ({ closeModalWindow, id, columnId }) => {
               as={EditCardInput}
               type="text"
               name="title"
-              placeholder="title"
-              Value={selectedTitle}
-              // onSubmit={setselectedTitle}
-            />
-            {/* <ErrorMessage name="title" /> */}
+              placeholder="Title"
+            ></Field>
+            <ErrorMessage name="title" />
           </div>
           <div>
             <Field

@@ -114,6 +114,8 @@ const BoardItem = ({
         isOpen={isModalOpen}
         openModal={onClick}
         closeModal={() => SetIsModalOpen(false)}
+        title={title}
+        description={description}
       />
     </ItemCardContainer>
   );

@@ -1,12 +1,12 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 
-export const CardContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 334px;
-    height: 478px;
-    overflow: auto;
+// export const CardContainer = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     width: 334px;
+//     height: 478px;
+//     overflow: auto;
 
-    border: 1px solid black;
-    border-radius: 8px;
-`
+//     border: 1px solid black;
+//     border-radius: 8px;
+// `
