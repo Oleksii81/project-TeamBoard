@@ -4,6 +4,9 @@ import Text from '../../../src/components/ScreensPage/Text/Text';
 import Bord from '../../../src/components/ScreensPage/Bord/Bord';
 import { getBoard } from '../../../src/redux/auth/authSelectors';
 import { useParams } from 'react-router-dom';
+import Loader from 'components/Loader/Loader';
+import { isRefreshing } from '../../redux/auth/authSelectors';
+import { isLoading } from '../../redux/task/taskSelectors';
 
 const ScreensPage = () => {
   const boards = useSelector(getBoard);
@@ -11,7 +14,11 @@ const ScreensPage = () => {
   const { idBoard } = useParams();
   const activeBoard = boards.find(board => board._id === idBoard);
 
-  return (
+  const spinner = useSelector(isLoading);
+  const isRefresh = useSelector(isRefreshing);
+  return isRefresh || spinner ? (
+    <Loader />
+  ) : (
     <>
       {activeBoard && boards && boards.length > 0 ? (
         <section>

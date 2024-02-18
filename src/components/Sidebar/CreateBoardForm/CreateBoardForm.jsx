@@ -1,10 +1,10 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-
+import { useState } from 'react';
 // import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Loader from 'components/Loader/Loader';
 import icons from '../../../../src/images/sprite.svg';
 import Image0 from '../../../../src/images/background/00.png';
 import Image1 from '../../../../src/images/background/01.png';
@@ -46,6 +46,7 @@ const BoardFormSchema = Yup.object().shape({
 
 const CreateBoardForm = ({ closeModalWindow }) => {
   // const boards = useSelector(getBoard);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   return (
     <Formik
@@ -59,16 +60,22 @@ const CreateBoardForm = ({ closeModalWindow }) => {
         // if (boards && boards.some(board => board.title === values.title)) {
         //   return toast.warning('The title already exists');
         // }
+        setIsLoading(true);
 
         dispatch(createBoard(values))
           .unwrap()
-          .then()
-          .catch(error => error.message);
-        actions.resetForm();
-        closeModalWindow();
+          .then(() => {
+            actions.resetForm();
+            closeModalWindow();
+          })
+          .catch(error => error.message)
+          .finally(() => {
+            setIsLoading(false);
+          });
       }}
     >
       <ModalForm>
+      {isLoading && <Loader />}
         <Header>New board</Header>
         <SvgCloseBtn type="button" onClick={closeModalWindow}>
           <svg>

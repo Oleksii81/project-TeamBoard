@@ -1,14 +1,21 @@
 import { SideBarMenu, Overlay } from './Sidebar.styled';
+import { useSelector } from 'react-redux';
 import LogoComponent from './LogoComponent/LogoComponent';
 import CreateBord from './CreateBord/CreateBord';
 import BoardsList from './BoardsList/BoardsList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import LogOut from './LogOut/LogOut';
 import React from 'react';
-//import Card from '../../components/ScreensPage/Card/Card';
+import Loader from 'components/Loader/Loader';
+import { isRefreshing } from '../../redux/auth/authSelectors';
+import { isLoading } from '../../redux/task/taskSelectors';
 
 const SideBar = ({ isSidebarOpen, onCloseSideBar }) => {
-  return (
+  const spinner = useSelector(isLoading);
+  const isRefresh = useSelector(isRefreshing);
+  return isRefresh || spinner ? (
+    <Loader />
+  ) : (
     <>
       <Overlay
         className={` ${isSidebarOpen ? 'active' : ''}`}

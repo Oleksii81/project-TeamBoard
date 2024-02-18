@@ -23,7 +23,7 @@ import icons from '../../../../images/sprite.svg';
 import { RadioButtons } from 'components/ScreensPage/RadioBrnsFilterForm/RadioButtons';
 import { useDispatch } from 'react-redux';
 import { editCard } from '../../../../redux/task/taskOperations';
-
+import Loader from 'components/Loader/Loader';
 
 
 
@@ -34,6 +34,7 @@ import { useState } from 'react';
 const EditCard = ({ closeModalWindow, id, columnId, title, description }) => {
   const [selectedRadioValue, setSelectedRadioValue] = useState('');
   const [selectedDate, setselectedDate] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -91,15 +92,21 @@ const EditCard = ({ closeModalWindow, id, columnId, title, description }) => {
             body.deadline = values.deadline;
           }
 
+          setIsLoading(true);
           dispatch(editCard({ idColumn: columnId, id: id, body }))
             .unwrap()
-            .then()
-            .catch(error => error.message);
-          actions.resetForm();
-          closeModalWindow();
+            .then(() => {
+              actions.resetForm();
+              closeModalWindow();
+            })
+            .catch(error => error.message)
+            .finally(() => {
+              setIsLoading(false);
+            });
         }}
       >
         <Form>
+        {isLoading && <Loader />}
           <SvgCloseBtn type="button" onClick={closeModalWindow}>
             <svg>
               <use href={`${icons}#icon-close`}></use>

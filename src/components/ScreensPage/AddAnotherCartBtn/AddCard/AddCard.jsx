@@ -23,10 +23,12 @@ import { RadioButtons } from 'components/ScreensPage/RadioBrnsFilterForm/RadioBu
 import { useDispatch } from 'react-redux';
 import { addCard } from '../../../../redux/task/taskOperations';
 import CalendarComponent from 'components/Modals/Calendar/CalendarComponent';
+import Loader from 'components/Loader/Loader';
 
 const AddCard = ({ closeModalWindow, idColumn }) => {
   const [selectedRadioValue, setSelectedRadioValue] = useState('');
   const [selectedDate, setselectedDate] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -54,17 +56,21 @@ const AddCard = ({ closeModalWindow, idColumn }) => {
           if (selectedDate) {
             values.deadline = selectedDate.toString();
           }
-          console.log(selectedDate);
-          console.log(new Date(selectedDate));
+          setIsLoading(true);
           dispatch(addCard({ idColumn, form: values }))
             .unwrap()
-            .then()
-            .catch(error => error.message);
-          actions.resetForm();
-          closeModalWindow();
+            .then(() => {
+              actions.resetForm();
+              closeModalWindow();
+            })
+            .catch(error => error.message)
+            .finally(() => {
+              setIsLoading(false);
+            });
         }}
       >
         <Form>
+        {isLoading && <Loader />}
           <SvgCloseBtn type="button" onClick={closeModalWindow}>
             <svg>
               <use href={`${icons}#icon-close`}></use>

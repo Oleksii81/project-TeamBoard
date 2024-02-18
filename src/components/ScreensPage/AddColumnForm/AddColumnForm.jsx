@@ -1,12 +1,13 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 // import { getColumn } from '../../../../src/redux/task/taskSelectors';
 import { addColumn } from '../../../../src/redux/task/taskOperations';
 import icons from '../../../../src/images/sprite.svg';
 // import { ToastContainer, toast, Slide } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-
+import Loader from 'components/Loader/Loader';
 import {
   Input,
   Header,
@@ -23,6 +24,7 @@ const AddColumnFormSchema = Yup.object().shape({
 });
 
 const AddColumnForm = ({ closeModalWindow }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const { idBoard } = useParams();
   // const columns = useSelector(getColumn);
   const dispatch = useDispatch();
@@ -34,19 +36,24 @@ const AddColumnForm = ({ closeModalWindow }) => {
       }}
       validationSchema={AddColumnFormSchema}
       onSubmit={(values, actions) => {
-        actions.resetForm();
-        closeModalWindow();
         // if (columns && columns.find(column => column.title === values.title)) {
         //   return toast.warning('The title already exists');
         // }
-
+        setIsLoading(true);
         dispatch(addColumn({ idBoard: idBoard, body: values }))
           .unwrap()
-          .then()
-          .catch(error => error.message);
+          .then(() => {
+            actions.resetForm();
+            closeModalWindow();
+          })
+          .catch(error => error.message)
+          .finally(() => {
+            setIsLoading(false);
+          });
       }}
     >
       <ModalForm>
+      {isLoading && <Loader />}
         <Header>Add Column</Header>
         <SvgCloseBtn type="button" onClick={closeModalWindow}>
           <svg>
