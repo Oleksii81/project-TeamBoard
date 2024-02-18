@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
+import { useState } from 'react';
 import {
   EditCardWrapper,
   EditCardTitle,
@@ -15,8 +15,10 @@ import {
 import icons from '../../../images/sprite.svg';
 import { editColumn } from '../../../redux/task/taskOperations';
 import { useDispatch } from 'react-redux';
+import Loader from 'components/Loader/Loader';
 
 const EditColumn = ({ closeModalWindow, id, idBoard }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   return (
     <EditCardWrapper>
@@ -29,15 +31,21 @@ const EditColumn = ({ closeModalWindow, id, idBoard }) => {
           title: Yup.string().required('Title is required'),
         })}
         onSubmit={(values, actions) => {
+          setIsLoading(true);
           dispatch(editColumn({ idBoard: idBoard, id: id, body: values }))
             .unwrap()
-            .then()
-            .catch(error => error.message);
-          actions.resetForm();
-          closeModalWindow();
+            .then(() => {
+              actions.resetForm();
+              closeModalWindow();
+            })
+            .catch(error => error.message)
+            .finally(() => {
+              setIsLoading(false);
+            });
         }}
       >
         <Form>
+        {isLoading && <Loader />}
           <SvgCloseBtn type="button" onClick={closeModalWindow}>
             <svg>
               <use href={`${icons}#icon-close`}></use>

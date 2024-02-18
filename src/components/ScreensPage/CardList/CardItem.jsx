@@ -17,7 +17,7 @@ import {
 } from './CardsList.styled';
 
 import icons from '../../../images/sprite.svg';
-
+import Loader from 'components/Loader/Loader';
 import { deleteCard, replaceCard } from '../../../redux/task/taskOperations';
 import ModalCard from '../../Modals/ModalCard/ModalCard';
 
@@ -26,7 +26,7 @@ const BoardItem = ({
   columnId,
 }) => {
   const dispatch = useDispatch();
-
+  const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, SetIsModalOpen] = useState(false);
   const onClick = () => {
     SetIsModalOpen(!isModalOpen);
@@ -63,8 +63,35 @@ const BoardItem = ({
     return remDays < 1 ? false : true;
   }
 
+  const handleReplaceCard = () => {
+    setIsLoading(true);
+    dispatch(replaceCard({ columnId, _id }))
+      .unwrap()
+      .then(() => {
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setIsLoading(false);
+      });
+  };
+
+  const handleDeleteCard = () => {
+    setIsLoading(true);
+    dispatch(deleteCard({ columnId, _id }))
+      .unwrap()
+      .then(() => {
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setIsLoading(false);
+      });
+  };
+
   return (
     <ItemCardContainer>
+      {isLoading && <Loader />}
       <Title>{title}</Title>
       <Description>{description}</Description>
       <Line />
@@ -90,7 +117,7 @@ const BoardItem = ({
               <use href={`${icons}#icon-bell`}></use>
             </svg>
           </Button>
-          <Button onClick={() => dispatch(replaceCard({ columnId, _id }))}>
+          <Button onClick={handleReplaceCard}>
             <svg width="16" height="16">
               <use href={`${icons}#icon-goto`}></use>
             </svg>
@@ -100,7 +127,7 @@ const BoardItem = ({
               <use href={`${icons}#icon-pencil`}></use>
             </svg>
           </Button>
-          <Button onClick={() => dispatch(deleteCard({ columnId, _id }))}>
+          <Button onClick={handleDeleteCard}>
             <svg width="16" height="16">
               <use href={`${icons}#icon-trash`}></use>
             </svg>

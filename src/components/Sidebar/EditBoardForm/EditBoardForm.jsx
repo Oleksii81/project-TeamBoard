@@ -1,7 +1,7 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useState } from 'react';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -40,6 +40,7 @@ import {
 import { editBoard } from '../../../redux/auth/authOperations';
 import { getBoardSelector } from '../../../redux/auth/authSelectors';
 import { useParams } from 'react-router';
+import Loader from 'components/Loader/Loader';
 
 const BoardFormSchema = Yup.object().shape({
   title: Yup.string().min(2, 'Too short').required('This field is required!'),
@@ -48,7 +49,7 @@ const BoardFormSchema = Yup.object().shape({
 const EditBoardForm = ({ closeModalWindow, id }) => {
   const dispatch = useDispatch();
   const { idBoard } = useParams();
-
+  const [isLoading, setIsLoading] = useState(false);
   const boards = useSelector(getBoardSelector);
   const { title, icnboard, background } = boards.find(board => {
     return board._id === idBoard;
@@ -70,16 +71,23 @@ const EditBoardForm = ({ closeModalWindow, id }) => {
         ) {
           return toast.warning('Data has not changed');
         }
+        
+        setIsLoading(true);
 
         dispatch(editBoard({ id, values }))
           .unwrap()
-          .then()
-          .catch(error => error.message);
-        actions.resetForm();
-        closeModalWindow();
+          .then(() => {
+            actions.resetForm();
+            closeModalWindow();
+          })
+          .catch(error => error.message)
+          .finally(() => {
+            setIsLoading(false);
+          });
       }}
     >
       <ModalForm>
+      {isLoading && <Loader />}
         <Header>Edit board</Header>
         <SvgCloseBtn type="button" onClick={closeModalWindow}>
           <svg>

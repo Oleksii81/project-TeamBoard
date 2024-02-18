@@ -9,11 +9,13 @@ import { BoardName } from '../AddColumnBtn/AddColumnBtn.styled';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getActiveBoard } from '../../../redux/task/taskOperations';
+import Loader from 'components/Loader/Loader';
 
 const Bord = () => {
   const boards = useSelector(selectBoard);
   const { idBoard } = useParams();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   //Filter logic
   const [selectedValue, setSelectedValue] = useState('');
@@ -34,9 +36,12 @@ const Bord = () => {
     const fetchBoardData = () => {
       if (idBoard) {
         try {
+          setIsLoading(true);
           dispatch(getActiveBoard(idBoard));
         } catch (error) {
           return error.message;
+        } finally {
+          setIsLoading(false);
         }
       }
     };
@@ -44,6 +49,9 @@ const Bord = () => {
     fetchBoardData();
   }, [dispatch, idBoard]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
       <ContainerMain background={activeBoard}>
