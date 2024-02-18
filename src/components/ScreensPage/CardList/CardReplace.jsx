@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getColumn } from '../../../redux/task/taskSelectors';
 import { replaceCard } from '../../../redux/task/taskOperations';
 import {
+  IconCont,
   ListColumn,
   ListContainer,
   ListFlex,
@@ -17,7 +18,6 @@ const CardReplace = ({ columnIdCurent, idCard }) => {
   const columns = useSelector(getColumn);
 
   const handleColumnChange = id => {
-    console.log(columnIdCurent, idCard, id);
     dispatch(
       replaceCard({
         currentIdColumn: columnIdCurent,
@@ -50,17 +50,19 @@ const CardReplace = ({ columnIdCurent, idCard }) => {
                 >
                   {column.title}
                 </Title>
-                <svg
-                  width="16"
-                  height="16"
-                  stroke={
-                    column._id === columnIdCurent
-                      ? 'var(--greenGreenBlueColor)'
-                      : ''
-                  }
-                >
-                  <use href={`${icons}#icon-goto`}></use>
-                </svg>
+                <IconCont>
+                  <svg
+                    width="16"
+                    height="16"
+                    stroke={
+                      column._id === columnIdCurent
+                        ? 'var(--greenGreenBlueColor)'
+                        : ''
+                    }
+                  >
+                    <use href={`${icons}#icon-goto`}></use>
+                  </svg>
+                </IconCont>
               </ListFlex>
             ))}
           </ListColumn>

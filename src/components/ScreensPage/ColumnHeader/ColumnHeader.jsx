@@ -40,6 +40,7 @@ export const ColumnHeader = ({ id, title, idBoard}) => {
       </ColumnHeaderWrapper>
           <ModalColumn
               id={id}
+              title={title}
               idBoard={idBoard}
         isOpen={isModalOpen}
         openModal={onClick}

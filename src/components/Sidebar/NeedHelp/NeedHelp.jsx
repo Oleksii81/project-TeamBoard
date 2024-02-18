@@ -37,7 +37,7 @@ const NeedHelp = ({onCloseSideBar}) => {
     
   } else {
     openModal();
-    console.log("click")
+
   }
 
   }

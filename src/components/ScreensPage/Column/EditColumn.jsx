@@ -17,7 +17,7 @@ import { editColumn } from '../../../redux/task/taskOperations';
 import { useDispatch } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 
-const EditColumn = ({ closeModalWindow, id, idBoard }) => {
+const EditColumn = ({ closeModalWindow, id, idBoard, title }) => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   return (
@@ -25,7 +25,7 @@ const EditColumn = ({ closeModalWindow, id, idBoard }) => {
       <EditCardTitle>Edit Column</EditCardTitle>
       <Formik
         initialValues={{
-          title: '',
+          title: title,
         }}
         validationSchema={Yup.object({
           title: Yup.string().required('Title is required'),
