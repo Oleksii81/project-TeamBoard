@@ -16,8 +16,15 @@ const CardReplace = ({ columnIdCurent, idCard }) => {
 
   const columns = useSelector(getColumn);
 
-  const handleColumnChange = ({ columnId, idCard }) => {
-    dispatch(replaceCard(columnId, idCard));
+  const handleColumnChange = id => {
+    console.log(columnIdCurent, idCard, id);
+    dispatch(
+      replaceCard({
+        currentIdColumn: columnIdCurent,
+        cardId: idCard,
+        nextIdColumn: id,
+      })
+    );
     setList(false);
   };
 
@@ -36,7 +43,7 @@ const CardReplace = ({ columnIdCurent, idCard }) => {
             {columns.map(column => (
               <ListFlex
                 key={column._id}
-                onClick={() => handleColumnChange(column._id, idCard)}
+                onClick={() => handleColumnChange(column._id)}
               >
                 <Title
                   className={column._id === columnIdCurent ? 'active' : ''}

@@ -5,22 +5,22 @@ export const ListContainer = styled.div`
 `;
 
 export const ListColumn = styled.ul`
-  min-width: 100px;
+  min-width: 200px;
   min-height: 57px;
   padding: 18px;
   border-radius: 8px;
   background: var(--cardItem);
   box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
   position: absolute;
-  left: -60px;
+  left: -130px;
 `;
 
 export const ListFlex = styled.li`
   display: flex;
   gap: 8px;
   align-items: center;
+  margin-top: 8px;
   height: 21px;
-  margin-bottom: 8px;
 `;
 
 export const Title = styled.p`
@@ -30,6 +30,10 @@ export const Title = styled.p`
   color: var(--primaryTextColor);
 
   &.active {
+    color: var(--greenGreenBlueColor);
+  }
+
+  &:hover {
     color: var(--greenGreenBlueColor);
   }
 `;

@@ -75,8 +75,7 @@ export const addCardApi = async (idColumn, form) => {
 };
 
 export const editCardApi = async (idColumn, idCard, body) => {
-  const { data } = await axios
-    .put(`api/cards/${idColumn}/${idCard}`, body);
+  const { data } = await axios.put(`api/cards/${idColumn}/${idCard}`, body);
   return data;
 };
 
@@ -85,19 +84,13 @@ export const deleteCardApi = async (idColumn, idCard) => {
   return data;
 };
 
-export const replaceCardApi = async (columnId, idCard, owner) => {
-  const { data } = await axios.patch(`/api/cards/${columnId}/${idCard}`, {
-    owner,
-  });
+export const replaceCardApi = async (currentIdColumn, cardId, owner) => {
+  console.log(currentIdColumn, cardId, owner);
+  const { data } = await axios.patch(
+    `/api/cards/${currentIdColumn}/${cardId}`,
+    {
+      owner,
+    }
+  );
   return data;
 };
-// export const replaceCardApi = async (id, columns) => {
-//   const { column, idColumn } = columns;
-//   const { data } = await axios
-//     .patch(`/api/cards/${idColumn}/${id}`, { column })
-//     .then(res => res);
-//   data.columnNew = column;
-//   data.idCard = id;
-//   data.columnOld = idColumn;
-//   return { data };
-// };
