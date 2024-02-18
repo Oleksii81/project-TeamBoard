@@ -4,14 +4,19 @@ import { ModalCustom } from '../ModalCard/ModalCard.styled';
 
 Modal.setAppElement('#root');
 
-const ModalColumn = ({ isOpen, closeModal, id , idBoard}) => {
+const ModalColumn = ({ isOpen, closeModal, id, idBoard, title }) => {
   return (
     <ModalCustom
       isOpen={isOpen}
       onRequestClose={closeModal}
       contentLabel="Modal for Edit Column"
     >
-          <EditColumn id={id} closeModalWindow={closeModal} idBoard={ idBoard} />
+      <EditColumn
+        id={id}
+        closeModalWindow={closeModal}
+        idBoard={idBoard}
+        title={title}
+      />
     </ModalCustom>
   );
 };

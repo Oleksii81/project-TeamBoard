@@ -85,7 +85,6 @@ export const deleteCardApi = async (idColumn, idCard) => {
 };
 
 export const replaceCardApi = async (currentIdColumn, cardId, owner) => {
-  console.log(currentIdColumn, cardId, owner);
   const { data } = await axios.patch(
     `/api/cards/${currentIdColumn}/${cardId}`,
     {

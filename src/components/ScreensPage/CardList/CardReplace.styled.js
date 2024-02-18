@@ -37,3 +37,7 @@ export const Title = styled.p`
     color: var(--greenGreenBlueColor);
   }
 `;
+
+export const IconCont = styled.div`
+  margin-left: auto;
+`;
