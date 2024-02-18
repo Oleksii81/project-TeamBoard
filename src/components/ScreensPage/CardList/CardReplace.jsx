@@ -16,7 +16,7 @@ const CardReplace = ({ columnIdCurent, idCard }) => {
 
   const columns = useSelector(getColumn);
 
-  const handleColumnChange = ({columnId, idCard}) => {
+  const handleColumnChange = ({ columnId, idCard }) => {
     dispatch(replaceCard(columnId, idCard));
     setList(false);
   };
@@ -26,36 +26,40 @@ const CardReplace = ({ columnIdCurent, idCard }) => {
   };
 
   return (
-    <ListContainer>
+    <>
       <svg width="16" height="16" onClick={toogleList}>
         <use href={`${icons}#icon-goto`}></use>
       </svg>
-      {list && (
-        <ListColumn>
-          {columns.map(column => (
-            <ListFlex
-              key={column._id}
-              onClick={() => handleColumnChange(column._id, idCard)}
-            >
-              <Title className={column._id === columnIdCurent ? 'active' : ''}>
-                {column.title}
-              </Title>
-              <svg
-                width="16"
-                height="16"
-                stroke={
-                  column._id === columnIdCurent
-                    ? 'var(--greenGreenBlueColor)'
-                    : ''
-                }
+      <ListContainer>
+        {list && (
+          <ListColumn>
+            {columns.map(column => (
+              <ListFlex
+                key={column._id}
+                onClick={() => handleColumnChange(column._id, idCard)}
               >
-                <use href={`${icons}#icon-goto`}></use>
-              </svg>
-            </ListFlex>
-          ))}
-        </ListColumn>
-      )}
-    </ListContainer>
+                <Title
+                  className={column._id === columnIdCurent ? 'active' : ''}
+                >
+                  {column.title}
+                </Title>
+                <svg
+                  width="16"
+                  height="16"
+                  stroke={
+                    column._id === columnIdCurent
+                      ? 'var(--greenGreenBlueColor)'
+                      : ''
+                  }
+                >
+                  <use href={`${icons}#icon-goto`}></use>
+                </svg>
+              </ListFlex>
+            ))}
+          </ListColumn>
+        )}
+      </ListContainer>
+    </>
   );
 };
 
