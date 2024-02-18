@@ -18,8 +18,9 @@ import {
 
 import icons from '../../../images/sprite.svg';
 import Loader from 'components/Loader/Loader';
-import { deleteCard, replaceCard } from '../../../redux/task/taskOperations';
+import { deleteCard } from '../../../redux/task/taskOperations';
 import ModalCard from '../../Modals/ModalCard/ModalCard';
+import CardReplace from '../CardList/CardReplace';
 
 const BoardItem = ({
   card: { title, priority, description, deadline, _id },
@@ -63,18 +64,18 @@ const BoardItem = ({
     return remDays < 1 ? false : true;
   }
 
-  const handleReplaceCard = () => {
-    setIsLoading(true);
-    dispatch(replaceCard({ columnId, _id }))
-      .unwrap()
-      .then(() => {
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error(error.message);
-        setIsLoading(false);
-      });
-  };
+  // const handleReplaceCard = () => {
+  //   setIsLoading(true);
+  //   dispatch(replaceCard({ columnId, _id }))
+  //     .unwrap()
+  //     .then(() => {
+  //       setIsLoading(false);
+  //     })
+  //     .catch(error => {
+  //       console.error(error.message);
+  //       setIsLoading(false);
+  //     });
+  // };
 
   const handleDeleteCard = () => {
     setIsLoading(true);
@@ -83,7 +84,7 @@ const BoardItem = ({
       .then(() => {
         setIsLoading(false);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error.message);
         setIsLoading(false);
       });
@@ -117,10 +118,9 @@ const BoardItem = ({
               <use href={`${icons}#icon-bell`}></use>
             </svg>
           </Button>
-          <Button onClick={handleReplaceCard}>
-            <svg width="16" height="16">
-              <use href={`${icons}#icon-goto`}></use>
-            </svg>
+          {/* <Button onClick={handleReplaceCard}> */}
+          <Button>
+            <CardReplace columnIdCurent={columnId} idCard={_id} />
           </Button>
           <Button onClick={onClick}>
             <svg width="16" height="16">
