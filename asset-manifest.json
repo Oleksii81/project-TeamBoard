@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/project-TeamBoard/static/css/main.12ccde5d.css",
-    "main.js": "/project-TeamBoard/static/js/main.159793e7.js",
+    "main.js": "/project-TeamBoard/static/js/main.95e98be3.js",
     "static/js/223.4ae8ebfd.chunk.js": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js",
     "static/js/490.6d82e6f7.chunk.js": "/project-TeamBoard/static/js/490.6d82e6f7.chunk.js",
-    "static/js/137.544baac6.chunk.js": "/project-TeamBoard/static/js/137.544baac6.chunk.js",
+    "static/js/137.d31063b2.chunk.js": "/project-TeamBoard/static/js/137.d31063b2.chunk.js",
     "static/media/Poppins-Regular.woff": "/project-TeamBoard/static/media/Poppins-Regular.ab6122bd28174ddf9eeb.woff",
     "static/media/Poppins-SemiBold.woff": "/project-TeamBoard/static/media/Poppins-SemiBold.ee8ae013a422a80622c6.woff",
     "static/media/Poppins-Medium.woff": "/project-TeamBoard/static/media/Poppins-Medium.c162ccbbda8bd6839b3a.woff",
@@ -17,13 +17,13 @@
     "index.html": "/project-TeamBoard/index.html",
     "static/media/burger.svg": "/project-TeamBoard/static/media/burger.42365862ef7a4ae41847d66223ea8d09.svg",
     "main.12ccde5d.css.map": "/project-TeamBoard/static/css/main.12ccde5d.css.map",
-    "main.159793e7.js.map": "/project-TeamBoard/static/js/main.159793e7.js.map",
+    "main.95e98be3.js.map": "/project-TeamBoard/static/js/main.95e98be3.js.map",
     "223.4ae8ebfd.chunk.js.map": "/project-TeamBoard/static/js/223.4ae8ebfd.chunk.js.map",
     "490.6d82e6f7.chunk.js.map": "/project-TeamBoard/static/js/490.6d82e6f7.chunk.js.map",
-    "137.544baac6.chunk.js.map": "/project-TeamBoard/static/js/137.544baac6.chunk.js.map"
+    "137.d31063b2.chunk.js.map": "/project-TeamBoard/static/js/137.d31063b2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.12ccde5d.css",
-    "static/js/main.159793e7.js"
+    "static/js/main.95e98be3.js"
   ]
 }
