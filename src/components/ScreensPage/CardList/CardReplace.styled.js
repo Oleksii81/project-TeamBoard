@@ -18,16 +18,16 @@ export const ListColumn = styled.ul`
 export const ListFlex = styled.li`
   display: flex;
   gap: 8px;
+  align-items: center;
+  height: 21px;
+  margin-bottom: 8px;
 `;
 
 export const Title = styled.p`
-  // display: inline-block;
   font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--primaryTextColor);
-  height: 21px;
-  margin-bottom: 8px;
 
   &.active {
     color: var(--greenGreenBlueColor);
