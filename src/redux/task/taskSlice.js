@@ -134,9 +134,9 @@ const boardSlice = createSlice({
         state.error = null;
       })
       .addCase(replaceCard.fulfilled, (state, { payload }) => {
-        const { data, columnId, nextIdColumn } = payload;
+        const { data, currentIdColumn, nextIdColumn } = payload;
         const idxOldColumn = state.columns.findIndex(
-          column => column._id === columnId
+          column => column._id === currentIdColumn
         );
         state.columns[idxOldColumn].cards = state.columns[
           idxOldColumn
@@ -146,18 +146,6 @@ const boardSlice = createSlice({
         );
         state.columns[idxNextColumn].cards.push(data);
       })
-      // .addCase(replaceCard.fulfilled, (state, { payload }) => {
-      //   const { columnNew, idCard, columnOld } = payload;
-      //   const indexOld = state.columns.findIndex(col => col._id === columnOld);
-      //   const indexNew = state.columns.findIndex(col => col._id === columnNew);
-      //   const task = state.columns[indexOld].cards.filter(
-      //     el => el._id === idCard
-      //   );
-      //   state.columns[indexOld].cards = state.columns[indexOld].cards.filter(
-      //     el => el._id !== idCard
-      //   );
-      //   state.columns[indexNew].cards.push(task[0]);
-      // })
       .addCase(replaceCard.rejected, (state, action) => {
         state.error = action.error.message;
       })

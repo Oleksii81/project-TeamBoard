@@ -110,30 +110,12 @@ export const deleteCard = createAsyncThunk(
 
 export const replaceCard = createAsyncThunk(
   'card/replace',
-  async (
-    { columnId, _id: idCard },
-    { rejectWithValue, dispatch, getState }
-  ) => {
+  async ({ currentIdColumn, cardId, nextIdColumn }, { rejectWithValue }) => {
     try {
-      const columns = getState().board.columns;
-      const idx = columns.findIndex(column => column._id === columnId);
-      const { _id: nextIdColumn } = columns[idx + 1];
-      const data = await replaceCardApi(columnId, idCard, nextIdColumn);
-      return { data, columnId, nextIdColumn };
+      const data = await replaceCardApi(currentIdColumn, cardId, nextIdColumn);
+      return { data, currentIdColumn, nextIdColumn };
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
-// export const replaceCard = createAsyncThunk(
-//   'card/replace',
-//   async (replace, { rejectWithValue, dispatch }) => {
-//     const [_id, column, columnID] = replace;
-//     try {
-//       const { data } = await replaceCardApi(_id, { column, columnID });
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );

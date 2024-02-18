@@ -22,7 +22,7 @@ import { deleteCard } from '../../../redux/task/taskOperations';
 import ModalCard from '../../Modals/ModalCard/ModalCard';
 import CardReplace from '../CardList/CardReplace';
 
-const BoardItem = ({
+const CardItem = ({
   card: { title, priority, description, deadline, _id },
   columnId,
 }) => {
@@ -148,4 +148,4 @@ const BoardItem = ({
   );
 };
 
-export default BoardItem;
+export default CardItem;
